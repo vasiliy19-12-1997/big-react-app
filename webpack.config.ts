@@ -1,6 +1,9 @@
 import path from "path";
 import webpack from "webpack";
-import HTMLWebpackPlugin from "html-webpack-plugin";
+import { buildPlugins } from "./config/build/buildPlugins";
+
+import { buildLoaders } from "./config/build/buildLoaders";
+import { buildResolvers } from "./config/build/buildResolvers";
 
 const config: webpack.Configuration = {
   mode: "development",
@@ -10,24 +13,11 @@ const config: webpack.Configuration = {
     path: path.resolve(__dirname, "dist"),
     clean: true,
   },
-  plugins: [
-    new HTMLWebpackPlugin({
-      template: path.resolve(__dirname, "public", "index.html"),
-    }),
-    new webpack.ProgressPlugin(),
-  ],
+  plugins: buildPlugins(),
   module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        use: "ts-loader",
-        exclude: /node_modules/,
-      },
-    ],
+    rules: buildLoaders(),
   },
-  resolve: {
-    extensions: [".tsx", ".ts", ".js"],
-  },
+  resolve: buildResolvers(),
 };
 
 export default config;
