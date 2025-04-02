@@ -6,7 +6,7 @@ import { IBuildEnv, IBuildPaths } from "./config/build/types/config";
 
 module.exports = (env: IBuildEnv) => {
   const paths: IBuildPaths = {
-    entry: path.resolve(__dirname, "src", "index.ts"),
+    entry: path.resolve(__dirname, "src", "index.tsx"),
     build: path.resolve(__dirname, "dist"),
     html: path.resolve(__dirname, "public", "index.html"),
   };
