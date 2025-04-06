@@ -1,0 +1,34 @@
+// Colors
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$accent-color: #e74c3c;
+$text-color: #333333;
+$light-gray: #f5f5f5;
+$dark-gray: #777777;
+
+// Fonts
+:root {
+  --font-family-main: Consolas, "Times New Roman", Serif;
+
+  --font-size-m: 16px;
+  --font-line-m: 24px;
+  --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
+}
+
+// Spacing
+$spacing-unit: 8px;
+$section-padding: $spacing-unit * 4;
+$container-width: 1200px;
+
+// Breakpoints
+$mobile: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+
+// Borders
+$border-radius: 4px;
+$border-color: #dddddd;
+
+// Transitions
+$transition-duration: 0.3s;
+$transition-timing: ease-in-out;
