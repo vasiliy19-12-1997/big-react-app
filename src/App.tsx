@@ -6,10 +6,11 @@ import { AboutPageAxync } from "./Components/Pages/AboutPage/AboutPage.async";
 import { Suspense, useContext, useState } from "react";
 import { Theme, ThemeContext } from "./theme/ThemeContext";
 import { useTheme } from "./theme/useTheme";
+import { ClassNames } from "./Helpers/ClassNames/ClassNames";
 export function App() {
   const { theme, toggleTheme } = useTheme();
   return (
-    <div className={`app ${theme}`}>
+    <div className={ClassNames("app", { hovered: true }, ["btn"])}>
       <button onClick={toggleTheme}>toggleTheme</button>
       <Link to="/">MainPage</Link>
       <Link to="/about">AboutPage</Link>
