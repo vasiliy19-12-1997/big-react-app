@@ -11,7 +11,7 @@ export const Navbar: FC<INavbarProps> = ({ className }) => {
   return (
     <div className={ClassNames(s.Navbar, {}, [className])}>
       <div className={s.NavbarLinks}>
-        <AppLink className={s.NavbarMain} to="/" theme={AppLinkTheme.SECONDARY}>
+        <AppLink className={s.NavbarMain} to="/" theme={AppLinkTheme.PRIMARY}>
           MainPage
         </AppLink>
         <AppLink theme={AppLinkTheme.PRIMARY} to="/about">
