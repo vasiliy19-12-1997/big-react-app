@@ -1,8 +1,8 @@
-import path from "path";
-import webpack from "webpack";
 import HTMLWebpackPlugin from "html-webpack-plugin";
-import { IBuildOptions } from "./types/config";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import webpack from "webpack";
+import { IBuildOptions } from "./types/config";
+import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 export const buildPlugins = ({
   paths,
   isDev,
@@ -19,5 +19,7 @@ export const buildPlugins = ({
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
     }),
+    new ReactRefreshWebpackPlugin(),
+    new webpack.HotModuleReplacementPlugin({}),
   ];
 };

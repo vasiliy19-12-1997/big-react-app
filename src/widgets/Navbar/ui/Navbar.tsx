@@ -2,7 +2,6 @@ import { FC } from "react";
 import { ClassNames } from "shared/lib/classNames/ClassNames";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import s from "./Navbar.module.scss";
-import { ThemeSwitcher } from "shared/ui/ThemeSwitcher";
 
 interface INavbarProps {
   className?: string;
