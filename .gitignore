@@ -3,5 +3,4 @@
 .idea
 yarn.lock
 /build/
-/extractedTranslations/
-/lib/
+lib/
