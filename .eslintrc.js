@@ -36,10 +36,10 @@ module.exports = {
         'react/jsx-props-no-spreading': 'warn',
         'import/no-extraneous-dependencies': 'off',
         'import/no-import-module-exports': 'off',
-        'no-underscore-dangle':'off'
+        'no-underscore-dangle': 'off',
     },
     globals: {
-        '__IS_DEV__': true,
+        __IS_DEV__: true,
     },
 
 };
