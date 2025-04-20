@@ -1,12 +1,11 @@
-import { IBuildOptions } from "./types/config";
-import { Configuration as DevServerConfiguration } from "webpack-dev-server";
+import { Configuration as DevServerConfiguration } from 'webpack-dev-server';
+import { IBuildOptions } from './types/config';
+
 export const buildDevServer = (
-  options: IBuildOptions
-): DevServerConfiguration => {
-  return {
+    options: IBuildOptions,
+): DevServerConfiguration => ({
     port: options.port,
     open: true,
     historyApiFallback: true,
     hot: true,
-  };
-};
+});
