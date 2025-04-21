@@ -1,0 +1,15 @@
+{
+    "extends": ["stylelint-config-standard"],
+    "rules": {
+      "comment-empty-line-before": null,
+      "comment-whitespace-inside": null,
+      "comment-no-empty": null,
+      "selector-class-pattern": null
+    },
+    "overrides": [
+      {
+        "files": ["**/*.scss"],
+        "customSyntax": "postcss-scss"
+      }
+    ]
+  }
