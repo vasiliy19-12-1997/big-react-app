@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ClassNames } from 'shared/lib/classNames/classNames';
+import { ClassNames } from 'shared/lib/classNames/ClassNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 
 interface ILangSwitherProps {

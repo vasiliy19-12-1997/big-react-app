@@ -1,4 +1,4 @@
-import { ClassNames } from './classNames';
+import { ClassNames } from './ClassNames';
 
 describe('classNames', () => {
     const expected2 = 'className dev1 dev2';
