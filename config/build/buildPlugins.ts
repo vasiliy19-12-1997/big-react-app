@@ -20,5 +20,5 @@ export const buildPlugins = ({
         __IS_DEV__: JSON.stringify(isDev),
     }),
     new ReactRefreshWebpackPlugin(),
-    new webpack.HotModuleReplacementPlugin({}),
+    new webpack.HotModuleReplacementPlugin(),
 ];
