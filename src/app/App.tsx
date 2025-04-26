@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import { Navbar } from 'widgets/Navbar/ui/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { ClassNames } from '../shared/lib/classNames/ClassNames';
