@@ -13,6 +13,7 @@ export const BugButton: FC = () => {
         }
     }, [error]);
     return (
+
         <Button
             onClick={onThrow}
 

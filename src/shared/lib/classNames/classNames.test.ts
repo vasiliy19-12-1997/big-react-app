@@ -1,4 +1,4 @@
-import { ClassNames } from './ClassNames';
+import { ClassNames } from 'shared/lib/classNames/ClassNames';
 
 describe('classNames', () => {
     const expected2 = 'className dev1 dev2';
@@ -12,19 +12,18 @@ describe('classNames', () => {
         expect(ClassNames('className', {}, ['dev1', 'dev2'])).toBe(expected2);
     });
     test('with 3 params', () => {
-        expect(ClassNames('className', { hovered: true }, ['dev1', 'dev2']))
-            .toBe(expected3);
+        expect(ClassNames('className', { hovered: true }, ['dev1', 'dev2'])).toBe(
+            expected3,
+        );
     });
     test('with undefined', () => {
-        expect(ClassNames(
-            'className',
-            { hovered: undefined },
-            ['dev1', 'dev2'],
-        ))
-            .toBe(expected4);
+        expect(
+            ClassNames('className', { hovered: undefined }, ['dev1', 'dev2']),
+        ).toBe(expected4);
     });
     test('with null', () => {
-        expect(ClassNames('className', { hovered: null }, ['dev1', 'dev2']))
-            .toBe(expected4);
+        expect(ClassNames('className', { hovered: null }, ['dev1', 'dev2'])).toBe(
+            expected4,
+        );
     });
 });
