@@ -1,13 +1,15 @@
-import { FC } from 'react';
-import { ClassNames } from 'shared/lib/classNames/ClassNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import './Loader.scss';
 
-interface ILoaderProps {
-  className?: string;
+interface LoaderProps {
+    className?: string;
 }
 
-export const Loader: FC<ILoaderProps> = ({ className }) => (
-    <div className={ClassNames('loader', {}, [className])}>
-        <span />
+export const Loader = ({ className }: LoaderProps) => (
+    <div className={classNames('lds-ellipsis', {}, [className])}>
+        <div />
+        <div />
+        <div />
+        <div />
     </div>
 );

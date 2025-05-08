@@ -8,7 +8,6 @@ module.exports = {
         'plugin:react/recommended',
         'airbnb',
         'plugin:i18next/recommended',
-
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -22,34 +21,44 @@ module.exports = {
         'react',
         '@typescript-eslint',
         'i18next',
-
     ],
     rules: {
-        indent: [2, 4],
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
-        'linebreak-style': 'off',
+        indent: [2, 4],
+        'react/jsx-filename-extension': [
+            2,
+            { extensions: ['.js', '.jsx', '.tsx'] },
+        ],
         'import/no-unresolved': 'off',
-        'import/extensions': 'off',
         'import/prefer-default-export': 'off',
-        'react/jsx-filename-extension': [1, {
-            extensions:
-             ['.js', '.jsx', 'tsx'],
-        }],
-        'react/react-in-jsx-scope': 'off',
-        'no-shadow': 'off',
         'no-unused-vars': 'warn',
         'react/require-default-props': 'off',
-        'react/function-component-definition': 'off',
+        'react/react-in-jsx-scope': 'off',
         'react/jsx-props-no-spreading': 'warn',
+        'react/function-component-definition': 'off',
+        'no-shadow': 'off',
+        'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'off',
-        'import/no-import-module-exports': 'off',
         'no-underscore-dangle': 'off',
-        'i18next/no-literal-string': ['error', { markupOnly: true }],
-        'max-len': ['error', { ignoreComments: true, code: 150 }],
+        'i18next/no-literal-string': [
+            'error',
+            {
+                markupOnly: true,
+                ignoreAttribute: ['data-testid'],
+            },
+        ],
+        'max-len': ['error', { ignoreComments: true, code: 100 }],
     },
     globals: {
         __IS_DEV__: true,
     },
-
+    overrides: [
+        {
+            files: ['**/src/**/*.test.{ts,tsx}'],
+            rules: {
+                'i18next/no-literal-string': 'off',
+            },
+        },
+    ],
 };

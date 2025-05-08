@@ -1,20 +1,18 @@
 {
   "compilerOptions": {
-    "outDir": "./build/",
+    "outDir": "./dist/",
     // Подсвечивает все места где не указан тип
     // Однако это не означает, что теперь вовсе нельзя использовать any.
     // Это означает лишь, что в подобных ситуация разработчик должен явно писать any,
     "noImplicitAny": true,
     "module": "ESNext",
-    "sourceMap": true,
     // В какую спецификацию компилируем: для поддержки большинства браузеров
     "target": "es5",
     "jsx": "react-jsx",
     // Компилятор будет обрабатывать не только TS файлы, но и JS файлы
     "allowJs": true,
-
     "moduleResolution": "node",
-    //Для абослютного импорта
+    // Для абсолютного импорта
     "baseUrl": ".",
     "paths": {
       "*": ["./src/*"]
@@ -40,8 +38,7 @@
       "module": "CommonJS"
     }
   },
-  "include": ["./config/jest/setupTests.ts",  "**/*.ts",
-  "**/*.tsx",
-  "**/**/*.ts",
-  "**/**/*.tsx"]
+  "include": [
+    "./config/jest/setupTests.ts"
+  ]
 }

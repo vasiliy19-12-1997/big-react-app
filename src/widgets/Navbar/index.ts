@@ -1,1 +1,5 @@
-export { Navbar } from 'widgets/Navbar/ui/Navbar';
+import { Navbar } from './ui/Navbar';
+
+export {
+    Navbar,
+};
