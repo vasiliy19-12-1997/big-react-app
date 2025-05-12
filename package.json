@@ -12,11 +12,11 @@
     "lint:scss": "npx stylelint \"**/*.scss\"",
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
-    "storybook": "start-storybook -p 6006 -c ./config/storybook",
-    "build-storybook": "build-storybook -c ./config/storybook",
     "test:ui": "set NODE_OPTIONS=--no-warnings && loki test",
-    "loki:ok": "set NODE_OPTIONS=--no-warnings && loki approve"
-  },
+    "loki:ok": "set NODE_OPTIONS=--no-warnings && loki approve",
+    "storybook": "start-storybook -p 6006 -c ./config/storybook",
+    "storybook:build": "build-storybook -c ./config/storybook"
+    },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -90,9 +90,7 @@
       "chrome.laptop": {
         "target": "chrome.docker",
         "width": 1366,
-        "height": 768,
-        "deviceScaleFactor": 1,
-        "mobile": false
+        "height": 768
       },
       "chrome.iphone7": {
         "target": "chrome.docker",
