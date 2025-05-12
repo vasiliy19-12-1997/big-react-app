@@ -1,7 +1,9 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { ErrorPage } from 'widgets/ErrorPage';
+import { Theme } from 'app/providers/ThemeProvider';
+import { ErrorPage } from './ErrorPage';
 
 export default {
     title: 'widget/ErrorPage',
@@ -17,8 +19,5 @@ export const Light = Template.bind({});
 Light.args = {};
 
 export const Dark = Template.bind({});
-Dark.args = {
-
-};
-
+Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
