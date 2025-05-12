@@ -1,5 +1,3 @@
-env:
-  NODE_PATH: ./src
 name: linting, testing, building
 on:
   push:
