@@ -13,7 +13,7 @@
     "allowJs": true,
     "moduleResolution": "node",
     // Для абсолютного импорта
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
       "shared/*": ["shared/*"],
       "*": ["*"]
