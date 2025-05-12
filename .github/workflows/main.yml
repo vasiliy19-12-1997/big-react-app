@@ -1,3 +1,5 @@
+env:
+  NODE_PATH: ./src
 name: linting, testing, building
 on:
   push:
@@ -19,6 +21,12 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: install modules
         run: npm install
+        - name: Debug file structure
+        run: |
+          echo "Проверка папки shared:"
+          ls -R src/shared/lib/classNames  # ← Убедитесь, что файлы существуют
+          echo "Текущая директория:"
+          pwd
       - name: build production project
         run: npm run build:prod
       - name: linting typescript
@@ -31,3 +39,4 @@ jobs:
         run: npm run storybook:build
       - name: screenshot testing
         run: npm run test:ui:ci
+

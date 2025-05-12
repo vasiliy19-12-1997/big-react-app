@@ -1,4 +1,5 @@
 import { ResolveOptions } from 'webpack';
+import path from 'path';
 import { BuildOptions } from './types/config';
 
 export function buildResolvers(options: BuildOptions): ResolveOptions {
@@ -7,6 +8,6 @@ export function buildResolvers(options: BuildOptions): ResolveOptions {
         preferAbsolute: true,
         modules: [options.paths.src, 'node_modules'],
         mainFiles: ['index'],
-        alias: {},
+        alias: { shared: path.resolve(__dirname, 'src', 'shared') },
     };
 }
