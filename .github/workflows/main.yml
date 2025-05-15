@@ -8,8 +8,8 @@ jobs:
   pipeline:
     runs-on: ubuntu-latest
     strategy:
-    matrix:
-      node-version: [ 20.x ]
+      matrix:
+        node-version: [ 20.x ]
     steps:
     - uses: actions/checkout@v2
     - name: Staring Node.js ${{ matrix.node-version }}
