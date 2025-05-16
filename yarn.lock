@@ -12928,7 +12928,7 @@ stylelint-scss@^4.0.0:
     postcss-selector-parser "^6.0.6"
     postcss-value-parser "^4.1.0"
 
-stylelint@^14.0.0, stylelint@^14.16.1:
+stylelint@^14.0.0, stylelint@^14.5.3:
   version "14.16.1"
   resolved "https://registry.npmjs.org/stylelint/-/stylelint-14.16.1.tgz"
   integrity sha512-ErlzR/T3hhbV+a925/gbfc3f3Fep9/bnspMiJPorfGEmcBbXdS+oo6LrVtoUZ/w9fqD6o6k7PtUlCOsCRdjX/A==
