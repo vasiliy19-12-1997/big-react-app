@@ -17,23 +17,27 @@
 .lang {
     margin-left: 20px;
 }
-.items{
+
+.items {
     margin-top: 20px;
     margin-left: 30px;
     display: flex;
     flex-direction: column;
 }
-.item{
+
+.item {
     margin-top: 10px;
     display: flex;
     align-items: center;
 }
-.link{
+
+.link {
     margin-left: 10px;
     opacity: 1;
 }
-.icon{
-    fill:var(--inverted-primary-color)
+
+.icon {
+    fill: var(--inverted-primary-color);
 }
 
 .collapsedBtn {
@@ -41,6 +45,7 @@
     right: -32px;
     bottom: 32px;
 }
+
 .collapsed {
     width: var(--sidebar-width-collapsed);
 
@@ -52,9 +57,10 @@
     .lang {
         margin-left: 0;
     }
-    .link{
+
+    .link {
         opacity: 0;
-        transition:  0.3s opacity;
+        transition: 0.3s opacity;
         width: 0;
     }
 }
