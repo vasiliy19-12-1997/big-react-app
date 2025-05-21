@@ -11,4 +11,8 @@ module.exports = {
     core: {
         builder: 'webpack5',
     },
+    server: {
+        host: 'localhost', // или '127.0.0.1'
+        port: 6006,
+    },
 };
