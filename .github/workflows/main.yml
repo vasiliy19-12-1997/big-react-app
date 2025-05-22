@@ -34,7 +34,11 @@ jobs:
       run: npm run storybook:build
       if: always()
     - name: screenshot testing
-      run: npm run test:ui:ci
-      if: always()
+      run: |
+        npx http-server ./storybook-static -p 6006 > /dev/null 2>&1 &
+        sleep 5
+        npm run test:ui:ci
+      env:
+        REACT_URI: http://localhost:6006
 
     
