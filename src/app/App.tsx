@@ -8,15 +8,12 @@ import { Sidebar } from 'widgets/Sidebar';
 import { Counter } from '../entities/Counter/ui/Counter';
 
 function App() {
-    const { theme } = useTheme();
-
     return (
-        <div className={classNames('app', {}, [theme])}>
+        <div className={classNames('app', {}, [])}>
             <Suspense fallback="">
                 <Navbar />
-
                 <div className="content-page">
-                    <Counter />
+                    {/* <Counter /> */}
                     <Sidebar />
                     <AppRouter />
                 </div>

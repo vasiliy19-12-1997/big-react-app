@@ -9,12 +9,6 @@
     pointer-events: none;
     color: var(--primary-color);
 }
-
-.Modal.dark {
-    --bg-color: #090949;
-    --primary-color: #04ff04;
-}
-
 .overlay {
     background-color: rgb(0 0 0 / 60%);
     height: 100%;
