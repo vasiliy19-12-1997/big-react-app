@@ -3,7 +3,9 @@
     color: var(--primary-color);
     padding: 6px 15px;
 }
-
+.disabled{
+    opacity: 0.5;
+}
 .clear,
 .clearInverted {
     padding: 0;
