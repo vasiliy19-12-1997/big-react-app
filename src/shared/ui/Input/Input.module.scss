@@ -1,26 +1,29 @@
-.InputWrapper{
+.InputWrapper {
     display: flex;
 }
-.input{
+
+.input {
     border: none;
     background: transparent;
     color: var(--primary-color);
     outline: none;
     caret-color: transparent;
-    
-    &:focus{
+
+    &:focus {
         outline: none;
     }
 }
-.placeholder{
+
+.placeholder {
     margin-right: 5px;
 }
-.caretWrapper{
+
+.caretWrapper {
     flex-grow: 1;
     position: relative;
-    
 }
-.caret{
+
+.caret {
     position: absolute;
     height: 3px;
     width: 9px;
@@ -28,17 +31,18 @@
     left: 0;
     background: var(--primary-color);
     animation: blink 1s forwards infinite;
-    
 }
-@keyframes blink{
-    0%{
+
+@keyframes blink {
+    0% {
         opacity: 0;
     }
-    50%{
-        
+
+    50% {
         opacity: 0.01;
     }
-    100%{
-            opacity: 1;
+
+    100% {
+        opacity: 1;
     }
 }

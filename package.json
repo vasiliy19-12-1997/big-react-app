@@ -14,6 +14,7 @@
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:ui": "npx loki test --reactUri http://host.docker.internal:6006",
+    "test:ui:ok": "npx loki approve",
     "test:ui:ci": "cross-env-shell loki --requireReference --reactUri \"$REACT_URI\"",
     "test:ui:ci:local": "cross-env REACT_URI=http://host.docker.internal:6006 npm run test:ui:ci",
     "test:ui:ci:gha": "cross-env REACT_URI=http://localhost:6006 npm run test:ui:ci",
