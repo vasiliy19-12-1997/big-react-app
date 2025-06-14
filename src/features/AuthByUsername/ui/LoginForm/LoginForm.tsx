@@ -4,11 +4,12 @@ import { getLoginPassword } from 'features/AuthByUsername/model/selectors/getLog
 import { getLoginUsername } from 'features/AuthByUsername/model/selectors/getLoginUsername/getLoginUsername';
 import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
 import { loginActions } from 'features/AuthByUsername/model/slice/loginSlice';
-import { memo, Reducer, useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
@@ -17,9 +18,15 @@ import cls from './LoginForm.module.scss';
 
 export interface LoginFormProps {
   className?: string;
+  onSuccess:()=>void;
 }
 
 const LoginForm = memo((props: LoginFormProps) => {
+    const {
+        className,
+        onSuccess,
+    } = props;
+
     const { t } = useTranslation();
     const initialReducers:ReducersList = {
         login: loginReducer,
@@ -29,7 +36,7 @@ const LoginForm = memo((props: LoginFormProps) => {
     const error = useSelector(getLoginError);
     const isLoading = useSelector(getLoginIsLoading);
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const changeUsername = useCallback((value:string) => {
         dispatch(loginActions.setUsername(value));
@@ -37,12 +44,12 @@ const LoginForm = memo((props: LoginFormProps) => {
     const changePassword = useCallback((value:string) => {
         dispatch(loginActions.setPassword(value));
     }, [dispatch]);
-    const onLoginClick = useCallback(() => {
-        dispatch(loginByUsername({ username, password }));
-    }, [dispatch, username, password]);
-    const {
-        className,
-    } = props;
+    const onLoginClick = useCallback(async () => {
+        const result = await dispatch(loginByUsername({ username, password }));
+        if (result.meta.requestStatus === 'fulfilled') {
+            onSuccess();
+        }
+    }, [dispatch, username, password, onSuccess]);
 
     return (
         // eslint-disable-next-line i18next/no-literal-string

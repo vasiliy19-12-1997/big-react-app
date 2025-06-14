@@ -4,6 +4,7 @@ import {
 import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
+import { ProfileSchema } from 'entities/Profile';
 import { StateSchemaKeys } from './store';
 
 export interface StateSchema{
@@ -11,6 +12,7 @@ export interface StateSchema{
     user:UserSchema,
     // асинхронные редюсеры
     login?:LoginSchema,
+    profile?:ProfileSchema
 }
 export interface ReducerManagerProps{
     getReducerMap:()=>ReducersMapObject<StateSchema>;
