@@ -35,7 +35,7 @@ export default {
         '\\.s?css$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
     },
-    globals: { __IS_DEV__: true },
+    globals: { __IS_DEV__: true, __API__: '' },
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
 
