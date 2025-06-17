@@ -1,12 +1,13 @@
 import {
-    configureStore, DeepPartial, getDefaultMiddleware, ReducersMapObject,
+    configureStore,
+    ReducersMapObject
 } from '@reduxjs/toolkit';
 import { counterReducers } from 'entities/Counter';
 import { userReducer } from 'entities/User';
-import { $api } from 'shared/config/api/api';
 import { NavigateOptions, To } from 'react-router-dom';
-import { StateSchema } from './StateSchema';
+import { $api } from 'shared/config/api/api';
 import { createReducerManager } from './ReducerManager';
+import { StateSchema } from './StateSchema';
 
 export function createReduxStore(
     initialState?:StateSchema,
