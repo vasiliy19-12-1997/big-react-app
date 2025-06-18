@@ -33,7 +33,7 @@ export const Button: FC<ButtonProps> = memo((props) => {
         disabled,
         ...otherProps
     } = props;
-    const mods:Mods= {
+    const mods:Mods = {
         [cls[theme]]: true,
         [cls.square]: square,
         [cls[size]]: true,

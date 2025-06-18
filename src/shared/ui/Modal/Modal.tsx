@@ -26,7 +26,7 @@ export const Modal = (props: ModalProps) => {
     } = props;
     const { theme } = useTheme();
     const [isClosing, setIsClosing] = useState(false);
-    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>> ;
+    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
     const [isMounted, setIsMounted] = useState(false);
     const closeHandler = useCallback(() => {
         if (onClose) {

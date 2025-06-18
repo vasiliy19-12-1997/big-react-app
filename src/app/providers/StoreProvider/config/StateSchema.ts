@@ -1,5 +1,5 @@
 import {
-    AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
+    AnyAction, CombinedState, Dispatch, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
@@ -28,9 +28,9 @@ export interface ReduxStoreWithReducerManager extends EnhancedStore<StateSchema>
 
 export interface ThunkExtraArg{
     api:AxiosInstance,
-    navigate:(to: To, options?: NavigateOptions)=>void,
+    navigate?:(to: To, options?: NavigateOptions)=>void,
 }
 export interface ThunkConfig<T>{
  extra:ThunkExtraArg,
- rejectValue:T
+ rejectValue:T,
 }

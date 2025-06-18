@@ -22,7 +22,8 @@
     "test:ui:json": "node scripts/generate-visual-json-report.js",
     "test:ui:html": "npx reg-cli --from .loki/report.json --report .loki/report.html",
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
-    "storybook:build": "build-storybook -c ./config/storybook -o ./storybook-static"
+    "storybook:build": "build-storybook -c ./config/storybook -o ./storybook-static",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",

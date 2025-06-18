@@ -12,6 +12,6 @@ export {
     profileReducers,
 };
 export {
-    fetchProfileData
-}
-export {ProfileCard}
+    fetchProfileData,
+};
+export { ProfileCard };
