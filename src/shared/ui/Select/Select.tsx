@@ -1,10 +1,18 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
+import { ChangeEvent, useMemo } from 'react';
 import cls from './Select.module.scss';
 
+export interface SelectOptions {
+    value:string;
+    content:string
+}
 interface SelectProps {
   className?: string;
   label?:string;
+  options?:SelectOptions[];
+  value?:string;
+  onChange?:(value:string)=>void;
 }
 
 export const Select = (props: SelectProps) => {
@@ -12,14 +20,23 @@ export const Select = (props: SelectProps) => {
     const {
         className,
         label,
+        options,
+        value,
+        onChange,
     } = props;
+    const optionList = useMemo(() => {
+        options?.map((opt) => (
+            <option key={value} className={cls.option} value={opt.value}>{opt.content}</option>
+        ));
+    }, [options, value]);
+    const onChangeHandler = (e:ChangeEvent<HTMLSelectElement>) => {
+        onChange?.(e.target.value);
+    };
     return (
         <div className={classNames(cls.Wrapper, {}, [className])}>
             {label && <span className={cls.label}>{`${label}>`}</span>}
-            <select className={cls.select}>
-                <option className={cls.option}>1</option>
-                <option className={cls.option}>2</option>
-                <option className={cls.option}>3</option>
+            <select value={value} onChange={onChangeHandler}>
+                {optionList}
             </select>
         </div>
     );
