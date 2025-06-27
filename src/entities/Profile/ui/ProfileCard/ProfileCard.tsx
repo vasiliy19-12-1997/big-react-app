@@ -1,10 +1,13 @@
 import { Profile } from 'entities/Profile/model/types/profile';
 import { useTranslation } from 'react-i18next';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Currency, CurrencySelect } from 'entities/Currency';
+import { CountrySelect } from 'entities/Country/ui/CountrySelect/CountrySelect';
+import { Country } from 'entities/Country';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
@@ -18,6 +21,8 @@ interface ProfileCardProps {
   onChangeCity?:(value:string)=>void
   onChangeUsername?:(value:string)=>void
   onChangeAvatar?:(value:string)=>void
+  onChangeCurrency?:(value:Currency)=>void
+  onChangeCountry?:(value:Country)=>void
   readonly?:boolean
 }
 
@@ -34,6 +39,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
         onChangeCity,
         onChangeUsername,
         onChangeAvatar,
+        onChangeCurrency,
+        onChangeCountry,
         readonly,
     } = props;
     if (isLoading) {
@@ -106,6 +113,18 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     onChange={onChangeAvatar}
                     placeholder={t('Ваш аватар')}
                     className={cls.input}
+                    readonly={readonly}
+                />
+                <CurrencySelect
+                    className={cls.input}
+                    value={data?.currency}
+                    onChange={onChangeCurrency}
+                    readonly={readonly}
+                />
+                <CountrySelect
+                    className={cls.input}
+                    value={data?.country}
+                    onChange={onChangeCountry}
                     readonly={readonly}
                 />
             </div>

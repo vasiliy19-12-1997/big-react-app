@@ -1,21 +1,25 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { ChangeEvent, useMemo } from 'react';
+import {
+    ChangeEvent, memo, SelectHTMLAttributes, useMemo,
+} from 'react';
 import cls from './Select.module.scss';
 
-export interface SelectOptions {
+ interface SelectOptions {
     value:string;
     content:string
 }
+
 interface SelectProps {
   className?: string;
   label?:string;
   options?:SelectOptions[];
   value?:string;
-  onChange?:(value:string)=>void;
+  onChange?: (value:string) => void;
+  readonly?:boolean
 }
 
-export const Select = (props: SelectProps) => {
+export const Select = memo((props: SelectProps) => {
     const { t } = useTranslation();
     const {
         className,
@@ -23,21 +27,27 @@ export const Select = (props: SelectProps) => {
         options,
         value,
         onChange,
+        readonly,
     } = props;
-    const optionList = useMemo(() => {
-        options?.map((opt) => (
-            <option key={value} className={cls.option} value={opt.value}>{opt.content}</option>
-        ));
-    }, [options, value]);
+    const optionList = useMemo(() => options?.map((opt) => (
+        <option
+            key={opt.value}
+            className={cls.option}
+            value={opt.value}
+        >
+            {opt.content}
+        </option>
+    )), [options]);
+
     const onChangeHandler = (e:ChangeEvent<HTMLSelectElement>) => {
         onChange?.(e.target.value);
     };
     return (
         <div className={classNames(cls.Wrapper, {}, [className])}>
             {label && <span className={cls.label}>{`${label}>`}</span>}
-            <select value={value} onChange={onChangeHandler}>
+            <select disabled={readonly} value={value} onChange={onChangeHandler}>
                 {optionList}
             </select>
         </div>
     );
-};
+});
