@@ -1,26 +1,38 @@
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import { fetchProfileData, profileActions, ProfileCard } from 'entities/Profile';
+import { ValidateProfileErrors } from 'entities/Profile/model/types/profile';
 import { getProfileError } from 'features/EditableProfileCard/model/selectors/getProfileError/getProfileError';
 import { getProfileForm } from 'features/EditableProfileCard/model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from
     'features/EditableProfileCard/model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileReadonly } from 'features/EditableProfileCard/model/selectors/getProfileReadonly/getProfileReadonly';
+import { getProfileValidateErrors } from
+    'features/EditableProfileCard/model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 
 interface EditableProfileCardProps {
   className?: string;
 }
 
 export const EditableProfileCard = (props: EditableProfileCardProps) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('profile');
     const formData = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
+    const validateProfileErrors = useSelector(getProfileValidateErrors);
+    const validateErrorTranslation = {
+        [ValidateProfileErrors.INCORRECT_AGE]: t('Некооректный возраст'),
+        [ValidateProfileErrors.INCORRECT_COUNTRY]: t('Некооректный страна'),
+        [ValidateProfileErrors.INCORRECT_USER_DATA]: t('Некооректное имя'),
+        [ValidateProfileErrors.NO_DATA]: t('Нету данных'),
+        [ValidateProfileErrors.SERVER_ERROR]: t('Серверная ошибка'),
+    };
     const dispatch = useAppDispatch();
     useEffect(() => {
         dispatch(fetchProfileData());
@@ -57,20 +69,29 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
         className,
     } = props;
     return (
-        <ProfileCard
-            onChangeFirstname={onChangeFirstname}
-            onChangeLastname={onChangeLastname}
-            onChangeAge={onChangeAge}
-            onChangeCity={onChangeCity}
-            onChangeUsername={onChangeUsername}
-            onChangeAvatar={onChangeAvatar}
-            onChangeCurrency={onChangeCurrency}
-            onChangeCountry={onChangeCountry}
-            data={formData}
-            isLoading={isLoading}
-            error={error}
-            readonly={readonly}
-        />
+        <>
+            {validateProfileErrors?.length && validateProfileErrors.map((err) => (
+                <Text
+                    theme={TextTheme.ERROR}
+                    text={validateErrorTranslation[err]}
+                    key={validateErrorTranslation[err]}
+                />
+            ))}
+            <ProfileCard
+                onChangeFirstname={onChangeFirstname}
+                onChangeLastname={onChangeLastname}
+                onChangeAge={onChangeAge}
+                onChangeCity={onChangeCity}
+                onChangeUsername={onChangeUsername}
+                onChangeAvatar={onChangeAvatar}
+                onChangeCurrency={onChangeCurrency}
+                onChangeCountry={onChangeCountry}
+                data={formData}
+                isLoading={isLoading}
+                error={error}
+                readonly={readonly}
+            />
+        </>
 
     );
 };

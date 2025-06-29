@@ -3,9 +3,10 @@ import { getProfileError } from './model/selectors/getProfileError/getProfileErr
 import { getProfileForm } from './model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from './model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileReadonly } from './model/selectors/getProfileReadonly/getProfileReadonly';
+import { getProfileValidateErrors } from './model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 
 export {
-    getProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly,
+    getProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly, getProfileValidateErrors,
 };
 
 export {
@@ -20,3 +21,5 @@ export {
     updateProfileData,
 
 } from './model/services/updateProfileData/updateProfileData';
+export { validateProfileError } from
+    'features/EditableProfileCard/model/services/validateProfileError/validateProfileError';
