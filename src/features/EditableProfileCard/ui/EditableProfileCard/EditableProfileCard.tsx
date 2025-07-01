@@ -75,6 +75,8 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
                     theme={TextTheme.ERROR}
                     text={validateErrorTranslation[err]}
                     key={validateErrorTranslation[err]}
+                    // text={err}
+                    // key={err}
                 />
             ))}
             <ProfileCard
