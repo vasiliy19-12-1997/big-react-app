@@ -2,6 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Country } from 'entities/Country';
+import AvatarIcon from 'shared/assets/tests/avatar.jpg';
 import { ProfileCard } from './ProfileCard';
 
 export default {
@@ -18,12 +19,11 @@ export const Primary = Template.bind({});
 Primary.args = {
     data: {
         username: 'admin',
-        country: Country.Belarus,
         age: 22,
         lastname: 'Kon',
         first: 'Vasiliy',
         city: 'Ekaterinburg',
-        avatar: '',
+        avatar: AvatarIcon,
     },
 };
 Primary.decorators = [StoreDecorator({

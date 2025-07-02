@@ -1,7 +1,7 @@
 import { Profile } from 'entities/Profile';
 import { ValidateProfileErrors } from 'entities/Profile/model/types/profile';
 
-export const validateProfileError = (profile?:Profile) => {
+export const validateProfileData = (profile?:Profile) => {
     if (!profile) {
         return [ValidateProfileErrors.NO_DATA];
     }

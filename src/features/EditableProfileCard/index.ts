@@ -21,5 +21,4 @@ export {
     updateProfileData,
 
 } from './model/services/updateProfileData/updateProfileData';
-export { validateProfileError } from
-    'features/EditableProfileCard/model/services/validateProfileError/validateProfileError';
+export { validateProfileData } from './model/services/validateProfileData/validateProfileData';
