@@ -26,6 +26,7 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
     const onChangeCurrency = useCallback((value:string) => {
         onChange?.(value as Currency);
     }, [onChange]);
+
     return (
         <Select
             className={classNames('', {}, [className])}
