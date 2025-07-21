@@ -2,7 +2,8 @@
 @import "variables/global";
 @import "themes/normal";
 @import "themes/dark";
-@import "themes/yellow.scss";
+@import "themes/yellow";
+
 .app {
     background: var(--bg-color);
     min-height: 100vh;

@@ -1,20 +1,24 @@
-.Wrapper{
+.Wrapper {
     display: flex;
 }
-.label{
+
+.label {
     margin-right: 5px;
 }
-.select{
+
+.select {
     background: none;
     outline: none;
-    color:var(--primary-color);
+    color: var(--primary-color);
     padding: 2px 10px 2px 2px;
     border: 1px solid var(--primary-color);
 }
-.option{
-    color:var(--inverted-primary-color);
+
+.option {
+    color: var(--inverted-primary-color);
     background: var(--inverted-bg-color);
 }
-.readonly{
+
+.readonly {
     opacity: 0.7;
 }

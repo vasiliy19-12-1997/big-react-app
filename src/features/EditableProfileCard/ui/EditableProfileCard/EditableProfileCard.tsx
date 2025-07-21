@@ -1,7 +1,8 @@
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import { fetchProfileData, profileActions, ProfileCard } from 'entities/Profile';
+import { ProfileCard } from 'entities/Profile';
 import { ValidateProfileErrors } from 'entities/Profile/model/types/profile';
+import { fetchProfileData, profileActions } from 'features/EditableProfileCard';
 import { getProfileError } from 'features/EditableProfileCard/model/selectors/getProfileError/getProfileError';
 import { getProfileForm } from 'features/EditableProfileCard/model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from
