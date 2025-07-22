@@ -3,10 +3,11 @@ import { AppRouter } from 'app/providers/router';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { useDispatch } from 'react-redux';
-import { userActions } from 'entities/User';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAuthUserMounted, userActions } from 'entities/User';
 
 function App() {
+    const auth = useSelector(getAuthUserMounted);
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(userActions.initAuthData());
@@ -18,7 +19,7 @@ function App() {
                 <div className="content-page">
                     {/* <Counter /> */}
                     <Sidebar />
-                    <AppRouter />
+                    {auth && <AppRouter />}
                 </div>
             </Suspense>
         </div>
