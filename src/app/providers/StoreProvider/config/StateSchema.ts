@@ -7,6 +7,8 @@ import { LoginSchema } from 'features/AuthByUsername';
 import { ProfileSchema } from 'entities/Profile';
 import { NavigateOptions, To } from 'react-router-dom';
 import { AxiosInstance } from 'axios';
+
+import { ArticleDetailsSchema } from 'entities/Article';
 import { StateSchemaKeys } from './store';
 
 export interface StateSchema{
@@ -15,6 +17,7 @@ export interface StateSchema{
     // асинхронные редюсеры
     login?:LoginSchema,
     profile?:ProfileSchema
+    articles?:ArticleDetailsSchema
 }
 export interface ReducerManagerProps{
     getReducerMap:()=>ReducersMapObject<StateSchema>;

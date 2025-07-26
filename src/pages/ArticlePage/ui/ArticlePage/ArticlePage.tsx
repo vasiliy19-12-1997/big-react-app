@@ -6,6 +6,7 @@ const ArticlePage = memo(() => {
     return (
         <div>
             {t('Article Page')}
+
         </div>
     );
 });
