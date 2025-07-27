@@ -1,4 +1,4 @@
-enum ArticleBlockType {
+export enum ArticleBlockType {
     CODE = 'CODE',
     TEXT = 'TEXT',
     IMAGE = 'IMAGE'
@@ -7,20 +7,19 @@ interface ArticleBlockBase {
     id:string;
     type:ArticleBlockType
 }
-interface ArtcileBlockImage extends ArticleBlockBase {
+export interface ArtcileBlockImage extends ArticleBlockBase {
     type:ArticleBlockType.IMAGE;
     src:string;
     title?:string;
 }
-interface ArtcileBlockText extends ArticleBlockBase {
+export interface ArtcileBlockText extends ArticleBlockBase {
     type:ArticleBlockType.TEXT;
     paragraphs:string[];
-
+    title:string
 }
-interface ArtcileBlockCode extends ArticleBlockBase {
+export interface ArtcileBlockCode extends ArticleBlockBase {
     type:ArticleBlockType.CODE;
     code:string
-
 }
 enum ArticleType {
     IT = 'IT',
