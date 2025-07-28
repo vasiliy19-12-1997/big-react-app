@@ -16,7 +16,7 @@ const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;
 
 export const Light = Template.bind({});
 Light.args = {
-    children: `import { Code } from './Code';
+    text: `import { Code } from './Code';
 
 export default {
     title: 'shared/Code',

@@ -18,9 +18,7 @@ export const ArtcileCodeBlockComponent = (props: ArtcileCodeBlockComponentProps)
         // eslint-disable-next-line i18next/no-literal-string
         <div className={classNames(cls.ArtcileCodeBlockComponent, {}, [className])}>
             {block?.code && (
-                <Code>
-                    <Text text={block.code} />
-                </Code>
+                <Code text={block.code} />
             )}
         </div>
 

@@ -21,7 +21,7 @@ export interface ArtcileBlockCode extends ArticleBlockBase {
     type:ArticleBlockType.CODE;
     code:string
 }
-enum ArticleType {
+export enum ArticleType {
     IT = 'IT',
     SCIENCE = 'SCIENCE',
     ECONOMICS = 'ECONOMICS'
@@ -29,12 +29,12 @@ enum ArticleType {
 
 export type ArtcileTypeBlocks = ArtcileBlockImage | ArtcileBlockText | ArtcileBlockCode
 export interface Article {
-        id: number;
+        id: string;
         title: string;
         subtitle: string;
         img: string;
         views: number;
-        createdAt: number;
+        createdAt: string;
         type: ArticleType[];
         blocks:ArtcileTypeBlocks[]
 }

@@ -1,25 +1,24 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { articleDetailsReducers } from 'entities/Article/model/slice/artcileDetailsSlice';
-import { memo, useCallback, useEffect } from 'react';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading }
+    from 'entities/Article/model/selectors/getArticleDetails';
 import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById';
-import { useSelector } from 'react-redux';
-import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from
-    'entities/Article/model/selectors/getArticleDetails';
-import { Loader } from 'shared/ui/Loader/Loader';
-import { Sceleton } from 'shared/ui/Sceleton/Sceleton';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
-import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
-import { Icon } from 'shared/ui/Icon/Icon';
+import { articleDetailsReducers } from 'entities/Article/model/slice/artcileDetailsSlice';
 import { ArtcileTypeBlocks, ArticleBlockType } from 'entities/Article/model/types/artcile';
-import cls from './ArtcileDetails.module.scss';
+import { memo, useCallback, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
+import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Icon } from 'shared/ui/Icon/Icon';
+import { Sceleton } from 'shared/ui/Sceleton/Sceleton';
 import { Text, TextAlign, TextSize } from '../../../../shared/ui/Text/Text';
-import { ArtcileTextBlockComponent } from '../ArtcileTextBlockComponent/ArtcileTextBlockComponent';
 import { ArtcileCodeBlockComponent } from '../ArtcileCodeBlockComponent/ArtcileCodeBlockComponent';
 import { ArtcileImageBlockComponent } from '../ArtcileImageBlockComponent/ArtcileImageBlockComponent';
+import { ArtcileTextBlockComponent } from '../ArtcileTextBlockComponent/ArtcileTextBlockComponent';
+import cls from './ArtcileDetails.module.scss';
 
 interface ArtcileDetailsProps {
   className?: string;
@@ -39,17 +38,19 @@ export const ArtcileDetails = memo((props: ArtcileDetailsProps) => {
     const renderBlocks = useCallback((blocks:ArtcileTypeBlocks) => {
         switch (blocks.type) {
         case ArticleBlockType.TEXT:
-            return (<ArtcileTextBlockComponent className={cls.block} block={blocks} />);
+            return (<ArtcileTextBlockComponent key={blocks.id} className={cls.block} block={blocks} />);
         case ArticleBlockType.CODE:
-            return (<ArtcileCodeBlockComponent block={blocks} className={cls.block} />);
+            return (<ArtcileCodeBlockComponent key={blocks.id} block={blocks} className={cls.block} />);
         case ArticleBlockType.IMAGE:
-            return (<ArtcileImageBlockComponent block={blocks} className={cls.block} />);
+            return (<ArtcileImageBlockComponent key={blocks.id} block={blocks} className={cls.block} />);
         default:
             return null;
         }
     }, []);
     useEffect(() => {
-        dispatch(fetchArticleById(id));
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchArticleById(id));
+        }
     }, [dispatch, id]);
     let element;
 

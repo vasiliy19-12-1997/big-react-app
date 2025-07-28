@@ -1,5 +1,6 @@
 import { Story } from '@storybook/react';
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
+import { articleDetailsReducers } from 'entities/Article/model/slice/artcileDetailsSlice';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { profileReducers } from 'features/EditableProfileCard';
 import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -7,6 +8,7 @@ import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicM
 const defaultAsyncReducers:ReducersList = {
     login: loginReducer,
     profile: profileReducers,
+    articles: articleDetailsReducers,
 };
 export const StoreDecorator = (
     state: DeepPartial<StateSchema>,
