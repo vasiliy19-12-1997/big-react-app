@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { Text } from 'shared/ui/Text/Text';
 import cls from './ArticlePageDetails.module.scss';
+import { IsLoading } from '../../../../entities/Article/ui/ArtcileDetails/ArtcileDetails.stories';
 
 const ArticlePageDetails = memo(() => {
     const { t } = useTranslation('ArticlePageDetails');
@@ -44,7 +45,7 @@ const ArticlePageDetails = memo(() => {
             {t('Article Page Details')}
             <ArtcileDetails id={id} />
             <Text title={t('Комментарии')} className={cls.comments} />
-            <CommentaryList comments={commentsArray} />
+            <CommentaryList IsLoading={false} comments={commentsArray} />
         </div>
     );
 });
