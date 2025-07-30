@@ -9,6 +9,7 @@ import { NavigateOptions, To } from 'react-router-dom';
 import { AxiosInstance } from 'axios';
 
 import { ArticleDetailsSchema } from 'entities/Article';
+import { ArticleDetailsCommentSchema } from 'pages/ArticlePageDetails';
 import { StateSchemaKeys } from './store';
 
 export interface StateSchema{
@@ -18,6 +19,7 @@ export interface StateSchema{
     login?:LoginSchema,
     profile?:ProfileSchema
     articles?:ArticleDetailsSchema
+    articleDetailsComments?:ArticleDetailsCommentSchema
 }
 export interface ReducerManagerProps{
     getReducerMap:()=>ReducersMapObject<StateSchema>;
