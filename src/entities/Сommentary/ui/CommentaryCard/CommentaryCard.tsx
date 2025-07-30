@@ -31,10 +31,10 @@ export const CommentaryCard = memo((props: CommentaryCardProps) => {
     return (
         <div className={classNames(cls.CommentaryCard, {}, [className])}>
             <div className={cls.wrapperAvatar}>
-                {comment.user.avatar && <Avatar className={cls.avatar} size={30} src={comment.user.avatar} />}
-                <Text title={comment.user.username} />
+                {comment?.user?.avatar && <Avatar className={cls.avatar} size={30} src={comment?.user?.avatar} />}
+                <Text title={comment?.user?.username} />
             </div>
-            <Text text={comment.text} />
+            <Text text={comment?.text} />
         </div>
     );
 });
