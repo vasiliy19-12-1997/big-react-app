@@ -1,8 +1,6 @@
-import { userActions } from 'entities/User';
-import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
+import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { fetchProfileData } from './fetchProfileData';
 
 describe('fetchProfileData.test', () => {
@@ -18,7 +16,7 @@ describe('fetchProfileData.test', () => {
     test('success fetch data', async () => {
         const thunk = new TestAsyncThunk(fetchProfileData);
         thunk.api.get.mockReturnValue(Promise.resolve({ data }));
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk('1');
 
         expect(thunk.api.get).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('fulfilled');
@@ -27,7 +25,7 @@ describe('fetchProfileData.test', () => {
     test('error fetch', async () => {
         const thunk = new TestAsyncThunk(fetchProfileData);
         thunk.api.get.mockRejectedValue(new Error('403'));
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk('1');
 
         expect(result.meta.requestStatus).toBe('rejected');
     });

@@ -10,6 +10,7 @@ import { AxiosInstance } from 'axios';
 
 import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentSchema } from 'pages/ArticlePageDetails';
+import { AddCommentFormTypes } from 'features/AddCommentForm';
 import { StateSchemaKeys } from './store';
 
 export interface StateSchema{
@@ -20,6 +21,7 @@ export interface StateSchema{
     profile?:ProfileSchema
     articles?:ArticleDetailsSchema
     articleDetailsComments?:ArticleDetailsCommentSchema
+    addCommentForm?:AddCommentFormTypes
 }
 export interface ReducerManagerProps{
     getReducerMap:()=>ReducersMapObject<StateSchema>;

@@ -1,6 +1,7 @@
 import { Story } from '@storybook/react';
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { articleDetailsReducers } from 'entities/Article/model/slice/artcileDetailsSlice';
+import { addCommentFormReducers } from 'features/AddCommentForm/model/slice/AddCommentFormSlice';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { profileReducers } from 'features/EditableProfileCard';
 import { articleDetailsCommentsReducer } from 'pages/ArticlePageDetails/model/slice/ArticleDetailsCommentSlice';
@@ -11,6 +12,7 @@ const defaultAsyncReducers:ReducersList = {
     profile: profileReducers,
     articles: articleDetailsReducers,
     articleDetailsComments: articleDetailsCommentsReducer,
+    addCommentForm: addCommentFormReducers,
 };
 export const StoreDecorator = (
     state: DeepPartial<StateSchema>,

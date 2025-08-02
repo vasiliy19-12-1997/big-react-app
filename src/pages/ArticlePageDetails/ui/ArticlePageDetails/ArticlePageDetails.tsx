@@ -1,9 +1,11 @@
 import { ArtcileDetails } from 'entities/Article';
 import { CommentaryList } from 'entities/Сommentary';
+import { AddCommentForm } from 'features/AddCommentForm';
 import { getArticleDetailsCommentsError, getArticleDetailsCommentsIsLoading } from 'pages/ArticlePageDetails/model/selectors/comments';
+import { addCommentForArticle } from 'pages/ArticlePageDetails/model/services/addCommentForArticle';
 import { fetchCommentsByArticleId } from 'pages/ArticlePageDetails/model/services/fetchCommentsByArticleId';
 import { articleDetailsCommentsReducer, getArticleComments } from 'pages/ArticlePageDetails/model/slice/ArticleDetailsCommentSlice';
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -16,6 +18,7 @@ const ArticlePageDetails = memo(() => {
     const { t } = useTranslation('ArticlePageDetails');
     const { id } = useParams<{id?:string}>();
     const isLoading = useSelector(getArticleDetailsCommentsIsLoading);
+    console.log(`isLoading${isLoading}`);
     const error = useSelector(getArticleDetailsCommentsError);
     const dispatch = useDispatch();
     const reducers:ReducersList = {
@@ -25,34 +28,14 @@ const ArticlePageDetails = memo(() => {
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
     });
-    // const commentsArray = [{
-    //     id: '1',
-    //     text: 'some comment',
-    //     user: {
-    //         id: '1',
-    //         username: 'vasya',
-    //         // eslint-disable-next-line max-len
-    //         avatar: 'https://image.api.playstation.com/vulcan/img/cfn/113079XRqKze-XG5C66saw2iu5NzZBKKc74WSsi37VWopNYI4BstfGjUdc7bn__iGGvgJjZXHFx7T4P7QHoYtiLVxlYgjFp_.png?w=440&thumb=false',
-    //     },
-    // },
-    // {
-    //     id: '2',
-    //     text: 'some comment2',
-    //     user: {
-    //         id: '2',
-    //         username: 'vasya2',
-    //         // eslint-disable-next-line max-len
-    //         avatar: 'https://image.api.playstation.com/vulcan/img/cfn/113079XRqKze-XG5C66saw2iu5NzZBKKc74WSsi37VWopNYI4BstfGjUdc7bn__iGGvgJjZXHFx7T4P7QHoYtiLVxlYgjFp_.png?w=440&thumb=false',
-    //     },
-
-    // },
-    // ];
+    const onSendComments = useCallback((text:string) => {
+        dispatch(addCommentForArticle(text));
+    }, [dispatch]);
 
     if (!id) {
         return (
             <div>
                 {t('Статья не найдена')}
-
             </div>
         );
     }
@@ -63,7 +46,8 @@ const ArticlePageDetails = memo(() => {
                 {t('Article Page Details')}
                 <ArtcileDetails id={id} />
                 <Text title={t('Комментарии')} className={cls.comments} />
-                <CommentaryList IsLoading={false} comments={comments} />
+                <AddCommentForm onSendComments={onSendComments} />
+                <CommentaryList isLoading={isLoading} comments={comments} />
             </div>
         </DynamicModuleLoader>
     );

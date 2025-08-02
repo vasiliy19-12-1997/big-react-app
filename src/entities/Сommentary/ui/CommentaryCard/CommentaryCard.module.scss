@@ -1,5 +1,5 @@
 .CommentaryCard {
-  border: 1px solid teal;
+  border: 1px solid var(--primary-color);
   padding: 12px;
 }
 .wrapperAvatar{
@@ -10,4 +10,7 @@
 }
 .avatar{
   margin-right: 10px;
+}
+.loading{
+  border:none
 }
