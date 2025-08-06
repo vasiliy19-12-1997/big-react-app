@@ -22,13 +22,16 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
     const { className, onSendComments } = props;
     const text = useSelector(getAddCommentFormText);
     const dispatch = useAppDispatch();
+
     const onCommentChange = useCallback((value:string) => {
         dispatch(addCommentFormActions.setText(value));
     }, [dispatch]);
+
     const onSendHandler = useCallback(() => {
         onSendComments(text || '');
         onCommentChange('');
     }, [onCommentChange, onSendComments, text]);
+
     return (
         <DynamicModuleLoader reducers={reducers}>
             <div className={classNames(cls.AddCommentForm, {}, [className])}>
