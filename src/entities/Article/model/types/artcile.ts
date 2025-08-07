@@ -26,7 +26,10 @@ export enum ArticleType {
     SCIENCE = 'SCIENCE',
     ECONOMICS = 'ECONOMICS'
 }
-
+export enum ArticleViews{
+    BIG = 'BIG',
+    SMALL = 'SMALL'
+}
 export type ArtcileTypeBlocks = ArtcileBlockImage | ArtcileBlockText | ArtcileBlockCode
 export interface Article {
         id: string;
