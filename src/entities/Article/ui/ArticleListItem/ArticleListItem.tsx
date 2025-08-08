@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Article, ArticleViews } from "entities/Article/model/types/artcile";
 import { Text } from "shared/ui/Text/Text";
 import EyeIcon from "shared/assets/icons/eye-20-20.svg"
+import { Card } from "shared/ui/Card/Card";
 interface ArticleListItemProps {
   className?: string;
   article:Article
@@ -24,8 +25,8 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   }
     return (
       <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-        <div className={cls.card}>
-          <div className={cls.imageWrapper}>
+       <Card>
+         <div className={cls.imageWrapper}>
             <img src={article.img} alt={article.title} className={cls.img} />
             <Text text={article.createdAt} className={cls.date}/>
           </div>
@@ -35,7 +36,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             <EyeIcon className={cls.eyeIcon}/>
            </div>
           <Text title={article.title} className={cls.title}/>
-        </div>
+       </Card>
       </div>
   )
 });
