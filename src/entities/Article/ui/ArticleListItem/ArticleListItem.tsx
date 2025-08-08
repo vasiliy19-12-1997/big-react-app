@@ -30,7 +30,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             <Text text={article.createdAt} className={cls.date}/>
           </div>
           <div className={cls.textWrapper}>
-            <Text text={article.subtitle} className={cls.subtitle} />
+            <Text text={article.type.join(",")} className={cls.type} />
             <Text text={String(article.views)} className={cls.views}/>
             <EyeIcon className={cls.eyeIcon}/>
            </div>

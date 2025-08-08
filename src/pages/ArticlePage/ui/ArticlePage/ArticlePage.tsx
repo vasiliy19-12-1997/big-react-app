@@ -11,7 +11,7 @@ const articles =
         views: 1022,
         createdAt: '26.02.2022',
         type: [
-            'IT',
+            'IT', 'fgfg', 'fdfdfdf', 'fdfdfdf',
         ],
         blocks: [
             {

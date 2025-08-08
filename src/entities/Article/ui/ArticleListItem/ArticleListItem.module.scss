@@ -29,29 +29,49 @@
 }
 
 .SMALL{
+  width: 230px;
 .card{
-
+ padding: 15px;
+ background-color: var(--card-bg);
+ border-radius: 12px;
 }
 .imageWrapper{
+  width: 200px;
+  height: 200px;
+  position: relative;
 
 }
 .img{
   height: 200px;
   width: 200px;
-}
+  }
 .date{
-  
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 .textWrapper{
-
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
 }
-.subtitle{
-
+.type p{
+  width: 110px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .views{
-
+  margin-left: auto;
+  margin-right: 8px;
 }
 .title{
-
+  margin-top: 8px;
+}
+.title p{
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 }
