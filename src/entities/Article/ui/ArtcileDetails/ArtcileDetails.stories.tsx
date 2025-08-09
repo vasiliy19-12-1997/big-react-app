@@ -23,6 +23,10 @@ const articles:Article = {
     views: 1022,
     createdAt: '26.02.2022',
     type: [ArticleType.IT],
+    user:{
+            username:"vasya",
+            id:"1",
+        },
     blocks: [
         {
             id: '1',

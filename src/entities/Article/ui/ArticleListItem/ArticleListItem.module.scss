@@ -1,29 +1,45 @@
-.BIG{
-.card{
+.BIG {
+  .header{
+    display: flex;
+    align-items: center;
+  }
+  .views{
+    margin-left: auto;
+  }
+  .eyeIcon{
+    margin-left: 8px;
+  }
+  .avatar{
+  }
+  .username{
+    margin-left: 10px;
+  }
+  .createdAt{  
+    margin-left: auto;
+  }
+  .title{
+    margin-top: 10px;
+  }
+  .img{
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    margin: 16px 0px;
+  }
+  .type{
+  }
+  .footer{
+    display: flex;
+    align-items: center;
+  }
+  .textBlock{
+    max-height: 250px;
+    overflow-y: hidden;
+  }
 
 }
-.imageWrapper{
 
-}
-.img{
 
-}
-.date{
-
-}
-.textWrapper{
-
-}
-.subtitle{
-
-}
-.views{
-
-}
-.title{
-
-}
-}
 
 .SMALL{
   width: 230px;

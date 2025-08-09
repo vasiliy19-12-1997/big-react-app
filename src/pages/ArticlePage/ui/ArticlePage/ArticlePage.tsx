@@ -10,6 +10,11 @@ const articles =
         img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
         views: 1022,
         createdAt: '26.02.2022',
+        user:{
+            username:"vasya",
+            id:"1",
+            avatar:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcK8LuTRihbc5t5dlS6Lw6Q710u02oN80LJw&s"
+        },
         type: [
             'IT', 'fgfg', 'fdfdfdf', 'fdfdfdf',
         ],
@@ -78,7 +83,10 @@ const ArticlePage = memo(() => {
     const { t } = useTranslation('ArticlePage');
     return (
         <div>
-            <ArticleList articles={[articles]}  />
+            <ArticleList  articles={new Array(16).fill(0).map((item, index)=>({
+                ...articles, 
+                id:String(index)
+                 }))}  />
             {t('Article Page')}
 
         </div>

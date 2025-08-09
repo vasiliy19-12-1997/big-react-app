@@ -16,13 +16,13 @@ interface ArticleListProps {
 export const ArticleList = memo((props: ArticleListProps) => {
     const { t } = useTranslation();
     const {
-        className, articles, views = ArticleViews.SMALL, isLoading,
+        className, articles, views = ArticleViews.BIG, isLoading,
     } = props;
     const renderArticle = (article:Article)=>{
-         return ( <ArticleListItem article = {article} view = {views}/>)
+         return ( <ArticleListItem key={article.id} className={cls.card} article = {article} view = {views}/>)
      }
     return (
-        <div className={classNames(cls.ArticleList, {}, [className])} >
+        <div className={classNames(cls.ArticleList, {}, [className, cls[views]])} >
            {articles.length > 0 ? articles.map(renderArticle) : null}
         </div>
     );
