@@ -51,11 +51,12 @@ module.exports = {
                 ignoreAttribute: ['data-testid', 'to'],
             },
         ],
-        'max-len': ['error', { ignoreComments: true, code: '200' }],
+        'max-len': ['error', { ignoreComments: true, code: 200 }],
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
         'no-param-reassign': 'off',
         'no-undef': 'off',
+        'react/no-array-index-key': 'off',
 
     },
     globals: {
