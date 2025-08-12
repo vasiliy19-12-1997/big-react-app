@@ -26,8 +26,8 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     const { className, article, view } = props;
     const [isHover, bindHover] = useHover();
     const navigate = useNavigate();
-    const types = <Text text={article.type.join(',')} className={cls.type} />;
-    const img = (<img src={article.img} alt={article.title} className={cls.img} />);
+    const types = <Text text={article?.type.join(',')} className={cls.type} />;
+    const img = (<img src={article?.img} alt={article?.title} className={cls.img} />);
     const views = (
         <>
             <Text text={String(article.views)} className={cls.views} />
@@ -43,12 +43,14 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         return (
             <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
                 <div className={cls.header}>
-                    <Avatar size={50} alt={article.title} src={article.user.avatar} className={cls.avatar} />
-                    <Text text={article.user.username} className={cls.username} />
-                    <Text text={article.createdAt} className={cls.createdAt} />
+                    <Avatar size={50} alt={article?.title} src={article?.user?.avatar} className={cls.avatar} />
+                    <Text text={article?.user?.username} className={cls.username} />
+                    <Text text={article?.createdAt} className={cls.createdAt} />
                 </div>
-                <Text title={article.title} className={cls.title} />
+                <Text title={article?.title} className={cls.title} />
                 {types}
+                ?
+                {' '}
                 {img}
                 <ArtcileTextBlockComponent block={textBlock} className={cls.textBlock} />
                 <div className={cls.footer}>
@@ -65,8 +67,8 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         <div {...bindHover} className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
             <Card onClick={onOpenArticle}>
                 <div className={cls.imageWrapper}>
-                    <img src={article.img} alt={article.title} className={cls.img} />
-                    <Text text={article.createdAt} className={cls.date} />
+                    {img}
+                    <Text text={article?.createdAt} className={cls.date} />
                 </div>
                 <div className={cls.textWrapper}>
                     {types}
