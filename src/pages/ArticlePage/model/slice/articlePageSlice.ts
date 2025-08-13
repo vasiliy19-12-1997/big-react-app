@@ -5,7 +5,7 @@ import {
 } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Article, ArticleViews } from 'entities/Article';
-import { fetchArticles } from 'features/AddCommentForm/model/services/fetchArticles';
+import { fetchArticles } from 'pages/ArticlePage/model/services/fetchArticles';
 import { ArticlePageSchema } from '../types/articlePageSchema';
 
 // Since we don't provide `selectId`, it defaults to assuming `entity.id` is the right field
@@ -44,4 +44,4 @@ const ArticlePageSlice = createSlice({
             });
     },
 });
-export const { reducer: articlesReducer } = ArticlePageSlice;
+export const { reducer: articlesReducer, actions: articlePageActions } = ArticlePageSlice;
