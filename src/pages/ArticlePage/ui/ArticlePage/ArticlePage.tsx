@@ -1,7 +1,6 @@
 import { Article, ArticleList } from 'entities/Article';
 import { fetchArticles } from 'features/AddCommentForm/model/services/fetchArticles';
-import { articlesReducer, getArticles } from 'pages/ArticlePage/model/slice/ArticlePageSlice';
-import { ArticlePageDetails } from 'pages/ArticlePageDetails';
+import { articlesReducer, getArticles } from 'pages/ArticlePage/model/slice/articlePageSlice';
 
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -10,7 +9,6 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 
-const articles = {} as Article;
 const ArticlePage = memo(() => {
     const { t } = useTranslation('ArticlePage');
     const dispatch = useAppDispatch();
@@ -23,7 +21,6 @@ const ArticlePage = memo(() => {
     });
     return (
         <DynamicModuleLoader reducers={reducers}>
-
             {t('Article Page')}
             <ArticleList articles={articles} />
         </DynamicModuleLoader>

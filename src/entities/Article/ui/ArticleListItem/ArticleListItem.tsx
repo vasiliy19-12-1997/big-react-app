@@ -30,15 +30,15 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     const img = (<img src={article?.img} alt={article?.title} className={cls.img} />);
     const views = (
         <>
-            <Text text={String(article.views)} className={cls.views} />
+            <Text text={String(article?.views)} className={cls.views} />
             <EyeIcon className={cls.eyeIcon} />
         </>
     );
-    const textBlock = article.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArtcileBlockText;
+    const textBlock = article?.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArtcileBlockText;
 
     const onOpenArticle = useCallback(() => {
         navigate(`${RoutePath.articles}/${article.id}`);
-    }, [article.id, navigate]);
+    }, [article?.id, navigate]);
     if (view === ArticleViews.BIG) {
         return (
             <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
@@ -49,8 +49,6 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                 </div>
                 <Text title={article?.title} className={cls.title} />
                 {types}
-                ?
-                {' '}
                 {img}
                 <ArtcileTextBlockComponent block={textBlock} className={cls.textBlock} />
                 <div className={cls.footer}>

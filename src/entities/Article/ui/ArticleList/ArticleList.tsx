@@ -21,7 +21,14 @@ export const ArticleList = memo((props: ArticleListProps) => {
     const getSceletons = () => new Array(views === ArticleViews.SMALL ? 9 : 3).fill(0).map((item, index) => (
         <ArticleListItemSceleton view={views} key={String(index)} />
     ));
-    const renderArticle = (article:Article) => (<ArticleListItem key={article.id} className={cls.card} article={article} view={views} />);
+    const renderArticle = (article:Article) => (
+        <ArticleListItem
+            key={article?.id}
+            className={cls.card}
+            article={article}
+            view={views}
+        />
+    );
     if (isLoading) {
         return (
             <div className={classNames(cls.ArticleList, {}, [className, cls[views]])}>

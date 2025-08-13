@@ -9,7 +9,7 @@ const initialState:ArticleDetailsSchema = {
     data: undefined,
 };
 
-export const artcileDetailsSlice = createSlice({
+export const ArtcileDetailsSlice = createSlice({
     name: 'articleDetails',
     initialState,
     reducers: {},
@@ -31,5 +31,5 @@ export const artcileDetailsSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { actions: articleDetailsActions } = artcileDetailsSlice;
-export const { reducer: articleDetailsReducers } = artcileDetailsSlice;
+export const { actions: articleDetailsActions } = ArtcileDetailsSlice;
+export const { reducer: articleDetailsReducers } = ArtcileDetailsSlice;
