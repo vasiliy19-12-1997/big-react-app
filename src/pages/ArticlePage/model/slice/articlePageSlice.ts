@@ -6,6 +6,7 @@ import {
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Article, ArticleViews } from 'entities/Article';
 import { fetchArticles } from 'pages/ArticlePage/model/services/fetchArticles';
+import { ARTICLE_VIEWS_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 import { ArticlePageSchema } from '../types/articlePageSchema';
 
 // Since we don't provide `selectId`, it defaults to assuming `entity.id` is the right field
@@ -26,6 +27,10 @@ const ArticlePageSlice = createSlice({
     reducers: {
         setView: (state, action:PayloadAction<ArticleViews>) => {
             state.view = action.payload;
+            localStorage.setItem(ARTICLE_VIEWS_LOCALSTORAGE_KEY, action.payload);
+        },
+        initState: (state) => {
+            state.view = localStorage.getItem(ARTICLE_VIEWS_LOCALSTORAGE_KEY) as ArticleViews;
         },
     },
     extraReducers: (builder) => {
