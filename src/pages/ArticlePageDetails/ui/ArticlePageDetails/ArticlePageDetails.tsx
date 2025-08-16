@@ -10,6 +10,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { Text } from 'shared/ui/Text/Text';
 import { Button } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Page } from 'shared/ui/Page/Page';
 import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slice/ArticleDetailsCommentSlice';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle';
@@ -20,7 +21,6 @@ const ArticlePageDetails = memo(() => {
     const { t } = useTranslation('ArticlePageDetails');
     const { id } = useParams<{id?:string}>();
     const isLoading = useSelector(getArticleDetailsCommentsIsLoading);
-    console.log(`isLoading${isLoading}`);
     const error = useSelector(getArticleDetailsCommentsError);
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -48,14 +48,14 @@ const ArticlePageDetails = memo(() => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div>
+            <Page>
                 {t('Article Page Details')}
                 <Button onClick={onBackToList} className={cls.btnBack}>{t('Вернуться назад')}</Button>
                 <ArtcileDetails id={id} />
                 <Text title={t('Комментарии')} className={cls.comments} />
                 <AddCommentForm onSendComments={onSendComments} />
                 <CommentaryList isLoading={isLoading} comments={comments} />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 });

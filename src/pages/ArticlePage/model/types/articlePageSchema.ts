@@ -4,5 +4,8 @@ import { Article, ArticleViews } from 'entities/Article';
 export interface ArticlePageSchema extends EntityState<Article>{
     isLoading?:boolean,
     error?:string,
-    view:ArticleViews
+    view:ArticleViews,
+    limit?:number,
+    page:number,
+    hasMore:boolean,
 }

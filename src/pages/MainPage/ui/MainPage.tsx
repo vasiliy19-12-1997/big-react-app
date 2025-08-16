@@ -1,6 +1,7 @@
 import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/Input';
+import { Page } from 'shared/ui/Page/Page';
 
 const MainPage = memo(() => {
     const { t } = useTranslation();
@@ -9,7 +10,7 @@ const MainPage = memo(() => {
         setValue(val);
     };
     return (
-        <div>
+        <Page>
             {t('Главная страница')}
             <Input
                 onChange={onChange}
@@ -17,7 +18,7 @@ const MainPage = memo(() => {
                 placeholder={t('Введите текст')}
 
             />
-        </div>
+        </Page>
     );
 });
 

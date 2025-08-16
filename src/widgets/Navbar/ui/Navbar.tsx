@@ -6,6 +6,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getAuthUserData, userActions } from 'entities/User';
+import { Page } from 'shared/ui/Page/Page';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -29,17 +30,17 @@ export const Navbar = ({ className }: NavbarProps) => {
 
     if (authUser) {
         return (
-            <div className={classNames(cls.Navbar, {}, [className])}>
+            <Page className={classNames(cls.Navbar, {}, [className])}>
                 <div className={cls.links}>
                     <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onLogout}>
                         {t('Выйти')}
                     </Button>
                 </div>
-            </div>
+            </Page>
         );
     }
     return (
-        <div className={classNames(cls.Navbar, {}, [className])}>
+        <nav className={classNames(cls.Navbar, {}, [className])}>
             <div className={cls.links}>
                 <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onShowModal}>
                     {t('Войти')}
@@ -52,6 +53,6 @@ export const Navbar = ({ className }: NavbarProps) => {
                 )}
 
             </div>
-        </div>
+        </nav>
     );
 };

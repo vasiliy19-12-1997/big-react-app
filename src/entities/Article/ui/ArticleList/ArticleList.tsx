@@ -29,16 +29,15 @@ export const ArticleList = memo((props: ArticleListProps) => {
             view={views}
         />
     );
-    if (isLoading) {
-        return (
-            <div className={classNames(cls.ArticleList, {}, [className, cls[views]])}>
-                {getSceletons()}
-            </div>
-        );
-    }
+
     return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[views]])}>
             {articles?.length > 0 ? articles.map(renderArticle) : null}
+            {isLoading && (
+                <div className={classNames(cls.ArticleList, {}, [className, cls[views]])}>
+                    {getSceletons()}
+                </div>
+            )}
         </div>
     );
 });

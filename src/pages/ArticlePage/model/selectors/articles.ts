@@ -3,3 +3,6 @@ import { StateSchema } from 'app/providers/StoreProvider';
 export const getArticlesError = (state:StateSchema) => state.articlePage?.error || undefined;
 export const getArticlesIsLoading = (state:StateSchema) => state.articlePage?.isLoading || false;
 export const getArticlesViews = (state:StateSchema) => state.articlePage?.view || undefined;
+export const getArticlesPageNumber = (state:StateSchema) => state.articlePage?.page || 1;
+export const getArticlesPageLimit = (state:StateSchema) => state.articlePage?.limit || 9;
+export const getArticlesPageHasMore = (state:StateSchema) => state.articlePage?.hasMore || false;

@@ -5,7 +5,7 @@ import {
 } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Article, ArticleViews } from 'entities/Article';
-import { fetchArticles } from 'pages/ArticlePage/model/services/fetchArticles';
+import { fetchArticles } from 'pages/ArticlePage/model/services/fetchArticles/fetchArticles';
 import { ARTICLE_VIEWS_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 import { ArticlePageSchema } from '../types/articlePageSchema';
 
@@ -22,15 +22,22 @@ const ArticlePageSlice = createSlice({
         ids: ['1', '2'],
         entities: {},
         view: ArticleViews.SMALL,
-
+        page: 1,
+        hasMore: true,
     }),
     reducers: {
         setView: (state, action:PayloadAction<ArticleViews>) => {
             state.view = action.payload;
             localStorage.setItem(ARTICLE_VIEWS_LOCALSTORAGE_KEY, action.payload);
         },
+        setPage: (state, action:PayloadAction<number>) => {
+            state.page = action.payload;
+        },
         initState: (state) => {
-            state.view = localStorage.getItem(ARTICLE_VIEWS_LOCALSTORAGE_KEY) as ArticleViews;
+            const view = localStorage.getItem(ARTICLE_VIEWS_LOCALSTORAGE_KEY) as ArticleViews;
+            state.view = view;
+            // debugger;
+            state.limit = view === ArticleViews.BIG ? 4 : 9;
         },
     },
     extraReducers: (builder) => {
@@ -41,7 +48,8 @@ const ArticlePageSlice = createSlice({
             })
             .addCase(fetchArticles.fulfilled, (state, action:PayloadAction<Article[]>) => {
                 state.isLoading = false;
-                articleAdapter.setAll(state, action.payload);
+                articleAdapter.addMany(state, action.payload);
+                state.hasMore = action.payload.length > 0;
             })
             .addCase(fetchArticles.rejected, (state, action) => {
                 state.isLoading = false;
