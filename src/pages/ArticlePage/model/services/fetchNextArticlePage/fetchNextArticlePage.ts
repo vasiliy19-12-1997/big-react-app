@@ -1,7 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider/config/StateSchema';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useDispatch } from 'react-redux';
 import {
     getArticlesIsLoading, getArticlesPageHasMore,
     getArticlesPageNumber,

@@ -1,17 +1,20 @@
 import { ArticleList, ArticleViews } from 'entities/Article';
+import { ArticleViewSelector } from 'features/ArticleViewSelector';
+import { fetchNextArticlePage } from 'pages/ArticlePage/model/services/fetchNextArticlePage/fetchNextArticlePage';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { ArticleViewSelector } from 'features/ArticleViewSelector';
 import { Page } from 'shared/ui/Page/Page';
-import { fetchNextArticlePage } from 'pages/ArticlePage/model/services/fetchNextArticlePage/fetchNextArticlePage';
-import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
+import { ininArticlePage } from 'pages/ArticlePage/model/services/ininArticlePage/ininArticlePage';
 import {
-    getArticlesError, getArticlesIsLoading, getArticlesPageHasMore, getArticlesPageNumber, getArticlesViews,
+    getArticlesIsLoading,
+    getArticlesPageInited,
+    getArticlesViews,
 } from '../../model/selectors/articles';
+import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
 import { articlePageActions, articlesReducer, getArticles } from '../../model/slice/articlePageSlice';
 
 const ArticlePage = memo(() => {
@@ -19,10 +22,7 @@ const ArticlePage = memo(() => {
     const dispatch = useAppDispatch();
     const articles = useSelector(getArticles.selectAll);
     const isLoading = useSelector(getArticlesIsLoading);
-    const error = useSelector(getArticlesError);
     const views = useSelector(getArticlesViews);
-    const page = useSelector(getArticlesPageNumber);
-    const hasMore = useSelector(getArticlesPageHasMore);
     const reducers:ReducersList = {
         articlePage: articlesReducer,
     };
@@ -30,16 +30,14 @@ const ArticlePage = memo(() => {
     const onViewClick = useCallback((view:ArticleViews) => {
         dispatch(articlePageActions.setView(view));
     }, [dispatch]);
-
     useInitialEffect(() => {
-        dispatch(articlePageActions.initState());
-        dispatch(fetchArticles({ page: 1 }));
+        dispatch(ininArticlePage());
     });
     const onNextLoad = useCallback(() => {
         dispatch(fetchNextArticlePage());
     }, [dispatch]);
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page onScrollEnd={onNextLoad}>
                 {t('Article Page')}
                 <ArticleViewSelector view={views} onViewClick={onViewClick} />

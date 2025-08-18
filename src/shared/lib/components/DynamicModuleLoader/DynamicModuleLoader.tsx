@@ -7,7 +7,6 @@ import { useDispatch, useStore } from 'react-redux';
 export type ReducersList = {
     [name in StateSchemaKeys]?:Reducer
 }
-type ReducersListEntry = [StateSchemaKeys, Reducer]
 interface DynamicModuleLoaderProps {
     children:ReactNode
     reducers:ReducersList;
@@ -22,9 +21,13 @@ export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
     const dispatch = useDispatch();
     const store = useStore() as ReduxStoreWithReducerManager;
     useEffect(() => {
+        const mountedReducers = store.reducerManager.getMountedReducers();
         Object.entries(reducers).forEach(([name, reducer]) => {
-            store.reducerManager.add(name as StateSchemaKeys, reducer);
-            dispatch({ type: `@INIT ${name} reducer` });
+            const mounted = mountedReducers[name as StateSchemaKeys];
+            if (!mounted) {
+                store.reducerManager.add(name as StateSchemaKeys, reducer);
+                dispatch({ type: `@INIT ${name} reducer` });
+            }
         });
 
         return () => {
