@@ -30,7 +30,6 @@ export const Page = memo((props: PageProps) => {
         callback: onScrollEnd,
     });
     const onScroll = useThrotle((e: UIEvent<HTMLDivElement>) => {
-        console.log('Сколько раз вызыввется ');
         dispatch(scrollRestorationSliceActions.setScrollPosition({ path: pathname, position: e?.currentTarget?.scrollTop }));
     }, 700);
     useInitialEffect(() => {

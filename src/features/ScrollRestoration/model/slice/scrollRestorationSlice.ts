@@ -12,12 +12,10 @@ const scrollRestorationSlice = createSlice({
     name: 'scrollRestorationSlice',
     initialState,
     reducers: {
-        // articles = 500
         setScrollPosition: (state, { payload }: PayloadAction<{path:string, position:number}>) => {
             state.scroll[payload.path] = payload.position;
         },
     },
-
 });
 
 export const {
