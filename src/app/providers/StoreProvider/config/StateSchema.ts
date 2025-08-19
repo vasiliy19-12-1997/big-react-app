@@ -11,11 +11,13 @@ import { AddCommentFormTypes } from 'features/AddCommentForm';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ArticlePageSchema } from 'pages/ArticlePage';
 import { ArticleDetailsCommentSchema } from 'pages/ArticlePageDetails';
+import { ScrollRestorationSchema } from 'features/ScrollRestoration';
 import { StateSchemaKeys } from './store';
 
 export interface StateSchema{
     counter:CounterSchema,
     user:UserSchema,
+    scrollRestoration:ScrollRestorationSchema
     // асинхронные редюсеры
     login?:LoginSchema,
     profile?:ProfileSchema
