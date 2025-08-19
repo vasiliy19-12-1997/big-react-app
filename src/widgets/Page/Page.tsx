@@ -34,7 +34,7 @@ export const Page = memo((props: PageProps) => {
     }, 700);
     useInitialEffect(() => {
         wrapperRef.current.scrollTop = scrollPosition;
-    });
+    }, [scrollPosition]);
     return (
         <section onScroll={onScroll} ref={wrapperRef} className={classNames(cls.Page, {}, [className])}>
             {children}

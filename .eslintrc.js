@@ -31,6 +31,12 @@ module.exports = {
             2,
             { extensions: ['.js', '.jsx', '.tsx'] },
         ],
+        'react-hooks/exhaustive-deps': [
+            'error',
+            {
+                additionalHooks: '(useInitialEffect)',
+            },
+        ],
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
         'no-unused-vars': 'off',
@@ -53,7 +59,6 @@ module.exports = {
         ],
         'max-len': ['error', { ignoreComments: true, code: 200 }],
         'react-hooks/rules-of-hooks': 'error',
-        'react-hooks/exhaustive-deps': 'error',
         'no-param-reassign': 'off',
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
