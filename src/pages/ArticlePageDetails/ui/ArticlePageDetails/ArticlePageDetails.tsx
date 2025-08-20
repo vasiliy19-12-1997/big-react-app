@@ -21,7 +21,6 @@ const ArticlePageDetails = memo(() => {
     const { t } = useTranslation('ArticlePageDetails');
     const { id } = useParams<{id?:string}>();
     const isLoading = useSelector(getArticleDetailsCommentsIsLoading);
-    const error = useSelector(getArticleDetailsCommentsError);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const reducers:ReducersList = {

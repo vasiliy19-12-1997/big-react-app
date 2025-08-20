@@ -1,10 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider/config/StateSchema';
 import { getArticleDetailsData } from 'entities/Article/model/selectors/getArticleDetails';
-import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById';
 import { getAuthUserData } from 'entities/User';
-import { getAddCommentFormText } from 'features/AddCommentForm/model/selectors/addCommentForm';
-import { addCommentFormActions } from 'features/AddCommentForm/model/slice/AddCommentFormSlice';
 import { fetchCommentsByArticleId } from './fetchCommentsByArticleId';
 
 interface addCommentForArticleProps{
@@ -39,7 +36,6 @@ export const addCommentForArticle = createAsyncThunk<Comment, string, ThunkConfi
 
             return response.data;
         } catch (error) {
-            console.log(error);
             return rejectWithValue('error');
         }
     },

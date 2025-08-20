@@ -1,6 +1,5 @@
 import { ArticleList, ArticleViews } from 'entities/Article';
 import { ArticleViewSelector } from 'features/ArticleViewSelector';
-import { fetchNextArticlePage } from 'pages/ArticlePage/model/services/fetchNextArticlePage/fetchNextArticlePage';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -8,13 +7,12 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Page } from 'widgets/Page/Page';
-import { ininArticlePage } from 'pages/ArticlePage/model/services/ininArticlePage/ininArticlePage';
+import { ininArticlePage } from '../../model/services/ininArticlePage/ininArticlePage';
+import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 import {
     getArticlesIsLoading,
-    getArticlesPageInited,
     getArticlesViews,
 } from '../../model/selectors/articles';
-import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
 import { articlePageActions, articlesReducer, getArticles } from '../../model/slice/articlePageSlice';
 
 const ArticlePage = memo(() => {
