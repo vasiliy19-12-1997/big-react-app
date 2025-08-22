@@ -1,6 +1,8 @@
-import { ArticleList, ArticleViews } from 'entities/Article';
-import { ArticleViewSelector } from 'features/ArticleViewSelector';
+import {
+    ArticleList, ArticleSortSelector,
+} from 'entities/Article';
 import { fetchNextArticlePage } from 'pages/ArticlePage/model/services/fetchNextArticlePage/fetchNextArticlePage';
+import { ininArticlePage } from 'pages/ArticlePage/model/services/ininArticlePage/ininArticlePage';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -8,14 +10,13 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Page } from 'widgets/Page/Page';
-import { ininArticlePage } from 'pages/ArticlePage/model/services/ininArticlePage/ininArticlePage';
 import {
     getArticlesIsLoading,
-    getArticlesPageInited,
     getArticlesViews,
 } from '../../model/selectors/articles';
-import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
-import { articlePageActions, articlesReducer, getArticles } from '../../model/slice/articlePageSlice';
+import { articlesReducer, getArticles } from '../../model/slice/articlePageSlice';
+import { ArticlePageFilter } from '../ArticlePageFilter/ArticlePageFilter';
+import cls from './ArticlePage.module.scss';
 
 const ArticlePage = memo(() => {
     const { t } = useTranslation('ArticlePage');
@@ -27,21 +28,20 @@ const ArticlePage = memo(() => {
         articlePage: articlesReducer,
     };
 
-    const onViewClick = useCallback((view:ArticleViews) => {
-        dispatch(articlePageActions.setView(view));
-    }, [dispatch]);
     useInitialEffect(() => {
         dispatch(ininArticlePage());
-    });
+    }, [dispatch]);
+
     const onNextLoad = useCallback(() => {
         dispatch(fetchNextArticlePage());
     }, [dispatch]);
+
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page onScrollEnd={onNextLoad}>
                 {t('Article Page')}
-                <ArticleViewSelector view={views} onViewClick={onViewClick} />
-                <ArticleList articles={articles} isLoading={isLoading} views={views} />
+                <ArticlePageFilter />
+                <ArticleList className={cls.list} articles={articles} isLoading={isLoading} views={views} />
             </Page>
         </DynamicModuleLoader>
     );

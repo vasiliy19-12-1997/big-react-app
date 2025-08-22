@@ -24,21 +24,25 @@ export const Page = memo((props: PageProps) => {
     const { pathname } = useLocation();
     const dispatch = useAppDispatch();
     const scrollPosition = useSelector((state:StateSchema) => getScrollRestorationByPath(state, pathname));
+
     useInfiniteScroll({
         wrapperRef,
         triggerRef,
         callback: onScrollEnd,
     });
+
     const onScroll = useThrotle((e: UIEvent<HTMLDivElement>) => {
         dispatch(scrollRestorationSliceActions.setScrollPosition({ path: pathname, position: e?.currentTarget?.scrollTop }));
     }, 700);
+
     useInitialEffect(() => {
         wrapperRef.current.scrollTop = scrollPosition;
     }, [scrollPosition]);
+
     return (
         <section onScroll={onScroll} ref={wrapperRef} className={classNames(cls.Page, {}, [className])}>
             {children}
-            <div ref={triggerRef} />
+            {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
         </section>
     );
 });

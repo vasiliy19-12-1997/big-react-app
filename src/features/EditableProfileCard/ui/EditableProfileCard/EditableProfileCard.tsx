@@ -40,7 +40,7 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
     const dispatch = useAppDispatch();
     useInitialEffect(() => {
         dispatch(fetchProfileData(id));
-    });
+    }, [dispatch, id]);
 
     const onChangeFirstname = useCallback((value?:string) => {
         dispatch(profileActions.updateProfile({ first: value || '' }));

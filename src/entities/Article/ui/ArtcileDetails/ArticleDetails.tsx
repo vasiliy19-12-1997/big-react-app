@@ -50,7 +50,7 @@ export const ArtcileDetails = memo((props: ArtcileDetailsProps) => {
     }, []);
     useInitialEffect(() => {
         dispatch(fetchArticleById(id));
-    });
+    }, [dispatch, id]);
     let element;
 
     if (error) {

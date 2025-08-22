@@ -5,23 +5,22 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Text } from 'shared/ui/Text/Text';
 import { Button } from 'shared/ui/Button/Button';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Text } from 'shared/ui/Text/Text';
 import { Page } from 'widgets/Page/Page';
-import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slice/ArticleDetailsCommentSlice';
-import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
+import { getArticleDetailsCommentsIsLoading } from '../../model/selectors/comments';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle';
-import { getArticleDetailsCommentsError, getArticleDetailsCommentsIsLoading } from '../../model/selectors/comments';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
+import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slice/ArticleDetailsCommentSlice';
 import cls from './ArticlePageDetails.module.scss';
 
 const ArticlePageDetails = memo(() => {
     const { t } = useTranslation('ArticlePageDetails');
     const { id } = useParams<{id?:string}>();
     const isLoading = useSelector(getArticleDetailsCommentsIsLoading);
-    const error = useSelector(getArticleDetailsCommentsError);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const reducers:ReducersList = {
@@ -30,7 +29,7 @@ const ArticlePageDetails = memo(() => {
     const comments = useSelector(getArticleComments.selectAll);
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
-    });
+    }, [dispatch, id]);
     const onSendComments = useCallback((text:string) => {
         dispatch(addCommentForArticle(text));
     }, [dispatch]);

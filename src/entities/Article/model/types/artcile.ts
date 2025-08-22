@@ -32,6 +32,12 @@ export enum ArticleViews{
     BIG = 'BIG',
     SMALL = 'SMALL'
 }
+export enum ArticleSortField{
+    VIEWS = 'views',
+    TITLE = 'title',
+    CREATED = 'createAt',
+
+}
 export type ArtcileTypeBlocks = ArtcileBlockImage | ArtcileBlockText | ArtcileBlockCode
 export interface Article {
         id: string;

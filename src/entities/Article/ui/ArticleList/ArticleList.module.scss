@@ -11,9 +11,9 @@
 .SMALL{
   display: flex;
   flex-wrap: wrap;
+  gap: 20px;
   .card{
   background-color: var(--card-bg);
-  margin-right: 16px;
-  margin-bottom: 30px;
+ 
 }
 }
