@@ -4,6 +4,7 @@ import {
     Article, ArticleSortField, getFilterSelectorOrder, getFilterSelectorSearch, getFilterSelectorSort,
 } from 'entities/Article';
 import { SortOrder } from 'shared/types';
+import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
 import { getArticlesPageLimit, getArticlesPageNumber } from '../../selectors/articles';
 
 interface fetchArticlesProps {
@@ -36,7 +37,9 @@ export const fetchArticles = createAsyncThunk<Article[], fetchArticlesProps, Thu
             q: search,
         };
         try {
-            window.history.pushState(null, '', 'search=');
+            addQueryParams({
+                sort, order, search,
+            });
             const response = await extra.api.get<Article[]>('/articles', {
                 params,
             });

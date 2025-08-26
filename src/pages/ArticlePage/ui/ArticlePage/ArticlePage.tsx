@@ -10,6 +10,7 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Page } from 'widgets/Page/Page';
+import { useSearchParams } from 'react-router-dom';
 import {
     getArticlesIsLoading,
     getArticlesViews,
@@ -21,6 +22,7 @@ import cls from './ArticlePage.module.scss';
 const ArticlePage = memo(() => {
     const { t } = useTranslation('ArticlePage');
     const dispatch = useAppDispatch();
+    const [searchParams] = useSearchParams();
     const articles = useSelector(getArticles.selectAll);
     const isLoading = useSelector(getArticlesIsLoading);
     const views = useSelector(getArticlesViews);
@@ -29,8 +31,8 @@ const ArticlePage = memo(() => {
     };
 
     useInitialEffect(() => {
-        dispatch(ininArticlePage());
-    }, [dispatch]);
+        dispatch(ininArticlePage(searchParams));
+    }, [dispatch, searchParams]);
 
     const onNextLoad = useCallback(() => {
         dispatch(fetchNextArticlePage());
