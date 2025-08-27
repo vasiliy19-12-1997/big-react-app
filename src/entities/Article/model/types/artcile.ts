@@ -24,6 +24,7 @@ export interface ArtcileBlockCode extends ArticleBlockBase {
     code:string
 }
 export enum ArticleType {
+    ALL='ALL',
     IT = 'IT',
     SCIENCE = 'SCIENCE',
     ECONOMICS = 'ECONOMICS'

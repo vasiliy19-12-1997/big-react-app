@@ -5,9 +5,9 @@ import {
 } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Article, ArticleViews } from 'entities/Article';
+import { ArticleSortField, ArticleType } from 'entities/Article/model/types/artcile';
 import { fetchArticles } from 'pages/ArticlePage/model/services/fetchArticles/fetchArticles';
 import { ARTICLE_VIEWS_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
-import { ArticleSortField } from 'entities/Article/model/types/artcile';
 import { SortOrder } from 'shared/types';
 import { ArticlePageSchema } from '../types/articlePageSchema';
 
@@ -31,6 +31,7 @@ const ArticlePageSlice = createSlice({
         order: 'asc',
         search: '',
         sort: ArticleSortField.VIEWS,
+        type: ArticleType.ALL,
     }),
     reducers: {
         setView: (state, action:PayloadAction<ArticleViews>) => {
@@ -48,6 +49,9 @@ const ArticlePageSlice = createSlice({
         },
         setSearch: (state, action:PayloadAction<string>) => {
             state.search = action.payload;
+        },
+        setType: (state, action:PayloadAction<ArticleType>) => {
+            state.type = action.payload;
         },
         initState: (state) => {
             const view = localStorage.getItem(ARTICLE_VIEWS_LOCALSTORAGE_KEY) as ArticleViews;

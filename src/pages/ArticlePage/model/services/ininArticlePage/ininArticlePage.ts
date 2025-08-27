@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider/config/StateSchema';
 import { SortOrder } from 'shared/types';
-import { ArticleSortField } from 'entities/Article';
+import { ArticleSortField, ArticleType } from 'entities/Article';
 import {
     getArticlesPageInited,
 } from '../../selectors/articles';
@@ -16,7 +16,8 @@ export const ininArticlePage = createAsyncThunk<void, URLSearchParams, ThunkConf
         const orderFromUrl = searchParams.get('order') as SortOrder;
         const sortFromUrl = searchParams.get('sort') as ArticleSortField;
         const searchFromUrl = searchParams.get('search');
-        type paramsFromUrl = 'sort' | 'order' | 'search';
+        const searchFromType = searchParams.get('type') as ArticleType;
+        type paramsFromUrl = 'sort' | 'order' | 'search' | 'type';
 
         if (orderFromUrl) {
             dispatch(articlePageActions.setOrder(orderFromUrl));
@@ -26,6 +27,9 @@ export const ininArticlePage = createAsyncThunk<void, URLSearchParams, ThunkConf
         }
         if (searchFromUrl) {
             dispatch(articlePageActions.setSearch(searchFromUrl));
+        }
+        if (searchFromType) {
+            dispatch(articlePageActions.setType(searchFromType));
         }
 
         if (!inited) {

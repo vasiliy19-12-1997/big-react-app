@@ -5,7 +5,8 @@ import {
 } from 'entities/Article';
 import { SortOrder } from 'shared/types';
 import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
-import { getArticlesPageLimit, getArticlesPageNumber } from '../../selectors/articles';
+import { ArticleType } from 'entities/Article/model/types/artcile';
+import { getArticlesPageLimit, getArticlesPageNumber, getArticlesPageType } from '../../selectors/articles';
 
 interface fetchArticlesProps {
     replace?:boolean
@@ -17,6 +18,7 @@ type ArticlesQuery = {
     _sort:ArticleSortField,
     _order:SortOrder
     q:string
+    type:ArticleType | undefined
 }
 
 export const fetchArticles = createAsyncThunk<Article[], fetchArticlesProps, ThunkConfig<string>>(
@@ -28,6 +30,7 @@ export const fetchArticles = createAsyncThunk<Article[], fetchArticlesProps, Thu
         const order = getFilterSelectorOrder(getState());
         const search = getFilterSelectorSearch(getState());
         const page = getArticlesPageNumber(getState());
+        const type = getArticlesPageType(getState());
         const params: ArticlesQuery = {
             _expand: 'user',
             _page: page,
@@ -35,10 +38,11 @@ export const fetchArticles = createAsyncThunk<Article[], fetchArticlesProps, Thu
             _sort: sort,
             _order: order,
             q: search,
+            type: type === ArticleType.ALL ? undefined : type,
         };
         try {
             addQueryParams({
-                sort, order, search,
+                sort, order, search, type,
             });
             const response = await extra.api.get<Article[]>('/articles', {
                 params,
