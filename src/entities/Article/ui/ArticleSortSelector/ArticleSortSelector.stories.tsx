@@ -5,7 +5,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { ArticleSortSelector } from './ArticleSortSelector';
 
 export default {
-    title: 'widget/ArticleSortSelector',
+    title: 'entities/Article/ArticleSortSelector',
     component: ArticleSortSelector,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -17,13 +17,13 @@ const Template: ComponentStory<typeof ArticleSortSelector> = (args) => <ArticleS
 export const Light = Template.bind({});
 Light.args = {};
 Light.decorators = [
-  ThemeDecorator(Theme.LIGHT),
-  StoreDecorator({ user: { authData: { /* заполняйте по необходимости */ } } })
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({ user: { authData: { /* заполняйте по необходимости */ } } }),
 ];
 
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [
-  ThemeDecorator(Theme.DARK),
-  StoreDecorator({ user: { authData: { /* заполняйте по необходимости */ } } })
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({ user: { authData: { /* заполняйте по необходимости */ } } }),
 ];

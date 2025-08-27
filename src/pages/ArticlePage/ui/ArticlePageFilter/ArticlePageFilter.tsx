@@ -6,7 +6,7 @@ import {
 import { ArticleViewSelector } from 'features/ArticleViewSelector';
 import { getArticlesViews } from 'pages/ArticlePage/model/selectors/articles';
 import { articlePageActions } from 'pages/ArticlePage/model/slice/articlePageSlice';
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -16,6 +16,8 @@ import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
 import { fetchArticles } from 'pages/ArticlePage/model/services/fetchArticles/fetchArticles';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
+import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs';
+import { ArticleType } from 'entities/Article/model/types/artcile';
 import cls from './ArticlePageFilter.module.scss';
 
 interface ArticlePageFilterProps {
@@ -30,6 +32,18 @@ export const ArticlePageFilter = memo((props: ArticlePageFilterProps) => {
     const sort = useSelector(getFilterSelectorSort);
     const order = useSelector(getFilterSelectorOrder);
     const search = useSelector(getFilterSelectorSearch);
+
+    const tabs = useMemo<TabItem>(() => [
+        {
+            value: ArticleType.IT,
+            content: t('Айти'),
+        },
+        {
+            value: ArticleType.IT,
+            content: t('Айти'),
+        },
+
+    ], [t]);
     const fetchData = useCallback(() => {
         dispatch(fetchArticles({ replace: true }));
     }, [dispatch]);
@@ -66,6 +80,7 @@ export const ArticlePageFilter = memo((props: ArticlePageFilterProps) => {
             <Card className={cls.search}>
                 <Input placeholder={t('Поиск')} value={search} onChange={onChangeSearch} />
             </Card>
+            <Tabs tabs={} onTabsClick={} value={} />
         </div>
     );
 });
