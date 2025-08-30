@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import cls from './ArticleList.module.scss';
@@ -12,12 +12,13 @@ interface ArticleListProps {
   isLoading?:boolean
   articles:Article[]
   views?:ArticleViews
+  target?:HTMLAttributeAnchorTarget
 }
 
 export const ArticleList = memo((props: ArticleListProps) => {
     const { t } = useTranslation();
     const {
-        className, articles, views = ArticleViews.BIG, isLoading,
+        className, articles, views = ArticleViews.SMALL, isLoading, target,
     } = props;
     const getSceletons = () => new Array(views === ArticleViews.SMALL ? 9 : 3).fill(0).map((item, index) => (
         <ArticleListItemSceleton view={views} key={String(index)} />
@@ -28,6 +29,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
             className={cls.card}
             article={article}
             view={views}
+            target={target}
         />
     );
     if (!isLoading && !articles.length) {

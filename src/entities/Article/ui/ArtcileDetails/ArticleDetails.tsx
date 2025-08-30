@@ -1,9 +1,8 @@
-import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading }
-    from 'entities/Article/model/selectors/getArticleDetails';
+import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from 'entities/Article/model/selectors/getArticleDetails';
 import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById';
 import { articleDetailsReducers } from 'entities/Article/model/slice/artcileDetailsSlice';
 import { ArtcileTypeBlocks, ArticleBlockType } from 'entities/Article/model/types/artcile';
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
@@ -11,10 +10,10 @@ import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Sceleton } from 'shared/ui/Sceleton/Sceleton';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Text, TextAlign, TextSize } from '../../../../shared/ui/Text/Text';
 import { ArtcileCodeBlockComponent } from '../ArtcileCodeBlockComponent/ArtcileCodeBlockComponent';
 import { ArtcileImageBlockComponent } from '../ArtcileImageBlockComponent/ArtcileImageBlockComponent';

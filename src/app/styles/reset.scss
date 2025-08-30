@@ -11,3 +11,21 @@ select {
     margin: 0;
     font: inherit;
 }
+
+*::-webkit-scrollbar {
+  width: 8px; /* Ширина всего элемента навигации */
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--card-bg); /* Цвет дорожки */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--inverted-primary-color); /* Цвет бегунка */
+  border-radius: 20px; /* Округление бегунка */
+  border: 3px solid var(--primary-color); /* Оформление границ бегунка */
+}
+a{
+  text-decoration: none;
+}

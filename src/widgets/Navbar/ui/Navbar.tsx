@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { getAuthUserData, userActions } from 'entities/User';
 import { Page } from 'widgets/Page/Page';
 import cls from './Navbar.module.scss';
@@ -17,6 +16,7 @@ export const Navbar = ({ className }: NavbarProps) => {
     const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authUser = useSelector(getAuthUserData);
+
     const dispatch = useDispatch();
     const onShowModal = useCallback(() => {
         setIsAuthModal(true);

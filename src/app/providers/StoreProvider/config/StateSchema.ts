@@ -10,8 +10,9 @@ import { UserSchema } from 'entities/User';
 import { AddCommentFormTypes } from 'features/AddCommentForm';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ArticlePageSchema } from 'pages/ArticlePage';
-import { ArticleDetailsCommentSchema } from 'pages/ArticlePageDetails';
+import { ArticleDetailsCommentSchema, ArticleDetailsRecommendSchema } from 'pages/ArticlePageDetails';
 import { ScrollRestorationSchema } from 'features/ScrollRestoration';
+import { ArticlePageDetailsSchema } from 'pages/ArticlePageDetails/model/types';
 import { StateSchemaKeys } from './store';
 
 export interface StateSchema{
@@ -21,10 +22,10 @@ export interface StateSchema{
     // асинхронные редюсеры
     login?:LoginSchema,
     profile?:ProfileSchema
-    articles?:ArticleDetailsSchema
-    articleDetailsComments?:ArticleDetailsCommentSchema
-    addCommentForm?:AddCommentFormTypes
     articlePage?:ArticlePageSchema
+    articles?:ArticleDetailsSchema
+    articlePageDetails?:ArticlePageDetailsSchema,
+    addCommentForm?:AddCommentFormTypes,
 }
 export type MountedReducers = OptionalRecord<StateSchemaKeys, boolean>
 export interface ReducerManagerProps{

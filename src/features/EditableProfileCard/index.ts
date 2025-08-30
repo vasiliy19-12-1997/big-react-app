@@ -22,3 +22,4 @@ export {
 
 } from './model/services/updateProfileData/updateProfileData';
 export { validateProfileData } from './model/services/validateProfileData/validateProfileData';
+export { EditableProfileCard } from './ui/EditableProfileCard/EditableProfileCard';

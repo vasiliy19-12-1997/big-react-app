@@ -1,12 +1,10 @@
 import {
-    Article,
     ArticleViews,
 } from 'entities/Article/model/types/artcile';
 import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Card } from 'shared/ui/Card/Card';
 import { Sceleton } from 'shared/ui/Sceleton/Sceleton';
-import { Text } from 'shared/ui/Text/Text';
 import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemSceletonProps {
