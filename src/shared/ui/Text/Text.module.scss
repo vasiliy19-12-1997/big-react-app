@@ -5,6 +5,15 @@
 .text {
     color: var(--secondary-color);
 }
+.inverted{
+    .title {
+    color: var(--secondary-color);
+}
+
+.text {
+    color: var(--inverted-secondary-color);
+}
+}
 
 .error {
     .title {

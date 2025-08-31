@@ -20,13 +20,14 @@ import { addCommentForArticle } from '../../model/services/addCommentForArticle'
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
 import { getArticleComments } from '../../model/slice/ArticleDetailsCommentSlice';
 import cls from './ArticlePageDetails.module.scss';
+import { ArticlePageDetailsHeader } from '../ArticlePageDetailsHeader/ArticlePageDetailsHeader';
 
 const ArticlePageDetails = memo(() => {
     const { t } = useTranslation('ArticlePageDetails');
     const { id } = useParams<{id?:string}>();
     const isLoading = useSelector(getArticleDetailsCommentsIsLoading);
     const dispatch = useDispatch();
-    const navigate = useNavigate();
+
     const comments = useSelector(getArticleComments.selectAll);
     const recommends = useSelector(getRecommend.selectAll);
     const isLoadingRecommends = useSelector(getArticleDetailsRecommendIsLoading);
@@ -42,9 +43,6 @@ const ArticlePageDetails = memo(() => {
         dispatch(addCommentForArticle(text));
     }, [dispatch]);
 
-    const onBackToList = useCallback(() => {
-        navigate(RoutePath.articles);
-    }, [navigate]);
     if (!id) {
         return (
             <div>
@@ -57,7 +55,7 @@ const ArticlePageDetails = memo(() => {
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page>
                 {t('Article Page Details')}
-                <Button onClick={onBackToList} className={cls.btnBack}>{t('Вернуться назад')}</Button>
+                <ArticlePageDetailsHeader />
                 <ArtcileDetails id={id} />
                 <Text title={t('Рекомендации')} />
                 <ArticleList target="_blank" className={cls.recommends} articles={recommends} isLoading={isLoadingRecommends} />

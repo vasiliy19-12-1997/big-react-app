@@ -6,6 +6,11 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAuthUserData, userActions } from 'entities/User';
 import { Page } from 'widgets/Page/Page';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { Route } from 'react-router-dom';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Theme } from 'app/providers/ThemeProvider';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -31,6 +36,8 @@ export const Navbar = ({ className }: NavbarProps) => {
     if (authUser) {
         return (
             <Page className={classNames(cls.Navbar, {}, [className])}>
+                <Text title={t('Vasiliy App')} className={cls.appName} theme={TextTheme.INVERTED} />
+                <AppLink theme={AppLinkTheme.SECONDARY} className={cls.createLink} to={RoutePath.article_create}>{t('Create Articles')}</AppLink>
                 <div className={cls.links}>
                     <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onLogout}>
                         {t('Выйти')}
