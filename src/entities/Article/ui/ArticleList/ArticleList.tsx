@@ -2,6 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Text, TextSize } from 'shared/ui/Text/Text';
+import { AutoSizer, List } from 'react-virtualized';
 import cls from './ArticleList.module.scss';
 import { Article, ArticleViews } from '../../model/types/artcile';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
@@ -40,13 +41,26 @@ export const ArticleList = memo((props: ArticleListProps) => {
         );
     }
     return (
-        <div className={classNames(cls.ArticleList, {}, [className, cls[views]])}>
-            {articles?.length > 0 ? articles.map(renderArticle) : null}
-            {isLoading && (
-                <div className={classNames(cls.ArticleList, {}, [className, cls[views]])}>
-                    {getSceletons()}
-                </div>
+        <AutoSizer disableHeight>
+            {({ width, height }) => (
+                <List
+                    height={500}
+                    rowCount={articles.length}
+                    rowHeight={500}
+                    // eslint-disable-next-line react/no-unstable-nested-components
+                    rowRenderer={() => <div />}
+                    width={width}
+                />
             )}
-        </div>
+        </AutoSizer>
+
+    // <div className={classNames(cls.ArticleList, {}, [className, cls[views]])}>
+    //     {articles?.length > 0 ? articles.map(renderArticle) : null}
+    //     {isLoading && (
+    //         <div className={classNames(cls.ArticleList, {}, [className, cls[views]])}>
+    //             {getSceletons()}
+    //         </div>
+    //     )}
+    // </div>
     );
 });
