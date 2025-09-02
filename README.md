@@ -2,7 +2,7 @@
 
 Полная конфигурация проекта «с нуля»: Webpack + React + TypeScript + Babel + SCSS/CSS‑modules + Vite + Prettier + ESlint/Stylelint. С нуля настроены **юнит/компонентные/e2e‑тесты** (Jest, React Testing Library, Storybook + Loki, Cypress), CI/CD, pre‑commit хуки, динамические редьюсеры, i18n, темизация и обширная библиотека UI‑компонентов.
 
-> Проект задуман как «большое реальное приложение», в котором собраны современные практики архитектуры, производительности и DX.
+> Проект задуман как «большое продакшн приложение», в котором собраны современные практики архитектуры, производительности и DX.
 
 ---
 
@@ -50,7 +50,7 @@
 
 **Автоматизация:** Plop‑генераторы фич/сущностей, скрипты для AST‑рефакторинга.
 
-**Сервер/инфра:** JSON‑Server для моков, Nginx‑конфиг для прод‑деплоя.
+**Сервер/инфра:** JSON‑Server для моков, дальше Nginx‑конфиг для прод‑деплоя фронта и отдельно мини-проект сервака, который разметил на Vercel
 
 ---
 
@@ -59,23 +59,22 @@
 1. Установите зависимости:
 
 ```bash
-# рекомендуемый менеджер — yarn
-yarn
-# или npm
-npm ci
+# рекомендуемый менеджер — npm
+yarn install
+# или npm i
 ```
 
 2. Создайте `.env` (см. пример ниже).
 3. Запустите dev‑сервер:
 
 ```bash
-yarn dev        # webpack‑dev‑server (по умолчанию http://localhost:3000)
+npm run start:dev        # webpack‑dev‑server (по умолчанию http://localhost:3000)
 ```
 
 4. Откройте Storybook:
 
 ```bash
-yarn storybook  # http://localhost:6006
+npm run storybook  # http://localhost:6006
 ```
 
 > **Node.js ≥ 18** рекомендуется. Если будут несовпадения, уточните версии в `package.json`.
@@ -88,39 +87,39 @@ yarn storybook  # http://localhost:6006
 
 ```bash
 # Запуск/сборка приложения
-yarn dev                 # старт dev‑сервера (Webpack)
-yarn build:dev           # сборка dev
-yarn build:prod          # сборка prod (минимизация, чанк‑сплиттинг)
-yarn analyze             # анализ бандла (webpack-bundle-analyzer)
+npm run start:dev                 # старт dev‑сервера (Webpack)
+npm run build:dev           # сборка dev
+npm run build:prod          # сборка prod (минимизация, чанк‑сплиттинг)
+npm run analyze             # анализ бандла (webpack-bundle-analyzer)
 
 # Storybook и скриншотные тесты (Loki)
-yarn storybook           # запуск Storybook
-yarn build-storybook     # сборка Storybook статикой
-yarn loki:test           # прогон визуальных регрессионных тестов
-yarn loki:approve        # апрув новых эталонов
+npm run storybook           # запуск Storybook
+npm run build-storybook     # сборка Storybook статикой
+npm run loki:test           # прогон визуальных регрессионных тестов
+npm run loki:approve        # апрув новых эталонов
 
 # Юнит/RTL и e2e
-yarn test                # юнит‑тесты (Jest)
-yarn test:watch          # юнит‑тесты в watch‑режиме
-yarn test:ui             # компонентные тесты (RTL)
-yarn cypress:open        # интерактивный Cypress
-yarn cypress:run         # headless‑запуск e2e
+npm run test                # юнит‑тесты (Jest)
+npm run test:watch          # юнит‑тесты в watch‑режиме
+npm run test:ui             # компонентные тесты (RTL)
+npm run cypress:open        # интерактивный Cypress
+npm run cypress:run         # headless‑запуск e2e
 
 # Линтинг/форматирование
-yarn lint                # eslint (TS/TSX)
-yarn lint:fix            # eslint с автофиксами
-yarn stylelint           # проверка стилей
-yarn stylelint:fix       # автофиксы стилей
-yarn format              # prettier
+npm run lint                # eslint (TS/TSX)
+npm run lint:fix            # eslint с автофиксами
+npm run stylelint           # проверка стилей
+npm run stylelint:fix       # автофиксы стилей
+npm run format              # prettier
 
 # Локальный Mock API
-yarn json:server         # поднять json‑server (см. json-server/db.json)
+npm run json:server         # поднять json‑server (см. json-server/db.json)
 
 # i18n
-yarn i18n:extract        # извлечение ключей переводов из кода (babel‑плагин)
+npm run i18n:extract        # извлечение ключей переводов из кода (babel‑плагин)
 
 # Генераторы
-yarn generate            # Plop‑генераторы фич/сущностей/виджетов
+npm run generate            # Plop‑генераторы фич/сущностей/виджетов
 ```
 
 ---
@@ -166,7 +165,7 @@ ENABLE_ANALYZE=false
 │  ├─ widgets/                  # крупные композиции из фич/сущностей
 │  ├─ features/                 # фичи (логика + UI)
 │  ├─ entities/                 # бизнес‑сущности (User, Article, Comment, ...)
-│  ├─ shared/                   # переиспользуемые модули: ui, lib, api, config
+│  ├─ shared/                   # переиспользуемые модули: ui, lib, api, config, hooks
 │  └─ index.tsx                 # точка входа
 ├─ babel.config.json
 ├─ tsconfig.json
@@ -218,11 +217,12 @@ ENABLE_ANALYZE=false
 
 ## Оптимизация производительности
 
-* контроль **перерисовок**: `React.memo`, `useMemo/useCallback`, разбиение пропов;
+* контроль **перерисовок**: `React.memo`, `useMemo/useCallback`, `useEffect`, разбиение пропов;
 * **асинхронные компоненты/редьюсеры**, изоляция модулей;
 * **bundle‑analyzer**, треш‑шейкинг, кэш‑группы, prefetch/preload;
 * `throttle`/`debounce` для сетевых и UI‑ивентов;
 * «ленивая» подгрузка тяжёлых библиотек (анимации, DnD) только на нужных экранах.
+* оптимизация списков
 
 ---
 
@@ -239,7 +239,7 @@ ENABLE_ANALYZE=false
 * **ESlint** (TS/React) + **кастомный архитектурный плагин** с автофиксом правил (изоляция модулей, доступ к слоям, алиасы);
 * **Stylelint** для SCSS/CSS‑modules;
 * **Prettier** — единый стиль кода;
-* **Husky** — pre‑commit хуки (линтеры/тесты/типчек по необходимости).
+* **Husky** — pre‑commit хуки (линтеры/тесты/типчек по необходимости) - бесплатно и удобно.
 
 ---
 
@@ -251,7 +251,7 @@ ENABLE_ANALYZE=false
 Пример:
 
 ```bash
-yarn generate
+npm run generate
 # далее выбрать: feature / entity / widget / page ...
 ```
 
@@ -272,7 +272,7 @@ yarn generate
 Локальные моки для быстрой разработки.
 
 ```bash
-yarn json:server
+npm run json:server
 # по умолчанию: http://localhost:8000, источник: json-server/db.json
 ```
 
