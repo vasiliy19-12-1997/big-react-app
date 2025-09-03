@@ -14,6 +14,11 @@
   gap: 20px;
   .card{
   background-color: var(--card-bg);
- 
+    display: inline-flex;// чтобы выстроить в линию
+    height: 300px;
+}
+.row{
+  display: flex;
+  gap: 30px;
 }
 }
