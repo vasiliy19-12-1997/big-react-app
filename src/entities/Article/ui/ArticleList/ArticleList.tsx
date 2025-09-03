@@ -75,8 +75,6 @@ export const ArticleList = memo((props: ArticleListProps) => {
             scrollElement={document.getElementById(PAGE_ID) as Element}
         >
             {({
-                height,
-                width,
                 registerChild,
                 isScrolling,
                 onChildScroll,
@@ -84,21 +82,25 @@ export const ArticleList = memo((props: ArticleListProps) => {
             }) => (
 
                 <div ref={registerChild} className={classNames(cls.ArticleList, {}, [className, cls[views]])}>
-                    <List
-                        height={height ?? 700}
-                        rowCount={rowCount}
-                        rowHeight={isBig ? 700 : 300}
-                        width={width ? width - 80 : 700}
-                        rowRenderer={rowRenderer}
-                        autoHeight
-                        onScroll={onChildScroll}
-                        isScrolling={isScrolling}
-                        scrollTop={scrollTop}
-                        // eslint-disable-next-line react/no-unstable-nested-components, i18next/no-literal-string
-                    />
-                    {isLoading && getSceletons(views)}
+                    <AutoSizer disableHeight>
+                        {({ width, height }) => (
+                            <List
+                                height={height ?? 500}
+                                rowCount={rowCount}
+                                rowHeight={isBig ? 700 : 300}
+                                width={width ? width - 80 : 700}
+                                rowRenderer={rowRenderer}
+                                autoHeight
+                                onScroll={onChildScroll}
+                                isScrolling={isScrolling}
+                                scrollTop={scrollTop}
+                            />
+                        )}
+                    </AutoSizer>
+
                 </div>
             )}
+
         </WindowScroller>
     );
 });
