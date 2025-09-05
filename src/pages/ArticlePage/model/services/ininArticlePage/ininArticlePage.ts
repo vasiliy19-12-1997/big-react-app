@@ -17,7 +17,6 @@ export const ininArticlePage = createAsyncThunk<void, URLSearchParams, ThunkConf
         const sortFromUrl = searchParams.get('sort') as ArticleSortField;
         const searchFromUrl = searchParams.get('search');
         const searchFromType = searchParams.get('type') as ArticleType;
-        type paramsFromUrl = 'sort' | 'order' | 'search' | 'type';
 
         if (orderFromUrl) {
             dispatch(articlePageActions.setOrder(orderFromUrl));

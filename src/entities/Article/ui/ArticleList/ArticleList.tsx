@@ -97,7 +97,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                             />
                         )}
                     </AutoSizer>
-
+                    {isLoading && getSceletons(views)}
                 </div>
             )}
 

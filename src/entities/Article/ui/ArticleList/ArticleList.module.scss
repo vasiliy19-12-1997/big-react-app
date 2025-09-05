@@ -6,19 +6,17 @@
    margin-bottom: 30px;
    border-radius: 20px;
    padding: 15px;
+   
  }
 }
 .SMALL{
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  
   .card{
   background-color: var(--card-bg);
-    display: inline-flex;// чтобы выстроить в линию
+    display: inline-flex;
     height: 300px;
-}
-.row{
-  display: flex;
-  gap: 30px;
-}
+  }
 }
