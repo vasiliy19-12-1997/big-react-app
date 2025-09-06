@@ -1,8 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { ArtcileBlockCode } from 'entities/Article/model/types/artcile';
 import { Code } from 'shared/ui/Code/Code';
 import { Text } from 'shared/ui/Text/Text';
+import { ArtcileBlockCode } from '../../../Article/model/types/artcile';
 import cls from './ArtcileCodeBlockComponent.module.scss';
 
 interface ArtcileCodeBlockComponentProps {

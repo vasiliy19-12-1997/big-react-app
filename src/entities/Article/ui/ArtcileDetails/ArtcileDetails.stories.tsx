@@ -1,8 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
-import { Article, ArticleBlockType, ArticleType } from 'entities/Article/model/types/artcile';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Article, ArticleBlockType, ArticleType } from '../../../Article/model/types/artcile';
 import { ArtcileDetails } from './ArticleDetails';
 
 export default {
@@ -23,10 +23,10 @@ const articles:Article = {
     views: 1022,
     createdAt: '26.02.2022',
     type: [ArticleType.IT],
-    user:{
-            username:"vasya",
-            id:"1",
-        },
+    user: {
+        username: 'vasya',
+        id: '1',
+    },
     blocks: [
         {
             id: '1',
