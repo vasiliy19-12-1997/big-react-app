@@ -1,12 +1,12 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Commentary } from 'entities/Сommentary/model/types/commentary';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Text } from 'shared/ui/Text/Text';
 import { Sceleton } from 'shared/ui/Sceleton/Sceleton';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Commentary } from '../../model/types/commentary';
 import cls from './CommentaryCard.module.scss';
 
 interface CommentaryCardProps {

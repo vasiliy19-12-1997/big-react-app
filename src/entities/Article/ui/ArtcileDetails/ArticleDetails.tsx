@@ -1,6 +1,3 @@
-import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById';
-import { articleDetailsReducers } from 'entities/Article/model/slice/artcileDetailsSlice';
-import { ArtcileTypeBlocks, ArticleBlockType } from 'entities/Article/model/types/artcile';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -13,7 +10,10 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Sceleton } from 'shared/ui/Sceleton/Sceleton';
-import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '../../entities/Article/model/selectors/getArticleDetails';
+import { getArticleDetailsError, getArticleDetailsIsLoading, getArticleDetailsData } from '../../model/selectors/getArticleDetails';
+import { ArtcileTypeBlocks, ArticleBlockType } from '../../model/types/artcile';
+import { articleDetailsReducers } from '../../model/slice/artcileDetailsSlice';
+import { fetchArticleById } from '../../model/services/fetchArticleById';
 import { Text, TextAlign, TextSize } from '../../../../shared/ui/Text/Text';
 import { ArtcileCodeBlockComponent } from '../ArtcileCodeBlockComponent/ArtcileCodeBlockComponent';
 import { ArtcileImageBlockComponent } from '../ArtcileImageBlockComponent/ArtcileImageBlockComponent';

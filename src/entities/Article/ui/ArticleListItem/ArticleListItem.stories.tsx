@@ -1,11 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Article, ArticleViews } from 'entities/Article/model/types/artcile';
-import { $api } from 'shared/config/api/api';
+import { Article, ArticleViews } from '../../model/types/artcile';
 import { ArticleListItem } from './ArticleListItem';
-import { Dark } from '../../../../shared/ui/ThemeSwitcher/ui/ThemeSwitcher.stories';
 
 export default {
     title: 'entities/Article/ArticleListItem',

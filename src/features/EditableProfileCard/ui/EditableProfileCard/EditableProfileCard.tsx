@@ -2,21 +2,19 @@ import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import { ProfileCard } from 'entities/Profile';
 import { ValidateProfileErrors } from 'entities/Profile/model/types/profile';
-import { fetchProfileData, profileActions } from 'features/EditableProfileCard';
-import { getProfileError } from 'features/EditableProfileCard/model/selectors/getProfileError/getProfileError';
-import { getProfileForm } from 'features/EditableProfileCard/model/selectors/getProfileForm/getProfileForm';
-import { getProfileIsLoading } from
-    'features/EditableProfileCard/model/selectors/getProfileIsLoading/getProfileIsLoading';
-import { getProfileReadonly } from 'features/EditableProfileCard/model/selectors/getProfileReadonly/getProfileReadonly';
-import { getProfileValidateErrors } from
-    'features/EditableProfileCard/model/selectors/getProfileValidateErrors/getProfileValidateErrors';
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { fetchProfileData, profileActions } from '../..';
+import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
+import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
+import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 
 interface EditableProfileCardProps {
   className?: string;

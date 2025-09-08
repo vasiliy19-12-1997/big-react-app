@@ -6,9 +6,9 @@ import {
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Article, ArticleViews } from 'entities/Article';
 import { ArticleSortField, ArticleType } from 'entities/Article/model/types/artcile';
-import { fetchArticles } from 'pages/ArticlePage/model/services/fetchArticles/fetchArticles';
 import { ARTICLE_VIEWS_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 import { SortOrder } from 'shared/types';
+import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
 import { ArticlePageSchema } from '../types/articlePageSchema';
 
 // Since we don't provide `selectId`, it defaults to assuming `entity.id` is the right field

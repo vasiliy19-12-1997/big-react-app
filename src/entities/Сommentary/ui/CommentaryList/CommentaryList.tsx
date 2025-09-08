@@ -1,7 +1,7 @@
-import { Commentary } from 'entities/Сommentary/model/types/commentary';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Commentary } from '../../model/types/commentary';
 import { CommentaryCard } from '../CommentaryCard/CommentaryCard';
 import cls from './CommentaryList.module.scss';
 

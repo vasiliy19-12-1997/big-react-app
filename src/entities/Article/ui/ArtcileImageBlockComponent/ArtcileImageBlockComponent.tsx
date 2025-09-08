@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { ArtcileBlockImage } from 'entities/Article/model/types/artcile';
 import { Text } from 'shared/ui/Text/Text';
+import { ArtcileBlockImage } from '../../model/types/artcile';
 import cls from './ArtcileImageBlockComponent.module.scss';
 
 interface ArtcileImageBlockComponentProps {

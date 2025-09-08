@@ -1,7 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { ArtcileBlockText, ArtcileTypeBlocks } from 'entities/Article/model/types/artcile';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
+import { ArtcileBlockText } from '../../model/types/artcile';
 import cls from './ArtcileTextBlockComponent.module.scss';
 
 interface ArtcileTextBlockComponentProps {

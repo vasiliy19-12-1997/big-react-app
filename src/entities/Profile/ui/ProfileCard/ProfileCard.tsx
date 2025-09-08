@@ -1,4 +1,3 @@
-import { Profile } from 'entities/Profile/model/types/profile';
 import { useTranslation } from 'react-i18next';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
@@ -8,6 +7,7 @@ import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Currency, CurrencySelect } from 'entities/Currency';
 import { CountrySelect } from 'entities/Country/ui/CountrySelect/CountrySelect';
 import { Country } from 'entities/Country';
+import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
