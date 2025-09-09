@@ -7,6 +7,7 @@ import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Currency, CurrencySelect } from 'entities/Currency';
 import { CountrySelect } from 'entities/Country/ui/CountrySelect/CountrySelect';
 import { Country } from 'entities/Country';
+import { HStack, VStack } from 'shared/ui';
 import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
@@ -45,29 +46,29 @@ export const ProfileCard = (props: ProfileCardProps) => {
     } = props;
     if (isLoading) {
         return (
-            <div className={classNames(cls.ProfileCard, {}, [className, cls.loading])}>
+            <HStack max className={classNames(cls.ProfileCard, {}, [className, cls.loading])}>
                 <Loader />
-            </div>
+            </HStack>
         );
     }
     if (error) {
         return (
-            <div className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
+            <HStack max className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
                 <Text
                     theme={TextTheme.ERROR}
                     align={TextAlign.CENTER}
                     title={t('Произошла ошибка при загрузке профиля')}
                     text={t('Попробуйте обновить страницу')}
                 />
-            </div>
+            </HStack>
         );
     }
     const mods:Mods = {
         [cls.editing]: !readonly,
     };
     return (
-        <div className={classNames(cls.ProfileCard, mods, [className])}>
-            <div className={cls.data}>
+        <VStack align="center" max className={classNames(cls.ProfileCard, mods, [className])}>
+            <VStack max className={cls.data}>
                 {data?.avatar && (
                     <div className={cls.avatarWrapper}>
                         <Avatar src={data.avatar} />
@@ -127,7 +128,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     onChange={onChangeCountry}
                     readonly={readonly}
                 />
-            </div>
-        </div>
+            </VStack>
+        </VStack>
     );
 };

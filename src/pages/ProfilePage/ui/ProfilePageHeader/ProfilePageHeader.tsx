@@ -9,7 +9,8 @@ import {
     getProfileData, getProfileReadonly, profileActions, updateProfileData,
 } from 'features/EditableProfileCard';
 import { getAuthUserData } from 'entities/User';
-import cls from './ProfilePageHeader.module.scss';
+import { HStack } from 'shared/ui/HStack/HStack';
+import { VStack } from 'shared/ui/VStack/VStack';
 
 interface ProfilePageHeaderProps {
   className?: string;
@@ -36,13 +37,12 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
     }, [dispatch]);
     return (
 
-        <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
+        <VStack max className={classNames('', {}, [className])}>
             <Text title={t('Профиль пользователя')} />
             {canEdit && (
-                <div className={cls.btnsWrapper}>
+                <HStack max gap={8} justify="between">
                     {readonly ? (
                         <Button
-                            className={cls.editBtn}
                             theme={ButtonTheme.OUTLINE}
                             onClick={onEdit}
                         >
@@ -51,14 +51,12 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
                     ) : (
                         <>
                             <Button
-                                className={cls.editBtn}
                                 theme={ButtonTheme.OUTLINE_RED}
                                 onClick={onCancellEdit}
                             >
                                 {t('Отменить')}
                             </Button>
                             <Button
-                                className={cls.editBtn}
                                 theme={ButtonTheme.OUTLINE}
                                 onClick={onSave}
                             >
@@ -66,9 +64,9 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
                             </Button>
                         </>
                     )}
-                </div>
+                </HStack>
             )}
 
-        </div>
+        </VStack>
     );
 };

@@ -10,11 +10,12 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Sceleton } from 'shared/ui/Sceleton/Sceleton';
-import { getArticleDetailsError, getArticleDetailsIsLoading, getArticleDetailsData } from '../../model/selectors/getArticleDetails';
-import { ArtcileTypeBlocks, ArticleBlockType } from '../../model/types/artcile';
-import { articleDetailsReducers } from '../../model/slice/artcileDetailsSlice';
-import { fetchArticleById } from '../../model/services/fetchArticleById';
+import { HStack, VStack } from 'shared/ui';
 import { Text, TextAlign, TextSize } from '../../../../shared/ui/Text/Text';
+import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors/getArticleDetails';
+import { fetchArticleById } from '../../model/services/fetchArticleById';
+import { articleDetailsReducers } from '../../model/slice/artcileDetailsSlice';
+import { ArtcileTypeBlocks, ArticleBlockType } from '../../model/types/artcile';
 import { ArtcileCodeBlockComponent } from '../ArtcileCodeBlockComponent/ArtcileCodeBlockComponent';
 import { ArtcileImageBlockComponent } from '../ArtcileImageBlockComponent/ArtcileImageBlockComponent';
 import { ArtcileTextBlockComponent } from '../ArtcileTextBlockComponent/ArtcileTextBlockComponent';
@@ -69,20 +70,20 @@ export const ArtcileDetails = memo((props: ArtcileDetailsProps) => {
     } else {
         element = (
             <>
-                <div className={cls.avatarWrapper}>
+                <HStack max className={cls.avatarWrapper}>
                     <Avatar src={article?.img} className={cls.avatar} />
-                </div>
+                </HStack>
                 <Text size={TextSize.L} title={article?.title} />
                 <Text size={TextSize.L} text={article?.subtitle} />
 
-                <div className={cls.articleInfo}>
+                <HStack justify="start">
                     <Icon Svg={EyeIcon} className={cls.icon} />
                     <Text text={String(article?.views)} />
-                </div>
-                <div className={cls.articleInfo}>
+                </HStack>
+                <HStack justify="start">
                     <Icon Svg={CalendarIcon} className={cls.icon} />
                     <Text text={String(article?.createdAt)} />
-                </div>
+                </HStack>
                 {article?.blocks.map(renderBlocks)}
             </>
         );

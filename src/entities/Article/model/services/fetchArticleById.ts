@@ -17,8 +17,6 @@ export const fetchArticleById = createAsyncThunk<Article, string, ThunkConfig<st
             }
             return response.data;
         } catch (error) {
-            // eslint-disable-next-line no-debugger
-            debugger;
             return rejectWithValue(error as string);
         }
     },

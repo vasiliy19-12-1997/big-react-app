@@ -6,6 +6,7 @@ import { Text } from 'shared/ui/Text/Text';
 import { Sceleton } from 'shared/ui/Sceleton/Sceleton';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { VStack } from 'shared/ui';
 import { Commentary } from '../../model/types/commentary';
 import cls from './CommentaryCard.module.scss';
 
@@ -23,23 +24,22 @@ export const CommentaryCard = memo((props: CommentaryCardProps) => {
     }
     if (isLoading) {
         return (
-            <div className={classNames(cls.CommentaryList, {}, [className, cls.loading])}>
+            <VStack max className={classNames(cls.CommentaryList, {}, [className, cls.loading])}>
                 <div className={cls.wrapperAvatar}>
                     <Sceleton className={cls.avatar} width={30} height={30} border="50%" />
                     <Sceleton width={150} height={16} />
                 </div>
                 <Sceleton height={50} />
-
-            </div>
+            </VStack>
         );
     }
     return (
-        <div className={classNames(cls.CommentaryCard, {}, [className])}>
+        <VStack max className={classNames(cls.CommentaryCard, {}, [className])}>
             <AppLink to={`${RoutePath.profile}${comment?.user?.id}`} className={cls.wrapperAvatar}>
                 {comment?.user?.avatar && <Avatar className={cls.avatar} size={30} src={comment?.user?.avatar} />}
                 <Text title={comment?.user?.username} />
             </AppLink>
             <Text text={comment?.text} />
-        </div>
+        </VStack>
     );
 });

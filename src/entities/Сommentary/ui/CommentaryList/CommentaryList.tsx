@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { HStack, VStack } from 'shared/ui';
 import { Commentary } from '../../model/types/commentary';
 import { CommentaryCard } from '../CommentaryCard/CommentaryCard';
 import cls from './CommentaryList.module.scss';
@@ -17,22 +18,22 @@ export const CommentaryList = memo((props: CommentaryListProps) => {
 
     if (isLoading) {
         return (
-            <div className={classNames(cls.CommentaryList, {}, [className])}>
+            <VStack className={classNames('', {}, [className])}>
                 <CommentaryCard isLoading />
                 <CommentaryCard isLoading />
                 <CommentaryCard isLoading />
-            </div>
+            </VStack>
         );
     }
 
     return (
-        <div className={classNames(cls.CommentaryList, {}, [className])}>
+        <VStack max className={classNames('', {}, [className])}>
             {comments.length > 0 ? comments.map((comment, index) => (
                 // eslint-disable-next-line react/no-array-index-key
                 <CommentaryCard key={index} isLoading={isLoading} className={cls.cards} comment={comment} />
             )) : (
                 null
             )}
-        </div>
+        </VStack>
     );
 });

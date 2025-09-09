@@ -5,7 +5,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { ArticlePageTabs } from './ArticlePageTabs';
 
 export default {
-    title: 'entities/Article//ArticlePageTabs',
+    title: 'entities/Article/ArticlePageTabs',
     component: ArticlePageTabs,
     argTypes: {
         backgroundColor: { control: 'color' },
