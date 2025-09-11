@@ -10,7 +10,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Sceleton } from 'shared/ui/Sceleton/Sceleton';
-import { HStack, VStack } from 'shared/ui';
+import { HStack } from 'shared/ui/Stack';
 import { Text, TextAlign, TextSize } from '../../../../shared/ui/Text/Text';
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors/getArticleDetails';
 import { fetchArticleById } from '../../model/services/fetchArticleById';

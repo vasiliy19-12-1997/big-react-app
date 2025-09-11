@@ -9,8 +9,7 @@ import {
     getProfileData, getProfileReadonly, profileActions, updateProfileData,
 } from 'features/EditableProfileCard';
 import { getAuthUserData } from 'entities/User';
-import { HStack } from 'shared/ui/HStack/HStack';
-import { VStack } from 'shared/ui/VStack/VStack';
+import { HStack, VStack } from 'shared/ui/Stack';
 
 interface ProfilePageHeaderProps {
   className?: string;

@@ -42,7 +42,7 @@ export interface FlexProps extends divType {
   max?:boolean
 }
 
-export const Flex = memo((props: FlexProps) => {
+export const Flex = (props: FlexProps) => {
     const { t } = useTranslation();
     const {
         className,
@@ -68,4 +68,4 @@ export const Flex = memo((props: FlexProps) => {
             {children}
         </div>
     );
-});
+};
