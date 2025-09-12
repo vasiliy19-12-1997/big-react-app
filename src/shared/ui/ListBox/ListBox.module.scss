@@ -1,0 +1,15 @@
+.ListBox {
+  position: relative;
+}
+.button{
+  
+}
+.options{
+  position: absolute;
+  background-color: var(--list-box-bg);
+  z-index: 10000;
+  width: auto;
+}
+.items{
+  padding: 10px 20px;
+}
