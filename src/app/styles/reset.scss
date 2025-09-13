@@ -11,6 +11,9 @@ select {
     margin: 0;
     font: inherit;
 }
+li{
+  list-style-type: none;
+}
 
 *::-webkit-scrollbar {
   width: 8px; /* Ширина всего элемента навигации */

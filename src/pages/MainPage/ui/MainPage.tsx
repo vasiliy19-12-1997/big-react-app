@@ -1,7 +1,8 @@
 import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/Input';
-import { Listbox } from 'shared/ui/ListBox/ListBox';
+import { ListBox } from 'shared/ui/ListBox/ListBox';
+import { HStack } from 'shared/ui/Stack';
 import { Page } from 'widgets/Page/Page';
 
 const MainPage = memo(() => {
@@ -13,7 +14,26 @@ const MainPage = memo(() => {
     return (
         <Page>
             {t('Главная страница')}
-            <Listbox />
+            <div>111</div>
+            <div>111</div>
+            <HStack>
+                <ListBox
+                    onChange={(value) => {}}
+                    value={undefined}
+                    defaultValue={t('Выберите кнопку')}
+                    items={[
+                        { value: '123', content: 'USD' },
+                        { value: '123', content: 'EUR', disabled: true },
+                        { value: '123', content: 'BYN' }]}
+
+                />
+            </HStack>
+            <div>111</div>
+            <div>111</div>
+            <div>111</div>
+            <div>111</div>
+            <div>111</div>
+
             <Input
                 onChange={onChange}
                 value={value}
