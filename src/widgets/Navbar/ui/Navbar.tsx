@@ -1,16 +1,16 @@
+import { getAuthUserData, userActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAuthUserData, userActions } from 'entities/User';
-import { Page } from 'widgets/Page/Page';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { Route } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { Theme } from 'app/providers/ThemeProvider';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { Page } from 'widgets/Page/Page';
+import { DropDown } from 'shared/ui/DropDown/DropDown';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -39,9 +39,8 @@ export const Navbar = ({ className }: NavbarProps) => {
                 <Text title={t('Vasiliy App')} className={cls.appName} theme={TextTheme.INVERTED} />
                 <AppLink theme={AppLinkTheme.SECONDARY} className={cls.createLink} to={RoutePath.article_create}>{t('Create Articles')}</AppLink>
                 <div className={cls.links}>
-                    <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onLogout}>
-                        {t('Выйти')}
-                    </Button>
+                    <DropDown className={cls.dropDown} items={[{ content: 'Выйти', onClick: onLogout }]} trigger={<Avatar src={authUser?.avatar} />} />
+
                 </div>
             </Page>
         );
