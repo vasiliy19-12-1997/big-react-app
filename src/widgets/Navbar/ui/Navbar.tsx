@@ -35,30 +35,34 @@ export const Navbar = ({ className }: NavbarProps) => {
 
     if (authUser) {
         return (
-            <Page className={classNames(cls.Navbar, {}, [className])}>
+            <header className={classNames(cls.Navbar, {}, [className])}>
                 <Text title={t('Vasiliy App')} className={cls.appName} theme={TextTheme.INVERTED} />
                 <AppLink theme={AppLinkTheme.SECONDARY} className={cls.createLink} to={RoutePath.article_create}>{t('Create Articles')}</AppLink>
                 <div className={cls.links}>
-                    <DropDown className={cls.dropDown} items={[{ content: 'Выйти', onClick: onLogout }]} trigger={<Avatar src={authUser?.avatar} />} />
+                    <DropDown
+                        className={cls.dropDown}
+                        items={[{ content: 'Выйти', onClick: onLogout },
+                            { content: 'Профиль', href: RoutePath.profile + authUser.id }]}
+                        direction="bottom left"
+                        trigger={<Avatar size={30} src={authUser?.avatar} />}
+                    />
 
                 </div>
-            </Page>
+            </header>
         );
     }
     return (
-        <nav className={classNames(cls.Navbar, {}, [className])}>
-            <div className={cls.links}>
-                <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onShowModal}>
-                    {t('Войти')}
-                </Button>
-                {isAuthModal && (
-                    <LoginModal
-                        isOpen={isAuthModal}
-                        onClose={onCloseModal}
-                    />
-                )}
+        <header className={classNames(cls.Navbar, {}, [className])}>
+            <Button className={cls.links} theme={ButtonTheme.CLEAR_INVERTED} onClick={onShowModal}>
+                {t('Войти')}
+            </Button>
+            {isAuthModal && (
+                <LoginModal
+                    isOpen={isAuthModal}
+                    onClose={onCloseModal}
+                />
+            )}
 
-            </div>
-        </nav>
+        </header>
     );
 };
