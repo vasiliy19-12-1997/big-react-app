@@ -1,6 +1,7 @@
-import { ArtcileDetails, ArticleList } from 'entities/Article';
+import { ArtcileDetails } from 'entities/Article';
 import { CommentaryList } from 'entities/Сommentary';
 import { AddCommentForm } from 'features/AddCommentForm';
+import { ArticleRecomendationList } from 'features/ArticleRecomendationList/ui/ArticleRecomendationList/ArticleRecomendationList';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,12 +12,11 @@ import { Text } from 'shared/ui/Text/Text';
 import { Page } from 'widgets/Page/Page';
 import { articleDetailsReducer } from '../../model/selectors';
 import { getArticleDetailsCommentsIsLoading } from '../../model/selectors/comments/comments';
-import { getArticleDetailsRecommendError, getArticleDetailsRecommendIsLoading } from '../../model/selectors/recommends/recommends';
+import { getArticleDetailsRecommendError } from '../../model/selectors/recommends/recommends';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle';
 import { fetchArticlesRecommends } from '../../model/services/fetchArticlesRecommends';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
 import { getArticleComments } from '../../model/slice/ArticleDetailsCommentSlice';
-import { getRecommend } from '../../model/slice/ArticleDetailsRecommendSlice';
 import { ArticlePageDetailsHeader } from '../ArticlePageDetailsHeader/ArticlePageDetailsHeader';
 import cls from './ArticlePageDetails.module.scss';
 
@@ -27,8 +27,6 @@ const ArticlePageDetails = memo(() => {
     const dispatch = useDispatch();
 
     const comments = useSelector(getArticleComments.selectAll);
-    const recommends = useSelector(getRecommend.selectAll);
-    const isLoadingRecommends = useSelector(getArticleDetailsRecommendIsLoading);
     const errorRecommends = useSelector(getArticleDetailsRecommendError);
     const reducers:ReducersList = {
         articlePageDetails: articleDetailsReducer,
@@ -55,8 +53,7 @@ const ArticlePageDetails = memo(() => {
                 {t('Article Page Details')}
                 <ArticlePageDetailsHeader />
                 <ArtcileDetails id={id} />
-                <Text title={t('Рекомендации')} />
-                <ArticleList target="_blank" className={cls.recommends} articles={recommends} isLoading={isLoadingRecommends} />
+                <ArticleRecomendationList />
                 <Text title={t('Комментарии')} className={cls.comments} />
                 <AddCommentForm onSendComments={onSendComments} />
                 <CommentaryList isLoading={isLoading} comments={comments} />
