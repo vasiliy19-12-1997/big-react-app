@@ -9,16 +9,17 @@ import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { AddCommentFormTypes } from 'features/AddCommentForm';
 import { LoginSchema } from 'features/AuthByUsername';
-import { ArticlePageSchema } from 'pages/ArticlePage';
-import { ArticleDetailsCommentSchema, ArticleDetailsRecommendSchema } from 'pages/ArticlePageDetails';
 import { ScrollRestorationSchema } from 'features/ScrollRestoration';
+import { ArticlePageSchema } from 'pages/ArticlePage';
 import { ArticlePageDetailsSchema } from 'pages/ArticlePageDetails/model/types';
+import { rtqApi } from 'shared/config/api/rtqApi';
 import { StateSchemaKeys } from './store';
 
 export interface StateSchema{
     counter:CounterSchema,
     user:UserSchema,
     scrollRestoration:ScrollRestorationSchema
+    [rtqApi.reducerPath]:ReturnType<typeof rtqApi.reducer>
     // асинхронные редюсеры
     login?:LoginSchema,
     profile?:ProfileSchema

@@ -72,7 +72,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     }
     return (
         <WindowScroller
-            scrollElement={document.getElementById(PAGE_ID) as Element}
+            scrollElement={document.getElementById(PAGE_ID) as Element ?? window}
         >
             {({
                 registerChild,

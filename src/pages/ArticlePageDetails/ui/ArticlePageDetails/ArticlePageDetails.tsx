@@ -10,6 +10,7 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Text } from 'shared/ui/Text/Text';
 import { Page } from 'widgets/Page/Page';
+import { ArticleDetailsComments } from 'pages/ArticleDetailsComments/ArticleDetailsComments';
 import { articleDetailsReducer } from '../../model/selectors';
 import { getArticleDetailsCommentsIsLoading } from '../../model/selectors/comments/comments';
 import { getArticleDetailsRecommendError } from '../../model/selectors/recommends/recommends';
@@ -23,21 +24,15 @@ import cls from './ArticlePageDetails.module.scss';
 const ArticlePageDetails = memo(() => {
     const { t } = useTranslation('ArticlePageDetails');
     const { id } = useParams<{id?:string}>();
-    const isLoading = useSelector(getArticleDetailsCommentsIsLoading);
     const dispatch = useDispatch();
-
-    const comments = useSelector(getArticleComments.selectAll);
-    const errorRecommends = useSelector(getArticleDetailsRecommendError);
     const reducers:ReducersList = {
         articlePageDetails: articleDetailsReducer,
     };
+
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
         dispatch(fetchArticlesRecommends());
     }, [dispatch, id]);
-    const onSendComments = useCallback((text:string) => {
-        dispatch(addCommentForArticle(text));
-    }, [dispatch]);
 
     if (!id) {
         return (
@@ -54,9 +49,7 @@ const ArticlePageDetails = memo(() => {
                 <ArticlePageDetailsHeader />
                 <ArtcileDetails id={id} />
                 <ArticleRecomendationList />
-                <Text title={t('Комментарии')} className={cls.comments} />
-                <AddCommentForm onSendComments={onSendComments} />
-                <CommentaryList isLoading={isLoading} comments={comments} />
+                <ArticleDetailsComments id={id} />
             </Page>
         </DynamicModuleLoader>
     );
