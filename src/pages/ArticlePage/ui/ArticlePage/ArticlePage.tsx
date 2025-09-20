@@ -7,11 +7,11 @@ import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/
 import { articlesReducer } from '../../model/slice/articlePageSlice';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 import { ArticlePageFilter } from '../ArticlePageFilter/ArticlePageFilter';
+import cls from './ArticlePage.module.scss';
 
 const ArticlePage = memo(() => {
     const { t } = useTranslation('ArticlePage');
     const dispatch = useAppDispatch();
-
     const reducers:ReducersList = {
         articlePage: articlesReducer,
     };
@@ -25,7 +25,7 @@ const ArticlePage = memo(() => {
             <Page onScrollEnd={onNextLoad}>
                 {t('Article Page')}
                 <ArticlePageFilter />
-                <ArticleInfiniteList />
+                <ArticleInfiniteList className={cls.list} />
             </Page>
         </DynamicModuleLoader>
     );

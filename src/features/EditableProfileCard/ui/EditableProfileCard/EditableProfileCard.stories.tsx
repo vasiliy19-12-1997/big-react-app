@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { EditableProfileCard } from './EditableProfileCard';
+import { EditableProfileCard } from '../EditableProfileCard/EditableProfileCard';
 
 export default {
     title: 'features/EditableProfileCard',
