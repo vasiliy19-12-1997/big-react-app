@@ -20,7 +20,7 @@ export const ProfilePage = memo((props: ProfilePageProps) => {
         className,
     } = props;
     if (!id) {
-        <Text text={t('Профиль не найден')} />;
+        return <Text text={t('Профиль не найден')} />;
     }
     return (
         <Page className={classNames('', {}, [className])}>

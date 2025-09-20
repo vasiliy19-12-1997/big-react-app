@@ -80,6 +80,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     placeholder={t('Выше имя')}
                     className={cls.input}
                     readonly={readonly}
+                    data-testid="ProfileCard.firsname"
                 />
                 <Input
                     value={data?.lastname}
@@ -87,6 +88,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     placeholder={t('Выше фамилия')}
                     className={cls.input}
                     readonly={readonly}
+                    data-testid="ProfileCard.lastname"
                 />
                 <Input
                     value={data?.age}
@@ -94,6 +96,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     placeholder={t('Выш возраст')}
                     className={cls.input}
                     readonly={readonly}
+                    data-testid="ProfileCard.age"
                 />
                 <Input
                     value={data?.city}
@@ -101,6 +104,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     placeholder={t('Ваш город')}
                     className={cls.input}
                     readonly={readonly}
+                    data-testid="ProfileCard.city"
                 />
                 <Input
                     value={data?.username}
@@ -108,6 +112,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     placeholder={t('Ваш никнейм')}
                     className={cls.input}
                     readonly={readonly}
+                    data-testid="ProfileCard.nickname"
                 />
                 <Input
                     value={data?.avatar}
@@ -115,6 +120,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     placeholder={t('Ваш аватар')}
                     className={cls.input}
                     readonly={readonly}
+                    data-testid="ProfileCard.avatar"
                 />
                 <CurrencySelect
                     className={cls.input}

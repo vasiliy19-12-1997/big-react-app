@@ -17,12 +17,17 @@ interface ArticleListProps {
   articles:Article[]
   views?:ArticleViews
   target?:HTMLAttributeAnchorTarget
+  virtualized?:boolean
 }
 
 export const ArticleList = memo((props: ArticleListProps) => {
     const { t } = useTranslation();
     const {
-        className, articles, views = ArticleViews.SMALL, isLoading, target,
+        className, articles,
+        views = ArticleViews.SMALL,
+        isLoading,
+        target,
+        virtualized = true,
     } = props;
     const getSceletons = (view:ArticleViews) => new Array(view === ArticleViews.SMALL ? 9 : 3).fill(0).map((item, index) => (
         <ArticleListItemSceleton view={view} key={String(index)} />
@@ -82,21 +87,33 @@ export const ArticleList = memo((props: ArticleListProps) => {
             }) => (
 
                 <div ref={registerChild} className={classNames(cls.ArticleList, {}, [className, cls[views]])}>
-                    <AutoSizer disableHeight>
-                        {({ width, height }) => (
-                            <List
-                                height={height ?? 500}
-                                rowCount={rowCount}
-                                rowHeight={isBig ? 700 : 300}
-                                width={width ? width - 80 : 700}
-                                rowRenderer={rowRenderer}
-                                autoHeight
-                                onScroll={onChildScroll}
-                                isScrolling={isScrolling}
-                                scrollTop={scrollTop}
+                    {virtualized ? (
+                        <AutoSizer disableHeight>
+                            {({ width, height }) => (
+                                <List
+                                    height={height ?? 500}
+                                    rowCount={rowCount}
+                                    rowHeight={isBig ? 700 : 300}
+                                    width={width ? width - 80 : 700}
+                                    rowRenderer={rowRenderer}
+                                    autoHeight
+                                    onScroll={onChildScroll}
+                                    isScrolling={isScrolling}
+                                    scrollTop={scrollTop}
+                                />
+                            )}
+                        </AutoSizer>
+                    ) : (
+                        articles.map((item) => (
+                            <ArticleListItem
+                                article={item}
+                                view={views}
+                                key={item.id}
+                                className={cls.card}
+                                target={target}
                             />
-                        )}
-                    </AutoSizer>
+                        ))
+                    )}
                     {isLoading && getSceletons(views)}
                 </div>
             )}
