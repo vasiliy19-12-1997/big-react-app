@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { VStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text/Text';
 
 interface ArticleDetailsCommentsProps {
@@ -34,10 +35,10 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
     }, [dispatch, id]);
 
     return (
-        <div className={classNames('', {}, [className])}>
+        <VStack gap={16}>
             <Text title={t('Комментарии')} />
             <AddCommentForm onSendComments={onSendComments} />
             <CommentaryList isLoading={isLoading} comments={comments} />
-        </div>
+        </VStack>
     );
 });
