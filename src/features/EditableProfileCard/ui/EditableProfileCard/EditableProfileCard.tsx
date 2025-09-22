@@ -21,7 +21,7 @@ import { EditableProfileCardHeader } from '../EditableProfileCardHeader/Editable
 
 interface EditableProfileCardProps {
   className?: string;
-  id?:string
+  id:string
 }
 
 export const EditableProfileCard = (props: EditableProfileCardProps) => {
@@ -79,7 +79,6 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <VStack max gap={8}>
-
                 <EditableProfileCardHeader />
                 {validateProfileErrors?.length && validateProfileErrors.map((err) => (
                     <Text
