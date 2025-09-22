@@ -1,4 +1,6 @@
-import { getAuthUserData, userActions } from 'entities/User';
+import {
+    getAuthUserData, isUserAdmin, isUserManager, userActions,
+} from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -21,8 +23,11 @@ export const Navbar = ({ className }: NavbarProps) => {
     const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authUser = useSelector(getAuthUserData);
-
+    const isAdmin = useSelector(isUserAdmin);
+    const isManager = useSelector(isUserManager);
+    const isAdminPanelAvailable = isAdmin || isManager;
     const dispatch = useDispatch();
+
     const onShowModal = useCallback(() => {
         setIsAuthModal(true);
     }, []);
@@ -41,8 +46,12 @@ export const Navbar = ({ className }: NavbarProps) => {
                 <div className={cls.links}>
                     <DropDown
                         className={cls.dropDown}
-                        items={[{ content: 'Выйти', onClick: onLogout },
-                            { content: 'Профиль', href: RoutePath.profile + authUser.id }]}
+                        items={[
+                            ...(isAdminPanelAvailable ? [
+                                { content: 'Админка', href: RoutePath.admin }] : []),
+                            { content: 'Выйти', onClick: onLogout },
+                            { content: 'Профиль', href: RoutePath.profile + authUser.id },
+                        ]}
                         direction="bottom left"
                         trigger={<Avatar size={30} src={authUser?.avatar} />}
                     />

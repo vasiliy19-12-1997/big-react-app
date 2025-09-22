@@ -614,14 +614,21 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "role": ["ADMIN"],
       "avatar": "https://icons.iconarchive.com/icons/iconbest/helldesign/128/devil-smile-icon.png"
     },
     {
       "id": "2",
-      "username": "user",
+      "username": "user2",
       "password": "123",
-      "role": "USER",
+      "role": ["USER"],
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    },
+    {
+      "id": "3",
+      "username": "user3",
+      "password": "123",
+      "role": ["MANAGER"],
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],

@@ -6,9 +6,12 @@ import { ProfilePage } from 'pages/ProfilePage';
 import { ArticlePage } from 'pages/ArticlePage';
 import { ArticlePageDetails } from 'pages/ArticlePageDetails';
 import { ArticleEditPage } from 'pages/ArticleEditPage';
+import { AdminPanelPage } from 'pages/AdminPanelPage';
+import { UserRoles } from 'entities/User';
 
 export type AppRouteProps = RouteProps &{
     authOnly?: boolean
+    roles?:UserRoles[]
 }
 export enum AppRoutes {
     MAIN = 'main',
@@ -19,6 +22,7 @@ export enum AppRoutes {
     ARTICLE_DETAILS = 'article_details',
     ARTICLE_CREATE = 'article_create',
     ARTICLE_EDIT = 'article_edit',
+    ADMIN = 'admin',
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
@@ -29,6 +33,7 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.ARTICLE_DETAILS]: '/articles/', // +id,
     [AppRoutes.ARTICLE_CREATE]: '/articles/new',
     [AppRoutes.ARTICLE_EDIT]: '/articles/:id/edit',
+    [AppRoutes.ADMIN]: '/admin',
     // последний
     [AppRoutes.NOT_FOUND]: '*',
 };
@@ -66,6 +71,12 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> = {
         path: `${RoutePath.article_edit}`,
         element: <ArticleEditPage />,
         authOnly: true,
+    },
+    [AppRoutes.ADMIN]: {
+        path: `${RoutePath.admin}`,
+        element: <AdminPanelPage />,
+        authOnly: true,
+        roles: [UserRoles.ADMIN, UserRoles.MANAGER],
     },
     [AppRoutes.NOT_FOUND]: {
         path: RoutePath.not_found,
