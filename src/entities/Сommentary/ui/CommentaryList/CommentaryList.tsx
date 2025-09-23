@@ -18,7 +18,7 @@ export const CommentaryList = memo((props: CommentaryListProps) => {
 
     if (isLoading) {
         return (
-            <VStack className={classNames('', {}, [className])}>
+            <VStack gap={16} max className={classNames('', {}, [className])}>
                 <CommentaryCard isLoading />
                 <CommentaryCard isLoading />
                 <CommentaryCard isLoading />
@@ -27,7 +27,7 @@ export const CommentaryList = memo((props: CommentaryListProps) => {
     }
 
     return (
-        <VStack max className={classNames('', {}, [className])}>
+        <VStack gap={16} max className={classNames('', {}, [className])}>
             {comments.length > 0 ? comments.map((comment, index) => (
                 // eslint-disable-next-line react/no-array-index-key
                 <CommentaryCard key={index} isLoading={isLoading} className={cls.cards} comment={comment} />

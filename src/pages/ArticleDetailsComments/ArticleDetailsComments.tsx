@@ -35,7 +35,7 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
     }, [dispatch, id]);
 
     return (
-        <VStack gap={16}>
+        <VStack gap={16} max>
             <Text title={t('Комментарии')} />
             <AddCommentForm onSendComments={onSendComments} />
             <CommentaryList isLoading={isLoading} comments={comments} />

@@ -24,7 +24,7 @@ export const CommentaryCard = memo((props: CommentaryCardProps) => {
     }
     if (isLoading) {
         return (
-            <VStack max className={classNames(cls.CommentaryList, {}, [className, cls.loading])}>
+            <VStack gap={8} max className={classNames(cls.CommentaryList, {}, [className, cls.loading])}>
                 <div className={cls.wrapperAvatar}>
                     <Sceleton className={cls.avatar} width={30} height={30} border="50%" />
                     <Sceleton width={150} height={16} />
@@ -34,7 +34,7 @@ export const CommentaryCard = memo((props: CommentaryCardProps) => {
         );
     }
     return (
-        <VStack max className={classNames(cls.CommentaryCard, {}, [className])}>
+        <VStack gap={8} max className={classNames(cls.CommentaryCard, {}, [className])}>
             <AppLink to={`${RoutePath.profile}${comment?.user?.id}`} className={cls.wrapperAvatar}>
                 {comment?.user?.avatar && <Avatar className={cls.avatar} size={30} src={comment?.user?.avatar} />}
                 <Text title={comment?.user?.username} />
