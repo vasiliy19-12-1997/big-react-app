@@ -8,11 +8,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { Page } from 'widgets/Page/Page';
-import { DropDown } from 'shared/ui/DropDown/DropDown';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { DropDown } from 'shared/ui/DropDown/DropDown';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -55,7 +54,6 @@ export const Navbar = ({ className }: NavbarProps) => {
                         direction="bottom left"
                         trigger={<Avatar size={30} src={authUser?.avatar} />}
                     />
-
                 </div>
             </header>
         );
