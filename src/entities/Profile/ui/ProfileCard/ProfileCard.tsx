@@ -42,7 +42,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         onChangeAvatar,
         onChangeCurrency,
         onChangeCountry,
-        readonly,
+        readonly = false,
     } = props;
     if (isLoading) {
         return (

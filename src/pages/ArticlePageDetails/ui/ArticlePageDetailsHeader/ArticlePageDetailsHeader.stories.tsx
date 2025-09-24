@@ -5,7 +5,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { ArticlePageDetailsHeader } from './ArticlePageDetailsHeader';
 
 export default {
-    title: 'widget/ArticlePageDetailsHeader',
+    title: 'pages/ArticlePageDetails/ArticlePageDetailsHeader',
     component: ArticlePageDetailsHeader,
     argTypes: {
         backgroundColor: { control: 'color' },

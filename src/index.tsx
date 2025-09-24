@@ -1,13 +1,18 @@
-import { render } from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
-import { Theme, ThemeProvider } from 'app/providers/ThemeProvider';
 import { StoreProvider } from 'app/providers/StoreProvider';
-import App from './app/App';
+import { Theme, ThemeProvider } from 'app/providers/ThemeProvider';
 import 'app/styles/index.scss';
-import './shared/config/i18n/i18n';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import App from './app/App';
 import { ErrorBoundary } from './app/providers/ErrorBoundary';
+import './shared/config/i18n/i18n';
 
-render(
+const container = document.getElementById('root');
+if (!container) {
+    throw new Error('Нету элемента с id:root');
+}
+const root = createRoot(container); // createRoot(container!) if you use TypeScript
+root.render(
     <BrowserRouter>
         <StoreProvider>
             <ErrorBoundary>
@@ -17,6 +22,4 @@ render(
             </ErrorBoundary>
         </StoreProvider>
     </BrowserRouter>,
-    document.getElementById('root'),
-
 );

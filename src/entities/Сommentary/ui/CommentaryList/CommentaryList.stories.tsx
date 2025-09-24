@@ -5,7 +5,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { CommentaryList } from './CommentaryList';
 
 export default {
-    title: 'widget/CommentaryList',
+    title: 'entities/Сommentary/CommentaryList',
     component: CommentaryList,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -15,15 +15,20 @@ export default {
 const Template: ComponentStory<typeof CommentaryList> = (args) => <CommentaryList {...args} />;
 
 export const Light = Template.bind({});
-Light.args = {};
+Light.args = {
+    comments: [],
+};
 Light.decorators = [
     ThemeDecorator(Theme.LIGHT),
-    StoreDecorator({ user: { authData: { /* заполняйте по необходимости */ } } }),
+    StoreDecorator({}),
 ];
 
 export const Dark = Template.bind({});
-Dark.args = {};
+
+Dark.args = {
+    comments: [],
+};
 Dark.decorators = [
     ThemeDecorator(Theme.DARK),
-    StoreDecorator({ user: { authData: { /* заполняйте по необходимости */ } } }),
+    StoreDecorator({ }),
 ];

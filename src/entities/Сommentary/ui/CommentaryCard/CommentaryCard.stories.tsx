@@ -5,7 +5,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { CommentaryCard } from './CommentaryCard';
 
 export default {
-    title: 'widget/CommentaryCard',
+    title: 'entities/Сommentary/CommentaryCard',
     component: CommentaryCard,
     argTypes: {
         backgroundColor: { control: 'color' },
