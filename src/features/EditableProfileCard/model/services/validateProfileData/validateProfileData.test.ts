@@ -1,7 +1,7 @@
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import { ValidateProfileErrors } from 'entities/Profile';
 import { validateProfileData } from './validateProfileData';
+import { ValidateProfileErrors } from 'entities/Profile/model/consts/profileConsts';
 
 describe('validateProfileDatatest', () => {
     const data = {

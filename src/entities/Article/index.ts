@@ -1,5 +1,5 @@
-export { ArtcileTypeBlocks, Article } from './model/types/artcile';
-export { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
+export type { ArtcileTypeBlocks, Article } from './model/types/artcile';
+export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
 export { ArtcileDetails } from './ui/ArtcileDetails/ArticleDetails';
 
 export { ArticleSortField, ArticleViews, ArticleType } from 'entities/Article/model/types/artcile';

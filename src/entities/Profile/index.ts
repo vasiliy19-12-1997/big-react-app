@@ -1,10 +1,10 @@
-import { Profile, ProfileSchema, ValidateProfileErrors } from './model/types/profile';
+import { Profile, ProfileSchema } from './model/types/profile';
 import { ProfileCard } from './ui/ProfileCard/ProfileCard';
 
-export {
+export type {
     Profile,
-    ProfileSchema,
-    ValidateProfileErrors,
+    ProfileSchema
 };
 
-export { ProfileCard };
+    export { ProfileCard };
+

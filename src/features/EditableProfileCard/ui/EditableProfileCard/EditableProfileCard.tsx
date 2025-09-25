@@ -2,7 +2,6 @@ import { useTranslation } from 'react-i18next';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import { ProfileCard } from 'entities/Profile';
-import { ValidateProfileErrors } from 'entities/Profile/model/types/profile';
 import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -18,6 +17,7 @@ import { getProfileValidateErrors } from '../../model/selectors/getProfileValida
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileActions, profileReducers } from '../../model/slice/profileSlice';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
+import { ValidateProfileErrors } from 'entities/Profile/model/consts/profileConsts';
 
 interface EditableProfileCardProps {
   className?: string;
@@ -32,7 +32,7 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
     const validateProfileErrors = useSelector(getProfileValidateErrors);
-    const validateErrorTranslation = {
+    const validateErrorTranslation:any = {
         [ValidateProfileErrors.INCORRECT_AGE]: t('Некооректный возраст'),
         [ValidateProfileErrors.INCORRECT_COUNTRY]: t('Некооректный страна'),
         [ValidateProfileErrors.INCORRECT_USER_DATA]: t('Некооректное имя'),
