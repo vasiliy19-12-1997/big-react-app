@@ -5,16 +5,17 @@ import { getArticleDetailsRecommendError } from 'pages/ArticlePageDetails/model/
 import { addCommentForArticle } from 'pages/ArticlePageDetails/model/services/addCommentForArticle';
 import { fetchCommentsByArticleId } from 'pages/ArticlePageDetails/model/services/fetchCommentsByArticleId';
 import { getArticleComments } from 'pages/ArticlePageDetails/model/slice/ArticleDetailsCommentSlice';
-import { memo, useCallback } from 'react';
+import { memo, Suspense, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Sceleton } from 'shared/ui/Sceleton/Sceleton';
 import { VStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text/Text';
 
 interface ArticleDetailsCommentsProps {
   className?: string;
-  id:string
+  id?:string
 }
 
 export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) => {
@@ -36,7 +37,9 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
     return (
         <VStack gap={16} max>
             <Text title={t('Комментарии')} />
-            <AddCommentForm onSendComments={onSendComments} />
+            <Suspense fallback={<Sceleton width={200} height={200} />}>
+                <AddCommentForm onSendComments={onSendComments} />
+            </Suspense>
             <CommentaryList isLoading={isLoading} comments={comments} />
         </VStack>
     );

@@ -21,7 +21,7 @@ import { EditableProfileCardHeader } from '../EditableProfileCardHeader/Editable
 
 interface EditableProfileCardProps {
   className?: string;
-  id:string
+  id?:string
 }
 
 export const EditableProfileCard = (props: EditableProfileCardProps) => {

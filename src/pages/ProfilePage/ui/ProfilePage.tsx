@@ -19,10 +19,7 @@ export const ProfilePage = memo((props: ProfilePageProps) => {
     const {
         className,
     } = props;
-    if (!id) {
-        return <Text text={t('Профиль не найден')} />;
-    }
-    return (
+     return (
         <Page className={classNames('', {}, [className])}>
             <VStack gap={16} max>
                 <EditableProfileCard id={id} />
