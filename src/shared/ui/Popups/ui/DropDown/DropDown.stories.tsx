@@ -1,9 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { StoreDecorator } from '../../../../config/storybook/StoreDecorator/StoreDecorator';
+import { ThemeDecorator } from '../../../../config/storybook/ThemeDecorator/ThemeDecorator';
 import { DropDown } from './DropDown';
-import { Button } from '../Button/Button';
+import { Button } from '../../../Button/Button';
 
 export default {
     title: 'shared/DropDown',
