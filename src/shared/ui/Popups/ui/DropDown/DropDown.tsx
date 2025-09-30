@@ -2,7 +2,6 @@ import { Menu } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DropDownDirection } from 'shared/types/ui';
-import { AppLink } from '../AppLink/AppLink';
 import cls from './DropDown.module.scss';
 
 export interface DropDownItem {
@@ -17,12 +16,7 @@ export interface DropDownProps{
    trigger:ReactNode,
    direction?:DropDownDirection
 }
-const mapOptionsClasses:Record<DropDownDirection, string> = {
-    'bottom left': cls.optionsBottomLeft,
-    'bottom right': cls.optionsBottomRight,
-    'top left': cls.optionsTopLeft,
-    'top right': cls.optionsTopRight,
-};
+
 export function DropDown(props:DropDownProps) {
     const {
         className, items, trigger, direction = 'bottom right',

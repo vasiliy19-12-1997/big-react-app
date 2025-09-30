@@ -1,0 +1,23 @@
+.Popup {
+  position: relative;
+}
+.active{
+   background-color:var(--inverted-primary-color)
+}
+
+.optionsBottomLeft{
+  top: 100%;
+  right: 0;
+}
+.optionsBottomRight{
+  top: 100%;
+  left: 0;
+}
+.optionsTopLeft{
+  bottom:100%;
+  right: 0;
+}
+.optionsTopRight{
+  bottom: 100%;
+  left: 0;
+}

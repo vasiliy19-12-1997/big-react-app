@@ -13,7 +13,9 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { DropDown } from 'shared/ui/DropDown/DropDown';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import cls from './Navbar.module.scss';
-
+import { HStack } from 'shared/ui/Stack';
+import { Icon } from 'shared/ui/Icon/Icon';
+import NotificationIcon from "shared/assets/icons/notification-20-20.svg"
 interface NavbarProps {
     className?: string;
 }
@@ -42,7 +44,7 @@ export const Navbar = ({ className }: NavbarProps) => {
             <header className={classNames(cls.Navbar, {}, [className])}>
                 <Text title={t('Vasiliy App')} className={cls.appName} theme={TextTheme.INVERTED} />
                 <AppLink theme={AppLinkTheme.SECONDARY} className={cls.createLink} to={RoutePath.article_create}>{t('Create Articles')}</AppLink>
-                <div className={cls.links}>
+                <HStack gap={16} className={cls.actions}>
                     <DropDown
                         className={cls.dropDown}
                         items={[
@@ -54,7 +56,10 @@ export const Navbar = ({ className }: NavbarProps) => {
                         direction="bottom left"
                         trigger={<Avatar size={30} src={authUser?.avatar} />}
                     />
-                </div>
+                </HStack>
+                <Button theme={ButtonTheme.CLEAR} className={cls.notification}>
+                    <Icon Svg={NotificationIcon} inverted/>
+                </Button>
             </header>
         );
     }
