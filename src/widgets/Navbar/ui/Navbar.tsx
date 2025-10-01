@@ -1,21 +1,20 @@
 import {
-    getAuthUserData, isUserAdmin, isUserManager, userActions,
+    getAuthUserData
 } from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
+import { AvatarDropDown } from 'features/AvatarDropDown';
+import { NotificationButton } from 'features/NotificationButton';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { HStack } from 'shared/ui/Stack';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import cls from './Navbar.module.scss';
-import { HStack } from 'shared/ui/Stack';
-import { Icon } from 'shared/ui/Icon/Icon';
-import NotificationIcon from "shared/assets/icons/notification-20-20.svg"
-import { DropDown } from 'shared/ui/Popups';
+
 interface NavbarProps {
     className?: string;
 }
@@ -24,44 +23,28 @@ export const Navbar = ({ className }: NavbarProps) => {
     const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authUser = useSelector(getAuthUserData);
-    const isAdmin = useSelector(isUserAdmin);
-    const isManager = useSelector(isUserManager);
-    const isAdminPanelAvailable = isAdmin || isManager;
-    const dispatch = useDispatch();
-
     const onShowModal = useCallback(() => {
         setIsAuthModal(true);
     }, []);
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false);
     }, []);
-    const onLogout = useCallback(() => {
-        dispatch(userActions.logout());
-    }, [dispatch]);
+   
 
     if (authUser) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
                 <Text title={t('Vasiliy App')} className={cls.appName} theme={TextTheme.INVERTED} />
-                <AppLink theme={AppLinkTheme.SECONDARY} className={cls.createLink} to={RoutePath.article_create}>{t('Create Articles')}</AppLink>
-               
+                <AppLink theme={AppLinkTheme.SECONDARY} className={cls.createLink} to={RoutePath.article_create}>
+                    {t('Create Articles')}
+
+                </AppLink>
+
                 <HStack gap={16} className={cls.actions}>
-                    <Button theme={ButtonTheme.CLEAR} className={cls.notification}>
-                        <Icon Svg={NotificationIcon} inverted/>
-                    </Button>
-                    <DropDown
-                        className={cls.dropDown}
-                        items={[
-                            ...(isAdminPanelAvailable ? [
-                                { content: 'Админка', href: RoutePath.admin }] : []),
-                            { content: 'Выйти', onClick: onLogout },
-                            { content: 'Профиль', href: RoutePath.profile + authUser.id },
-                        ]}
-                        direction="bottom left"
-                        trigger={<Avatar size={30} src={authUser?.avatar} alt="Аватар" />}
-                    />
+                   <NotificationButton/>
+                <AvatarDropDown/>
                 </HStack>
-               
+
             </header>
         );
     }

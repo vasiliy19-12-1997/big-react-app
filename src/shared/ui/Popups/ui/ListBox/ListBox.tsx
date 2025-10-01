@@ -6,7 +6,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Direction } from 'shared/types/ui';
 import { Button } from '../../../Button/Button';
 import cls from './ListBox.module.scss';
-import popUpCls from  "../../styles/popup.module.scss"
+import popUpCls from '../../styles/popup.module.scss';
 import { HStack } from '../../../Stack/HStack/HStack';
 import { mapOptionsClasses } from '../../styles/consts';
 
@@ -42,7 +42,7 @@ export function ListBox(props:ListboxProps) {
         <HStack gap={4}>
             {label && <span>{`${label}>`}</span>}
             <HListBox disabled={readonly} as="div" className={classNames(cls.ListBox, {}, [className, popUpCls.popUp])} value={value} onChange={onChange}>
-                <HListBox.Button className={cls.button}>
+                <HListBox.Button className={cls.trigger}>
                     <Button disabled={readonly}>
                         {value ?? defaultValue}
                     </Button>

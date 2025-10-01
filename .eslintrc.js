@@ -68,6 +68,7 @@ module.exports = {
                     'gap',
                     'role',
                     'as',
+                    'alt',
                 ],
             },
         ],

@@ -5,7 +5,8 @@ import { Direction } from '../../../../types/ui';
 import cls from './DropDown.module.scss';
 import { mapOptionsClasses } from '../../styles/consts';
 import { AppLink } from '../../../AppLink/AppLink';
-import popUpCls from  "../../styles/popup.module.scss"
+import popUpCls from '../../styles/popup.module.scss';
+
 export interface DropDownItem {
   disabled?:boolean,
   content?:ReactNode,
@@ -27,7 +28,7 @@ export function DropDown(props:DropDownProps) {
 
     return (
         <Menu as="div" className={classNames(cls.DropDown, {}, [className, popUpCls.popUp])}>
-            <Menu.Button className={popUpCls.button}>{trigger}</Menu.Button>
+            <Menu.Button className={popUpCls.trigger}>{trigger}</Menu.Button>
             <Menu.Items className={classNames(cls.menu, {}, optionsMods)}>
                 {items.map((item) => {
                     const content = ({ active }:{active:boolean}) => (
