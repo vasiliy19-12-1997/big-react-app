@@ -1,13 +1,13 @@
-.ArticlePageFilter {
+.sortWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-.sortWrapper{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+
+.search {
+    margin-top: 20px;
 }
-.search{
- margin-top: 20px;
-}
-.tabs{
-  margin-top: 20px;
+
+.tabs {
+    margin-top: 20px;
 }

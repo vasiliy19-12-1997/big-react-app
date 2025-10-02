@@ -1,48 +1,59 @@
 .Flex {
-  display: flex;
-}
-.JustifyCenter{
-  justify-content: center;
-}
-.JustifyBetween{
-  justify-content: space-between;
-}
-.JustifyEnd{
-  justify-content: end;
-}
-.JustifyStart{
-  justify-content: start;
+    display: flex;
 }
 
-.AlignCenter{
-  align-items: center;
-}
-.AlignEnd{
-  align-items: end;
-}
-.AlignStart{
-  align-items: start;
+.JustifyCenter {
+    justify-content: center;
 }
 
-.DirectionColumn{
-  flex-direction: column;
-}
-.DirectionRow{
-  flex-direction: row;
+.JustifyBetween {
+    justify-content: space-between;
 }
 
-.gap4{
-  gap: 4px;
+.JustifyEnd {
+    justify-content: end;
 }
-.gap8{
-  gap: 8px;
+
+.JustifyStart {
+    justify-content: start;
 }
-.gap16{
-  gap: 16px;
+
+.AlignCenter {
+    align-items: center;
 }
-.gap32{
-  gap: 32px;
+
+.AlignEnd {
+    align-items: end;
 }
-.max{
-  width: 100%;
+
+.AlignStart {
+    align-items: start;
+}
+
+.DirectionColumn {
+    flex-direction: column;
+}
+
+.DirectionRow {
+    flex-direction: row;
+}
+
+.gap4 {
+    gap: 4px;
+}
+
+.gap8 {
+    gap: 8px;
+}
+
+.gap16 {
+    gap: 16px;
+}
+
+.gap32 {
+    gap: 32px;
+}
+
+.max {
+    width: 100%;
 }

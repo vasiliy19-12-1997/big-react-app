@@ -4,7 +4,8 @@
 @import "themes/dark";
 @import "themes/yellow";
 
-.app {
+.app,
+.app_drawer {
     background: var(--bg-color);
     min-height: 100vh;
 }
@@ -17,4 +18,3 @@ body {
 .content-page {
     display: flex;
 }
-

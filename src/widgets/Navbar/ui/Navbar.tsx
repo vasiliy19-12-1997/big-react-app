@@ -1,5 +1,5 @@
 import {
-    getAuthUserData
+    getAuthUserData,
 } from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
 import { AvatarDropDown } from 'features/AvatarDropDown';
@@ -13,6 +13,8 @@ import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { HStack } from 'shared/ui/Stack';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { Drawer } from 'shared/ui/Drawer/Drawer';
+import { NotificationList } from 'entities/Notification';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -29,7 +31,6 @@ export const Navbar = ({ className }: NavbarProps) => {
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false);
     }, []);
-   
 
     if (authUser) {
         return (
@@ -41,8 +42,8 @@ export const Navbar = ({ className }: NavbarProps) => {
                 </AppLink>
 
                 <HStack gap={16} className={cls.actions}>
-                   <NotificationButton/>
-                <AvatarDropDown/>
+                    <NotificationButton />
+                    <AvatarDropDown />
                 </HStack>
 
             </header>

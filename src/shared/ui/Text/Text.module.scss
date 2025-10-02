@@ -5,14 +5,15 @@
 .text {
     color: var(--secondary-color);
 }
-.inverted{
-    .title {
-    color: var(--inverted-secondary-color);
-}
 
-.text {
-    color: var(--inverted-secondary-color);
-}
+.inverted {
+    .title {
+        color: var(--inverted-secondary-color);
+    }
+
+    .text {
+        color: var(--inverted-secondary-color);
+    }
 }
 
 .error {
@@ -37,32 +38,32 @@
     text-align: center;
 }
 
-.size_m{
+.size_m {
     .title {
-    font: var(--font-l);
-    
-}
-.text {
-    font: var(--font-m);
-}
+        font: var(--font-l);
+    }
+
+    .text {
+        font: var(--font-m);
+    }
 }
 
-.size_l{
+.size_l {
     .title {
-    font: var(--font-xl);
-    
-}
-.text {
-    font: var(--font-l);
-}
+        font: var(--font-xl);
+    }
+
+    .text {
+        font: var(--font-l);
+    }
 }
 
-.size_s{
+.size_s {
     .title {
-    font: var(--font-m);
-    
-}
-.text {
-    font: var(--font-s);
-}
+        font: var(--font-m);
+    }
+
+    .text {
+        font: var(--font-s);
+    }
 }

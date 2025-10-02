@@ -17,13 +17,13 @@ const Template: ComponentStory<typeof NotificationItem> = (args) => <Notificatio
 export const Light = Template.bind({});
 Light.args = {};
 Light.decorators = [
-  ThemeDecorator(Theme.LIGHT),
-  StoreDecorator({ user: { authData: { /* заполняйте по необходимости */ } } })
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({ user: { authData: { /* заполняйте по необходимости */ } } }),
 ];
 
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [
-  ThemeDecorator(Theme.DARK),
-  StoreDecorator({ user: { authData: { /* заполняйте по необходимости */ } } })
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({ user: { authData: { /* заполняйте по необходимости */ } } }),
 ];

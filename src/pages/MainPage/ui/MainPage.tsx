@@ -1,3 +1,4 @@
+import { Counter } from 'entities/Counter';
 import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/Input';
@@ -17,6 +18,7 @@ const MainPage = memo(() => {
             <div>111</div>
             <div>111</div>
             <HStack>
+                <Counter />
                 <ListBox
                     onChange={(value) => {}}
                     value={undefined}

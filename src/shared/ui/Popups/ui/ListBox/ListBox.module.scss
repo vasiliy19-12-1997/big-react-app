@@ -1,12 +1,11 @@
-.options{
-  position: absolute;
-  background-color: var(--list-box-bg);
-  z-index: 10000;
-  border: 12px;
-  box-shadow: 4px 4px 4px 4px var(--inverted-primary-color);
-}
-.item{
-  padding: 10px 20px;
+.options {
+    position: absolute;
+    background-color: var(--list-box-bg);
+    z-index: 10000;
+    border: 12px;
+    box-shadow: 4px 4px 4px 4px var(--inverted-primary-color);
 }
 
-
+.item {
+    padding: 10px 20px;
+}

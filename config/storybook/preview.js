@@ -1,4 +1,5 @@
 import { addDecorator } from '@storybook/react';
+import { withMock } from 'storybook-addon-mock';
 import { Theme } from '../../src/app/providers/ThemeProvider';
 import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator/RouterDecorator';
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator/StyleDecorator';

@@ -3,8 +3,7 @@ import { ProfileCard } from './ui/ProfileCard/ProfileCard';
 
 export type {
     Profile,
-    ProfileSchema
+    ProfileSchema,
 };
 
-    export { ProfileCard };
-
+export { ProfileCard };

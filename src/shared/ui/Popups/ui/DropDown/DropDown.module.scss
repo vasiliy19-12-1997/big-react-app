@@ -1,18 +1,19 @@
-.menu{
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  border-radius: 12px;
-  z-index: 10000;
-  background-color: var(--card-bg);
-  box-shadow: 1px var(--primary-color);
+.menu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    z-index: 10000;
+    background-color: var(--card-bg);
+    box-shadow: 1px var(--primary-color);
 }
-.item{
-  padding: 10px 25px;
-  width: 100%;
-  border:none;
-  background:none;
-  outline:none;
-  cursor: pointer;
-  color: var(--primary-color);
+
+.item {
+    padding: 10px 25px;
+    width: 100%;
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    color: var(--primary-color);
 }

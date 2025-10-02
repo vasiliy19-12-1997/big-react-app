@@ -1,6 +1,6 @@
-export {}
+export {};
 describe('UserSlice.test', () => {
     test('', () => {
-        expect("").toEqual("");
+        expect('').toEqual('');
     });
 });

@@ -1,34 +1,40 @@
 .popUp {
-  position: relative;
-}
-.trigger{
-  background:none;
-  border:none;
-  outline:none;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-}
-.active{
-   background-color:var(--inverted-primary-color)
-}
-.disabled{
-  opacity: 0.4;
+    position: relative;
 }
 
-.optionsBottomLeft{
-  top: 100%;
-  right: 0;
+.trigger {
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
 }
-.optionsBottomRight{
-  top: 100%;
-  left: 0;
+
+.active {
+    background-color: var(--inverted-primary-color);
 }
-.optionsTopLeft{
-  bottom:100%;
-  right: 0;
+
+.disabled {
+    opacity: 0.4;
 }
-.optionsTopRight{
-  bottom: 100%;
-  left: 0;
+
+.optionsBottomLeft {
+    top: 100%;
+    right: 0;
+}
+
+.optionsBottomRight {
+    top: 100%;
+    left: 0;
+}
+
+.optionsTopLeft {
+    bottom: 100%;
+    right: 0;
+}
+
+.optionsTopRight {
+    bottom: 100%;
+    left: 0;
 }

@@ -2,10 +2,11 @@
     cursor: pointer;
     color: var(--primary-color);
     padding: 6px 15px;
-    & :hover{
+
+    & :hover {
         opacity: 0.6;
-        stroke-opacity: 0.6;
-        fill-opacity: 0.6;
+        stroke-opacity: 60%;
+        fill-opacity: 60%;
     }
 }
 

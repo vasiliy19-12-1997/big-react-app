@@ -9,6 +9,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { VStack } from 'shared/ui/Stack';
+import { ValidateProfileErrors } from 'entities/Profile/model/consts/profileConsts';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
@@ -17,7 +18,6 @@ import { getProfileValidateErrors } from '../../model/selectors/getProfileValida
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileActions, profileReducers } from '../../model/slice/profileSlice';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
-import { ValidateProfileErrors } from 'entities/Profile/model/consts/profileConsts';
 
 interface EditableProfileCardProps {
   className?: string;
