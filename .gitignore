@@ -6,3 +6,4 @@ node_modules
 .loki/report.json
 /reports
 .history
+npm-debug.txt
