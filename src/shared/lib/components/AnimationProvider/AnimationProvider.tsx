@@ -8,13 +8,12 @@ type SpringType = typeof import('@react-spring/web');
 interface AnimationContextPayload {
     Guesture?:GuestureType
     Spring?:SpringType
-    loading?:boolean
+    loaded?:boolean
 }
 const getAsyncAnimationModules = async () => {
     return Promise.all([
         import('@react-spring/web'),
         import('@use-gesture/react'),
-
     ]);
 };
 
@@ -22,20 +21,20 @@ const AnimationContext = createContext<AnimationContextPayload>({});
 export const AnimationProvider = ({ children }:{children:ReactNode}) => {
     const GuestureRef = useRef<GuestureType>();
     const SpringRef = useRef<SpringType>();
-    const [loading, setIsLoading] = useState(false);
+    const [loaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
         getAsyncAnimationModules().then(([Spring, Guesture]) => {
             SpringRef.current = Spring;
             GuestureRef.current = Guesture;
-            setIsLoading(true);
+            setIsLoaded(true);
         });
     }, []);
     const value = useMemo(() => ({
         Spring: SpringRef.current,
         Guesture: GuestureRef.current,
-        loading,
-    }), [loading]);
+        loading: loaded,
+    }), [loaded]);
     return (
         <AnimationContext.Provider value={value}>
             {children}
@@ -43,5 +42,9 @@ export const AnimationProvider = ({ children }:{children:ReactNode}) => {
     );
 };
 export const useAnimationLibs = (() => {
-    return useContext(AnimationContext) as Required<AnimationContextPayload>;
+    const libs = useContext(AnimationContext) as Required<AnimationContextPayload>;
+    if (!libs) {
+        throw new Error('Ошибка при загрузке @use-gesture/react и @react-spring/web');
+    }
+    return libs;
 });

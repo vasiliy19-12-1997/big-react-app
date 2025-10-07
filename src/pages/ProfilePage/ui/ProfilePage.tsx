@@ -16,6 +16,9 @@ interface ProfilePageProps {
 export const ProfilePage = memo((props: ProfilePageProps) => {
     const { t } = useTranslation();
     const { id } = useParams<{id:string}>();
+    if (!id) {
+        return null;
+    }
     const {
         className,
     } = props;

@@ -16,39 +16,31 @@ const Template: ComponentStory<typeof ProfileCard> = (args) => <ProfileCard {...
 
 export const Normal = Template.bind({});
 Normal.args = {
-    data: {
-        username: 'admin',
-        age: 22,
-        lastname: 'Kon',
-        first: 'Vasiliy',
-        city: 'Ekaterinburg',
-        avatar: AvatarIcon,
-    },
-    readonly: true,
+
 };
 Normal.decorators = [StoreDecorator({
     login: { username: '123', password: '123' },
 })];
-export const withError = Template.bind({});
-withError.args = {
-    error: 'error',
-};
+// export const withError = Template.bind({});
+// withError.args = {
+//     error: 'error',
+// };
 
-export const Loading = Template.bind({});
-Loading.args = {
-    isLoading: true,
-};
-export const Editing = Template.bind({});
-Editing.args = {
-    data: {
-        username: 'admin',
-        age: 22,
-        lastname: 'Kon',
-        first: 'Vasiliy',
-        city: 'Ekaterinburg',
-        avatar: AvatarIcon,
-    },
-};
-Editing.decorators = [StoreDecorator({
-    login: { username: '123', password: '123' },
-})];
+// export const Loading = Template.bind({});
+// Loading.args = {
+//     isLoading: true,
+// };
+// export const Editing = Template.bind({});
+// Editing.args = {
+//     data: {
+//         username: 'admin',
+//         age: 22,
+//         lastname: 'Kon',
+//         first: 'Vasiliy',
+//         city: 'Ekaterinburg',
+//         avatar: AvatarIcon,
+//     },
+// };
+// Editing.decorators = [StoreDecorator({
+//     login: { username: '123', password: '123' },
+// })];

@@ -18,20 +18,23 @@ import { getProfileValidateErrors } from '../../model/selectors/getProfileValida
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileActions, profileReducers } from '../../model/slice/profileSlice';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
+import { useFetchProfileData, useUpdateProfileData } from '../../api/editableProfileCardApi';
 
 interface EditableProfileCardProps {
   className?: string;
-  id?:string
+  id:string
 }
 
 export const EditableProfileCard = (props: EditableProfileCardProps) => {
     const { className, id } = props;
     const { t } = useTranslation('profile');
-    const formData = useSelector(getProfileForm);
-    const isLoading = useSelector(getProfileIsLoading);
-    const error = useSelector(getProfileError);
+
     const readonly = useSelector(getProfileReadonly);
     const validateProfileErrors = useSelector(getProfileValidateErrors);
+    const [
+        updateProfile,
+        { isLoading: isUpdating },
+    ] = useUpdateProfileData();
     const validateErrorTranslation:any = {
         [ValidateProfileErrors.INCORRECT_AGE]: t('Некооректный возраст'),
         [ValidateProfileErrors.INCORRECT_COUNTRY]: t('Некооректный страна'),
@@ -41,40 +44,38 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
     };
 
     const dispatch = useAppDispatch();
-    useInitialEffect(() => {
-        dispatch(fetchProfileData(id));
-    }, [dispatch, id]);
+
     const reducers:ReducersList = {
         profile: profileReducers,
     };
     const onChangeFirstname = useCallback((value?:string) => {
-        dispatch(profileActions.updateProfile({ first: value || '' }));
-    }, [dispatch]);
+        updateProfile({ first: value || '', id });
+    }, [id, updateProfile]);
     const onChangeLastname = useCallback((value?:string) => {
-        dispatch(profileActions.updateProfile({ lastname: value || '' }));
-    }, [dispatch]);
+        updateProfile({ lastname: value || '', id });
+    }, [id, updateProfile]);
     const onChangeAge = useCallback((value:string) => {
         if (/^\d+$/.test(value)) {
-            dispatch(profileActions.updateProfile({ age: Number(value || 0) }));
+            updateProfile({ age: Number(value || 0), id });
         } else {
-            dispatch(profileActions.updateProfile({ age: 0 }));
+            updateProfile({ age: 0, id });
         }
-    }, [dispatch]);
+    }, [id, updateProfile]);
     const onChangeCity = useCallback((value?:string) => {
-        dispatch(profileActions.updateProfile({ city: value || '' }));
-    }, [dispatch]);
+        updateProfile({ city: value || '', id });
+    }, [id, updateProfile]);
     const onChangeUsername = useCallback((value?:string) => {
-        dispatch(profileActions.updateProfile({ username: value || '' }));
-    }, [dispatch]);
+        updateProfile({ username: value || '', id });
+    }, [id, updateProfile]);
     const onChangeAvatar = useCallback((value?:string) => {
-        dispatch(profileActions.updateProfile({ avatar: value || '' }));
-    }, [dispatch]);
+        updateProfile({ avatar: value || '', id });
+    }, [id, updateProfile]);
     const onChangeCurrency = useCallback((value?:Currency) => {
-        dispatch(profileActions.updateProfile({ currency: value }));
-    }, [dispatch]);
+        updateProfile({ currency: value, id });
+    }, [id, updateProfile]);
     const onChangeCountry = useCallback((value?:Country) => {
-        dispatch(profileActions.updateProfile({ country: value }));
-    }, [dispatch]);
+        updateProfile({ country: value, id });
+    }, [id, updateProfile]);
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
@@ -97,10 +98,8 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
                     onChangeAvatar={onChangeAvatar}
                     onChangeCurrency={onChangeCurrency}
                     onChangeCountry={onChangeCountry}
-                    data={formData}
-                    isLoading={isLoading}
-                    error={error}
                     readonly={readonly}
+                    id={id}
                 />
             </VStack>
         </DynamicModuleLoader>
