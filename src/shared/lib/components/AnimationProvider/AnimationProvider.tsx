@@ -33,7 +33,7 @@ export const AnimationProvider = ({ children }:{children:ReactNode}) => {
     const value = useMemo(() => ({
         Spring: SpringRef.current,
         Guesture: GuestureRef.current,
-        loading: loaded,
+        loaded,
     }), [loaded]);
     return (
         <AnimationContext.Provider value={value}>

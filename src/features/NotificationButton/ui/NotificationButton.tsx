@@ -41,7 +41,6 @@ export const NotificationButton = () => {
                         <NotificationList />
                     </Drawer>
                 </AnimationProvider>
-
             </MobileView>
         </div>
     );

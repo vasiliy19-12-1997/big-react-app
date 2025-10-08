@@ -41,7 +41,6 @@ export const Navbar = ({ className }: NavbarProps) => {
                     {t('Create Articles')}
 
                 </AppLink>
-
                 <HStack gap={16} className={cls.actions}>
                     <NotificationButton />
                     <AvatarDropDown />
