@@ -136,5 +136,8 @@
         "preset": "iPhone 7"
       }
     }
-  }
+  },
+    "browserslist": [
+    "defaults and fully supports es6-module"
+  ]
 }
