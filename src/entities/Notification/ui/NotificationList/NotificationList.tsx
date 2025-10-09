@@ -1,8 +1,8 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { HStack, VStack } from 'shared/ui/Stack';
-import { Sceleton } from 'shared/ui/Sceleton/Sceleton';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { Sceleton } from '@/shared/ui/Sceleton/Sceleton';
 import { useNotificationList } from '../../api/notificationApi';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
 

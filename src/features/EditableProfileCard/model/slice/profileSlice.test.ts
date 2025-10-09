@@ -1,7 +1,7 @@
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
-import { ProfileSchema } from 'entities/Profile';
-import { ValidateProfileErrors } from 'entities/Profile/model/consts/profileConsts';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import { ProfileSchema } from '@/entities/Profile';
+import { ValidateProfileErrors } from '@/entities/Profile/model/consts/profileConsts';
 import { profileActions, profileReducers } from './profileSlice';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 

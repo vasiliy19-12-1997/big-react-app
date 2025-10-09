@@ -4,11 +4,11 @@ import {
     Reducer,
     ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { counterReducers } from 'entities/Counter';
-import { userReducer } from 'entities/User';
-import { scrollRestorationSliceReducer } from 'features/ScrollRestoration';
-import { rtqApi } from 'shared/config/api/rtqApi';
-import { $api } from 'shared/config/api/api';
+import { counterReducers } from '@/entities/Counter';
+import { userReducer } from '@/entities/User';
+import { scrollRestorationSliceReducer } from '@/features/ScrollRestoration';
+import { rtqApi } from '@/shared/config/api/rtqApi';
+import { $api } from '@/shared/config/api/api';
 import { createReducerManager } from './ReducerManager';
 import { StateSchema } from './StateSchema';
 

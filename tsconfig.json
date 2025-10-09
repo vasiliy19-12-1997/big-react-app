@@ -15,8 +15,7 @@
     // Для абсолютного импорта
     "baseUrl": ".",
     "paths": {
-      "*": ["./src/*"],
-      "shared/*": ["./src/shared/*"],
+      "@/*": ["./src/*"],
     },
     "isolatedModules":true,
    "strict": true,

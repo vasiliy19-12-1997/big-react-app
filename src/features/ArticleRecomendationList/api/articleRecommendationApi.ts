@@ -1,5 +1,5 @@
-import { Article } from 'entities/Article';
-import { rtqApi } from 'shared/config/api/rtqApi';
+import { Article } from '@/entities/Article';
+import { rtqApi } from '@/shared/config/api/rtqApi';
 
 const recommendationApi = rtqApi.injectEndpoints({
     endpoints: (build) => ({

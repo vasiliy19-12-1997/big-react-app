@@ -1,10 +1,10 @@
-import { Counter } from 'entities/Counter';
+import { Counter } from '@/entities/Counter';
 import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Input } from 'shared/ui/Input/Input';
-import { ListBox } from 'shared/ui/Popups';
-import { HStack } from 'shared/ui/Stack';
-import { Page } from 'widgets/Page/Page';
+import { Input } from '@/shared/ui/Input/Input';
+import { ListBox } from '@/shared/ui/Popups';
+import { HStack } from '@/shared/ui/Stack';
+import { Page } from '@/widgets/Page/Page';
 
 const MainPage = memo(() => {
     const { t } = useTranslation();

@@ -8,7 +8,7 @@ export function buildResolvers(options: BuildOptions): ResolveOptions {
         preferAbsolute: true,
         modules: [options.paths.src, 'node_modules'],
         mainFiles: ['index'],
-        alias: { shared: path.resolve(options.paths.src, 'shared') },
+        alias: { '@': options.paths.src },
         fallback: {
             path: require.resolve('path-browserify'),
         },

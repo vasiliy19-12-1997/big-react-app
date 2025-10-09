@@ -1,5 +1,5 @@
-import { Profile } from 'entities/Profile';
-import { rtqApi } from 'shared/config/api/rtqApi';
+import { Profile } from '@/entities/Profile';
+import { rtqApi } from '@/shared/config/api/rtqApi';
 
 const editableProfileCardApi = rtqApi.injectEndpoints({
     endpoints: (build) => ({

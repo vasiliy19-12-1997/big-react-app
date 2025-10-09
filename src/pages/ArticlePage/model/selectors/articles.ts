@@ -1,5 +1,5 @@
-import { StateSchema } from 'app/providers/StoreProvider';
-import { ArticleType } from 'entities/Article/model/types/artcile';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { ArticleType } from '@/entities/Article/model/types/artcile';
 
 export const getArticlesError = (state:StateSchema) => state.articlePage?.error || undefined;
 export const getArticlesIsLoading = (state:StateSchema) => state.articlePage?.isLoading || false;

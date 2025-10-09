@@ -1,4 +1,4 @@
-import { rtqApi } from 'shared/config/api/rtqApi';
+import { rtqApi } from '@/shared/config/api/rtqApi';
 import { Notification } from '../model/notification';
 
 const notificationApi = rtqApi.injectEndpoints({

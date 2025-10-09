@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 export const getArticleDetailsRecommendError = (state:StateSchema) => {
     return state.articlePageDetails?.recommends?.error || undefined;

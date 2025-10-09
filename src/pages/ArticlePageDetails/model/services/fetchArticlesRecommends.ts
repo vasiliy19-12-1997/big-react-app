@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider/config/StateSchema';
+import { ThunkConfig } from '@/app/providers/StoreProvider/config/StateSchema';
 import {
     Article,
-} from 'entities/Article';
+} from '@/entities/Article';
 
 type RecommendsQuery = {
     _limit?:number,

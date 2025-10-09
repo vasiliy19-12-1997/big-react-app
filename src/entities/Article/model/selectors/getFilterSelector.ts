@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import { ArticleSortField } from '../types/artcile';
 
 export const getFilterSelectorSort = (state:StateSchema) => state.articlePage?.sort || ArticleSortField.VIEWS;

@@ -1,4 +1,4 @@
-import { Direction } from 'shared/types/ui';
+import { Direction } from '@/shared/types/ui';
 import cls from './popup.module.scss';
 
 export const mapOptionsClasses:Record<Direction, string> = {
