@@ -1,5 +1,5 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { CSSProperties, memo } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Sceleton.module.scss';
 
 interface SceletonProps {
