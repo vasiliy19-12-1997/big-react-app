@@ -20,7 +20,7 @@ export function PopOver(props:PopOverProps) {
     const optionsMods = [className, mapOptionsClasses[direction]];
     return (
         <HPopOver className={classNames(cls.PopOver, {}, [className, popUpCls.popUp])}>
-            <HPopOver.Button className={popUpCls.trigger}>
+            <HPopOver.Button as="div" className={popUpCls.trigger}>
                 {trigger}
             </HPopOver.Button>
             <HPopOver.Panel className={classNames(cls.panel, {}, optionsMods)}>

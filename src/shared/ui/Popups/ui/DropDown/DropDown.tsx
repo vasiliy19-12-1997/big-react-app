@@ -30,9 +30,10 @@ export function DropDown(props:DropDownProps) {
         <Menu as="div" className={classNames(cls.DropDown, {}, [className, popUpCls.popUp])}>
             <Menu.Button className={popUpCls.trigger}>{trigger}</Menu.Button>
             <Menu.Items className={classNames(cls.menu, {}, optionsMods)}>
-                {items.map((item) => {
+                {items.map((item, index) => {
                     const content = ({ active }:{active:boolean}) => (
                         <button
+                            key={`dropdowm-button ${index}`}
                             onClick={item.onClick}
                             type="button"
                             className={classNames(
@@ -45,13 +46,13 @@ export function DropDown(props:DropDownProps) {
                     );
                     if (item.href) {
                         return (
-                            <Menu.Item to={item.href} as={AppLink}>
+                            <Menu.Item to={item.href} as={AppLink} key={`dropdowm-item ${index}`}>
                                 {content}
                             </Menu.Item>
                         );
                     }
                     return (
-                        <Menu.Item as={Fragment}>
+                        <Menu.Item as={Fragment} key={`dropdowm-fragment ${index}`}>
                             {content}
                         </Menu.Item>
                     );
