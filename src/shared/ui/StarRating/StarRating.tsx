@@ -20,10 +20,14 @@ export const StarRating = memo((props: StarRatingProps) => {
     const [currentStarsCount, setCurrentStarsCount] = useState(0);
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
     const onHover = (starCount:number) => () => {
-        setCurrentStarsCount(starCount);
+        if (!isSelected) {
+            setCurrentStarsCount(starCount);
+        }
     };
     const onLeave = () => {
-        setCurrentStarsCount(0);
+        if (!isSelected) {
+            setCurrentStarsCount(0);
+        }
     };
     return (
         <div className={classNames(cls.StarRating, {}, [className])}>
