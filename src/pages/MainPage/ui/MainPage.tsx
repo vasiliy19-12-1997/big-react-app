@@ -1,7 +1,7 @@
 import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { RatingCard } from '@/entities/Rating';
 import { Page } from '@/widgets/Page/Page';
-import { StarRating } from '@/shared/ui/StarRating/StarRating';
 
 const MainPage = memo(() => {
     const { t } = useTranslation();
@@ -12,7 +12,7 @@ const MainPage = memo(() => {
     return (
         <Page>
             {t('Главная страница')}
-            <StarRating />
+            <RatingCard />
         </Page>
     );
 });

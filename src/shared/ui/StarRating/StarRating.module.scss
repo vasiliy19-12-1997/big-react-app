@@ -1,5 +1,5 @@
 .StarRating {
-  /* Ваши стили */
+  cursor: pointer;
 }
 .starIcon{
   fill:none
@@ -9,4 +9,7 @@
 }
 .hovered{
   fill:var(--primary-color)
+}
+.selected{
+  cursor: auto;
 }
