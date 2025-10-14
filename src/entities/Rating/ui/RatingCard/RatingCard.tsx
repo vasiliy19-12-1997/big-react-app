@@ -15,7 +15,7 @@ interface RatingCardProps {
   title?:string;
   feedbackTitle?:string;
   hasFeedback?:boolean;
-  onAccept?:(starsCount:number, feedback:string)=>void;
+  onAccept?:(starsCount:number, feedback?:string)=>void;
   onCancel?:(starsCount:number)=>void
 }
 
@@ -25,11 +25,23 @@ export const RatingCard = memo((props: RatingCardProps) => {
         className, title, feedbackTitle, hasFeedback, onAccept, onCancel,
     } = props;
     const [modalOpen, setModalOpen] = useState(false);
+    const [feedback, setFeedBack] = useState('');
+    const [starsCount, setStarsCount] = useState(0);
 
-    const onSelectedStars = useCallback(() => {
-        setModalOpen(true);
-    }, []);
+    const onSelectedStars = useCallback((stars:number) => {
+        if (!hasFeedback) {
+            setModalOpen(true);
+        } else {
+            onAccept?.(stars);
+        }
+        setStarsCount(stars);
+    }, [hasFeedback, onAccept]);
+
     const onCloseModal = useCallback(() => {
+        setModalOpen(false);
+    }, []);
+
+    const acceptHandler = useCallback(() => {
         setModalOpen(false);
     }, []);
     return (
@@ -41,7 +53,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
             <Modal isOpen={modalOpen} lazy onClose={onCloseModal}>
                 <VStack gap={16} max>
                     <Text />
-                    <Input />
+                    <Input onChange={setFeedBack} value={feedback} />
                     <Button>{t('Отправить')}</Button>
                     <Button onClick={onCloseModal} theme={ButtonTheme.OUTLINE_RED}>{t('Закрыть')}</Button>
                 </VStack>
