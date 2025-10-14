@@ -12,7 +12,7 @@ const MainPage = memo(() => {
     return (
         <Page>
             {t('Главная страница')}
-            <RatingCard />
+            <RatingCard title={t('Рейтинг статьи')} feedbackTitle={t('feedback')} />
         </Page>
     );
 });
