@@ -5,7 +5,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { PopOver } from './PopOver';
 
 export default {
-    title: 'widget/PopOver',
+    title: 'shared/Popups/PopOver',
     component: PopOver,
     argTypes: {
         backgroundColor: { control: 'color' },

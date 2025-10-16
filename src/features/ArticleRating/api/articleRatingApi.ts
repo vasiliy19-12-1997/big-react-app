@@ -6,19 +6,19 @@ export interface GetRatingsProps{
     userId?:string
 }
 export interface PostRatingsProps{
-    articleId:string,
     userId?:string,
+    articleId:string,
     feedback:string,
     rate:number
 }
 const getRatingApi = rtqApi.injectEndpoints({
     endpoints: (build) => ({
         getRatings: build.query<Rating[], GetRatingsProps>({
-            query: ({ articleId, userId }) => ({
+            query: ({ userId, articleId }) => ({
                 url: '/article-ratings',
                 params: {
-                    articleId,
                     userId,
+                    articleId,
                 },
             }),
         }),

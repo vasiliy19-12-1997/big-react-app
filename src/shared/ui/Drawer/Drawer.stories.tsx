@@ -5,7 +5,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { Drawer } from './Drawer';
 
 export default {
-    title: 'widget/Drawer',
+    title: 'shared/Drawer',
     component: Drawer,
     argTypes: {
         backgroundColor: { control: 'color' },

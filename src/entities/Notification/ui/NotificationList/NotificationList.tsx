@@ -15,7 +15,6 @@ export const NotificationList = memo((props: NotificationListProps) => {
     const { t } = useTranslation();
     const { className } = props;
     const { data, isLoading } = useNotificationList(null, { pollingInterval: 5000 });
-    console.log(data);
     const Mobile = (
         <VStack gap={16} max className={classNames('', {}, [className])}>
             <Sceleton height={120} border="8%" />
