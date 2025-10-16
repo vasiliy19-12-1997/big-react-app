@@ -1,7 +1,7 @@
-import { getAuthUserData } from '@/entities/User';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { getAuthUserData } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';

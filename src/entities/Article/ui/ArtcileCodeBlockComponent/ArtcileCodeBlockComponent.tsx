@@ -1,5 +1,5 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { Code } from '@/shared/ui/Code/Code';
 import { Text } from '@/shared/ui/Text/Text';
 import { ArtcileBlockCode } from '../../../Article/model/types/artcile';

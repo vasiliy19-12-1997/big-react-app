@@ -1,7 +1,7 @@
-import { AppRouter } from '@/app/providers/router';
-import { getAuthUserMounted, userActions } from '@/entities/User';
 import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { AppRouter } from '@/app/providers/router';
+import { getAuthUserMounted, userActions } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Navbar } from '@/widgets/Navbar';

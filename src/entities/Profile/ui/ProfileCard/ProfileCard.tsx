@@ -1,8 +1,8 @@
+import { useTranslation } from 'react-i18next';
 import { Country } from '@/entities/Country';
 import { CountrySelect } from '@/entities/Country/ui/CountrySelect/CountrySelect';
 import { Currency, CurrencySelect } from '@/entities/Currency';
 import { useFetchProfileData, useUpdateProfileData } from '@/features/EditableProfileCard/api/editableProfileCardApi';
-import { useTranslation } from 'react-i18next';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Input } from '@/shared/ui/Input/Input';

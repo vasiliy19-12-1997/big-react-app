@@ -1,3 +1,6 @@
+import { memo, Suspense, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
 import { CommentaryList } from '@/entities/Сommentary';
 import AddCommentForm from '@/features/AddCommentForm/ui/AddCommentForm/AddCommentForm';
 import { getArticleDetailsCommentsIsLoading } from '@/pages/ArticlePageDetails/model/selectors/comments/comments';
@@ -5,9 +8,6 @@ import { getArticleDetailsRecommendError } from '@/pages/ArticlePageDetails/mode
 import { addCommentForArticle } from '@/pages/ArticlePageDetails/model/services/addCommentForArticle';
 import { fetchCommentsByArticleId } from '@/pages/ArticlePageDetails/model/services/fetchCommentsByArticleId';
 import { getArticleComments } from '@/pages/ArticlePageDetails/model/slice/ArticleDetailsCommentSlice';
-import { memo, Suspense, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Sceleton } from '@/shared/ui/Sceleton/Sceleton';
 import { VStack } from '@/shared/ui/Stack';
