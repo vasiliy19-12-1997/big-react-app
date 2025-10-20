@@ -23,7 +23,6 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
     const { className, onSendComments } = props;
     const text = useSelector(getAddCommentFormText);
     const dispatch = useAppDispatch();
-
     const onCommentChange = useCallback((value:string) => {
         dispatch(addCommentFormActions.setText(value));
     }, [dispatch]);
@@ -32,14 +31,16 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
         onSendComments(text || '');
         onCommentChange('');
     }, [onCommentChange, onSendComments, text]);
-
+    console.log('Работает');
     return (
+        // <>
         <DynamicModuleLoader reducers={reducers}>
             <HStack max className={classNames(cls.AddCommentForm, {}, [className])}>
                 <Input className={cls.input} value={text} onChange={onCommentChange} placeholder={t('Введите текст комментария')} />
                 <Button onClick={onSendHandler}>{t('Отправить')}</Button>
             </HStack>
         </DynamicModuleLoader>
+        // </>
     );
 });
 export default AddCommentForm;

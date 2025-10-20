@@ -125,12 +125,12 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     onChange={onChangeCurrency}
                     readonly={readonly}
                 />
-                <CountrySelect
+                {/* <CountrySelect
                     className={cls.input}
                     value={formData?.country}
                     onChange={onChangeCountry}
                     readonly={readonly}
-                />
+                /> */}
             </VStack>
         </VStack>
     );

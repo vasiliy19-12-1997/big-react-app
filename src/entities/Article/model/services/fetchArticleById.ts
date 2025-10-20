@@ -16,7 +16,7 @@ export const fetchArticleById = createAsyncThunk<Article, string | undefined, Th
                 },
             });
             if (!response) {
-                throw new Error();
+                throw new Error('Произошла ошибка уровни фичи');
             }
             return response.data;
         } catch (error) {

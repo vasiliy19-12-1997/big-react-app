@@ -34,7 +34,7 @@ const ArticlePageDetails = memo(() => {
             <Page>
                 {t('Article Page Details')}
                 <ArticlePageDetailsHeader />
-                <ArtcileDetails id={id} />
+                {/* <ArtcileDetails id={id} /> */}
                 <ArticleRating articleId={id} />
                 <ArticleRecomendationList />
                 <ArticleDetailsComments id={id} />

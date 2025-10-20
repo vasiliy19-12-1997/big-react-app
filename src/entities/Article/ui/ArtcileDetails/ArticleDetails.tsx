@@ -28,7 +28,7 @@ interface ArtcileDetailsProps {
 
 export const ArtcileDetails = memo((props: ArtcileDetailsProps) => {
     const { t } = useTranslation();
-    const { className, id = '' } = props;
+    const { className, id = '1' } = props;
     const reducers:ReducersList = {
         articles: articleDetailsReducers,
     };
@@ -50,6 +50,7 @@ export const ArtcileDetails = memo((props: ArtcileDetailsProps) => {
     }, []);
     useInitialEffect(() => {
         dispatch(fetchArticleById(id));
+        console.log('Работает');
     }, [dispatch, id]);
     let element;
 

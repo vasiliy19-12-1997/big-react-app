@@ -13,6 +13,8 @@ import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/get
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { profileReducers } from '../../model/slice/profileSlice';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
+import { ProfileRating } from '@/features/ProfileRating';
+import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 
 interface EditableProfileCardProps {
   className?: string;
@@ -22,7 +24,7 @@ interface EditableProfileCardProps {
 export const EditableProfileCard = (props: EditableProfileCardProps) => {
     const { className, id } = props;
     const { t } = useTranslation('profile');
-
+    const profileData = useSelector(getProfileData);
     const readonly = useSelector(getProfileReadonly);
     const validateProfileErrors = useSelector(getProfileValidateErrors);
     const [
@@ -70,7 +72,7 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
     const onChangeCountry = useCallback((value?:Country) => {
         updateProfile({ country: value, id });
     }, [id, updateProfile]);
-
+    console.log(`profileId${profileData?.id}`);
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <VStack max gap={8}>
@@ -95,6 +97,7 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
                     readonly={readonly}
                     id={id}
                 />
+                <ProfileRating profileId={id} />
             </VStack>
         </DynamicModuleLoader>
 
