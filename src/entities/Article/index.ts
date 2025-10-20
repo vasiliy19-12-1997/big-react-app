@@ -7,3 +7,7 @@ export { ArticleList } from '@/entities/Article/ui/ArticleList/ArticleList';
 export { getFilterSelectorOrder, getFilterSelectorSearch, getFilterSelectorSort } from './model/selectors/getFilterSelector';
 export { ArticlePageTabs } from './ui/ArticlePageTabs/ArticlePageTabs';
 export { ArticleSortSelector } from './ui/ArticleSortSelector/ArticleSortSelector';
+export { getArticleDetailsData } from './model/selectors/getArticleDetails';
+export { articleDetailsActions, articleDetailsReducers } from './model/slice/artcileDetailsSlice';
+export { fetchArticleById } from './model/services/fetchArticleById';
+export type { ArticleBlockType } from './model/types/artcile';

@@ -7,3 +7,4 @@ export type {
 };
 
 export { ProfileCard };
+export { ValidateProfileErrors } from './model/consts/profileConsts';

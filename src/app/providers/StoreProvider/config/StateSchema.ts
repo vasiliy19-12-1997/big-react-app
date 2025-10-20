@@ -11,7 +11,7 @@ import { AddCommentFormTypes } from '@/features/AddCommentForm';
 import { LoginSchema } from '@/features/AuthByUsername';
 import { ScrollRestorationSchema } from '@/features/ScrollRestoration';
 import { ArticlePageSchema } from '@/pages/ArticlePage';
-import { ArticlePageDetailsSchema } from '@/pages/ArticlePageDetails/model/types';
+import { ArticlePageDetailsSchema } from '@/pages/ArticlePageDetails';
 import { rtqApi } from '@/shared/config/api/rtqApi';
 import { StateSchemaKeys } from './store';
 

@@ -1,5 +1,5 @@
 import { Flex, FlexProps } from '../Flex/Flex';
-import { ErrorPage } from '@/widgets/ErrorPage/ui/ErrorPage';
+import { ErrorPage } from '@/widgets/ErrorPage';
 
 type HStackProps = Omit<FlexProps, 'direction'>;
 

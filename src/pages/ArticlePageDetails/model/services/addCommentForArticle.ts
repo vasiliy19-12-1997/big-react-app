@@ -1,16 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from '@/app/providers/StoreProvider/config/StateSchema';
-import { getArticleDetailsData } from '@/entities/Article/model/selectors/getArticleDetails';
+import { getArticleDetailsData } from '@/entities/Article';
 import { getAuthUserData } from '@/entities/User';
 import { fetchCommentsByArticleId } from './fetchCommentsByArticleId';
 
-interface addCommentForArticleProps{
-
-}
-enum LoginErrors{
-    INCORRECT_DATA = '',
-    SERVER_ERROD = ''
-}
 export const addCommentForArticle = createAsyncThunk<Comment, string, ThunkConfig<string>>(
     'ArticlePageDetails/addCommentForArticle',
     async (text, thunkApi) => {

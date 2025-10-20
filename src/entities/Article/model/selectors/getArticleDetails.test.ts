@@ -1,6 +1,5 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from './getArticleDetails';
-import { Article } from '../types/artcile';
 
 describe('getArticleDetails.test', () => {
     const data = {

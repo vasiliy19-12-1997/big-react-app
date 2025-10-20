@@ -6,7 +6,7 @@ import {
 } from '@/features/EditableProfileCard';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { VStack } from '@/shared/ui/Stack';
-import { Page } from '@/widgets/Page/Page';
+import { Page } from '@/widgets/Page';
 import cls from './ProfilePage.module.scss';
 
 interface ProfilePageProps {

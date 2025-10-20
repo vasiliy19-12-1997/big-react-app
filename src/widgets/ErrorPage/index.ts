@@ -1,3 +1,1 @@
-export interface ErrorPageProps{
-    id:'1'
-}
+export { ErrorPage } from './ui/ErrorPage';
