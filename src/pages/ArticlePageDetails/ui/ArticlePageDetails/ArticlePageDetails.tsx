@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -29,6 +29,7 @@ const ArticlePageDetails = memo(() => {
     if (!id) {
         return null;
     }
+    console.log(id);
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page>
@@ -38,6 +39,7 @@ const ArticlePageDetails = memo(() => {
                 <ArticleRating articleId={id} />
                 <ArticleRecomendationList />
                 <ArticleDetailsComments id={id} />
+
             </Page>
         </DynamicModuleLoader>
     );

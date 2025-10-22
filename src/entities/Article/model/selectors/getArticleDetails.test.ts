@@ -8,7 +8,7 @@ describe('getArticleDetails.test', () => {
     };
     test('should return data', () => {
         const state:DeepPartial<StateSchema> = {
-            articles: {
+            articlesDetails: {
                 data,
             },
         };
@@ -20,7 +20,7 @@ describe('getArticleDetails.test', () => {
     });
     test('should return loading', () => {
         const state:DeepPartial<StateSchema> = {
-            articles: {
+            articlesDetails: {
                 isLoading: true,
             },
         };
@@ -28,11 +28,11 @@ describe('getArticleDetails.test', () => {
     });
     test('should return error', () => {
         const state:DeepPartial<StateSchema> = {
-            articles: {
+            articlesDetails: {
                 error: 'fdf',
             },
         };
-        expect(getArticleDetailsError(state as StateSchema)).toEqual(state.articles?.error);
+        expect(getArticleDetailsError(state as StateSchema)).toEqual(state.articlesDetails?.error);
     });
     test('should work with empty state error', () => {
         const state:DeepPartial<StateSchema> = {};

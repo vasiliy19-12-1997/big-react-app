@@ -14,7 +14,7 @@ import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text, TextAlign, TextSize } from '../../../../shared/ui/Text/Text';
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors/getArticleDetails';
 import { fetchArticleById } from '../../model/services/fetchArticleById';
-import { articleDetailsReducers } from '../../model/slice/artcileDetailsSlice';
+import { articleDetailsActions, articleDetailsReducers } from '../../model/slice/artcileDetailsSlice';
 import { ArtcileTypeBlocks, ArticleBlockType } from '../../model/types/artcile';
 import { ArtcileCodeBlockComponent } from '../ArtcileCodeBlockComponent/ArtcileCodeBlockComponent';
 import { ArtcileImageBlockComponent } from '../ArtcileImageBlockComponent/ArtcileImageBlockComponent';
@@ -30,7 +30,7 @@ export const ArtcileDetails = memo((props: ArtcileDetailsProps) => {
     const { t } = useTranslation();
     const { className, id = '1' } = props;
     const reducers:ReducersList = {
-        articles: articleDetailsReducers,
+        articlesDetails: articleDetailsReducers,
     };
     const dispatch = useAppDispatch();
     const error = useSelector(getArticleDetailsError);

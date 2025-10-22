@@ -94,7 +94,7 @@ Normal.args = {};
 Normal.decorators = [
     ThemeDecorator(Theme.LIGHT),
     StoreDecorator({
-        articles: {
+        articlesDetails: {
             data: articles,
         },
     }),
@@ -104,7 +104,7 @@ export const IsLoading = Template.bind({});
 IsLoading.decorators = [
     ThemeDecorator(Theme.LIGHT),
     StoreDecorator({
-        articles: {
+        articlesDetails: {
             isLoading: true,
         },
     }),
@@ -113,7 +113,7 @@ export const Error = Template.bind({});
 Error.decorators = [
     ThemeDecorator(Theme.LIGHT),
     StoreDecorator({
-        articles: {
+        articlesDetails: {
             error: 'Произошла ошибка',
         },
     }),

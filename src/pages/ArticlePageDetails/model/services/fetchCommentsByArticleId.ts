@@ -17,7 +17,7 @@ export const fetchCommentsByArticleId = createAsyncThunk<Commentary[], string | 
                 },
             });
             if (!response) {
-                throw new Error();
+                throw new Error('Произошла ошибка на уровне подгрузе комментариев');
             }
             return response.data;
         } catch (error) {

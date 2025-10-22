@@ -33,13 +33,12 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
     }, [dispatch, id]);
-
     return (
         <VStack gap={16} max>
             <Text title={t('Комментарии')} />
-            <Suspense fallback={<Sceleton width={200} height={200} />}>
-                <AddCommentForm onSendComments={onSendComments} />
-            </Suspense>
+            {/* <Suspense fallback={<Sceleton width={200} height={200} />}> */}
+            {/* <AddCommentForm onSendComments={onSendComments} /> */}
+            {/* </Suspense> */}
             <CommentaryList isLoading={isLoading} comments={comments} />
         </VStack>
     );
