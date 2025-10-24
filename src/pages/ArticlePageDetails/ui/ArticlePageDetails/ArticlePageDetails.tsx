@@ -29,17 +29,15 @@ const ArticlePageDetails = memo(() => {
     if (!id) {
         return null;
     }
-    console.log(id);
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page>
                 {t('Article Page Details')}
                 <ArticlePageDetailsHeader />
-                {/* <ArtcileDetails id={id} /> */}
+                <ArtcileDetails id={id} />
                 <ArticleRating articleId={id} />
                 <ArticleRecomendationList />
                 <ArticleDetailsComments id={id} />
-
             </Page>
         </DynamicModuleLoader>
     );
