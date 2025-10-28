@@ -52,7 +52,10 @@ module.exports = {
         'jsx-a11y/click-events-have-key-events': 'off',
         'jsx-a11y/no-static-element-interactions': 'off',
         'arrow-body-style': 'off',
-        'big-react-app-plugin/path-checker': ['error', { alias: '@' }],
+        'big-react-app-plugin/path-checker': ['error', {
+            alias: '@',
+            testFilesPatterns: ['**/*test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+        }],
         'big-react-app-plugin/public-api-imports': ['error', { alias: '@' }],
         'linebreak-style': 'off',
         'i18next/no-literal-string': [
