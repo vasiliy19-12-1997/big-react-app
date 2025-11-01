@@ -54,9 +54,11 @@ module.exports = {
         'arrow-body-style': 'off',
         'big-react-app-plugin/path-checker': ['error', {
             alias: '@',
-            // testFilesPatterns: ['**/*.test.ts', '**/*.test.ts', '**/StoreDecorator.tsx'],//TODO
         }],
-        'big-react-app-plugin/public-api-imports': ['error', { alias: '@' }],
+        'big-react-app-plugin/public-api-imports': ['error', {
+            alias: '@',
+            testFilesPatterns: ['**/*.test.ts', '**/*.test.ts', '**/StoreDecorator.tsx'],
+        }],
         'linebreak-style': 'off',
         'i18next/no-literal-string': [
             'error',

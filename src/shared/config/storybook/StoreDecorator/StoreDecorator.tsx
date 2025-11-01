@@ -1,7 +1,6 @@
 import { Story } from '@storybook/react';
 
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
-
 import { articleDetailsReducers } from '@/entities/Article';
 import { addCommentFormReducers } from '@/features/AddCommentForm';
 import { loginReducer } from '@/features/AuthByUsername/testing';

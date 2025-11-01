@@ -7,8 +7,6 @@ const AdminPanelPage = memo(() => {
     return (
         <Page>
             {t('AdminPanelPage')}
-            <div>111</div>
-            <div>111</div>
         </Page>
     );
 });
