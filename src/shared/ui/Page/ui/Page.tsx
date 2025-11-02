@@ -3,6 +3,7 @@ import {
 } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+// eslint-disable-next-line big-react-app-plugin/layer-imports
 import { getScrollRestorationByPath, scrollRestorationSliceActions } from '@/features/ScrollRestoration';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';

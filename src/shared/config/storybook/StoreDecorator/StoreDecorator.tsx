@@ -1,19 +1,18 @@
 import { Story } from '@storybook/react';
 
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
-import { articleDetailsReducers } from '@/entities/Article';
-import { addCommentFormReducers } from '@/features/AddCommentForm';
+import { articleDetailsReducers } from '@/entities/Article/testing';
+import { addCommentFormReducers } from '@/features/AddCommentForm/testing';
 import { loginReducer } from '@/features/AuthByUsername/testing';
-import { profileReducers } from '@/features/EditableProfileCard';
-import { articleDetailsReducer } from '@/pages/ArticlePageDetails';
+import { profileReducers } from '@/features/EditableProfileCard/testing';
 import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 const defaultAsyncReducers:ReducersList = {
     login: loginReducer,
     profile: profileReducers,
-    articles: articleDetailsReducers,
-    articlePageDetails: articleDetailsReducer,
+    articlesDetails: articleDetailsReducers,
     addCommentForm: addCommentFormReducers,
+    articlePageDetails: articleDetailsReducers,
 };
 export const StoreDecorator = (
     state: DeepPartial<StateSchema>,

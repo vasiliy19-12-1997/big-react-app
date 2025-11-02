@@ -7,7 +7,7 @@ import {
     addCommentForArticle, fetchCommentsByArticleId,
     getArticleComments,
     getArticleDetailsCommentsIsLoading, getArticleDetailsRecommendError,
-} from '@/pages/ArticlePageDetails';
+} from '../../ArticlePageDetails';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Sceleton } from '@/shared/ui/Sceleton/Sceleton';
 import { VStack } from '@/shared/ui/Stack';
@@ -36,9 +36,9 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
     return (
         <VStack gap={16} max>
             <Text title={t('Комментарии')} />
-            {/* <Suspense fallback={<Sceleton width={200} height={200} />}> */}
-            {/* <AddCommentForm onSendComments={onSendComments} /> */}
-            {/* </Suspense> */}
+            <Suspense fallback={<Sceleton width={200} height={200} />}>
+                <AddCommentForm onSendComments={onSendComments} />
+            </Suspense>
             <CommentaryList isLoading={isLoading} comments={comments} />
         </VStack>
     );

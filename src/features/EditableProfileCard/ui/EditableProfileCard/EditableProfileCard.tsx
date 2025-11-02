@@ -9,12 +9,11 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { VStack } from '@/shared/ui/Stack';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';
 import { useUpdateProfileData } from '../../api/editableProfileCardApi';
+import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { profileReducers } from '../../model/slice/profileSlice';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
-import { ProfileRating } from '@/features/ProfileRating';
-import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 
 interface EditableProfileCardProps {
   className?: string;
@@ -97,7 +96,6 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
                     readonly={readonly}
                     id={id}
                 />
-                <ProfileRating profileId={id} />
             </VStack>
         </DynamicModuleLoader>
 

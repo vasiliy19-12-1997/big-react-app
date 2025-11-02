@@ -1,6 +1,8 @@
 import { useTranslation } from 'react-i18next';
-import { Country, CountrySelect } from '@/entities/Country';
+import { Country } from '@/entities/Country';
 import { Currency, CurrencySelect } from '@/entities/Currency';
+// TODO
+// eslint-disable-next-line big-react-app-plugin/layer-imports
 import { useFetchProfileData } from '@/features/EditableProfileCard';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';

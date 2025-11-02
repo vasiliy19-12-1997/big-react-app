@@ -8,6 +8,6 @@ export { getFilterSelectorOrder, getFilterSelectorSearch, getFilterSelectorSort 
 export { ArticlePageTabs } from './ui/ArticlePageTabs/ArticlePageTabs';
 export { ArticleSortSelector } from './ui/ArticleSortSelector/ArticleSortSelector';
 export { getArticleDetailsData } from './model/selectors/getArticleDetails';
-export { articleDetailsActions, articleDetailsReducers } from './model/slice/artcileDetailsSlice';
+export { articleDetailsActions } from './model/slice/artcileDetailsSlice';
 export { fetchArticleById } from './model/services/fetchArticleById';
 export type { ArticleBlockType } from './model/types/artcile';

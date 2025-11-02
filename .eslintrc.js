@@ -59,6 +59,10 @@ module.exports = {
             alias: '@',
             testFilesPatterns: ['**/*.test.ts', '**/*.test.ts', '**/StoreDecorator.tsx'],
         }],
+        'big-react-app-plugin/layer-imports': ['error', {
+            alias: '@',
+            ignoreImportPatterns: ['**/testing', '**/StoreProvider', '**/StateSchema'],
+        }],
         'linebreak-style': 'off',
         'i18next/no-literal-string': [
             'error',
