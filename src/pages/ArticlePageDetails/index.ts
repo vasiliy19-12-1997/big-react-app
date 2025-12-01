@@ -3,7 +3,7 @@ export { ArticlePageDetailsAsync as ArticlePageDetails } from './ui/ArticlePageD
 export type { ArticleDetailsCommentSchema } from './model/types/ArticleDetailsCommentSchema';
 export type { ArticleDetailsRecommendSchema } from './model/types/ArticleDetailsRecommendSchema';
 export type { ArticlePageDetailsSchema } from './model/types/index';
-export { recommendSliceReducer } from './model/slice/ArticleDetailsRecommendSlice';
+export { articleRecommendationReducer as recommendSliceReducer } from './model/slice/ArticleDetailsRecommendSlice';
 export { getArticleDetailsCommentsIsLoading, getArticleDetailsCommentsError } from './model/selectors/comments/comments';
 export { getArticleDetailsRecommendError, getArticleDetailsRecommendIsLoading } from './model/selectors/recommends/recommends';
 export { getCanEditArticles } from './model/selectors/articles/articles';

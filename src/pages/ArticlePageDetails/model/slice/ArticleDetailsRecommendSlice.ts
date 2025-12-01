@@ -43,6 +43,6 @@ const RecommendSlice = createSlice({
 });
 
 export const {
-    reducer: recommendSliceReducer,
-    actions: recommendSliceActions,
+    reducer: articleRecommendationReducer,
+    actions: articleRecommendationAction,
 } = RecommendSlice;

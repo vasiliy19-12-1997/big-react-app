@@ -50,7 +50,6 @@ export const ArtcileDetails = memo((props: ArtcileDetailsProps) => {
     }, []);
     useInitialEffect(() => {
         dispatch(fetchArticleById(id));
-        console.log('Работает');
     }, [dispatch, id]);
     let element;
 

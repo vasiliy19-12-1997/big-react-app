@@ -30,8 +30,9 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
     const onSendHandler = useCallback(() => {
         onSendComments(text || '');
         onCommentChange('');
+        console.log('Работает отправка');
     }, [onCommentChange, onSendComments, text]);
-    console.log('Работает');
+
     return (
         // <>
         <DynamicModuleLoader reducers={reducers}>

@@ -647,6 +647,30 @@
       "articleId": "11",
       "userId": "1",
       "id": "x3zmhKo"
+    },
+    {
+      "text": "fdfdfdfdf",
+      "articleId": "13",
+      "userId": "1",
+      "id": "v24zQtR"
+    },
+    {
+      "text": "fdfdffdf",
+      "articleId": "13",
+      "userId": "1",
+      "id": "4V9J7A4"
+    },
+    {
+      "text": "fdfdfdf",
+      "articleId": "13",
+      "userId": "1",
+      "id": "5fC03qE"
+    },
+    {
+      "text": "ававава",
+      "articleId": "13",
+      "userId": "1",
+      "id": "NDxPBzb"
     }
   ],
   "users": [
@@ -744,6 +768,13 @@
       "rate": 3,
       "userId": "1",
       "id": "4jFHf8F"
+    },
+    {
+      "articleId": "13",
+      "feedback": "",
+      "rate": 5,
+      "userId": "1",
+      "id": "VxACxLS"
     }
   ],
   "profile-ratings": [

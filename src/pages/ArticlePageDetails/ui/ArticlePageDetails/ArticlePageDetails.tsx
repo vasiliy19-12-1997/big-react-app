@@ -12,15 +12,15 @@ import { ArticleDetailsComments } from '../../../ArticleDetailsComments';
 import { fetchArticlesRecommends } from '../../model/services/fetchArticlesRecommends';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
 import { ArticlePageDetailsHeader } from '../ArticlePageDetailsHeader/ArticlePageDetailsHeader';
+import { articlePageDetailsReducer } from '../../model/slice';
 // eslint-disable-next-line big-react-app-plugin/public-api-imports
-import { articleDetailsReducers } from '@/entities/Article/testing';
 
 const ArticlePageDetails = memo(() => {
     const { t } = useTranslation('ArticlePageDetails');
     const { id } = useParams<{id?:string}>();
     const dispatch = useDispatch();
     const reducers:ReducersList = {
-        articlePageDetails: articleDetailsReducers,
+        articlePageDetails: articlePageDetailsReducer,
     };
 
     useInitialEffect(() => {

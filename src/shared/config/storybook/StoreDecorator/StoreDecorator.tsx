@@ -12,7 +12,7 @@ const defaultAsyncReducers:ReducersList = {
     profile: profileReducers,
     articlesDetails: articleDetailsReducers,
     addCommentForm: addCommentFormReducers,
-    articlePageDetails: articleDetailsReducers,
+    // articlePageDetails: articleDetailsReducers,
 };
 export const StoreDecorator = (
     state: DeepPartial<StateSchema>,
