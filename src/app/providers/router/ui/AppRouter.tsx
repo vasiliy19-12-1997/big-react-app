@@ -4,7 +4,7 @@ import {
 import { Route, Routes } from 'react-router-dom';
 import { routeConfig } from '../../router/config/routeConfig';
 import { AppRouteProps } from '@/shared/types/routerTypes';
-import { PageLoader } from '@/shared/ui/PageLoader/PageLoader';
+import { PageLoader } from '@/shared/ui/PageLoader';
 import { RequireAuth } from './RequireAuth';
 
 const AppRouter = memo(() => {

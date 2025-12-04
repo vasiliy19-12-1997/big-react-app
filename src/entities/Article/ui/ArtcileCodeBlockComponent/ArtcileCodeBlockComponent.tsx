@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Code } from '@/shared/ui/Code/Code';
-import { Text } from '@/shared/ui/Text/Text';
+import { Code } from '@/shared/ui/Code';
+import { Text } from '@/shared/ui/Text';
 import { ArtcileBlockCode } from '../../../Article/model/types/artcile';
 import cls from './ArtcileCodeBlockComponent.module.scss';
 

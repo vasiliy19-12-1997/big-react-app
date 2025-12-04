@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { isMobile } from 'react-device-detect';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Sceleton } from '@/shared/ui/Sceleton/Sceleton';
+import { Sceleton } from '@/shared/ui/Sceleton';
 import { VStack } from '@/shared/ui/Stack';
 import { useNotificationList } from '../../api/notificationApi';
 import { NotificationItem } from '../NotificationItem/NotificationItem';

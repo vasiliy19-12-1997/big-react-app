@@ -6,7 +6,7 @@ import cls from './ArticleRating.module.scss';
 import { RatingCard } from '@/entities/Rating';
 import { useGetRatings, usePostRatings } from '../../api/articleRatingApi';
 import { getAuthUserData } from '@/entities/User';
-import { Sceleton } from '@/shared/ui/Sceleton/Sceleton';
+import { Sceleton } from '@/shared/ui/Sceleton';
 
 export interface ArticleRatingProps {
   className?: string;

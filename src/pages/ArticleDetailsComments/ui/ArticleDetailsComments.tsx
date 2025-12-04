@@ -9,9 +9,9 @@ import {
     getArticleDetailsCommentsIsLoading, getArticleDetailsRecommendError,
 } from '../../ArticlePageDetails';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Sceleton } from '@/shared/ui/Sceleton/Sceleton';
+import { Sceleton } from '@/shared/ui/Sceleton';
 import { VStack } from '@/shared/ui/Stack';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 
 interface ArticleDetailsCommentsProps {
   className?: string;

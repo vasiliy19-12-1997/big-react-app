@@ -9,11 +9,11 @@ import { AvatarDropDown } from '@/features/AvatarDropDown';
 import { NotificationButton } from '@/features/NotificationButton';
 import { RoutePath } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/Stack';
-import { Text, TextTheme } from '@/shared/ui/Text/Text';
-import { Drawer } from '@/shared/ui/Drawer/Drawer';
+import { Text, TextTheme } from '@/shared/ui/Text';
+import { Drawer } from '@/shared/ui/Drawer';
 import { NotificationList } from '@/entities/Notification';
 import cls from './Navbar.module.scss';
 
