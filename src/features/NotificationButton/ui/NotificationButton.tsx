@@ -6,7 +6,6 @@ import { Icon } from '@/shared/ui/Icon';
 import { PopOver } from '@/shared/ui/Popups';
 import NotificationIcon from '@/shared/assets/icons/notification-20-20.svg';
 import { Drawer } from '@/shared/ui/Drawer';
-import { AnimationProvider } from '@/shared/lib/components';
 import cls from './NotificationButton.module.scss';
 
 export const NotificationButton = () => {

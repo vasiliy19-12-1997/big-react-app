@@ -23,6 +23,7 @@ module.exports = {
         'i18next',
         'react-hooks',
         'big-react-app-plugin',
+        "unused-imports",
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -38,6 +39,7 @@ module.exports = {
                 additionalHooks: '(useInitialEffect)',
             },
         ],
+
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
         'no-unused-vars': 'off',
@@ -87,7 +89,7 @@ module.exports = {
         'no-param-reassign': 'off',
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
-
+        'unused-imports/no-unused-imports': 'error',
     },
     globals: {
         __IS_DEV__: true,
