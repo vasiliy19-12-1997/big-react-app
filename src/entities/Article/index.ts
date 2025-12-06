@@ -10,4 +10,4 @@ export { ArticleSortSelector } from './ui/ArticleSortSelector/ArticleSortSelecto
 export { getArticleDetailsData } from './model/selectors/getArticleDetails';
 export { articleDetailsActions } from './model/slice/artcileDetailsSlice';
 export { fetchArticleById } from './model/services/fetchArticleById';
-export type { ArticleBlockType } from './model/types/artcile';
+export  { ArticleBlockType } from './model/types/artcile';
