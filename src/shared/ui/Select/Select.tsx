@@ -6,16 +6,16 @@ import { useTranslation } from 'react-i18next';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Select.module.scss';
 
-export interface SelectOptions <T extends string> {
+export interface SelectOptions <T extends string > {
     value:T;
     content:string
 }
 
-interface SelectProps <T extends string> {
+interface SelectProps <T extends string > {
   className?: string;
   label?:string;
   options?:SelectOptions<T>[];
-  value?:string;
+  value?:T;
   onChange?: (value:T) => void;
   readonly?:boolean
 }
@@ -41,7 +41,9 @@ export const Select = <T extends string> (props: SelectProps<T>) => {
     )), [options]);
 
     const onChangeHandler = (e:ChangeEvent<HTMLSelectElement>) => {
-        onChange?.(e.target.value as T);
+        if(onChange) {
+            onChange(e.target.value as T);
+        }
     };
     const mods:Mods = {
         [cls.readonly]: readonly,
