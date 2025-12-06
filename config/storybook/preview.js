@@ -1,10 +1,9 @@
 import { addDecorator } from '@storybook/react';
-import { withMock } from 'storybook-addon-mock';
-import { Theme } from '../../src/app/providers/ThemeProvider';
 import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator/RouterDecorator';
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator/StyleDecorator';
 import { SuspenceDecorator } from '../../src/shared/config/storybook/SuspenceDecorator/SuspenceDecorator';
 import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '../../src/shared/const/theme';
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -14,6 +13,7 @@ export const parameters = {
             date: /Date$/,
         },
     },
+    layout: 'fullscreen',
 };
 
 addDecorator(StyleDecorator);

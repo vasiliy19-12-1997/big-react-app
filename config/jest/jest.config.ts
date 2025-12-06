@@ -34,6 +34,7 @@ export default {
     moduleNameMapper: {
         '\\.s?css$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+        '^@/(.*)$': '<rootDir>/src/$1',
     },
     globals: { __IS_DEV__: true, __API__: '', __PROJECT__: 'jest' },
     reporters: [

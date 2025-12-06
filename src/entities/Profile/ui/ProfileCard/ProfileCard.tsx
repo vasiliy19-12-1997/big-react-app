@@ -1,9 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { Country } from '@/entities/Country';
+import { Country, CountrySelect } from '@/entities/Country';
 import { Currency, CurrencySelect } from '@/entities/Currency';
-// TODO
-// eslint-disable-next-line big-react-app-plugin/layer-imports
-import { useFetchProfileData } from '@/features/EditableProfileCard';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Input } from '@/shared/ui/Input';
@@ -11,6 +8,7 @@ import { Loader } from '@/shared/ui/Loader';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text, TextAlign, TextTheme } from '@/shared/ui/Text';
 import cls from './ProfileCard.module.scss';
+import { Profile } from '../../model/types/profile';
 
 interface ProfileCardProps {
   className?: string
@@ -24,6 +22,9 @@ interface ProfileCardProps {
   onChangeCountry?:(value:Country)=>void
   readonly?:boolean
   id?:string
+  data?:Profile
+    isLoading?:boolean
+    error?:string
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
@@ -41,8 +42,10 @@ export const ProfileCard = (props: ProfileCardProps) => {
         onChangeCountry,
         readonly = false,
         id = '1',
+        data,
+        isLoading,
+        error,
     } = props;
-    const { data: formData, isLoading, isError } = useFetchProfileData(id);
     if (isLoading) {
         return (
             <HStack max className={classNames(cls.ProfileCard, {}, [className, cls.loading])}>
@@ -50,7 +53,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
             </HStack>
         );
     }
-    if (isError) {
+    if (error) {
         return (
             <HStack max className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
                 <Text
@@ -68,13 +71,13 @@ export const ProfileCard = (props: ProfileCardProps) => {
     return (
         <VStack align="center" max className={classNames(cls.ProfileCard, mods, [className])}>
             <VStack max className={cls.data}>
-                {formData?.avatar && (
+                {data?.avatar && (
                     <div className={cls.avatarWrapper}>
-                        <Avatar src={formData.avatar} />
+                        <Avatar src={data.avatar} />
                     </div>
                 )}
                 <Input
-                    value={formData?.first}
+                    value={data?.first}
                     onChange={onChangeFirstname}
                     placeholder={t('Выше имя')}
                     className={cls.input}
@@ -82,7 +85,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     data-testid="ProfileCard.firsname"
                 />
                 <Input
-                    value={formData?.lastname}
+                    value={data?.lastname}
                     onChange={onChangeLastname}
                     placeholder={t('Выше фамилия')}
                     className={cls.input}
@@ -90,7 +93,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     data-testid="ProfileCard.lastname"
                 />
                 <Input
-                    value={formData?.age}
+                    value={data?.age}
                     onChange={onChangeAge}
                     placeholder={t('Выш возраст')}
                     className={cls.input}
@@ -98,7 +101,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     data-testid="ProfileCard.age"
                 />
                 <Input
-                    value={formData?.city}
+                    value={data?.city}
                     onChange={onChangeCity}
                     placeholder={t('Ваш город')}
                     className={cls.input}
@@ -106,7 +109,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     data-testid="ProfileCard.city"
                 />
                 <Input
-                    value={formData?.username}
+                    value={data?.username}
                     onChange={onChangeUsername}
                     placeholder={t('Ваш никнейм')}
                     className={cls.input}
@@ -114,7 +117,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     data-testid="ProfileCard.nickname"
                 />
                 <Input
-                    value={formData?.avatar}
+                    value={data?.avatar}
                     onChange={onChangeAvatar}
                     placeholder={t('Ваш аватар')}
                     className={cls.input}
@@ -123,16 +126,16 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 />
                 <CurrencySelect
                     className={cls.input}
-                    value={formData?.currency}
+                    value={data?.currency}
                     onChange={onChangeCurrency}
                     readonly={readonly}
                 />
-                {/* <CountrySelect
+                <CountrySelect
                     className={cls.input}
-                    value={formData?.country}
+                    value={data?.country}
                     onChange={onChangeCountry}
                     readonly={readonly}
-                /> */}
+                />
             </VStack>
         </VStack>
     );

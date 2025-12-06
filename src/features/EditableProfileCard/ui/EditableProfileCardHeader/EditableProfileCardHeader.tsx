@@ -26,12 +26,15 @@ export const EditableProfileCardHeader = memo((props: EditableProfileCardHeaderP
     const {
         className,
     } = props;
+
     const onEdit = useCallback(() => {
         dispatch(profileActions.setReadonly(false));
     }, [dispatch]);
+
     const onCancellEdit = useCallback(() => {
         dispatch(profileActions.cancellEdit());
     }, [dispatch]);
+
     const onSave = useCallback(() => {
         dispatch(updateProfileData());
     }, [dispatch]);
@@ -39,20 +42,7 @@ export const EditableProfileCardHeader = memo((props: EditableProfileCardHeaderP
 
         <VStack max className={classNames('', {}, [className])}>
             <Text title={t('Профиль пользователя')} />
-            <Button
-                theme={ButtonTheme.OUTLINE}
-                onClick={onEdit}
-                data-testid="EditableProfileCardHeader.Edit"
-            >
-                {t('Редактировать')}
-            </Button>
-            <Button
-                theme={ButtonTheme.OUTLINE}
-                onClick={onSave}
-                data-testid="EditableProfileCardHeader.Save"
-            >
-                {t('Сохранить')}
-            </Button>
+
             {canEdit && (
                 <HStack max gap={8} justify="between">
                     {readonly ? (
@@ -83,7 +73,6 @@ export const EditableProfileCardHeader = memo((props: EditableProfileCardHeaderP
                     )}
                 </HStack>
             )}
-
         </VStack>
     );
 });
