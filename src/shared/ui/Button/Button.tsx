@@ -11,17 +11,36 @@ export enum ButtonTheme {
     BACKGROUND_INVERTED = 'backgroundInverted'
 
 }
+/**
+ * Размер кнопки
+ */
 export enum ButtonSize{
     M = 'size_m',
     L = 'size_l',
     XL = 'size_xl',
 }
+
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
     className?: string;
+    /**
+     * Тема кнопки
+     */
     theme?: ButtonTheme;
+    /**
+     * Квадратная кнопка
+     */
     square?:boolean;
+    /**
+     * Размер кнопки
+     */
     size?: ButtonSize;
+    /**
+     * Заблокировать кнопку
+     */
     disabled?:boolean;
+    /**
+     * Растянуть кнопку на всю ширину контейнера
+     */
     fullWidth?:boolean
 }
 

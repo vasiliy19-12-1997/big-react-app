@@ -1,329 +1,199 @@
-# big-react-app — учебно‑боевой монорепозиторий фронтенда
+## Запуск проекта
 
-Полная конфигурация проекта «с нуля»: Webpack + React + TypeScript + Babel + SCSS/CSS‑modules + Vite + Prettier + ESlint/Stylelint. С нуля настроены **юнит/компонентные/e2e‑тесты** (Jest, React Testing Library, Storybook + Loki, Cypress), CI/CD, pre‑commit хуки, динамические редьюсеры, i18n, темизация и обширная библиотека UI‑компонентов.
-
-> Проект задуман как «большое продакшн приложение», в котором собраны современные практики архитектуры, производительности и DX.
-
----
-
-## Содержание
-
-<!-- fdf -->
-* [Демо и скриншоты](#демо-и-скриншоты)
-* [Технологии](#технологии)
-* [Быстрый старт](#быстрый-старт)
-* [Скрипты](#скрипты)
-* [Переменные окружения](#переменные-окружения)
-* [Структура проекта](#структура-проекта)
-* [Архитектура и подходы](#архитектура-и-подходы)
-* [UI‑библиотека](#ui-библиотека)
-* [Тестирование](#тестирование)
-* [Оптимизация производительности](#оптимизация-производительности)
-* [i18n](#i18n)
-* [Линтинг и форматирование](#линтинг-и-форматирование)
-* [Codegen (Plop)](#codegen-plop)
-* [CI/CD](#cicd)
-* [Mock API / JSON‑Server](#mock-api--json-server)
-* [Деплой и Nginx](#деплой-и-nginx)
-* [Roadmap](#roadmap)
-
----
-
-## Демо и скриншоты
-
-
-
----
-
-## Технологии
-
-**Базис:** React 18, TypeScript, Webpack 5, Vite (альтернативная сборка), Babel.
-
-**Стили:** SCSS + CSS Modules, три темы (светлая/тёмная/оранжевая), дизайн‑токены и переменные CSS.
-
-**Состояние и данные:** Redux Toolkit (slices, async thunks), **динамическая подгрузка редьюсеров** (reducer manager), RTK Query, axios‑инстанс, нормализация через `createEntityAdapter`.
-
-**Тесты:** Jest (юнит), React Testing Library (компоненты), Storybook + Loki (скриншотные), Cypress (e2e).
-
-**Инструменты DX:** ESlint + **кастомный eslint‑плагин** для архитектурных правил, Stylelint, Prettier, Husky (pre‑commit), commit hooks, Webpack Bundle Analyzer.
-
-**i18n:** i18next, lazy‑загрузка namespace‑ов, babel‑плагин авто‑экстракции ключей (генерация в `/extractedTranslations`).
-
-**Автоматизация:** Plop‑генераторы фич/сущностей, скрипты для AST‑рефакторинга.
-
-**Сервер/инфра:** JSON‑Server для моков, дальше Nginx‑конфиг для прод‑деплоя фронта и отдельно мини-проект сервака, который разметил на Vercel
-
----
-
-## Быстрый старт
-
-1. Установите зависимости:
-
-```bash
-# рекомендуемый менеджер — npm
-yarn install
-# или npm i
+```
+npm install - устанавливаем зависимости
+npm run start:dev или npm run start:dev:vite - запуск сервера + frontend проекта в dev режиме
 ```
 
-2. Создайте `.env` (см. пример ниже).
-3. Запустите dev‑сервер:
-
-```bash
-npm run start:dev        # webpack‑dev‑server (по умолчанию http://localhost:3000)
-```
-
-4. Откройте Storybook:
-
-```bash
-npm run storybook  # http://localhost:6006
-```
-
-> **Node.js ≥ 18** рекомендуется. Если будут несовпадения, уточните версии в `package.json`.
-
----
+----
 
 ## Скрипты
 
-> Названия могут немного отличаться — смотрите `package.json`. Ниже — типовой набор и назначение.
+- `npm run start` - Запуск frontend проекта на webpack dev server
+- `npm run start:vite` - Запуск frontend проекта на vite
+- `npm run start:dev` - Запуск frontend проекта на webpack dev server + backend
+- `npm run start:dev:vite` - Запуск frontend проекта на vite + backend
+- `npm run start:dev:server` - Запуск backend сервера
+- `npm run build:prod` - Сборка в prod режиме
+- `npm run build:dev` - Сборка в dev режиме (не минимизирован)
+- `npm run lint:ts` - Проверка ts файлов линтером
+- `npm run lint:ts:fix` - Исправление ts файлов линтером
+- `npm run lint:scss` - Проверка scss файлов style линтером
+- `npm run lint:scss:fix` - Исправление scss файлов style линтером
+- `npm run test:unit` - Запуск unit тестов с jest
+- `npm run test:ui` - Запуск скриншотных тестов с loki
+- `npm run test:ui:ok` - Подтверждение новых скриншотов
+- `npm run test:ui:ci` - Запуск скриншотных тестов в CI
+- `npm run test:ui:report` - Генерация полного отчета для скриншотных тестов
+- `npm run test:ui:json` - Генерация json отчета для скриншотных тестов
+- `npm run test:ui:html` - Генерация HTML отчета для скриншотных тестов
+- `npm run storybook` - запуск Storybook
+- `npm run storybook:build` - Сборка storybook билда
+- `npm run prepare` - прекоммит хуки
+- `npm run generate:slice` - Скрипт для генерации FSD слайсов
 
-```bash
-# Запуск/сборка приложения
-npm run start:dev                 # старт dev‑сервера (Webpack)
-npm run build:dev           # сборка dev
-npm run build:prod          # сборка prod (минимизация, чанк‑сплиттинг)
-npm run analyze             # анализ бандла (webpack-bundle-analyzer)
+----
 
-# Storybook и скриншотные тесты (Loki)
-npm run storybook           # запуск Storybook
-npm run build-storybook     # сборка Storybook статикой
-npm run loki:test           # прогон визуальных регрессионных тестов
-npm run loki:approve        # апрув новых эталонов
+## Архитектура проекта
 
-# Юнит/RTL и e2e
-npm run test                # юнит‑тесты (Jest)
-npm run test:watch          # юнит‑тесты в watch‑режиме
-npm run test:ui             # компонентные тесты (RTL)
-npm run cypress:open        # интерактивный Cypress
-npm run cypress:run         # headless‑запуск e2e
+Проект написан в соответствии с методологией Feature sliced design
 
-# Линтинг/форматирование
-npm run lint                # eslint (TS/TSX)
-npm run lint:fix            # eslint с автофиксами
-npm run stylelint           # проверка стилей
-npm run stylelint:fix       # автофиксы стилей
-npm run format              # prettier
+Ссылка на документацию - [feature sliced design](https://feature-sliced.design/docs/get-started/tutorial)
 
-# Локальный Mock API
-npm run json:server         # поднять json‑server (см. json-server/db.json)
+----
 
-# i18n
-npm run i18n:extract        # извлечение ключей переводов из кода (babel‑плагин)
+## Работа с переводами
 
-# Генераторы
-npm run generate            # Plop‑генераторы фич/сущностей/виджетов
-```
+В проекте используется библиотека i18next для работы с переводами.
+Файлы с переводами хранятся в public/locales.
 
----
+Для комфортной работы рекомендуем установить плагин для webstorm/vscode
 
-## Переменные окружения
+Документация i18next - [https://react.i18next.com/](https://react.i18next.com/)
 
-Создайте файл `.env` в корне проекта. Часто используются:
+----
 
-```dotenv
-# Порты/режимы
-PORT=3000
-NODE_ENV=development # или production
-PROJECT=frontend     # имя проекта/пресета
+## Тесты
 
-# API/моки
-API_URL=http://localhost:8000
-USE_MOCKS=true
+В проекте используются 4 вида тестов:
+1) Обычные unit тесты на jest - `npm run test:unit`
+2) Тесты на компоненты с React testing library -`npm run test:unit`
+3) Скриншотное тестирование с loki `npm run test:ui`
+4) e2e тестирование с Cypress `npm run test:e2e`
 
-# Флаги сборки
-ENABLE_ANALYZE=false
-```
+Подробнее о тестах - [документация тестирование](/docs/tests.md)
 
-> Точный список и дефолты смотрите в конфиге сборки (`/config`) и скриптах (`/scripts`).
+----
 
----
+## Линтинг
 
-## Структура проекта
+В проекте используется eslint для проверки typescript кода и stylelint для проверки файлов со стилями.
 
-```
-.big-react-app
-├─ .github/workflows/           # CI пайплайны
-├─ .husky/                      # pre-commit хуки
-├─ .loki/                       # эталоны скриншотных тестов
-├─ config/                      # конфигурация сборки (webpack/vite/env)
-├─ extractedTranslations/       # авто‑собранные ключи i18n
-├─ json-server/                 # моки API (db.json, маршруты)
-├─ plop-templates/              # шаблоны кодогенерации
-├─ public/                      # статические ассеты
-├─ scripts/                     # служебные скрипты/cli
-├─ src/
-│  ├─ app/                      # инициализация приложения (роутинг, провайдеры)
-│  ├─ pages/                    # страницы (лениво грузятся)
-│  ├─ widgets/                  # крупные композиции из фич/сущностей
-│  ├─ features/                 # фичи (логика + UI)
-│  ├─ entities/                 # бизнес‑сущности (User, Article, Comment, ...)
-│  ├─ shared/                   # переиспользуемые модули: ui, lib, api, config, hooks
-│  └─ index.tsx                 # точка входа
-├─ babel.config.json
-├─ tsconfig.json
-├─ webpack.config.ts
-├─ plopfile.js
-└─ package.json
-```
+Также для строгого контроля главных архитектурных принципов
+используется собственный eslint plugin *eslint-plugin-big-react-app-plugin*,
+который содержит 3 правила
+1) path-checker - запрещает использовать абсолютные импорты в рамках одного модуля
+2) layer-imports - проверяет корректность использования слоев с точки зрения FSD
+   (например widgets нельзя использовать в features и entitites)
+3) public-api-imports - разрешает импорт из других модулей только из public api. Имеет auto fix
 
----
+##### Запуск линтеров
+- `npm run lint:ts` - Проверка ts файлов линтером
+- `npm run lint:ts:fix` - Исправление ts файлов линтером
+- `npm run lint:scss` - Проверка scss файлов style линтером
+- `npm run lint:scss:fix` - Исправление scss файлов style линтером
 
-## Архитектура и подходы
+----
+## Storybook
 
-* **Слоистая структура** в духе Feature‑Sliced Design: `shared` → `entities` → `features` → `widgets` → `pages` → `app`.
-* **Слабое зацепление, сильная связность:** каждый слой импортирует только «вниз». Кросс‑импорты ограничиваются публичными API модулей.
-* **Переиспользование:** публичные интерфейсы модулей (`index.ts`) и стабильные алиасы через `tsconfig`.
-* **Изоляция:**
+В проекте для каждого компонента описываются стори-кейсы.
+Запросы на сервер мокаются с помощью storybook-addon-mock.
 
-  * динамическая инъекция редьюсеров (reducer manager) на уровне страниц/фич;
-  * ленивые страницы/фичи для **code‑splitting**;
-  * инъекция RTK‑эндпоинтов «по требованию», чтобы сохранять минимальный бандл.
-* **Нормализация данных:** `createEntityAdapter`; селекторы построены через `createSelector`.
-* **Обработка ошибок:** `ErrorBoundary` + fallback UI, централизованный `Axios` перехватчик.
-* **Роутинг:** `react-router-dom v6`, защищённые маршруты по ролям/авторизации.
+Файл со сторикейсами создает рядом с компонентом с расширением .stories.tsx
 
----
+Запустить сторибук можно командой:
+- `npm run storybook`
 
-## UI‑библиотека
-
-> 20+ компонентов: модальные окна (порталы), дропдауны/меню, сайдбар, кнопки с темами, скелетоны, попапы, ленивые изображения, drawer, аватары, вертикальные/горизонтальные стеки и др.
-
-**Принципы:**
-
-* семантика и доступность (ARIA‑атрибуты, focus‑trap);
-* «headless‑подход»: часть компонентов построена на безголовых библиотеках, часть — полностью кастом;
-* строгий публичный API каждого компонента + сторис и тесты для всех состояний.
-
----
-
-## Тестирование
-
-* **Unit (Jest):** функции, селекторы, редьюсеры, async‑thunks.
-* **RTL:** рендер компонентов, мок роутера/хранилища, снэпшоты.
-* **Storybook + Loki:** визуальные регрессионные тесты; отчёты и апрув эталонов в CI.
-* **Cypress (e2e):** сценарии «сквозь весь стек»: авторизация, фильтры, сортировки, бесконечные ленты, комментарии и т.п.
-
-**Полезные команды:** см. раздел [Скрипты](#скрипты). В CI прогоняется три набора тестов + линтеры + сборки приложения и сторибука.
-
----
-
-## Оптимизация производительности
-
-* контроль **перерисовок**: `React.memo`, `useMemo/useCallback`, `useEffect`, разбиение пропов;
-* **асинхронные компоненты/редьюсеры**, изоляция модулей;
-* **bundle‑analyzer**, треш‑шейкинг, кэш‑группы, prefetch/preload;
-* `throttle`/`debounce` для сетевых и UI‑ивентов;
-* «ленивая» подгрузка тяжёлых библиотек (анимации, DnD) только на нужных экранах.
-* оптимизация списков
-
----
-
-## i18n
-
-* i18next с **lazy‑namespaces**;
-* plural‑формы и ICU‑подходы (где нужно);
-* babel‑плагин, автоматически извлекающий ключи переводов в JSON (см. `/extractedTranslations`).
-
----
-
-## Линтинг и форматирование
-
-* **ESlint** (TS/React) + **кастомный архитектурный плагин** с автофиксом правил (изоляция модулей, доступ к слоям, алиасы);
-* **Stylelint** для SCSS/CSS‑modules;
-* **Prettier** — единый стиль кода;
-* **Husky** — pre‑commit хуки (линтеры/тесты/типчек по необходимости) - бесплатно и удобно.
-
----
-
-## Codegen (Plop)
-
-* CLI‑генераторы для `feature/entity/widget/page` с готовой FSD‑структурой, тестами, сторис и стилями;
-* возможность расширять шаблоны в `/plop-templates`.
+Подробнее о [Storybook](/docs/storybook.md)
 
 Пример:
 
-```bash
-npm run generate
-# далее выбрать: feature / entity / widget / page ...
+```typescript jsx
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Button, ButtonSize, ButtonTheme } from './Button';
+import { Theme } from '@/shared/const/theme';
+
+export default {
+    title: 'shared/Button',
+    component: Button,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+} as ComponentMeta<typeof Button>;
+
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+
+export const Primary = Template.bind({});
+Primary.args = {
+    children: 'Text',
+};
+
+export const Clear = Template.bind({});
+Clear.args = {
+    children: 'Text',
+    theme: ButtonTheme.CLEAR,
+};
 ```
 
----
 
-## CI/CD
+----
 
-* GitHub Actions: lint → unit/rtl/loki → build app/storybook → публикация отчётов/превью;
-* артефакты: отчёты юнит/скриншотных тестов;
-* возможность автопубликации Storybook на GitHub Pages.
+## Конфигурация проекта
 
-> Проверьте имя workflow‑файла и включите «Badges» в шапке README.
+Для разработки проект содержит 2 конфига:
+1. Webpack - ./config/build
+2. vite - vite.config.ts
 
----
+Оба сборщика адаптированы под основные фичи приложения.
 
-## Mock API / JSON‑Server
+Вся конфигурация хранится в /config
+- /config/babel - babel
+- /config/build - конфигурация webpack
+- /config/jest - конфигурация тестовой среды
+- /config/storybook - конфигурация сторибука
 
-Локальные моки для быстрой разработки.
+В папке `scripts` находятся различные скрипты для рефакторинга\упрощения написания кода\генерации отчетов и тд.
 
-```bash
-npm run json:server
-# по умолчанию: http://localhost:8000, источник: json-server/db.json
-```
+----
 
-Можно проксировать запросы через dev‑сервер Webpack, чтобы избежать CORS.
+## CI pipeline и pre commit хуки
 
----
+Конфигурация github actions находится в /.github/workflows.
+В ci прогоняются все виды тестов, сборка проекта и сторибука, линтинг.
 
-## Деплой и Nginx
+В прекоммит хуках проверяем проект линтерами, конфиг в /.husky
 
-Пример конфига:
+----
 
-```nginx
-server {
-  listen 80;
-  server_name your.domain.com;
+### Работа с данными
 
-  root /var/www/app;
-  index index.html;
+Взаимодействие с данными осуществляется с помощью redux toolkit.
+По возможности переиспользуемые сущности необходимо нормализовать с помощью EntityAdapter
 
-  location / {
-    try_files $uri /index.html;
-  }
+Запросы на сервер отправляются с помощью [RTK query](/src/shared/api/rtkApi.ts)
 
-  # прокси для API
-  location /api/ {
-    proxy_pass http://localhost:8000/;
-    proxy_set_header Host $host;
-    proxy_set_header X-Real-IP $remote_addr;
-  }
+Для асинхронного подключения редюсеров (чтобы не тянуть их в общий бандл) используется
+[DynamicModuleLoader](/src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader.tsx)
 
-  gzip on;
-  gzip_types text/plain application/javascript text/css application/json image/svg+xml;
-}
-```
-
----
-
-## Roadmap
-
-* [x] Webpack 5 + React 18 + TS
-* [x] Vite как альтернативная сборка
-* [x] 3 темы UI
-* [x] Динамические редьюсеры / RTK Query endpoints injection
-* [x] Storybook + Loki / Jest + RTL / Cypress
-* [x] CI + Husky
-* [ ] SSR/Streaming (рассмотреть)
-* [ ] Мобильные рендеры по user‑agent (вариативные компоненты)
-* [ ] Улучшенная аналитика бандла/статистика импортов
-* [ ] Автоудаление legacy‑дизайна скриптом
-
----
+----
 
 
+## Сущности (entities)
+
+- [Article](/src/entities/Article)
+- [Comment](/src/entities/Comment)
+- [Counter](/src/entities/Counter)
+- [Country](/src/entities/Country)
+- [Currency](/src/entities/Currency)
+- [Notification](/src/entities/Notification)
+- [Profile](/src/entities/Profile)
+- [Rating](/src/entities/Rating)
+- [User](/src/entities/User)
+
+## Фичи (features)
+
+- [addCommentForm](/src/features/addCommentForm)
+- [articleEditForm](/src/features/articleEditForm)
+- [articleRating](/src/features/articleRating)
+- [articleRecommendationsList](/src/features/articleRecommendationsList)
+- [AuthByUsername](/src/features/AuthByUsername)
+- [avatarDropdown](/src/features/avatarDropdown)
+- [editableProfileCard](/src/features/editableProfileCard)
+- [LangSwitcher](/src/features/LangSwitcher)
+- [notificationButton](/src/features/notificationButton)
+- [profileRating](/src/features/profileRating)
+- [ThemeSwitcher](/src/features/ThemeSwitcher)
+- [UI](/src/features/UI)
