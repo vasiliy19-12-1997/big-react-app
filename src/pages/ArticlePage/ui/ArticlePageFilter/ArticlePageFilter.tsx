@@ -1,14 +1,14 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 import {
-    ArticlePageTabs,
     ArticleSortField,
-    ArticleSortSelector,
     ArticleType,
     ArticleViews, getFilterSelectorOrder, getFilterSelectorSearch, getFilterSelectorSort,
 } from '@/entities/Article';
+import { ArticlePageTabs } from '@/features/ArticlePageTabs';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
