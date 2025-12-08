@@ -5,10 +5,10 @@ import { Avatar } from '@/shared/ui/Avatar';
 import { Text } from '@/shared/ui/Text';
 import { Sceleton } from '@/shared/ui/Sceleton';
 import { AppLink } from '@/shared/ui/AppLink';
-import { RoutePath } from '@/shared/const/router';
 import { VStack } from '@/shared/ui/Stack';
 import { Commentary } from '../../model/types/commentary';
 import cls from './CommentaryCard.module.scss';
+import { getRouteProfile } from '@/shared/const/router';
 
 interface CommentaryCardProps {
   className?: string;
@@ -35,7 +35,7 @@ export const CommentaryCard = memo((props: CommentaryCardProps) => {
     }
     return (
         <VStack gap={8} max className={classNames(cls.CommentaryCard, {}, [className])}>
-            <AppLink to={`${RoutePath.profile}${comment?.user?.id}`} className={cls.wrapperAvatar}>
+            <AppLink to={getRouteProfile(comment?.user?.id)} className={cls.wrapperAvatar}>
                 {comment?.user?.avatar && <Avatar className={cls.avatar} size={30} src={comment?.user?.avatar} />}
                 <Text title={comment?.user?.username} />
             </AppLink>

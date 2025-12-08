@@ -7,7 +7,7 @@ import {
 import { LoginModal } from '@/features/AuthByUsername';
 import { AvatarDropDown } from '@/features/AvatarDropDown';
 import { NotificationButton } from '@/features/NotificationButton';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleCreate } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
@@ -35,7 +35,7 @@ export const Navbar = ({ className }: NavbarProps) => {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
                 <Text title={t('Vasiliy App')} className={cls.appName} theme={TextTheme.INVERTED} />
-                <AppLink theme={AppLinkTheme.SECONDARY} className={cls.createLink} to={RoutePath.article_create}>
+                <AppLink theme={AppLinkTheme.SECONDARY} className={cls.createLink} to={getRouteArticleCreate()}>
                     {t('Create Articles')}
 
                 </AppLink>
