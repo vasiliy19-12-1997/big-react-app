@@ -5,7 +5,6 @@ import { SortOrder } from '@/shared/types';
 import { Select, SelectOptions } from '@/shared/ui/Select';
 import { ArticleSortField } from '../../model/types/artcile';
 import cls from './ArticleSortSelector.module.scss';
-import { SortDirection } from 'react-virtualized';
 
 interface ArticleSortSelectorProps {
   className?: string;

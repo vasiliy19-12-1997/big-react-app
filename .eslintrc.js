@@ -23,7 +23,7 @@ module.exports = {
         'i18next',
         'react-hooks',
         'big-react-app-plugin',
-        "unused-imports",
+        'unused-imports',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -59,11 +59,11 @@ module.exports = {
         }],
         'big-react-app-plugin/public-api-imports': ['error', {
             alias: '@',
-            testFilesPatterns: ['**/*.test.ts', '**/*.test.ts', '**/StoreDecorator.tsx'],
+            testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
         }],
         'big-react-app-plugin/layer-imports': ['error', {
             alias: '@',
-            ignoreImportPatterns: ['**/testing', '**/StoreProvider', '**/StateSchema'],
+            ignoreImportPatterns: ['**/testing', '**/StoreProvider'],
         }],
         'linebreak-style': 'off',
         'i18next/no-literal-string': [
