@@ -28,7 +28,8 @@
     "storybook:build": "build-storybook -c ./config/storybook -o ./storybook-static",
     "prepare": "husky install",
     "add-from-template": "plop",
-    "generate:slice": "node ./scripts/createSlice/index.js"
+    "generate:slice": "node ./scripts/createSlice/index.js",
+    "postinstall": "node ./scripts/clearCash/clear-cash.js"
   },
   "keywords": [],
   "author": "",
@@ -143,8 +144,5 @@
         "preset": "iPhone 7"
       }
     }
-  },
-  "browserslist": [
-    "defaults and fully supports es6-module"
-  ]
-}
+  }
+  }
