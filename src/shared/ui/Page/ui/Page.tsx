@@ -12,8 +12,9 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 import { useThrotle } from '@/shared/lib/hooks/useThrotle/useThrotle';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInitialScroll/useInfiniteScroll';
 import cls from './Page.module.scss';
+import { TestProps } from '@/shared/types/tests';
 
-interface PageProps {
+interface PageProps extends TestProps {
   className?: string;
   children:ReactNode;
   onScrollEnd?:()=>void
@@ -42,7 +43,7 @@ export const Page = memo((props: PageProps) => {
     }, [scrollPosition]);
 
     return (
-        <section id={PAGE_ID} onScroll={onScroll} ref={wrapperRef} className={classNames(cls.Page, {}, [className])}>
+        <section data-testid={props['data-testid'] ?? 'Page'} id={PAGE_ID} onScroll={onScroll} ref={wrapperRef} className={classNames(cls.Page, {}, [className])}>
             {children}
             {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
         </section>

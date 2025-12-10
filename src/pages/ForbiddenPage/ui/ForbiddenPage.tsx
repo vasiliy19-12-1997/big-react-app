@@ -5,7 +5,7 @@ import { Page } from '@/shared/ui/Page';
 const ForbiddenPage = memo(() => {
     const { t } = useTranslation();
     return (
-        <Page>
+        <Page data-testid="ForbiddenPage">
             {t('ForbiddenPage')}
             <div>111</div>
             <div>111</div>

@@ -4,7 +4,7 @@ import {
     Article, ArticleSortField, getFilterSelectorOrder, getFilterSelectorSearch, getFilterSelectorSort,
     ArticleType,
 } from '@/entities/Article';
-import { SortOrder } from '@/shared/types';
+import { SortOrder } from '@/shared/types/sort';
 import { addQueryParams } from '@/shared/lib/url/addQueryParams/addQueryParams';
 
 import { getArticlesPageLimit, getArticlesPageNumber, getArticlesPageType } from '../../selectors/articles';
