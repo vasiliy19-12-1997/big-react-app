@@ -14,6 +14,8 @@ import {
 } from '../../model/types/artcile';
 import { ArtcileTextBlockComponent } from '../ArtcileTextBlockComponent/ArtcileTextBlockComponent';
 import cls from './ArticleListItem.module.scss';
+import { AppImage } from '@/shared/ui/AppImage';
+import { Sceleton } from '@/shared/ui/Sceleton';
 
 interface ArticleListItemProps {
   className?: string;
@@ -29,7 +31,15 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     } = props;
     const [isHover, bindHover] = useHover();
     const types = <Text text={article?.type.join(',')} className={cls.type} />;
-    const img = (<img src={article?.img} alt={article?.title} className={cls.img} />);
+    const img = (
+        <AppImage
+            src={article?.img}
+            alt={article?.title}
+            className={cls.img}
+            fallback={<Sceleton width={200} height={200} />}
+            errorFallback={<Sceleton width={200} height={200} />}
+        />
+    );
     const views = (
         <>
             <Text text={String(article?.views)} className={cls.views} />

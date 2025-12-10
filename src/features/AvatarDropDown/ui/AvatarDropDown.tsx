@@ -30,7 +30,7 @@ export const AvatarDropDown = () => {
                 { content: 'Профиль', href: getRouteProfile(authUser.id) },
             ]}
             direction="bottom left"
-            trigger={<Avatar size={30} src={authUser?.avatar} alt="Аватар" />}
+            trigger={<Avatar fallbackInverted size={30} src={authUser?.avatar} alt="Аватар" />}
         />
     );
 };
