@@ -4,13 +4,16 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+
 permissions:
   contents: write
   pages: write
   id-token: write
+
 concurrency:
   group: "pages"
   cancel-in-progress: true
+
 jobs:
   build-and-ui-testing:
     runs-on: ubuntu-latest
@@ -20,64 +23,68 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     strategy:
       matrix:
-        node-version: [ 17.x ]
+        node-version: [ 18.x ]   # LTS
     steps:
       - uses: actions/checkout@v4
-      - name: Staring Node.js ${{ matrix.node-version }}
+
+      - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: install modules
-        run: npm ci --force
-      - name: build production project
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build production project
         run: npm run build:prod
-        if: always()
-      - name: build storybook
+
+      - name: Build storybook
         run: npm run storybook:build
-        if: always()
-      - name: screenshot testing
+
+      - name: Screenshot testing
         run: npm run test:ui:ci
-        if: always()
-      - name: unit testing
-        if: always()
+
+      - name: Unit testing
         run: npm run test:unit
+
       - name: Generate HTML report
         run: npm run test:ui:report
-        if: always()
-      - name: move loki reports
-        run: mv .loki reports/
-        if: always()
+
+      - name: Move loki reports
+        run: |
+          if [ -d ".loki" ]; then
+            mkdir -p reports
+            mv .loki reports/
+          fi
+
       - name: Setup Pages
         uses: actions/configure-pages@v2
-        if: always()
-      - name: Upload artifact
+
+      - name: Upload pages artifact
         uses: actions/upload-pages-artifact@v3
-        if: always()
         with:
-          path: 'reports'
+          path: 'build'            
+
       - name: Deploy to GitHub Pages
         id: deployment
-        if: always()
         uses: actions/deploy-pages@v1
 
   checks:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 17.x ]
+        node-version: [ 18.x ]
     steps:
-      - uses: actions/checkout@v2
-      - name: Staring Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v4
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: install modules
-        run: npm ci --force
-      - name: linting typescript
+      - name: Install deps
+        run: npm ci
+      - name: Lint TypeScript
         run: npm run lint:ts
-        if: always()
-      - name: linting css
+      - name: Lint SCSS
         run: npm run lint:scss
-      - name: unit testing
-        if: always()
+      - name: Unit tests
         run: npm run test:unit
