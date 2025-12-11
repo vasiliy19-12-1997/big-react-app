@@ -8,7 +8,6 @@ const AboutPage = memo(() => {
     return (
         <Page>
             {t('О сайте')}
-            <h1>fdfdfd</h1>
         </Page>
     );
 });
