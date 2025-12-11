@@ -19,8 +19,6 @@
     "test:ui": "npx loki test --reactUri http://host.docker.internal:6006",
     "test:ui:ok": "npx loki approve",
     "test:ui:ci": "cross-env-shell loki --requireReference --reactUri \"$REACT_URI\"",
-    "test:ui:ci:local": "cross-env REACT_URI=http://host.docker.internal:6006 npm run test:ui:ci",
-    "test:ui:ci:gha": "cross-env REACT_URI=http://localhost:6006 npm run test:ui:ci",
     "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
     "test:ui:json": "node scripts/generate-visual-json-report.js",
     "test:ui:html": "npx reg-cli --from .loki/report.json --report .loki/report.html",
