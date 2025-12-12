@@ -4,6 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 import { ErrorPage } from './ErrorPage';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 export default {
     title: 'widget/ErrorPage',
@@ -11,6 +12,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [StoreDecorator({})],
 } as ComponentMeta<typeof ErrorPage>;
 
 const Template: ComponentStory<typeof ErrorPage> = (args) => <ErrorPage {...args} />;

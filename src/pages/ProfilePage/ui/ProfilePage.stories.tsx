@@ -10,6 +10,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [StoreDecorator({})],
 } as ComponentMeta<typeof ProfilePage>;
 
 const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...args} />;
