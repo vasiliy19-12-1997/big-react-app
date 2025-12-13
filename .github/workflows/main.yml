@@ -47,15 +47,15 @@ jobs:
       # - name: Screenshot testing
         # run: npm run test:ui:ci
 
-      - name: Generate HTML report
-        run: npm run test:ui:report
+      # - name: Generate HTML report
+        # run: npm run test:ui:report
 
-      - name: Move loki reports
-        run: |
-          if [ -d ".loki" ]; then
-            mkdir -p reports
-            mv .loki reports/
-          fi
+      # - name: Move loki reports
+      #   run: |
+      #     if [ -d ".loki" ]; then
+      #       mkdir -p reports
+      #       mv .loki reports/
+      #     fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v2
