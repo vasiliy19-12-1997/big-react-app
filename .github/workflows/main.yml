@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   build-and-ui-testing:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     concurrency: ci-${{ github.ref }}
     environment:
       name: github-pages
@@ -70,7 +70,7 @@ jobs:
         uses: actions/deploy-pages@v4
 
   checks:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     strategy:
       matrix:
         node-version: [ 18.x ]
