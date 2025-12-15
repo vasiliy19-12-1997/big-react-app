@@ -47,8 +47,8 @@ jobs:
       - name: Unit testing
         run: npm run test:unit
 
-      - name: Generate HTML report
-        run: npm run test:ui:report
+      # - name: Generate HTML report
+        # run: npm run test:ui:report
 
       # - name: Move loki reports
       #   run: |
