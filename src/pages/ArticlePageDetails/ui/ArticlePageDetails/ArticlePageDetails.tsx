@@ -13,12 +13,13 @@ import { fetchArticlesRecommends } from '../../model/services/fetchArticlesRecom
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
 import { ArticlePageDetailsHeader } from '../ArticlePageDetailsHeader/ArticlePageDetailsHeader';
 import { articlePageDetailsReducer } from '../../model/slice';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 // eslint-disable-next-line big-react-app-plugin/public-api-imports
 
 const ArticlePageDetails = memo(() => {
     const { t } = useTranslation('ArticlePageDetails');
     const { id } = useParams<{id?:string}>();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const reducers:ReducersList = {
         articlePageDetails: articlePageDetailsReducer,
     };
