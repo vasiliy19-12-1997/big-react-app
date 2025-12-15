@@ -44,11 +44,11 @@ jobs:
       - name: Unit testing
         run: npm run test:unit
 
-      # - name: Screenshot testing
-        # run: npm run test:ui:ci
+      - name: Screenshot testing
+        run: npm run test:ui:ci
 
-      # - name: Generate HTML report
-        # run: npm run test:ui:report
+      - name: Generate HTML report
+        run: npm run test:ui:report
 
       # - name: Move loki reports
       #   run: |
