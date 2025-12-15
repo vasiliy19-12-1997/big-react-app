@@ -14,7 +14,7 @@ import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text, TextAlign, TextSize } from '../../../../shared/ui/Text/Text';
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors/getArticleDetails';
 import { fetchArticleById } from '../../model/services/fetchArticleById';
-import { articleDetailsReducers } from '../../model/slice/artcileDetailsSlice';
+import { articleDetailsReducers } from '../../testing';
 import { ArtcileTypeBlocks, ArticleBlockType } from '../../model/types/artcile';
 import { ArtcileCodeBlockComponent } from '../ArtcileCodeBlockComponent/ArtcileCodeBlockComponent';
 import { ArtcileImageBlockComponent } from '../ArtcileImageBlockComponent/ArtcileImageBlockComponent';
