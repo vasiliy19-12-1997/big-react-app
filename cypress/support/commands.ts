@@ -1,5 +1,7 @@
 import * as commonCommands from './commands/common';
-Cypress.Commands.addAll(commonCommands)
+import * as profileCommands from './commands/profile';
 
+Cypress.Commands.addAll(commonCommands)
+Cypress.Commands.addAll(profileCommands)
 
 export { };
