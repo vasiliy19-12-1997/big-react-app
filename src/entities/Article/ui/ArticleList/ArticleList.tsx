@@ -1,7 +1,7 @@
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text, TextSize } from '@/shared/ui/Text';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Text, TextSize } from '@/shared/ui/Text';
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { Article, ArticleViews } from '../../model/types/artcile';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSceleton } from '../ArticleListItem/ArticleListItemSceleton';
@@ -38,7 +38,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     }
     return (
 
-        <div className={classNames(cls.ArticleList, {}, [className, cls[views]])}>
+        <div data-testid="ArticleList" className={classNames(cls.ArticleList, {}, [className, cls[views]])}>
             {
                 articles.map((item) => (
                     <ArticleListItem

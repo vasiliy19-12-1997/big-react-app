@@ -1,3 +1,4 @@
+
 export const updateProfile = ((firstName:string, lastName?:string) => {
     cy.getByTestId("EditableProfileCardHeader.Edit").click();
     cy.getByTestId("ProfileCard.firstname").clear().type(firstName || "updatedFirstName");

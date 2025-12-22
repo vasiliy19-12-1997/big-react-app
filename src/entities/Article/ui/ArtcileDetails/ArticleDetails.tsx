@@ -69,7 +69,7 @@ export const ArtcileDetails = memo((props: ArtcileDetailsProps) => {
         );
     } else {
         element = (
-            <>
+            <div data-testid="ArticleDetails.Info">
                 <HStack max className={cls.avatarWrapper}>
                     <Avatar src={article?.img} className={cls.avatar} />
                 </HStack>
@@ -85,7 +85,7 @@ export const ArtcileDetails = memo((props: ArtcileDetailsProps) => {
                     <Text text={String(article?.createdAt)} />
                 </HStack>
                 {article?.blocks.map(renderBlocks)}
-            </>
+            </div>
         );
     }
     return (
