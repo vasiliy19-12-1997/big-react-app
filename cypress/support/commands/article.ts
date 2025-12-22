@@ -1,27 +1,25 @@
-import{ Article } from '../../../src/entities/Article';
+import{ Article, ArticleType } from '../../../src/entities/Article';
 
-const defaukltArticle = {
-        "id": "1",
+const defaultArticle = {
       "title": "Javascript news СВЕЖАЯ",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.04.2022",
       "userId": "1",
-      "type": [
-        "ECONOMICS"
-      ]
+      "type": '[ArticleType.ECONOMICS]'
 }
 export const createArticle = (article?: Article) => {
     return cy.request({
     method: 'POST',
-    url: `http://localhost:8001/articles/`,
+    url: `http://localhost:8001/articles`,
     headers: {
       Authorization: 'Bearer'
     },
-    body:article ?? defaukltArticle
+    body:article ?? defaultArticle
   }).then((resp)=> resp.body);
 }
+
 export const removeArticle = ((articleId:string) => {
      return cy.request({
     method: 'DELETE',

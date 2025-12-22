@@ -69,14 +69,14 @@ export const ArtcileDetails = memo((props: ArtcileDetailsProps) => {
         );
     } else {
         element = (
-            <div data-testid="ArticleDetails.Info">
+            <div >
                 <HStack max className={cls.avatarWrapper}>
                     <Avatar src={article?.img} className={cls.avatar} />
                 </HStack>
                 <Text size={TextSize.L} title={article?.title} />
                 <Text size={TextSize.L} text={article?.subtitle} />
 
-                <HStack justify="start">
+                <HStack justify="start" data-testid="ArticleDetails.Info">
                     <Icon Svg={EyeIcon} className={cls.icon} />
                     <Text text={String(article?.views)} />
                 </HStack>
