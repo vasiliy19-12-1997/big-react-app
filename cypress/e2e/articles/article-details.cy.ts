@@ -3,7 +3,7 @@ describe('Пользователь заходит на страницу стат
   beforeEach(() => {
       cy.login();
       cy.createArticle().then((article)=>{
-        cy.log(JSON.stringify(article.id))
+        cy.log(JSON.stringify(article))
         currentArticleId =  article.id
         cy.visit(`articles/${article.id}`)
       })
@@ -16,6 +16,12 @@ describe('Пользователь заходит на страницу стат
     })
   it('Видно содержимое статьи', () => {
     cy.getByTestId('ArticleDetails.Info').should('exist')
-
+  })
+  it('Видно блок с комментариями', () => {
+    cy.getByTestId('CommentaryCard').should('exist')
+    cy.getByTestId('AddCommentForm').scrollIntoView()
+    cy.addComment("test")
+    cy.getByTestId('CommentaryCard.Text.Paragraph').should('have.value', 1)
+    
   })
 })

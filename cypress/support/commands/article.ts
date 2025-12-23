@@ -1,13 +1,14 @@
-import{ Article, ArticleType } from '../../../src/entities/Article';
+import { Article } from '../../../src/entities/Article';
 
 const defaultArticle = {
-      "title": "Javascript news СВЕЖАЯ",
-      "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
-      "createdAt": "26.04.2022",
-      "userId": "1",
-      "type": '[ArticleType.ECONOMICS]'
+      title: "Javascript news СВЕЖАЯ",
+      subtitle: "Что нового в JS за 2022 год?",
+      img: "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      views: 1022,
+      createdAt: "26.04.2022",
+      userId: "1",
+      type:["ECONOMICS"],
+      blocks:[]
 }
 export const createArticle = (article?: Article) => {
     return cy.request({
