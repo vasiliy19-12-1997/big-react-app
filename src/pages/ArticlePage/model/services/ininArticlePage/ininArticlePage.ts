@@ -4,7 +4,7 @@ import { SortOrder } from '@/shared/types/sort';
 import { ArticleSortField, ArticleType } from '@/entities/Article';
 import {
     getArticlesPageInited,
-} from '../../selectors/articles';
+} from '../../selectors/articlesPageSelectors';
 import { articlePageActions } from '../../slice/articlePageSlice';
 import { fetchArticles } from '../fetchArticles/fetchArticles';
 

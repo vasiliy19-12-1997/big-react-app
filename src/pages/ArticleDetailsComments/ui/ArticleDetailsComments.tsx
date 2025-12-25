@@ -1,18 +1,19 @@
-import { memo, Suspense, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
 import { CommentaryList } from '@/entities/Сommentary';
 import { AddCommentForm } from '@/features/AddCommentForm';
-import {
-    addCommentForArticle, fetchCommentsByArticleId,
-    getArticleComments,
-    getArticleDetailsCommentsIsLoading, getArticleDetailsRecommendError,
-} from '../../ArticlePageDetails';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Sceleton } from '@/shared/ui/Sceleton';
 import { VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { memo, Suspense, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import {
+    addCommentForArticle, fetchCommentsByArticleId,
+    getArticleComments,
+    getArticleDetailsCommentsIsLoading
+} from '../../ArticlePageDetails';
 
 interface ArticleDetailsCommentsProps {
   className?: string;
@@ -25,7 +26,6 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
     const isLoading = useSelector(getArticleDetailsCommentsIsLoading);
     const dispatch = useAppDispatch();
     const comments = useSelector(getArticleComments.selectAll);
-    const errorRecommends = useSelector(getArticleDetailsRecommendError);
 
     const onSendComments = useCallback((text:string) => {
         dispatch(addCommentForArticle(text));
@@ -35,7 +35,7 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
         dispatch(fetchCommentsByArticleId(id));
     }, [dispatch, id]);
     return (
-        <VStack gap={16} max>
+        <VStack gap={16} max className={classNames('', {}, [className])}>
             <Text title={t('Комментарии')} />
             <Suspense fallback={<Sceleton width={200} height={200} />}>
                 <AddCommentForm onSendComments={onSendComments} />

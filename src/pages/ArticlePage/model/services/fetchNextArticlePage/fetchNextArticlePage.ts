@@ -3,7 +3,7 @@ import { ThunkConfig } from '@/shared/config/state';
 import {
     getArticlesIsLoading, getArticlesPageHasMore,
     getArticlesPageNumber,
-} from '../../selectors/articles';
+} from '../../selectors/articlesPageSelectors';
 import { articlePageActions } from '../../slice/articlePageSlice';
 import { fetchArticles } from '../fetchArticles/fetchArticles';
 

@@ -6,7 +6,7 @@ import { ArticleList } from '@/entities/Article';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Text } from '@/shared/ui/Text';
-import { getArticlesError, getArticlesIsLoading, getArticlesViews } from '../../model/selectors/articles';
+import { getArticlesError, getArticlesIsLoading, getArticlesViews } from '../../model/selectors/articlesPageSelectors';
 import { ininArticlePage } from '../../model/services/ininArticlePage/ininArticlePage';
 import { getArticles } from '../../model/slice/articlePageSlice';
 

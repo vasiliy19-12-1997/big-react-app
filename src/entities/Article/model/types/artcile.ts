@@ -23,7 +23,7 @@ export interface ArtcileBlockCode extends ArticleBlockBase {
     type:ArticleBlockType.CODE;
     code:string
 }
-export enum ArticleType {
+export enum ArticleType{
     ALL='ALL',
     IT = 'IT',
     SCIENCE = 'SCIENCE',

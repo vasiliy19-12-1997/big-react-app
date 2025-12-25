@@ -7,7 +7,7 @@ import {
 import { SortOrder } from '@/shared/types/sort';
 import { addQueryParams } from '@/shared/lib/url/addQueryParams/addQueryParams';
 
-import { getArticlesPageLimit, getArticlesPageNumber, getArticlesPageType } from '../../selectors/articles';
+import { getArticlesPageLimit, getArticlesPageNumber, getArticlesPageType } from '../../selectors/articlesPageSelectors';
 
 interface fetchArticlesProps {
     replace?:boolean

@@ -15,7 +15,7 @@ import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { SortOrder } from '@/shared/types/sort';
 import { Card } from '@/shared/ui/Card';
 import { Input } from '@/shared/ui/Input';
-import { getArticlesPageType, getArticlesViews } from '../../model/selectors/articles';
+import { getArticlesPageType, getArticlesViews } from '../../model/selectors/articlesPageSelectors';
 import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
 import { articlePageActions } from '../../model/slice/articlePageSlice';
 import cls from './ArticlePageFilter.module.scss';

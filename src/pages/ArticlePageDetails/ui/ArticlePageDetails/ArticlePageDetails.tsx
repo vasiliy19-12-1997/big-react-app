@@ -31,6 +31,7 @@ const ArticlePageDetails = memo(() => {
     if (!id) {
         return null;
     }
+    console.log(`id:${id}`)
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page>
