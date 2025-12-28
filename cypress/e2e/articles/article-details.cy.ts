@@ -24,7 +24,8 @@ describe('Тесты статей', () => {
       cy.addComment("test")
       cy.getByTestId('CommentaryCard.Text.Paragraph').should('have.length.greaterThan', 20)
       })
-         it('Получается ставить рейтинг статьи', () => {
+      it('Получается ставить рейтинг статьи', () => {
+        cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' }).as('getArticleDetails')
             cy.getByTestId('ArticleDetails.Info').should('exist')
             cy.getByTestId('RatingCard').scrollIntoView()
             cy.setRate(5)
