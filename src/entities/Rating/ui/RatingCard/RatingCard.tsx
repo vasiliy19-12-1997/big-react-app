@@ -54,21 +54,21 @@ export const RatingCard = memo((props: RatingCardProps) => {
         <VStack gap={16} max>
             <Text title={feedbackTitle} />
             <Input onChange={setFeedBack} value={feedback} />
-            <HStack max>
-                <Button fullWidth onClick={acceptHandler}>{t('Отправить')}</Button>
-                <Button fullWidth onClick={cancelHandler} theme={ButtonTheme.OUTLINE_RED}>{t('Закрыть')}</Button>
-            </HStack>
-        </VStack>
+          </VStack>
     );
     return (
-        <Card className={classNames(cls.RatingCard, {}, [className])}>
+        <Card data-testid="RatingCard" className={classNames(cls.RatingCard, {}, [className])}>
             <VStack align="center" gap={32} max>
                 <Text title={starsCount ? t('Спасибо за оценку') : title} />
-                <StarRating selectedStars={rate} onSelect={onSelectedStars} />
+                <StarRating  selectedStars={rate} onSelect={onSelectedStars} />
             </VStack>
             <BrowserView>
                 <Modal isOpen={modalOpen} lazy>
                     {modalContent}
+                    <HStack max>
+                        <Button data-testid="RatingCard.SendButton" fullWidth onClick={acceptHandler}>{t('Отправить')}</Button>
+                        <Button data-testid="RatingCard.CloseButton" fullWidth onClick={cancelHandler} theme={ButtonTheme.OUTLINE_RED}>{t('Закрыть')}</Button>
+                     </HStack>
                 </Modal>
             </BrowserView>
             <MobileView>
