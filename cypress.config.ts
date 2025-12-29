@@ -6,5 +6,12 @@ export default defineConfig({
       // implement node event listeners here
     },
     baseUrl: 'http://localhost:3000/',
+  },
+
+  "component": {
+    "devServer": {
+      "framework": "react",
+      "bundler": "webpack"
+    }
   }
 })

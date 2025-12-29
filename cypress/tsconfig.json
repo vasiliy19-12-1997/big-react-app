@@ -2,10 +2,10 @@
   "compilerOptions": {
     "target": "es6",
     "lib": ["es6", "dom"],
-    "sourceMap": true,
     "types": ["cypress", "node"],
-    "module": "commonjs",
-    "isolatedModules": false,
+    "allowJs": true,
+    "jsx":"react-jsx"
   },
-  "include": ["**/*.ts"]
+  "extends": "../tsconfig.json",
+  "include": ["**/*.ts", "**/*.tsx"]
 }
