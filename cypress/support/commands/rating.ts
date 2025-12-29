@@ -1,6 +1,7 @@
 
-export const setRate = (rate:number) => {
+export const setRate = (rate:number, feedback:string) => {
     cy.getByTestId(`StarRating.${rate}`).click()
+    // cy.getByTestId('RatingCard.Input').type(feedback)
     cy.getByTestId("RatingCard.SendButton").click()
    };
 
@@ -9,7 +10,7 @@ export const setRate = (rate:number) => {
 declare global {
   namespace Cypress {
     interface Chainable {
-      setRate(rate:number): Chainable<void>;
+      setRate(rate:number, feedback:string): Chainable<void>;
     }
   }
 }

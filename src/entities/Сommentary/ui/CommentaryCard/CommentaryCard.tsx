@@ -34,7 +34,7 @@ export const CommentaryCard = memo((props: CommentaryCardProps) => {
         );
     }
     return (
-        <VStack data-testid = "CommentaryCard" gap={8} max className={classNames(cls.CommentaryCard, {}, [className])}>
+        <VStack data-testid = "CommentaryCard.Content" gap={8} max className={classNames(cls.CommentaryCard, {}, [className])}>
             <AppLink to={getRouteProfile(comment?.user?.id)} className={cls.wrapperAvatar}>
                 {comment?.user?.avatar && <Avatar className={cls.avatar} size={30} src={comment?.user?.avatar} />}
                 <Text  title={comment?.user?.username} />
