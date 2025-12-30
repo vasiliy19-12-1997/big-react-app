@@ -11,7 +11,7 @@ import { getCanEditArticles } from '../../model/selectors/articles/articles';
 import cls from './ArticlePageDetailsHeader.module.scss';
 
 interface ArticlePageDetailsHeaderProps {
-  className?: string;
+    className?: string;
 }
 
 export const ArticlePageDetailsHeader = memo((props: ArticlePageDetailsHeaderProps) => {
@@ -30,8 +30,14 @@ export const ArticlePageDetailsHeader = memo((props: ArticlePageDetailsHeaderPro
 
     return (
         <div className={classNames(cls.ArticlePageDetailsHeader, {}, [className])}>
-            <Button onClick={onBackToList} className={cls.btnBack}>{t('Вернуться назад')}</Button>
-            {canEdit && <Button onClick={onEditArticle} className={cls.editBtn}>{t('Редактивовать')}</Button>}
+            <Button onClick={onBackToList} className={cls.btnBack}>
+                {t('Вернуться назад')}
+            </Button>
+            {canEdit && (
+                <Button onClick={onEditArticle} className={cls.editBtn}>
+                    {t('Редактивовать')}
+                </Button>
+            )}
         </div>
     );
 });

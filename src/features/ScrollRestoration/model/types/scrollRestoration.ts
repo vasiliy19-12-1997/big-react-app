@@ -1,4 +1,4 @@
-type ScrollRestorationType = Record <string, number>
+type ScrollRestorationType = Record<string, number>;
 export interface ScrollRestorationSchema {
-    scroll:ScrollRestorationType
+    scroll: ScrollRestorationType;
 }

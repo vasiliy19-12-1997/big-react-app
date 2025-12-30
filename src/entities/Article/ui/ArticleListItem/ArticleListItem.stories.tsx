@@ -25,9 +25,7 @@ const articles = {
         id: '1',
         avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcK8LuTRihbc5t5dlS6Lw6Q710u02oN80LJw&s',
     },
-    type: [
-        'IT', 'fgfg', 'fdfdfdf', 'fdfdfdf',
-    ],
+    type: ['IT', 'fgfg', 'fdfdfdf', 'fdfdfdf'],
     blocks: [
         {
             id: '1',
@@ -94,30 +92,22 @@ ListItemSmall.args = {
     article: articles,
     view: ArticleViews.SMALL,
 };
-ListItemSmall.decorators = [
-    ThemeDecorator(Theme.LIGHT),
-];
+ListItemSmall.decorators = [ThemeDecorator(Theme.LIGHT)];
 export const ListItemSmallDark = Template.bind({});
 ListItemSmallDark.args = {
     article: articles,
     view: ArticleViews.SMALL,
 };
-ListItemSmallDark.decorators = [
-    ThemeDecorator(Theme.DARK),
-];
+ListItemSmallDark.decorators = [ThemeDecorator(Theme.DARK)];
 export const ListItemBig = Template.bind({});
 ListItemBig.args = {
     article: articles,
     view: ArticleViews.BIG,
 };
-ListItemBig.decorators = [
-    ThemeDecorator(Theme.LIGHT),
-];
+ListItemBig.decorators = [ThemeDecorator(Theme.LIGHT)];
 export const ListItemBigDark = Template.bind({});
 ListItemBigDark.args = {
     article: articles,
     view: ArticleViews.BIG,
 };
-ListItemBigDark.decorators = [
-    ThemeDecorator(Theme.DARK),
-];
+ListItemBigDark.decorators = [ThemeDecorator(Theme.DARK)];

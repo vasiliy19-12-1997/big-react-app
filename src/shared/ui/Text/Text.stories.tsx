@@ -27,7 +27,6 @@ Error.args = {
 export const onlyTitle = Template.bind({});
 onlyTitle.args = {
     title: 'title',
-
 };
 export const onlyText = Template.bind({});
 onlyText.args = {
@@ -61,7 +60,6 @@ PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
 export const onlyTitleDark = Template.bind({});
 onlyTitleDark.args = {
     title: 'title',
-
 };
 onlyTitleDark.decorators = [ThemeDecorator(Theme.DARK)];
 export const onlyTextDark = Template.bind({});

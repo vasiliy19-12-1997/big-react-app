@@ -12,7 +12,11 @@ import { Icon } from '@/shared/ui/Icon';
 import { Sceleton } from '@/shared/ui/Sceleton';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text, TextAlign, TextSize } from '../../../../shared/ui/Text/Text';
-import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors/getArticleDetails';
+import {
+    getArticleDetailsData,
+    getArticleDetailsError,
+    getArticleDetailsIsLoading,
+} from '../../model/selectors/getArticleDetails';
 import { fetchArticleById } from '../../model/services/fetchArticleById';
 import { articleDetailsReducers } from '../../testing';
 import { ArtcileTypeBlocks, ArticleBlockType } from '../../model/types/artcile';
@@ -22,30 +26,30 @@ import { ArtcileTextBlockComponent } from '../ArtcileTextBlockComponent/ArtcileT
 import cls from './ArtcileDetails.module.scss';
 
 interface ArtcileDetailsProps {
-  className?: string;
-  id?:string
+    className?: string;
+    id?: string;
 }
 
 export const ArtcileDetails = memo((props: ArtcileDetailsProps) => {
     const { t } = useTranslation();
     const { className, id = '1' } = props;
-    const reducers:ReducersList = {
+    const reducers: ReducersList = {
         articlesDetails: articleDetailsReducers,
     };
     const dispatch = useAppDispatch();
     const error = useSelector(getArticleDetailsError);
     const isLoading = useSelector(getArticleDetailsIsLoading);
     const article = useSelector(getArticleDetailsData);
-    const renderBlocks = useCallback((blocks:ArtcileTypeBlocks) => {
+    const renderBlocks = useCallback((blocks: ArtcileTypeBlocks) => {
         switch (blocks.type) {
-        case ArticleBlockType.TEXT:
-            return (<ArtcileTextBlockComponent key={blocks.id} className={cls.block} block={blocks} />);
-        case ArticleBlockType.CODE:
-            return (<ArtcileCodeBlockComponent key={blocks.id} block={blocks} className={cls.block} />);
-        case ArticleBlockType.IMAGE:
-            return (<ArtcileImageBlockComponent key={blocks.id} block={blocks} className={cls.block} />);
-        default:
-            return null;
+            case ArticleBlockType.TEXT:
+                return <ArtcileTextBlockComponent key={blocks.id} className={cls.block} block={blocks} />;
+            case ArticleBlockType.CODE:
+                return <ArtcileCodeBlockComponent key={blocks.id} block={blocks} className={cls.block} />;
+            case ArticleBlockType.IMAGE:
+                return <ArtcileImageBlockComponent key={blocks.id} block={blocks} className={cls.block} />;
+            default:
+                return null;
         }
     }, []);
     useInitialEffect(() => {
@@ -54,9 +58,7 @@ export const ArtcileDetails = memo((props: ArtcileDetailsProps) => {
     let element;
 
     if (error) {
-        element = (
-            <Text align={TextAlign.CENTER} title={t('Произошла ошибка при загрузке статьи')} />
-        );
+        element = <Text align={TextAlign.CENTER} title={t('Произошла ошибка при загрузке статьи')} />;
     } else if (isLoading) {
         element = (
             <>
@@ -69,7 +71,7 @@ export const ArtcileDetails = memo((props: ArtcileDetailsProps) => {
         );
     } else {
         element = (
-            <div >
+            <div>
                 <HStack max className={cls.avatarWrapper}>
                     <Avatar src={article?.img} className={cls.avatar} />
                 </HStack>
@@ -84,7 +86,7 @@ export const ArtcileDetails = memo((props: ArtcileDetailsProps) => {
                     <Icon Svg={CalendarIcon} className={cls.icon} />
                     <Text text={String(article?.createdAt)} />
                 </HStack>
-                {article?.blocks.map(renderBlocks)}
+                {article?.blocks?.map(renderBlocks)}
             </div>
         );
     }

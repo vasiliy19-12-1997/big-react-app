@@ -16,27 +16,32 @@ const Template: ComponentStory<typeof EditableProfileCard> = (args) => <Editable
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({
-    profile: {
-        form: {
-            username: 'admin',
-            age: 22,
-            lastname: 'Kon',
-            first: 'Vasiliy',
-            city: 'Ekaterinburg',
+Normal.decorators = [
+    StoreDecorator({
+        profile: {
+            form: {
+                username: 'admin',
+                age: 22,
+                lastname: 'Kon',
+                first: 'Vasiliy',
+                city: 'Ekaterinburg',
+            },
         },
-    },
-})];
+    }),
+];
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-    profile: {
-        form: {
-            username: 'admin',
-            age: 22,
-            lastname: 'Kon',
-            first: 'Vasiliy',
-            city: 'Ekaterinburg',
+Dark.decorators = [
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({
+        profile: {
+            form: {
+                username: 'admin',
+                age: 22,
+                lastname: 'Kon',
+                first: 'Vasiliy',
+                city: 'Ekaterinburg',
+            },
         },
-    },
-})];
+    }),
+];

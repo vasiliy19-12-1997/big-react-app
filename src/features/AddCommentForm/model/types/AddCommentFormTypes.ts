@@ -1,4 +1,4 @@
 export interface AddCommentFormTypes {
-    error?:string,
-    text?:string
+    error?: string;
+    text?: string;
 }

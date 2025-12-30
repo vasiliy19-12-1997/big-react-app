@@ -3,7 +3,7 @@ import { getLoginUsername } from './getLoginUsername';
 
 describe('getLoginUsername.test', () => {
     test('should return username', () => {
-        const state:DeepPartial<StateSchema> = {
+        const state: DeepPartial<StateSchema> = {
             login: {
                 username: 'vasya',
             },
@@ -12,7 +12,7 @@ describe('getLoginUsername.test', () => {
     });
     describe('getLoginUsername.test', () => {
         test('should return empty string', () => {
-            const state:DeepPartial<StateSchema> = {};
+            const state: DeepPartial<StateSchema> = {};
             expect(getLoginUsername(state as StateSchema)).toEqual('');
         });
     });

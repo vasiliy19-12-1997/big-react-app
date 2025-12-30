@@ -18,9 +18,9 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 
 const ArticlePageDetails = memo(() => {
     const { t } = useTranslation('ArticlePageDetails');
-    const { id } = useParams<{id?:string}>();
+    const { id } = useParams<{ id?: string }>();
     const dispatch = useAppDispatch();
-    const reducers:ReducersList = {
+    const reducers: ReducersList = {
         articlePageDetails: articlePageDetailsReducer,
     };
 

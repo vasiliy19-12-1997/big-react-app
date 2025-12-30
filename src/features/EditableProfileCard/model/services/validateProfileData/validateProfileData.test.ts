@@ -32,12 +32,10 @@ describe('validateProfileDatatest', () => {
     });
     test('incorect all', async () => {
         const result = validateProfileData({});
-        expect(result).toEqual(
-            [
-                ValidateProfileErrors.INCORRECT_USER_DATA,
-                ValidateProfileErrors.INCORRECT_AGE,
-                ValidateProfileErrors.INCORRECT_COUNTRY,
-            ],
-        );
+        expect(result).toEqual([
+            ValidateProfileErrors.INCORRECT_USER_DATA,
+            ValidateProfileErrors.INCORRECT_AGE,
+            ValidateProfileErrors.INCORRECT_COUNTRY,
+        ]);
     });
 });

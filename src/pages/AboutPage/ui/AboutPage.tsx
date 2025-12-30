@@ -5,11 +5,7 @@ import { Page } from '@/shared/ui/Page';
 const AboutPage = memo(() => {
     const { t } = useTranslation('about');
 
-    return (
-        <Page>
-            {t('О сайте')}
-        </Page>
-    );
+    return <Page>{t('О сайте')}</Page>;
 });
 
 export default AboutPage;

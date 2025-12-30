@@ -1,9 +1,4 @@
-import {
-    CombinedState,
-    configureStore,
-    Reducer,
-    ReducersMapObject,
-} from '@reduxjs/toolkit';
+import { CombinedState, configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { counterReducers } from '@/entities/Counter';
 import { userReducer } from '@/entities/User';
 import { scrollRestorationSliceReducer } from '@/features/ScrollRestoration';
@@ -12,11 +7,8 @@ import { $api } from '@/shared/config/api/api';
 import { createReducerManager } from './ReducerManager';
 import { StateSchema } from './StateSchema';
 
-export function createReduxStore(
-    initialState?:StateSchema,
-    asyncReducers?:ReducersMapObject<StateSchema>,
-) {
-    const rootReducers:ReducersMapObject<StateSchema> = {
+export function createReduxStore(initialState?: StateSchema, asyncReducers?: ReducersMapObject<StateSchema>) {
+    const rootReducers: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
         counter: counterReducers,
         user: userReducer,
@@ -31,12 +23,12 @@ export function createReduxStore(
         reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
         devTools: __IS_DEV__,
         preloadedState: initialState,
-        middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-            thunk: {
-                extraArgument: extraArg,
-            },
-
-        }).concat(rtqApi.middleware),
+        middleware: (getDefaultMiddleware) =>
+            getDefaultMiddleware({
+                thunk: {
+                    extraArgument: extraArg,
+                },
+            }).concat(rtqApi.middleware),
     });
 
     // @ts-ignore

@@ -7,9 +7,9 @@ import { CommentaryCard } from '../CommentaryCard/CommentaryCard';
 import cls from './CommentaryList.module.scss';
 
 interface CommentaryListProps {
-  className?: string;
-  comments:Commentary[];
-  isLoading:boolean;
+    className?: string;
+    comments: Commentary[];
+    isLoading: boolean;
 }
 
 export const CommentaryList = memo((props: CommentaryListProps) => {
@@ -28,12 +28,12 @@ export const CommentaryList = memo((props: CommentaryListProps) => {
 
     return (
         <VStack gap={16} max className={classNames('', {}, [className])}>
-            {comments.length > 0 ? comments.map((comment, index) => (
-                // eslint-disable-next-line react/no-array-index-key
-                <CommentaryCard key={index} isLoading={isLoading} className={cls.cards} comment={comment} />
-            )) : (
-                null
-            )}
+            {comments.length > 0
+                ? comments.map((comment, index) => (
+                      // eslint-disable-next-line react/no-array-index-key
+                      <CommentaryCard key={index} isLoading={isLoading} className={cls.cards} comment={comment} />
+                  ))
+                : null}
         </VStack>
     );
 });

@@ -16,28 +16,16 @@ const Template: ComponentStory<typeof AddCommentForm> = (args) => <AddCommentFor
 
 export const Text = Template.bind({});
 Text.args = {};
-Text.decorators = [
-    ThemeDecorator(Theme.LIGHT),
-    StoreDecorator({ addCommentForm: { text: 'Vasya' } }),
-];
+Text.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({ addCommentForm: { text: 'Vasya' } })];
 
 export const Error = Template.bind({});
 Error.args = {};
-Error.decorators = [
-    ThemeDecorator(Theme.LIGHT),
-    StoreDecorator({ addCommentForm: { error: 'ERROR' } }),
-];
+Error.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({ addCommentForm: { error: 'ERROR' } })];
 
 export const TextDark = Template.bind({});
 TextDark.args = {};
-TextDark.decorators = [
-    ThemeDecorator(Theme.DARK),
-    StoreDecorator({ addCommentForm: { text: 'Vasya dark' } }),
-];
+TextDark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({ addCommentForm: { text: 'Vasya dark' } })];
 
 export const ErrorDark = Template.bind({});
 ErrorDark.args = {};
-ErrorDark.decorators = [
-    ThemeDecorator(Theme.DARK),
-    StoreDecorator({ addCommentForm: { error: 'ERROR dark' } }),
-];
+ErrorDark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({ addCommentForm: { error: 'ERROR dark' } })];

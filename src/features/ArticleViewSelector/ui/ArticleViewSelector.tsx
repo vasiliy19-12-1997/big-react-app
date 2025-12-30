@@ -9,9 +9,9 @@ import { Icon } from '@/shared/ui/Icon';
 import cls from './ArticleViewSelector.module.scss';
 
 interface ArticleViewSelectorProps {
-  className?: string;
-  view:ArticleViews | undefined
-  onViewClick:(view:ArticleViews)=>void
+    className?: string;
+    view: ArticleViews | undefined;
+    onViewClick: (view: ArticleViews) => void;
 }
 
 export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
@@ -28,7 +28,7 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
             icon: TiledIcon,
         },
     ];
-    const onClick = (newView:ArticleViews) => () => {
+    const onClick = (newView: ArticleViews) => () => {
         onViewClick?.(newView);
     };
     return (

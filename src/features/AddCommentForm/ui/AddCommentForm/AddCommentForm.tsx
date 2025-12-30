@@ -12,10 +12,10 @@ import { addCommentFormActions, addCommentFormReducers } from '../../model/slice
 import cls from './AddCommentForm.module.scss';
 
 export interface AddCommentFormProps {
-  className?: string;
-  onSendComments:(text:string)=>void;
+    className?: string;
+    onSendComments: (text: string) => void;
 }
-const reducers:ReducersList = {
+const reducers: ReducersList = {
     addCommentForm: addCommentFormReducers,
 };
 const AddCommentForm = memo((props: AddCommentFormProps) => {
@@ -23,9 +23,12 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
     const { className, onSendComments } = props;
     const text = useSelector(getAddCommentFormText);
     const dispatch = useAppDispatch();
-    const onCommentChange = useCallback((value:string) => {
-        dispatch(addCommentFormActions.setText(value));
-    }, [dispatch]);
+    const onCommentChange = useCallback(
+        (value: string) => {
+            dispatch(addCommentFormActions.setText(value));
+        },
+        [dispatch],
+    );
 
     const onSendHandler = useCallback(() => {
         onSendComments(text || '');
@@ -37,8 +40,16 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
         // <>
         <DynamicModuleLoader reducers={reducers}>
             <HStack data-testid="AddCommentForm" max className={classNames(cls.AddCommentForm, {}, [className])}>
-                <Input data-testid="AddCommentForm.Input" className={cls.input} value={text} onChange={onCommentChange} placeholder={t('Введите текст комментария')} />
-                <Button data-testid="AddCommentForm.Button" onClick={onSendHandler}>{t('Отправить')}</Button>
+                <Input
+                    data-testid="AddCommentForm.Input"
+                    className={cls.input}
+                    value={text}
+                    onChange={onCommentChange}
+                    placeholder={t('Введите текст комментария')}
+                />
+                <Button data-testid="AddCommentForm.Button" onClick={onSendHandler}>
+                    {t('Отправить')}
+                </Button>
             </HStack>
         </DynamicModuleLoader>
         // </>

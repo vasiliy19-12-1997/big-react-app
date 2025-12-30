@@ -13,7 +13,7 @@ import { updateProfileData } from '../../model/services/updateProfileData/update
 import { profileActions } from '../../model/slice/profileSlice';
 
 interface EditableProfileCardHeaderProps {
-  className?: string;
+    className?: string;
 }
 
 export const EditableProfileCardHeader = memo((props: EditableProfileCardHeaderProps) => {
@@ -23,9 +23,7 @@ export const EditableProfileCardHeader = memo((props: EditableProfileCardHeaderP
     const profileData = useSelector(getProfileData);
     const canEdit = authData?.id === profileData?.id;
     const dispatch = useAppDispatch();
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
     const onEdit = useCallback(() => {
         dispatch(profileActions.setReadonly(false));
@@ -39,7 +37,6 @@ export const EditableProfileCardHeader = memo((props: EditableProfileCardHeaderP
         dispatch(updateProfileData());
     }, [dispatch]);
     return (
-
         <VStack max className={classNames('', {}, [className])}>
             <Text title={t('Профиль пользователя')} />
 

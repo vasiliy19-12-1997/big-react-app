@@ -8,6 +8,8 @@ module.exports = {
         'plugin:react/recommended',
         'airbnb',
         'plugin:i18next/recommended',
+        'plugin:storybook/recommended',
+        'prettier',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -17,22 +19,9 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: [
-        'react',
-        '@typescript-eslint',
-        'i18next',
-        'react-hooks',
-        'big-react-app-plugin',
-        'unused-imports',
-    ],
+    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'big-react-app-plugin', 'unused-imports'],
     rules: {
-        'react/jsx-indent': [2, 4],
-        'react/jsx-indent-props': [2, 4],
-        indent: [2, 4],
-        'react/jsx-filename-extension': [
-            2,
-            { extensions: ['.js', '.jsx', '.tsx'] },
-        ],
+        'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
         'react-hooks/exhaustive-deps': [
             'error',
             {
@@ -54,17 +43,27 @@ module.exports = {
         'jsx-a11y/click-events-have-key-events': 'off',
         'jsx-a11y/no-static-element-interactions': 'off',
         'arrow-body-style': 'off',
-        'big-react-app-plugin/path-checker': ['error', {
-            alias: '@',
-        }],
-        'big-react-app-plugin/public-api-imports': ['error', {
-            alias: '@',
-            testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
-        }],
-        'big-react-app-plugin/layer-imports': ['error', {
-            alias: '@',
-            ignoreImportPatterns: ['**/testing', '**/StoreProvider'],
-        }],
+        'big-react-app-plugin/path-checker': [
+            'error',
+            {
+                alias: '@',
+            },
+        ],
+        'big-react-app-plugin/public-api-imports': [
+            'error',
+            {
+                alias: '@',
+                testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+            },
+        ],
+        'big-react-app-plugin/layer-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/testing', '**/StoreProvider'],
+            },
+        ],
+
         'linebreak-style': 'off',
         'i18next/no-literal-string': [
             'error',
@@ -90,6 +89,7 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'unused-imports/no-unused-imports': 'error',
+        'react/jsx-max-props-per-line': ['error', { maximum: 4, when: 'always' }],
     },
     globals: {
         __IS_DEV__: true,

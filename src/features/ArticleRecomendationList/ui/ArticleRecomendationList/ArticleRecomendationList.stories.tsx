@@ -24,9 +24,7 @@ const article: Article = {
     subtitle: 'asfsa',
 };
 export const Normal = Template.bind({});
-Normal.args = {
-
-};
+Normal.args = {};
 Normal.decorators = [StoreDecorator({})];
 Normal.parameters = {
     mockData: [

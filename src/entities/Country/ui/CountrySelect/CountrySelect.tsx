@@ -5,10 +5,10 @@ import { ListBox } from '@/shared/ui/Popups';
 import { Country } from '../../model/types/country';
 
 interface CountrySelectProps {
-  className?: string;
-  onChange?:(value:Country)=>void;
-  value?:Country
-  readonly?:boolean
+    className?: string;
+    onChange?: (value: Country) => void;
+    value?: Country;
+    readonly?: boolean;
 }
 const options = [
     { value: Country.Belarus, content: Country.Belarus },
@@ -18,15 +18,13 @@ const options = [
 ];
 export const CountrySelect = memo((props: CountrySelectProps) => {
     const { t } = useTranslation();
-    const {
-        className,
-        onChange,
-        value,
-        readonly,
-    } = props;
-    const onChangeCountry = useCallback((value:string) => {
-        onChange?.(value as Country);
-    }, [onChange]);
+    const { className, onChange, value, readonly } = props;
+    const onChangeCountry = useCallback(
+        (value: string) => {
+            onChange?.(value as Country);
+        },
+        [onChange],
+    );
     return (
         <ListBox
             className={classNames('', {}, [className])}
@@ -37,6 +35,5 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
             direction="bottom right"
             label={t('Укажите страну')}
         />
-
     );
 });

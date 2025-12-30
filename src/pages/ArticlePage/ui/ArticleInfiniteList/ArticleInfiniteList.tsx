@@ -11,7 +11,7 @@ import { ininArticlePage } from '../../model/services/ininArticlePage/ininArticl
 import { getArticles } from '../../model/slice/articlePageSlice';
 
 interface ArticleInfiniteListProps {
-  className?: string;
+    className?: string;
 }
 
 export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
@@ -31,7 +31,5 @@ export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
     if (error) {
         <Text title={t('Произошла ошибка')} />;
     }
-    return (
-        <ArticleList className={className} articles={articles} isLoading={isLoading} views={views} />
-    );
+    return <ArticleList className={className} articles={articles} isLoading={isLoading} views={views} />;
 });

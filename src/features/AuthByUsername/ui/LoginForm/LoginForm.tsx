@@ -16,18 +16,15 @@ import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import cls from './LoginForm.module.scss';
 
 export interface LoginFormProps {
-  className?: string;
-  onSuccess:()=>void;
+    className?: string;
+    onSuccess: () => void;
 }
 
 const LoginForm = memo((props: LoginFormProps) => {
-    const {
-        className,
-        onSuccess,
-    } = props;
+    const { className, onSuccess } = props;
 
     const { t } = useTranslation();
-    const initialReducers:ReducersList = {
+    const initialReducers: ReducersList = {
         login: loginReducer,
     };
     const username = useSelector(getLoginUsername);
@@ -37,12 +34,18 @@ const LoginForm = memo((props: LoginFormProps) => {
 
     const dispatch = useAppDispatch();
 
-    const changeUsername = useCallback((value:string) => {
-        dispatch(loginActions.setUsername(value));
-    }, [dispatch]);
-    const changePassword = useCallback((value:string) => {
-        dispatch(loginActions.setPassword(value));
-    }, [dispatch]);
+    const changeUsername = useCallback(
+        (value: string) => {
+            dispatch(loginActions.setUsername(value));
+        },
+        [dispatch],
+    );
+    const changePassword = useCallback(
+        (value: string) => {
+            dispatch(loginActions.setPassword(value));
+        },
+        [dispatch],
+    );
     const onLoginClick = useCallback(async () => {
         const result = await dispatch(loginByUsername({ username, password }));
         if (result.meta.requestStatus === 'fulfilled') {
@@ -57,7 +60,7 @@ const LoginForm = memo((props: LoginFormProps) => {
                 <Text title={t('Форма авторизации')} />
                 {error && <Text text={t('Вы ввели неверный логин или пароль')} theme={TextTheme.ERROR} />}
                 <Input
-                    autofocus
+                    autoFocus
                     placeholder={t('Введите username')}
                     className={cls.input}
                     type="text"
@@ -71,16 +74,11 @@ const LoginForm = memo((props: LoginFormProps) => {
                     onChange={changePassword}
                     value={password}
                 />
-                <Button
-                    className={cls.showBtn}
-                    onClick={onLoginClick}
-                    disabled={isLoading}
-                >
+                <Button className={cls.showBtn} onClick={onLoginClick} disabled={isLoading}>
                     {t('Войти')}
                 </Button>
             </div>
         </DynamicModuleLoader>
-
     );
 });
 export default LoginForm;

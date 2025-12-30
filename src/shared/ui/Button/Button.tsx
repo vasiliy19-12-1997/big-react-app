@@ -8,19 +8,18 @@ export enum ButtonTheme {
     OUTLINE = 'outline',
     OUTLINE_RED = 'outline_red',
     BACKGROUND = 'background',
-    BACKGROUND_INVERTED = 'backgroundInverted'
-
+    BACKGROUND_INVERTED = 'backgroundInverted',
 }
 /**
  * Размер кнопки
  */
-export enum ButtonSize{
+export enum ButtonSize {
     M = 'size_m',
     L = 'size_l',
     XL = 'size_xl',
 }
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     /**
      * Тема кнопки
@@ -29,7 +28,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
     /**
      * Квадратная кнопка
      */
-    square?:boolean;
+    square?: boolean;
     /**
      * Размер кнопки
      */
@@ -37,14 +36,14 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
     /**
      * Заблокировать кнопку
      */
-    disabled?:boolean;
+    disabled?: boolean;
     /**
      * Растянуть кнопку на всю ширину контейнера
      */
-    fullWidth?:boolean
+    fullWidth?: boolean;
 }
 
-export const Button: FC<ButtonProps> = memo((props:ButtonProps) => {
+export const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
     const {
         className,
         children,
@@ -55,7 +54,7 @@ export const Button: FC<ButtonProps> = memo((props:ButtonProps) => {
         fullWidth,
         ...otherProps
     } = props;
-    const mods:Mods = {
+    const mods: Mods = {
         [cls[theme]]: true,
         [cls.square]: square,
         [cls[size]]: true,
@@ -63,12 +62,7 @@ export const Button: FC<ButtonProps> = memo((props:ButtonProps) => {
         [cls.fullWidth]: fullWidth,
     };
     return (
-        <button
-            type="button"
-            className={classNames(cls.Button, mods, [className])}
-            disabled={disabled}
-            {...otherProps}
-        >
+        <button type="button" className={classNames(cls.Button, mods, [className])} disabled={disabled} {...otherProps}>
             {children}
         </button>
     );

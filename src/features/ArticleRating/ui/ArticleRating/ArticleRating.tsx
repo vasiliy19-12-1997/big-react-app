@@ -9,8 +9,8 @@ import { getAuthUserData } from '@/entities/User';
 import { Sceleton } from '@/shared/ui/Sceleton';
 
 export interface ArticleRatingProps {
-  className?: string;
-  articleId:string;
+    className?: string;
+    articleId: string;
 }
 
 const ArticleRating = memo((props: ArticleRatingProps) => {
@@ -20,32 +20,43 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
     const { data, isLoading, error } = useGetRatings({ articleId, userId: userData?.id });
     const [rateArticleMutation] = usePostRatings();
 
-    const onMutationRatins = useCallback((starsCount:number, feedback?:string) => {
-        rateArticleMutation({
-            articleId,
-            feedback: feedback ?? '',
-            rate: starsCount,
-            userId: userData?.id ?? '1',
+    const onMutationRatins = useCallback(
+        (starsCount: number, feedback?: string) => {
+            rateArticleMutation({
+                articleId,
+                feedback: feedback ?? '',
+                rate: starsCount,
+                userId: userData?.id ?? '1',
+            });
+        },
+        [articleId, rateArticleMutation, userData?.id],
+    );
 
-        });
-    }, [articleId, rateArticleMutation, userData?.id]);
+    const onAccept = useCallback(
+        (starsCount: number, feedback?: string) => {
+            onMutationRatins(starsCount, feedback);
+        },
+        [onMutationRatins],
+    );
 
-    const onAccept = useCallback((starsCount:number, feedback?:string) => {
-        onMutationRatins(starsCount, feedback);
-    }, [onMutationRatins]);
-
-    const onCancel = useCallback((starsCount:number) => {
-        onMutationRatins(starsCount);
-    }, [onMutationRatins]);
+    const onCancel = useCallback(
+        (starsCount: number) => {
+            onMutationRatins(starsCount);
+        },
+        [onMutationRatins],
+    );
 
     if (isLoading) {
-        return (
-            <Sceleton height={200} width={200} />
-        );
+        return <Sceleton height={200} width={200} />;
     }
     const rate = data?.[0];
     return (
-        <RatingCard onAccept={onAccept} onCancel={onCancel} rate={rate?.rate} className={classNames(cls.ArticleRating, {}, [className])} />
+        <RatingCard
+            onAccept={onAccept}
+            onCancel={onCancel}
+            rate={rate?.rate}
+            className={classNames(cls.ArticleRating, {}, [className])}
+        />
     );
 });
 export default ArticleRating;

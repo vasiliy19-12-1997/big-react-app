@@ -18,17 +18,11 @@ export const Light = Template.bind({});
 Light.args = {
     comments: [],
 };
-Light.decorators = [
-    ThemeDecorator(Theme.LIGHT),
-    StoreDecorator({}),
-];
+Light.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({})];
 
 export const Dark = Template.bind({});
 
 Dark.args = {
     comments: [],
 };
-Dark.decorators = [
-    ThemeDecorator(Theme.DARK),
-    StoreDecorator({ }),
-];
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];

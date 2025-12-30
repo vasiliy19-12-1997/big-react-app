@@ -37,5 +37,11 @@ Test.args = {
 
 Test.decorators = [
     ThemeDecorator(Theme.LIGHT),
-    StoreDecorator({ user: { authData: { /* заполняйте по необходимости */ } } }),
+    StoreDecorator({
+        user: {
+            authData: {
+                /* заполняйте по необходимости */
+            },
+        },
+    }),
 ];

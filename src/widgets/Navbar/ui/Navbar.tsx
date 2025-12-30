@@ -1,9 +1,7 @@
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import {
-    getAuthUserData,
-} from '@/entities/User';
+import { getAuthUserData } from '@/entities/User';
 import { LoginModal } from '@/features/AuthByUsername';
 import { AvatarDropDown } from '@/features/AvatarDropDown';
 import { NotificationButton } from '@/features/NotificationButton';
@@ -37,13 +35,11 @@ export const Navbar = ({ className }: NavbarProps) => {
                 <Text title={t('Vasiliy App')} className={cls.appName} theme={TextTheme.INVERTED} />
                 <AppLink theme={AppLinkTheme.SECONDARY} className={cls.createLink} to={getRouteArticleCreate()}>
                     {t('Create Articles')}
-
                 </AppLink>
                 <HStack gap={16} className={cls.actions}>
                     <NotificationButton />
                     <AvatarDropDown />
                 </HStack>
-
             </header>
         );
     }
@@ -52,13 +48,7 @@ export const Navbar = ({ className }: NavbarProps) => {
             <Button className={cls.links} theme={ButtonTheme.CLEAR_INVERTED} onClick={onShowModal}>
                 {t('Войти')}
             </Button>
-            {isAuthModal && (
-                <LoginModal
-                    isOpen={isAuthModal}
-                    onClose={onCloseModal}
-                />
-            )}
-
+            {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />}
         </header>
     );
 };

@@ -7,28 +7,25 @@ import { AppImage } from '../AppImage/AppImage';
 import { Sceleton } from '../Sceleton';
 
 interface AvatarProps {
-  className?: string;
-  alt?:string;
-  src?:string;
-  size?:number;
-  fallbackInverted?:boolean
+    className?: string;
+    alt?: string;
+    src?: string;
+    size?: number;
+    fallbackInverted?: boolean;
 }
 
 export const Avatar = (props: AvatarProps) => {
-    const {
-        className,
-        alt,
-        src,
-        size = 100,
-        fallbackInverted,
-    } = props;
+    const { className, alt, src, size = 100, fallbackInverted } = props;
     const errorFallback = <Icon inverted={fallbackInverted} Svg={DefaultAvatarIcon} />;
     const fallback = <Sceleton width={size} height={size} border="50%" />;
-    const mods:Mods = {};
-    const styles = useMemo<CSSProperties>(() => ({
-        width: size,
-        height: size,
-    }), [size]);
+    const mods: Mods = {};
+    const styles = useMemo<CSSProperties>(
+        () => ({
+            width: size,
+            height: size,
+        }),
+        [size],
+    );
 
     return (
         <AppImage
@@ -38,7 +35,6 @@ export const Avatar = (props: AvatarProps) => {
             style={styles}
             fallback={fallback}
             errorFallback={errorFallback}
-
         />
     );
 };

@@ -25,11 +25,7 @@ export const NotificationButton = () => {
     return (
         <div>
             <BrowserView>
-                <PopOver
-                    className={cls.one}
-                    direction="bottom left"
-                    trigger={trigger}
-                >
+                <PopOver className={cls.one} direction="bottom left" trigger={trigger}>
                     <NotificationList className={cls.notifications} />
                 </PopOver>
             </BrowserView>

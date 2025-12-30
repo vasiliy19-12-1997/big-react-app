@@ -3,11 +3,15 @@ import { addCommentFormActions, addCommentFormReducers } from './AddCommentFormS
 
 describe('AddCommentFormSlice.test', () => {
     test('set text', () => {
-        const state:DeepPartial<AddCommentFormTypes> = { text: 'Vasya' };
-        expect(addCommentFormReducers(state as AddCommentFormTypes, addCommentFormActions.setText('123123'))).toEqual({ text: '123123' });
+        const state: DeepPartial<AddCommentFormTypes> = { text: 'Vasya' };
+        expect(addCommentFormReducers(state as AddCommentFormTypes, addCommentFormActions.setText('123123'))).toEqual({
+            text: '123123',
+        });
     });
     test('set empty text', () => {
-        const state:DeepPartial<AddCommentFormTypes> = { text: '' };
-        expect(addCommentFormReducers(state as AddCommentFormTypes, addCommentFormActions.setText(''))).toEqual({ text: '' });
+        const state: DeepPartial<AddCommentFormTypes> = { text: '' };
+        expect(addCommentFormReducers(state as AddCommentFormTypes, addCommentFormActions.setText(''))).toEqual({
+            text: '',
+        });
     });
 });

@@ -5,8 +5,8 @@ import { ArtcileBlockText } from '../../model/types/artcile';
 import cls from './ArtcileTextBlockComponent.module.scss';
 
 interface ArtcileTextBlockComponentProps {
-  className?: string;
-  block?:ArtcileBlockText;
+    className?: string;
+    block?: ArtcileBlockText;
 }
 
 export const ArtcileTextBlockComponent = (props: ArtcileTextBlockComponentProps) => {
@@ -15,13 +15,10 @@ export const ArtcileTextBlockComponent = (props: ArtcileTextBlockComponentProps)
 
     return (
         <div className={classNames(cls.ArtcileTextBlockComponent, {}, [className])}>
-            {block?.title && (
-                <Text title={block.title} className={cls.title} />
-            )}
+            {block?.title && <Text title={block.title} className={cls.title} />}
             {block?.paragraphs.map((paragraphs, index) => (
                 <Text key={paragraphs} text={paragraphs} className={cls.paragraphs} />
             ))}
-
         </div>
     );
 };

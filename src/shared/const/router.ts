@@ -8,7 +8,7 @@ export enum AppRoutes {
     ARTICLE_CREATE = 'article_create',
     ARTICLE_EDIT = 'article_edit',
     ADMIN = 'admin',
-    FORBIDDEN = 'forbidden'
+    FORBIDDEN = 'forbidden',
 }
 
 export const getRouteMain = () => '/';

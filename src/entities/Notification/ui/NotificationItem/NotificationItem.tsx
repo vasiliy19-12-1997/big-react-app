@@ -6,8 +6,8 @@ import { Notification } from '../../model/notification';
 import cls from './NotificationItem.module.scss';
 
 interface NotificationItemProps {
-  className?: string;
-  item:Notification
+    className?: string;
+    item: Notification;
 }
 
 export const NotificationItem = memo((props: NotificationItemProps) => {
@@ -23,7 +23,5 @@ export const NotificationItem = memo((props: NotificationItemProps) => {
             {content}
         </a>;
     }
-    return (
-        content
-    );
+    return content;
 });

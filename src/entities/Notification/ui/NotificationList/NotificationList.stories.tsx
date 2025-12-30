@@ -18,7 +18,13 @@ export const Normal = Template.bind({});
 Normal.args = {};
 Normal.decorators = [
     ThemeDecorator(Theme.LIGHT),
-    StoreDecorator({ user: { authData: { /* заполняйте по необходимости */ } } }),
+    StoreDecorator({
+        user: {
+            authData: {
+                /* заполняйте по необходимости */
+            },
+        },
+    }),
 ];
 Normal.parameters = {
     mockData: [

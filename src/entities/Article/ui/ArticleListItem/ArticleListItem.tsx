@@ -9,28 +9,24 @@ import { Avatar } from '@/shared/ui/Avatar';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Card } from '@/shared/ui/Card';
 import { Text } from '@/shared/ui/Text';
-import {
-    ArtcileBlockText, Article, ArticleBlockType, ArticleViews,
-} from '../../model/types/artcile';
+import { ArtcileBlockText, Article, ArticleBlockType, ArticleViews } from '../../model/types/artcile';
 import { ArtcileTextBlockComponent } from '../ArtcileTextBlockComponent/ArtcileTextBlockComponent';
 import cls from './ArticleListItem.module.scss';
 import { AppImage } from '@/shared/ui/AppImage';
 import { Sceleton } from '@/shared/ui/Sceleton';
 
 interface ArticleListItemProps {
-  className?: string;
-  article:Article
-  view:ArticleViews
-  target?:HTMLAttributeAnchorTarget
+    className?: string;
+    article: Article;
+    view: ArticleViews;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
     const { t } = useTranslation();
-    const {
-        className, article, view, target,
-    } = props;
+    const { className, article, view, target } = props;
     const [isHover, bindHover] = useHover();
-    const types = <Text text={article?.type.join(',')} className={cls.type} />;
+    const types = <Text text={Array.isArray(article?.type) ? article.type.join(', ') : ''} className={cls.type} />;
     const img = (
         <AppImage
             src={article?.img}
@@ -46,7 +42,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             <EyeIcon className={cls.eyeIcon} />
         </>
     );
-    const textBlock = article?.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArtcileBlockText;
+    const textBlock = article?.blocks?.find((block) => block.type === ArticleBlockType.TEXT) as ArtcileBlockText;
     if (view === ArticleViews.BIG) {
         return (
             <div data-testid="ArticleListItem" className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
@@ -73,8 +69,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     }
 
     return (
-    // @ts-ignore
-        <div data-testid="ArticleListItem" {...bindHover} className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+        <div
+            data-testid="ArticleListItem"
+            // @ts-ignore
+            {...bindHover}
+            className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+        >
             <AppLink target={target} to={getRouteArticleDetails(article?.id)}>
                 <Card>
                     <div className={cls.imageWrapper}>

@@ -6,18 +6,18 @@ import { Page } from '@/shared/ui/Page';
 import cls from './ArticleEditPage.module.scss';
 
 interface ArticleEditPageProps {
-  className?: string;
+    className?: string;
 }
 
 const ArticleEditPage = memo((props: ArticleEditPageProps) => {
     const { t } = useTranslation();
     const { className } = props;
-    const { id } = useParams<{id:string}>();
+    const { id } = useParams<{ id: string }>();
     console.log(id);
     const isEdit = Boolean(id);
     return (
         <Page className={classNames(cls.ArticleEditPage, {}, [className])}>
-            {isEdit ? (<div>{t(`Редактивание статьи с id:${id}`)}</div>) : (<div>{t('Создание статьи')}</div>)}
+            {isEdit ? <div>{t(`Редактивание статьи с id:${id}`)}</div> : <div>{t('Создание статьи')}</div>}
         </Page>
     );
 });

@@ -8,22 +8,20 @@ import { AppLink } from '../../../AppLink/AppLink';
 import popUpCls from '../../styles/popup.module.scss';
 
 export interface DropDownItem {
-  disabled?:boolean,
-  content?:ReactNode,
-  onClick?:()=>void,
-  href?:string
+    disabled?: boolean;
+    content?: ReactNode;
+    onClick?: () => void;
+    href?: string;
 }
-export interface DropDownProps{
-   className?: string;
-   items:DropDownItem[],
-   trigger:ReactNode,
-   direction?:Direction
+export interface DropDownProps {
+    className?: string;
+    items: DropDownItem[];
+    trigger: ReactNode;
+    direction?: Direction;
 }
 
-export function DropDown(props:DropDownProps) {
-    const {
-        className, items, trigger, direction = 'bottom right',
-    } = props;
+export function DropDown(props: DropDownProps) {
+    const { className, items, trigger, direction = 'bottom right' } = props;
     const optionsMods = [className, mapOptionsClasses[direction]];
 
     return (
@@ -31,15 +29,12 @@ export function DropDown(props:DropDownProps) {
             <Menu.Button className={popUpCls.trigger}>{trigger}</Menu.Button>
             <Menu.Items className={classNames(cls.menu, {}, optionsMods)}>
                 {items.map((item, index) => {
-                    const content = ({ active }:{active:boolean}) => (
+                    const content = ({ active }: { active: boolean }) => (
                         <button
                             key={`dropdowm-button ${index}`}
                             onClick={item.onClick}
                             type="button"
-                            className={classNames(
-                                cls.item,
-                                { [popUpCls.active]: active },
-                            )}
+                            className={classNames(cls.item, { [popUpCls.active]: active })}
                         >
                             {item.content}
                         </button>
@@ -58,7 +53,6 @@ export function DropDown(props:DropDownProps) {
                     );
                 })}
             </Menu.Items>
-
         </Menu>
     );
 }

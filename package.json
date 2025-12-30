@@ -12,6 +12,7 @@
     "build:prod": "webpack  --env mode=production apiUrl=https://big-app-react-server.vercel.app",
     "build:dev": "webpack  --env mode=development",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
+    "prettier":" prettier --write \"**/*.{ts,tsx,json}\"",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "lint:scss": "npx stylelint \"**/*.scss\"",
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
@@ -31,6 +32,9 @@
     "add-from-template": "plop",
     "generate:slice": "node ./scripts/createSlice/index.js",
     "postinstall": "node ./scripts/clearCash/clear-cash.js"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": ["prettier --list-different", "eslint"]
   },
   "keywords": [],
   "author": "",
@@ -76,6 +80,7 @@
     "cypress": "^11.0.0",
     "eslint": "^8.10.0",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-big-react-app-plugin": "^0.2.10",
     "eslint-plugin-i18next": "^5.1.2",
     "eslint-plugin-import": "^2.25.4",
@@ -96,6 +101,7 @@
     "lint-staged": "^13.0.3",
     "loki": "^0.28.1",
     "mini-css-extract-plugin": "^2.5.3",
+    "prettier": "2.7.1",
     "react-refresh": "^0.12.0",
     "reg-cli": "^0.17.6",
     "regenerator-runtime": "^0.13.9",

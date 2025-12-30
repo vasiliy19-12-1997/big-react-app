@@ -14,7 +14,5 @@ export const rtqApi = createApi({
         },
     }),
 
-    endpoints: () => ({
-
-    }),
+    endpoints: () => ({}),
 });

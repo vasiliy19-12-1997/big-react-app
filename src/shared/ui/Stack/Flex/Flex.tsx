@@ -1,32 +1,29 @@
-import {
-    DetailedHTMLProps, HTMLAttributes,
-    ReactNode,
-} from 'react';
+import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Flex.module.scss';
 
-type FlexJustify = 'start' | 'center' | 'end' | 'between'
-type FlexAlign = 'start' | 'center' | 'end'
-type FlexDirection = 'column' | 'row'
-type FlexGap = 4 | 8 | 16 | 32
+type FlexJustify = 'start' | 'center' | 'end' | 'between';
+type FlexAlign = 'start' | 'center' | 'end';
+type FlexDirection = 'column' | 'row';
+type FlexGap = 4 | 8 | 16 | 32;
 
-const justifyClasses:Record<FlexJustify, string> = {
+const justifyClasses: Record<FlexJustify, string> = {
     center: cls.JustifyCenter,
     between: cls.JustifyBetween,
     end: cls.JustifyEnd,
     start: cls.JustifyStart,
 };
-const alignClasses:Record<FlexAlign, string> = {
+const alignClasses: Record<FlexAlign, string> = {
     center: cls.AlignCenter,
     end: cls.AlignEnd,
     start: cls.AlignStart,
 };
-const directionClasses:Record<FlexDirection, string> = {
+const directionClasses: Record<FlexDirection, string> = {
     column: cls.DirectionColumn,
     row: cls.DirectionRow,
 };
-const gapClasses:Record<FlexGap, string> = {
+const gapClasses: Record<FlexGap, string> = {
     4: cls.gap4,
     8: cls.gap8,
     16: cls.gap16,
@@ -34,13 +31,13 @@ const gapClasses:Record<FlexGap, string> = {
 };
 type divType = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 export interface FlexProps extends divType {
-  className?: string;
-  children:ReactNode
-  justify?:FlexJustify,
-  align?:FlexAlign,
-  direction:FlexDirection,
-  gap?:FlexGap,
-  max?:boolean
+    className?: string;
+    children: ReactNode;
+    justify?: FlexJustify;
+    align?: FlexAlign;
+    direction: FlexDirection;
+    gap?: FlexGap;
+    max?: boolean;
 }
 
 export const Flex = (props: FlexProps) => {

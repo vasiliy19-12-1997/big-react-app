@@ -14,7 +14,7 @@ describe('getProfileData.test', () => {
         age: 25,
     };
     test('should return data', () => {
-        const state:DeepPartial<StateSchema> = {
+        const state: DeepPartial<StateSchema> = {
             profile: {
                 data,
             },
@@ -22,7 +22,7 @@ describe('getProfileData.test', () => {
         expect(getProfileData(state as StateSchema)).toEqual(data);
     });
     test('should return undefined', () => {
-        const state:DeepPartial<StateSchema> = {};
+        const state: DeepPartial<StateSchema> = {};
         expect(getProfileData(state as StateSchema)).toEqual(undefined);
     });
 });

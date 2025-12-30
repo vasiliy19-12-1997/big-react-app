@@ -4,9 +4,9 @@ import { Sceleton } from '@/shared/ui/Sceleton';
 
 export const ProfileRatingLazy = lazy(() => import('./ProfileRating'));
 
-export const ProfileRatingAsync = (props:ProfileRatingProps) => {
+export const ProfileRatingAsync = (props: ProfileRatingProps) => {
     return (
-        <Suspense fallback={(<Sceleton width={200} height={200} />)}>
+        <Suspense fallback={<Sceleton width={200} height={200} />}>
             <ProfileRatingLazy {...props} />
         </Suspense>
     );

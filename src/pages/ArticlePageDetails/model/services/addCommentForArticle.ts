@@ -7,9 +7,7 @@ import { ThunkConfig } from '@/shared/config/state';
 export const addCommentForArticle = createAsyncThunk<Comment, string, ThunkConfig<string>>(
     'ArticlePageDetails/addCommentForArticle',
     async (text, thunkApi) => {
-        const {
-            extra, dispatch, rejectWithValue, getState,
-        } = thunkApi;
+        const { extra, dispatch, rejectWithValue, getState } = thunkApi;
         const userData = getAuthUserData(getState());
         const article = getArticleDetailsData(getState());
         if (!text || !userData || !article) {

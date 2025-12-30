@@ -12,7 +12,7 @@ import cls from './ArticlePage.module.scss';
 const ArticlePage = memo(() => {
     const { t } = useTranslation('ArticlePage');
     const dispatch = useAppDispatch();
-    const reducers:ReducersList = {
+    const reducers: ReducersList = {
         articlePage: articlesReducer,
     };
 

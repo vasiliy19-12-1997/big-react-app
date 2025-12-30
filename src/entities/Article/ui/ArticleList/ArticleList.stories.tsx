@@ -23,9 +23,7 @@ const articles = {
         id: '1',
         avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcK8LuTRihbc5t5dlS6Lw6Q710u02oN80LJw&s',
     },
-    type: [
-        'IT', 'fgfg', 'fdfdfdf', 'fdfdfdf',
-    ],
+    type: ['IT', 'fgfg', 'fdfdfdf', 'fdfdfdf'],
     blocks: [
         {
             id: '1',
@@ -91,82 +89,58 @@ const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...
 
 export const ListSmall = Template.bind({});
 ListSmall.args = {
-    articles:
-  new Array(9).fill(0).map((item, index) => ({ ...articles, id: String(index) })),
+    articles: new Array(9).fill(0).map((item, index) => ({ ...articles, id: String(index) })),
     isLoading: false,
     views: ArticleViews.SMALL,
 };
-ListSmall.decorators = [
-    ThemeDecorator(Theme.LIGHT),
-];
+ListSmall.decorators = [ThemeDecorator(Theme.LIGHT)];
 export const ListSmallDark = Template.bind({});
 ListSmallDark.args = {
-    articles:
-  new Array(9).fill(0).map((item, index) => ({ ...articles, id: String(index) })),
+    articles: new Array(9).fill(0).map((item, index) => ({ ...articles, id: String(index) })),
     isLoading: false,
     views: ArticleViews.SMALL,
 };
-ListSmallDark.decorators = [
-    ThemeDecorator(Theme.DARK),
-];
+ListSmallDark.decorators = [ThemeDecorator(Theme.DARK)];
 export const ListBig = Template.bind({});
 ListBig.args = {
-    articles:
-  new Array(3).fill(0).map((item, index) => ({ ...articles, id: String(index) })),
+    articles: new Array(3).fill(0).map((item, index) => ({ ...articles, id: String(index) })),
     isLoading: false,
     views: ArticleViews.BIG,
 };
-ListBig.decorators = [
-    ThemeDecorator(Theme.LIGHT),
-];
+ListBig.decorators = [ThemeDecorator(Theme.LIGHT)];
 export const ListBigDark = Template.bind({});
 ListBigDark.args = {
-    articles:
-  new Array(3).fill(0).map((item, index) => ({ ...articles, id: String(index) })),
+    articles: new Array(3).fill(0).map((item, index) => ({ ...articles, id: String(index) })),
     isLoading: false,
     views: ArticleViews.BIG,
 };
-ListBigDark.decorators = [
-    ThemeDecorator(Theme.DARK),
-];
+ListBigDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const ListSmallIsLoading = Template.bind({});
 ListSmallIsLoading.args = {
-    articles:
-  new Array(0).fill(0).map((item, index) => ({ ...articles, id: String(index) })),
+    articles: new Array(0).fill(0).map((item, index) => ({ ...articles, id: String(index) })),
     isLoading: true,
     views: ArticleViews.SMALL,
 };
-ListSmallIsLoading.decorators = [
-    ThemeDecorator(Theme.LIGHT),
-];
+ListSmallIsLoading.decorators = [ThemeDecorator(Theme.LIGHT)];
 export const ListSmallIsLoadingDark = Template.bind({});
 ListSmallIsLoadingDark.args = {
-    articles:
-  new Array(0).fill(0).map((item, index) => ({ ...articles, id: String(index) })),
+    articles: new Array(0).fill(0).map((item, index) => ({ ...articles, id: String(index) })),
     isLoading: true,
     views: ArticleViews.SMALL,
 };
-ListSmallIsLoadingDark.decorators = [
-    ThemeDecorator(Theme.DARK),
-];
+ListSmallIsLoadingDark.decorators = [ThemeDecorator(Theme.DARK)];
 export const ListBigIsLoading = Template.bind({});
 ListBigIsLoading.args = {
-    articles:
-  new Array(0).fill(0).map((item, index) => ({ ...articles, id: String(index) })),
+    articles: new Array(0).fill(0).map((item, index) => ({ ...articles, id: String(index) })),
     isLoading: true,
     views: ArticleViews.BIG,
 };
-ListBigIsLoading.decorators = [
-    ThemeDecorator(Theme.LIGHT),
-];
+ListBigIsLoading.decorators = [ThemeDecorator(Theme.LIGHT)];
 export const ListBigIsLoadingDark = Template.bind({});
 ListBigIsLoadingDark.args = {
-    articles:
-  new Array(0).fill(0).map((item, index) => ({ ...articles, id: String(index) })),
+    articles: new Array(0).fill(0).map((item, index) => ({ ...articles, id: String(index) })),
     isLoading: true,
     views: ArticleViews.BIG,
 };
-ListBigIsLoadingDark.decorators = [
-    ThemeDecorator(Theme.DARK),
-];
+ListBigIsLoadingDark.decorators = [ThemeDecorator(Theme.DARK)];

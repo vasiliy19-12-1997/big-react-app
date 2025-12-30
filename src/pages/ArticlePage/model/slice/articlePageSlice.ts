@@ -1,12 +1,6 @@
-import {
-    createEntityAdapter,
-    createSlice,
-    PayloadAction,
-} from '@reduxjs/toolkit';
+import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { StateSchema } from '@/app/providers/StoreProvider';
-import {
-    Article, ArticleViews, ArticleSortField, ArticleType,
-} from '@/entities/Article';
+import { Article, ArticleViews, ArticleSortField, ArticleType } from '@/entities/Article';
 
 import { ARTICLE_VIEWS_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 import { SortOrder } from '@/shared/types/sort';
@@ -17,7 +11,9 @@ import { ArticlePageSchema } from '../types/articlePageSchema';
 const articleAdapter = createEntityAdapter<Article>({
     selectId: (article) => article.id,
 });
-export const getArticles = articleAdapter.getSelectors<StateSchema>((state) => state.articlePage || articleAdapter.getInitialState());
+export const getArticles = articleAdapter.getSelectors<StateSchema>(
+    (state) => state.articlePage || articleAdapter.getInitialState(),
+);
 const ArticlePageSlice = createSlice({
     name: 'ArticlePageSlice',
     initialState: articleAdapter.getInitialState<ArticlePageSchema>({
@@ -36,23 +32,23 @@ const ArticlePageSlice = createSlice({
         type: ArticleType.ALL,
     }),
     reducers: {
-        setView: (state, action:PayloadAction<ArticleViews>) => {
+        setView: (state, action: PayloadAction<ArticleViews>) => {
             state.view = action.payload;
             localStorage.setItem(ARTICLE_VIEWS_LOCALSTORAGE_KEY, action.payload);
         },
-        setPage: (state, action:PayloadAction<number>) => {
+        setPage: (state, action: PayloadAction<number>) => {
             state.page = action.payload;
         },
-        setOrder: (state, action:PayloadAction<SortOrder>) => {
+        setOrder: (state, action: PayloadAction<SortOrder>) => {
             state.order = action.payload;
         },
-        setSort: (state, action:PayloadAction<ArticleSortField>) => {
+        setSort: (state, action: PayloadAction<ArticleSortField>) => {
             state.sort = action.payload;
         },
-        setSearch: (state, action:PayloadAction<string>) => {
+        setSearch: (state, action: PayloadAction<string>) => {
             state.search = action.payload;
         },
-        setType: (state, action:PayloadAction<ArticleType>) => {
+        setType: (state, action: PayloadAction<ArticleType>) => {
             state.type = action.payload;
         },
         initState: (state) => {

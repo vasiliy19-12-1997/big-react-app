@@ -17,11 +17,11 @@ describe('Пользователь заходит на страницу стат
         cy.getByTestId('ArticleRecommendationList').should('exist');
     });
     it('И оставляет комментарий', () => {
-       cy.getByTestId('CommentaryCard.Content').should('exist')
-        cy.getByTestId('AddCommentForm').scrollIntoView()
-        cy.addComment("test")
-        cy.getByTestId('CommentaryCard.Text.Paragraph').should('have.length.greaterThan', 20)
-        })
+        cy.getByTestId('CommentaryCard.Content').should('exist');
+        cy.getByTestId('AddCommentForm').scrollIntoView();
+        cy.addComment('test');
+        cy.getByTestId('CommentaryCard.Text.Paragraph').should('have.length.greaterThan', 20);
+    });
     it('И ставит оценку', () => {
         cy.getByTestId('ArticleDetails.Info');
         cy.getByTestId('RatingCard').scrollIntoView();

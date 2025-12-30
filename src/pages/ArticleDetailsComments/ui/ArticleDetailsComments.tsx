@@ -4,9 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { CommentaryList } from '@/entities/Сommentary';
 import { AddCommentForm } from '@/features/AddCommentForm';
 import {
-    addCommentForArticle, fetchCommentsByArticleId,
+    addCommentForArticle,
+    fetchCommentsByArticleId,
     getArticleComments,
-    getArticleDetailsCommentsIsLoading, getArticleDetailsRecommendError,
+    getArticleDetailsCommentsIsLoading,
+    getArticleDetailsRecommendError,
 } from '../../ArticlePageDetails';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Sceleton } from '@/shared/ui/Sceleton';
@@ -15,8 +17,8 @@ import { Text } from '@/shared/ui/Text';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 interface ArticleDetailsCommentsProps {
-  className?: string;
-  id?:string
+    className?: string;
+    id?: string;
 }
 
 export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) => {
@@ -27,9 +29,12 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
     const comments = useSelector(getArticleComments.selectAll);
     const errorRecommends = useSelector(getArticleDetailsRecommendError);
 
-    const onSendComments = useCallback((text:string) => {
-        dispatch(addCommentForArticle(text));
-    }, [dispatch]);
+    const onSendComments = useCallback(
+        (text: string) => {
+            dispatch(addCommentForArticle(text));
+        },
+        [dispatch],
+    );
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));

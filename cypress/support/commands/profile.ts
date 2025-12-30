@@ -1,9 +1,13 @@
-export const updateProfile = ((firstName:string, lastName?:string) => {
+export const updateProfile = (firstName: string, lastName?: string) => {
     cy.getByTestId('EditableProfileCardHeader.Edit').click();
-    cy.getByTestId('ProfileCard.firstname').clear().type(firstName || 'updatedFirstName');
-    cy.getByTestId('ProfileCard.lastname').clear().type(lastName || 'updatedLastName');
+    cy.getByTestId('ProfileCard.firstname')
+        .clear()
+        .type(firstName || 'updatedFirstName');
+    cy.getByTestId('ProfileCard.lastname')
+        .clear()
+        .type(lastName || 'updatedLastName');
     cy.getByTestId('EditableProfileCardHeader.Save').click();
-});
+};
 
 export const resetProfile = (profileId: string) => {
     return cy.request({
@@ -27,10 +31,10 @@ export const resetProfile = (profileId: string) => {
 };
 
 declare global {
-  namespace Cypress {
-    interface Chainable {
-      updateProfile(firstName?: string, lastName?: string): Chainable<void>;
-      resetProfile(profileId: string): Chainable<void>;
+    namespace Cypress {
+        interface Chainable {
+            updateProfile(firstName?: string, lastName?: string): Chainable<void>;
+            resetProfile(profileId: string): Chainable<void>;
+        }
     }
-  }
 }

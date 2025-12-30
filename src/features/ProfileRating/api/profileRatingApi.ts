@@ -1,15 +1,15 @@
 import { Rating } from '@/entities/Rating';
 import { rtqApi } from '@/shared/config/api/rtqApi';
 
-export interface GetRatingsProfileProps{
-    profileId:string,
-    userId?:string
+export interface GetRatingsProfileProps {
+    profileId: string;
+    userId?: string;
 }
-export interface PostRatingsProfileProps{
-    userId?:string,
-    profileId:string,
-    feedback:string,
-    rate:number
+export interface PostRatingsProfileProps {
+    userId?: string;
+    profileId: string;
+    feedback: string;
+    rate: number;
 }
 const getRatingProfileApi = rtqApi.injectEndpoints({
     endpoints: (build) => ({

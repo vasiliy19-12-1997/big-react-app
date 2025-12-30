@@ -3,13 +3,13 @@ import { ThunkConfig } from '@/shared/config/state';
 import { User, userActions } from '@/entities/User';
 import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 
-interface loginByUsernameProps{
-    username:string;
-    password:string
+interface loginByUsernameProps {
+    username: string;
+    password: string;
 }
-enum LoginErrors{
+enum LoginErrors {
     INCORRECT_DATA = '',
-    SERVER_ERROD = ''
+    SERVER_ERROD = '',
 }
 export const loginByUsername = createAsyncThunk<User, loginByUsernameProps, ThunkConfig<string>>(
     'login/loginByUsername',

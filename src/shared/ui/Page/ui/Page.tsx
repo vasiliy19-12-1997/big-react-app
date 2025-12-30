@@ -1,6 +1,4 @@
-import {
-    memo, MutableRefObject, ReactNode, UIEvent, useRef,
-} from 'react';
+import { memo, MutableRefObject, ReactNode, UIEvent, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 // eslint-disable-next-line big-react-app-plugin/layer-imports
@@ -15,9 +13,9 @@ import cls from './Page.module.scss';
 import { TestProps } from '@/shared/types/tests';
 
 interface PageProps extends TestProps {
-  className?: string;
-  children:ReactNode;
-  onScrollEnd?:()=>void
+    className?: string;
+    children: ReactNode;
+    onScrollEnd?: () => void;
 }
 export const PAGE_ID = 'page_id';
 export const Page = memo((props: PageProps) => {
@@ -26,7 +24,7 @@ export const Page = memo((props: PageProps) => {
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const { pathname } = useLocation();
     const dispatch = useAppDispatch();
-    const scrollPosition = useSelector((state:StateSchema) => getScrollRestorationByPath(state, pathname));
+    const scrollPosition = useSelector((state: StateSchema) => getScrollRestorationByPath(state, pathname));
 
     useInfiniteScroll({
         wrapperRef,
@@ -35,7 +33,9 @@ export const Page = memo((props: PageProps) => {
     });
 
     const onScroll = useThrotle((e: UIEvent<HTMLDivElement>) => {
-        dispatch(scrollRestorationSliceActions.setScrollPosition({ path: pathname, position: e?.currentTarget?.scrollTop }));
+        dispatch(
+            scrollRestorationSliceActions.setScrollPosition({ path: pathname, position: e?.currentTarget?.scrollTop }),
+        );
     }, 700);
 
     useInitialEffect(() => {
@@ -43,7 +43,13 @@ export const Page = memo((props: PageProps) => {
     }, [scrollPosition]);
 
     return (
-        <section data-testid={props['data-testid'] ?? 'Page'} id={PAGE_ID} onScroll={onScroll} ref={wrapperRef} className={classNames(cls.Page, {}, [className])}>
+        <section
+            data-testid={props['data-testid'] ?? 'Page'}
+            id={PAGE_ID}
+            onScroll={onScroll}
+            ref={wrapperRef}
+            className={classNames(cls.Page, {}, [className])}
+        >
             {children}
             {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
         </section>

@@ -15,7 +15,7 @@ export default {
 
 const Template: ComponentStory<typeof ArtcileDetails> = (args) => <ArtcileDetails {...args} />;
 
-const articles:Article = {
+const articles: Article = {
     id: '1',
     title: 'Javascript news',
     subtitle: 'Что нового в JS за 2022 год?',

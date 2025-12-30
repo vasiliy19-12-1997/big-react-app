@@ -1,0 +1,57 @@
+# Ignore artifacts:
+build
+coverage
+node_modules
+dist
+.tmp
+.history
+# Ignore configuration files:
+.prettierrc
+.eslintrc
+.vscode
+# Ignore log files:
+*.log
+# Ignore OS generated files:
+.DS_Store
+Thumbs.db
+# Ignore environment files:
+
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+# Ignore IDE specific files:
+.idea
+*.sublime-project
+*.sublime-workspace
+# Ignore compiled files:
+
+*.class
+*.o
+*.so
+# Ignore package lock files:
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+# Ignore temporary files:
+*.tmp
+*.swp
+*~
+# Ignore coverage reports:
+coverage/reports
+# Ignore test result files:
+test-results.xml
+# Ignore miscellaneous files:
+*.bak
+*.old
+*.orig
+*.rej
+*.save
+*.backup
+
+*.scss
+*.css
+*.html
+*.json  
+*.xml

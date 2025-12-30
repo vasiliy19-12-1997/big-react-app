@@ -1,15 +1,11 @@
-import {
-    MutableRefObject, useCallback, useEffect,
-    useRef,
-    useState,
-} from 'react';
+import { MutableRefObject, useCallback, useEffect, useRef, useState } from 'react';
 
-export interface useModalProps{
-    onClose?:()=>void
-    isOpen?:boolean;
-    animationDelay?:number;
+export interface useModalProps {
+    onClose?: () => void;
+    isOpen?: boolean;
+    animationDelay?: number;
 }
-export function useModal({ onClose, isOpen, animationDelay }:useModalProps) {
+export function useModal({ onClose, isOpen, animationDelay }: useModalProps) {
     const [isClosing, setIsClosing] = useState(false);
     const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
     const [isMounted, setIsMounted] = useState(false);
@@ -24,14 +20,17 @@ export function useModal({ onClose, isOpen, animationDelay }:useModalProps) {
         }
     }, [animationDelay, onClose]);
 
-    const onContentClick = (e:React.MouseEvent) => {
+    const onContentClick = (e: React.MouseEvent) => {
         e.stopPropagation();
     };
-    const onKeyDown = useCallback((e:KeyboardEvent) => {
-        if (e.key === 'Escape') {
-            close();
-        }
-    }, [close]);
+    const onKeyDown = useCallback(
+        (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                close();
+            }
+        },
+        [close],
+    );
     useEffect(() => {
         if (isOpen) {
             setIsMounted(true);

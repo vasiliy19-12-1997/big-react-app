@@ -3,7 +3,7 @@ import { Article } from '../types/artcile';
 import { ArticleDetailsSchema } from '../types/articleDetailsSchema';
 import { fetchArticleById } from '../services/fetchArticleById';
 
-const initialState:ArticleDetailsSchema = {
+const initialState: ArticleDetailsSchema = {
     isLoading: false,
     error: undefined,
     data: undefined,
@@ -19,7 +19,7 @@ export const ArtcileDetailsSlice = createSlice({
                 state.error = undefined;
                 state.isLoading = true;
             })
-            .addCase(fetchArticleById.fulfilled, (state, action:PayloadAction<Article>) => {
+            .addCase(fetchArticleById.fulfilled, (state, action: PayloadAction<Article>) => {
                 state.isLoading = false;
                 state.data = action.payload;
             })

@@ -4,19 +4,16 @@ import { useDispatch, useStore } from 'react-redux';
 import { ReduxStoreWithReducerManager, StateSchema, StateSchemaKeys } from '@/app/providers/StoreProvider';
 
 export type ReducersList = {
-    [name in StateSchemaKeys]?:Reducer<NonNullable<StateSchema[name]>>
-}
+    [name in StateSchemaKeys]?: Reducer<NonNullable<StateSchema[name]>>;
+};
 interface DynamicModuleLoaderProps {
-    children:ReactNode
-    reducers:ReducersList;
-    removeAfterUnmount?:boolean
+    children: ReactNode;
+    reducers: ReducersList;
+    removeAfterUnmount?: boolean;
 }
 
 export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
-    const {
-        reducers,
-        removeAfterUnmount = true,
-    } = props;
+    const { reducers, removeAfterUnmount = true } = props;
     const dispatch = useDispatch();
     const store = useStore() as ReduxStoreWithReducerManager;
     useEffect(() => {
@@ -39,13 +36,9 @@ export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
         };
         // eslint-disable-next-line
     }, []);
-    const {
-        children,
-    } = props;
+    const { children } = props;
     return (
         // eslint-disable-next-line react/jsx-no-useless-fragment
-        <>
-            {children}
-        </>
+        <>{children}</>
     );
 };

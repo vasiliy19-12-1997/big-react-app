@@ -6,25 +6,23 @@ import { Icon } from '../Icon/Icon';
 import StarSvg from '../../assets/icons/star.svg';
 
 interface StarRatingProps {
-  className?: string;
-  size?:number
-  selectedStars?:number
-  onSelect?:(stars:number)=>void
+    className?: string;
+    size?: number;
+    selectedStars?: number;
+    onSelect?: (stars: number) => void;
 }
 const stars = [1, 2, 3, 4, 5];
 export const StarRating = memo((props: StarRatingProps) => {
     const { t } = useTranslation();
-    const {
-        className, size = 50, selectedStars = 0, onSelect,
-    } = props;
+    const { className, size = 50, selectedStars = 0, onSelect } = props;
     const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
-    const onHover = (starCount:number) => () => {
+    const onHover = (starCount: number) => () => {
         if (!isSelected) {
             setCurrentStarsCount(starCount);
         }
     };
-    const onClick = (starCount:number) => () => {
+    const onClick = (starCount: number) => () => {
         if (!isSelected) {
             onSelect?.(starCount);
             setIsSelected(true);
@@ -41,7 +39,9 @@ export const StarRating = memo((props: StarRatingProps) => {
                 <Icon
                     data-testid={`StarRating.${starNumber}`}
                     key={index}
-                    className={classNames(cls.starIcon, { [cls.selected]: isSelected }, [currentStarsCount >= starNumber ? cls.hovered : cls.normal])}
+                    className={classNames(cls.starIcon, { [cls.selected]: isSelected }, [
+                        currentStarsCount >= starNumber ? cls.hovered : cls.normal,
+                    ])}
                     width={size}
                     Svg={StarSvg}
                     height={size}

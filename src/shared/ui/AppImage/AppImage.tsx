@@ -1,17 +1,13 @@
-import {
-    ImgHTMLAttributes, memo, ReactElement, useLayoutEffect, useState,
-} from 'react';
+import { ImgHTMLAttributes, memo, ReactElement, useLayoutEffect, useState } from 'react';
 
 interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
-  className?: string;
-  fallback?:ReactElement;
-  errorFallback?:ReactElement;
+    className?: string;
+    fallback?: ReactElement;
+    errorFallback?: ReactElement;
 }
 
 export const AppImage = memo((props: AppImageProps) => {
-    const {
-        className, alt = 'image', src, fallback, errorFallback,
-    } = props;
+    const { className, alt = 'image', src, fallback, errorFallback } = props;
 
     const [isLoading, setIsLoading] = useState(true);
     const [hasError, setHasError] = useState(false);
@@ -35,7 +31,5 @@ export const AppImage = memo((props: AppImageProps) => {
         return errorFallback;
     }
 
-    return (
-        <img src={src} alt={alt} className={className} />
-    );
+    return <img src={src} alt={alt} className={className} />;
 });

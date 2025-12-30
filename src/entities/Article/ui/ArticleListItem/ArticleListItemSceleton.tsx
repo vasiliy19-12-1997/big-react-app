@@ -2,14 +2,12 @@ import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Card } from '@/shared/ui/Card';
 import { Sceleton } from '@/shared/ui/Sceleton';
-import {
-    ArticleViews,
-} from '../../model/types/artcile';
+import { ArticleViews } from '../../model/types/artcile';
 import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemSceletonProps {
-  className?: string;
-  view:ArticleViews
+    className?: string;
+    view: ArticleViews;
 }
 
 export const ArticleListItemSceleton = memo((props: ArticleListItemSceletonProps) => {
@@ -31,7 +29,7 @@ export const ArticleListItemSceleton = memo((props: ArticleListItemSceletonProps
         );
     }
     return (
-    // @ts-ignore
+        // @ts-ignore
         <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
             <Card>
                 <div className={cls.imageWrapper}>

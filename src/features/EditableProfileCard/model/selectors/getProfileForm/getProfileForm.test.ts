@@ -12,10 +12,9 @@ describe('getProfileForm.test', () => {
         country: Country.Russia,
         currency: Currency.USD,
         age: 25,
-
     };
     test('', () => {
-        const state:DeepPartial<StateSchema> = {
+        const state: DeepPartial<StateSchema> = {
             profile: {
                 form: data,
             },
@@ -23,7 +22,7 @@ describe('getProfileForm.test', () => {
         expect(getProfileForm(state as StateSchema)).toEqual(data);
     });
     test('should return undefined', () => {
-        const state:DeepPartial<StateSchema> = {};
+        const state: DeepPartial<StateSchema> = {};
         expect(getProfileForm(state as StateSchema)).toEqual(undefined);
     });
 });

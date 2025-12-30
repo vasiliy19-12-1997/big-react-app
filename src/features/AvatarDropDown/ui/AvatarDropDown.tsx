@@ -3,9 +3,7 @@ import { useCallback } from 'react';
 import { getRouteAdmin, getRouteProfile } from '@/shared/const/router';
 import { Avatar } from '@/shared/ui/Avatar';
 import { DropDown } from '@/shared/ui/Popups';
-import {
-    getAuthUserData, isUserAdmin, isUserManager, userActions,
-} from '@/entities/User';
+import { getAuthUserData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
 import cls from './AvatarDropDown.module.scss';
 
 export const AvatarDropDown = () => {
@@ -24,8 +22,7 @@ export const AvatarDropDown = () => {
         <DropDown
             className={cls.dropDown}
             items={[
-                ...(isAdminPanelAvailable ? [
-                    { content: 'Админка', href: getRouteAdmin() }] : []),
+                ...(isAdminPanelAvailable ? [{ content: 'Админка', href: getRouteAdmin() }] : []),
                 { content: 'Выйти', onClick: onLogout },
                 { content: 'Профиль', href: getRouteProfile(authUser.id) },
             ]}

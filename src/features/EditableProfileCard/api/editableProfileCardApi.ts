@@ -3,7 +3,7 @@ import { rtqApi } from '@/shared/config/api/rtqApi';
 
 const editableProfileCardApi = rtqApi.injectEndpoints({
     endpoints: (build) => ({
-        getProfileData: build.query<Profile, string | undefined >({
+        getProfileData: build.query<Profile, string | undefined>({
             query: (profileId) => ({
                 url: `/profile/${profileId}`,
             }),
@@ -21,13 +21,9 @@ const editableProfileCardApi = rtqApi.injectEndpoints({
             // Оптимистичное обновление
             async onQueryStarted({ id, ...patch }, { dispatch, queryFulfilled }) {
                 const patchResult = dispatch(
-                    editableProfileCardApi.util.updateQueryData(
-                        'getProfileData',
-                        id,
-                        (draft) => {
-                            Object.assign(draft, patch);
-                        },
-                    ),
+                    editableProfileCardApi.util.updateQueryData('getProfileData', id, (draft) => {
+                        Object.assign(draft, patch);
+                    }),
                 );
                 try {
                     await queryFulfilled;

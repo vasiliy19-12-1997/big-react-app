@@ -11,7 +11,7 @@ describe('getProfileValidateErrors.test', () => {
             ValidateProfileErrors.INCORRECT_USER_DATA,
             ValidateProfileErrors.NO_DATA,
         ];
-        const state:DeepPartial<StateSchema> = {
+        const state: DeepPartial<StateSchema> = {
             profile: {
                 validateErrors: errors,
             },
@@ -19,7 +19,7 @@ describe('getProfileValidateErrors.test', () => {
         expect(getProfileValidateErrors(state as StateSchema)).toEqual(errors);
     });
     test('should return NO_DATA', () => {
-        const state:DeepPartial<StateSchema> = {};
+        const state: DeepPartial<StateSchema> = {};
         expect(getProfileValidateErrors(state as StateSchema)).toEqual(undefined);
     });
 });

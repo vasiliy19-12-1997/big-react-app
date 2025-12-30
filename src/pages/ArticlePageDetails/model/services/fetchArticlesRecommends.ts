@@ -1,12 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from '@/shared/config/state';
-import {
-    Article,
-} from '@/entities/Article';
+import { Article } from '@/entities/Article';
 
 type RecommendsQuery = {
-    _limit?:number,
-}
+    _limit?: number;
+};
 
 export const fetchArticlesRecommends = createAsyncThunk<Article[], void, ThunkConfig<string>>(
     'ArticlePageDetails/fetchArticlesRecommends',

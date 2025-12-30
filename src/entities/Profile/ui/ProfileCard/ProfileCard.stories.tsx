@@ -14,12 +14,12 @@ export default {
 const Template: ComponentStory<typeof ProfileCard> = (args) => <ProfileCard {...args} />;
 
 export const Normal = Template.bind({});
-Normal.args = {
-
-};
-Normal.decorators = [StoreDecorator({
-    login: { username: '123', password: '123' },
-})];
+Normal.args = {};
+Normal.decorators = [
+    StoreDecorator({
+        login: { username: '123', password: '123' },
+    }),
+];
 // export const withError = Template.bind({});
 // withError.args = {
 //     error: 'error',

@@ -11,20 +11,20 @@ import cls from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/profile';
 
 interface ProfileCardProps {
-  className?: string
-  onChangeFirstname?:(value:string)=>void
-  onChangeLastname?:(value:string)=>void
-  onChangeAge?:(value:string)=>void
-  onChangeCity?:()=>void
-  onChangeUsername?:(value:string)=>void
-  onChangeAvatar?:(value:string)=>void
-  onChangeCurrency?:(value:Currency)=>void
-  onChangeCountry?:(value:Country)=>void
-  readonly?:boolean
-  id?:string
-  data?:Profile
-    isLoading?:boolean
-    error?:string
+    className?: string;
+    onChangeFirstname?: (value: string) => void;
+    onChangeLastname?: (value: string) => void;
+    onChangeAge?: (value: string) => void;
+    onChangeCity?: () => void;
+    onChangeUsername?: (value: string) => void;
+    onChangeAvatar?: (value: string) => void;
+    onChangeCurrency?: (value: Currency) => void;
+    onChangeCountry?: (value: Country) => void;
+    readonly?: boolean;
+    id?: string;
+    data?: Profile;
+    isLoading?: boolean;
+    error?: string;
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
@@ -65,7 +65,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
             </HStack>
         );
     }
-    const mods:Mods = {
+    const mods: Mods = {
         [cls.editing]: !readonly,
     };
     return (

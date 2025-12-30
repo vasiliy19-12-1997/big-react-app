@@ -56,11 +56,13 @@ const article: Article = {
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({
-    articlesDetails: {
-        data: article,
-    },
-})];
+Normal.decorators = [
+    StoreDecorator({
+        articlesDetails: {
+            data: article,
+        },
+    }),
+];
 Normal.parameters = {
     mockData: [
         {
@@ -77,9 +79,7 @@ Normal.parameters = {
                     createdAt: '01.01.2024',
                     user: { id: 'u1', username: 'demo' },
                     type: [ArticleType.IT],
-                    blocks: [
-                        { id: 'b1', type: ArticleBlockType.TEXT, paragraphs: ['Текст...'] },
-                    ],
+                    blocks: [{ id: 'b1', type: ArticleBlockType.TEXT, paragraphs: ['Текст...'] }],
                 },
                 {
                     id: '102',
@@ -90,9 +90,7 @@ Normal.parameters = {
                     createdAt: '02.01.2024',
                     user: { id: 'u2', username: 'demo2' },
                     type: [ArticleType.IT],
-                    blocks: [
-                        { id: 'b2', type: ArticleBlockType.TEXT, paragraphs: ['Текст...'] },
-                    ],
+                    blocks: [{ id: 'b2', type: ArticleBlockType.TEXT, paragraphs: ['Текст...'] }],
                 },
             ],
             delay: 0,

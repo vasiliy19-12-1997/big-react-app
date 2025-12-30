@@ -18,7 +18,7 @@ sharedDirectories?.forEach((dir) => {
         file.save();
     }
 });
-function isFsdAndAbsolute(value:string) {
+function isFsdAndAbsolute(value: string) {
     const layers = ['shared', 'entities', 'features', 'widgets', 'pages', 'app'];
     return layers.some((layer) => value.startsWith(layer));
 }
@@ -34,7 +34,7 @@ files.forEach((sourceFile) => {
         if (isFsdAndAbsolute(valueWithoutAlias) && isSharedUi) {
             const result = valueWithoutAlias.split('/').slice(0, 3).join('/');
             importDecloration.setModuleSpecifier(`@/${result}`);
-        }// import { SortOrder } from '@/shared/types';
+        } // import { SortOrder } from '@/shared/types';
     });
 });
 project.save();

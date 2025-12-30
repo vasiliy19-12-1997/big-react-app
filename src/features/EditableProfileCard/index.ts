@@ -6,21 +6,17 @@ import { getProfileReadonly } from './model/selectors/getProfileReadonly/getProf
 import { getProfileValidateErrors } from './model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 
 export {
-    getProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly, getProfileValidateErrors,
+    getProfileData,
+    getProfileError,
+    getProfileForm,
+    getProfileIsLoading,
+    getProfileReadonly,
+    getProfileValidateErrors,
 };
 
-export {
-    profileActions,
-    profileReducers,
-} from './model/slice/profileSlice';
-export {
-    fetchProfileData,
-
-} from './model/services/fetchProfileData/fetchProfileData';
-export {
-    updateProfileData,
-
-} from './model/services/updateProfileData/updateProfileData';
+export { profileActions, profileReducers } from './model/slice/profileSlice';
+export { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData';
+export { updateProfileData } from './model/services/updateProfileData/updateProfileData';
 export { validateProfileData } from './model/services/validateProfileData/validateProfileData';
 export { EditableProfileCard } from './ui/EditableProfileCard/EditableProfileCard';
 export { useFetchProfileData, useUpdateProfileData } from './api/editableProfileCardApi';

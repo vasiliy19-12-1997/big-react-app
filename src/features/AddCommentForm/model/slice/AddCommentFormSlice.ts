@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AddCommentFormTypes } from '../types/AddCommentFormTypes';
 
-const initialState:AddCommentFormTypes = {
+const initialState: AddCommentFormTypes = {
     text: '',
 };
 
@@ -9,7 +9,7 @@ export const AddCommentFormSlice = createSlice({
     name: 'AddCommentFormSlice',
     initialState,
     reducers: {
-        setText: (state, action:PayloadAction<string>) => {
+        setText: (state, action: PayloadAction<string>) => {
             state.text = action.payload;
         },
     },

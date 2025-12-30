@@ -5,8 +5,8 @@ import { ArtcileBlockCode } from '../../../Article/model/types/artcile';
 import cls from './ArtcileCodeBlockComponent.module.scss';
 
 interface ArtcileCodeBlockComponentProps {
-  className?: string;
-  block?: ArtcileBlockCode
+    className?: string;
+    block?: ArtcileBlockCode;
 }
 
 export const ArtcileCodeBlockComponent = (props: ArtcileCodeBlockComponentProps) => {
@@ -16,10 +16,7 @@ export const ArtcileCodeBlockComponent = (props: ArtcileCodeBlockComponentProps)
     return (
         // eslint-disable-next-line i18next/no-literal-string
         <div className={classNames(cls.ArtcileCodeBlockComponent, {}, [className])}>
-            {block?.code && (
-                <Code text={block.code} />
-            )}
+            {block?.code && <Code text={block.code} />}
         </div>
-
     );
 };

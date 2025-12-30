@@ -8,26 +8,21 @@ import { ArticleListItemSceleton } from '../ArticleListItem/ArticleListItemScele
 import cls from './ArticleList.module.scss';
 
 interface ArticleListProps {
-  className?: string;
-  isLoading?:boolean
-  articles:Article[]
-  views?:ArticleViews
-  target?:HTMLAttributeAnchorTarget
-  virtualized?:boolean
+    className?: string;
+    isLoading?: boolean;
+    articles: Article[];
+    views?: ArticleViews;
+    target?: HTMLAttributeAnchorTarget;
+    virtualized?: boolean;
 }
 
 export const ArticleList = memo((props: ArticleListProps) => {
     const { t } = useTranslation();
-    const {
-        className, articles,
-        views = ArticleViews.SMALL,
-        isLoading,
-        target,
-        virtualized = true,
-    } = props;
-    const getSceletons = (view:ArticleViews) => new Array(view === ArticleViews.SMALL ? 9 : 3).fill(0).map((item, index) => (
-        <ArticleListItemSceleton view={view} key={String(index)} />
-    ));
+    const { className, articles, views = ArticleViews.SMALL, isLoading, target, virtualized = true } = props;
+    const getSceletons = (view: ArticleViews) =>
+        new Array(view === ArticleViews.SMALL ? 9 : 3)
+            .fill(0)
+            .map((item, index) => <ArticleListItemSceleton view={view} key={String(index)} />);
 
     if (!isLoading && !articles.length) {
         return (
@@ -37,21 +32,11 @@ export const ArticleList = memo((props: ArticleListProps) => {
         );
     }
     return (
-
         <div data-testid="ArticleList" className={classNames(cls.ArticleList, {}, [className, cls[views]])}>
-            {
-                articles.map((item) => (
-                    <ArticleListItem
-                        article={item}
-                        view={views}
-                        key={item?.id}
-                        className={cls.card}
-                        target={target}
-                    />
-                ))
-            }
+            {articles.map((item) => (
+                <ArticleListItem article={item} view={views} key={item?.id} className={cls.card} target={target} />
+            ))}
             {isLoading && getSceletons(views)}
         </div>
-
     );
 });
