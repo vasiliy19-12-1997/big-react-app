@@ -12,7 +12,7 @@ export const updateProfile = (firstName: string, lastName?: string) => {
 export const resetProfile = (profileId: string) => {
     return cy.request({
         method: 'PUT',
-        url: `http://localhost:8001/profile/${profileId}`,
+        url: `http://localhost:8000/profile/${profileId}`,
         headers: {
             Authorization: 'Bearer',
         },

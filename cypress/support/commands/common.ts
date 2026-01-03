@@ -6,7 +6,7 @@ export const login = (username: string = 'testuser', password: string = '123') =
     return cy
         .request({
             method: 'POST',
-            url: 'http://localhost:8001/login',
+            url: 'http://localhost:8000/login',
             body: {
                 username,
                 password,

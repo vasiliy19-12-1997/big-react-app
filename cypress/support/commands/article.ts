@@ -14,7 +14,7 @@ export const createArticle = (article?: Article) => {
     return cy
         .request({
             method: 'POST',
-            url: `http://localhost:8001/articles`,
+            url: `http://localhost:8000/articles`,
             headers: {
                 Authorization: 'Bearer',
             },
@@ -26,7 +26,7 @@ export const createArticle = (article?: Article) => {
 export const removeArticle = (articleId: string) => {
     return cy.request({
         method: 'DELETE',
-        url: `http://localhost:8001/articles/${articleId}`,
+        url: `http://localhost:8000/articles/${articleId}`,
         headers: {
             Authorization: 'Bearer',
         },
