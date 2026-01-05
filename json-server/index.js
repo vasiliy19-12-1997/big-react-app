@@ -49,8 +49,8 @@ server.use((req, res, next) => {
 
     next();
 });
-
 server.use(router);
+
 const PORT = 8443;
 const httpsServer = https.createServer(options, server);
 // запуск сервера
