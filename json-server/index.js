@@ -6,8 +6,8 @@ const https = require('https');
 const server = jsonServer.create();
 const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
 const options = {
-    key: fs.readFileSync(path.dirname(__dirname, 'server.key')),
-    cert: fs.readFileSync(path.dirname(__dirname, 'server.cert')),
+    key: fs.readFileSync(path.resolve(__dirname, 'server.key')),
+    cert: fs.readFileSync(path.resolve(__dirname, 'server.cert')),
 };
 server.use(jsonServer.defaults({}));
 server.use(jsonServer.bodyParser);
