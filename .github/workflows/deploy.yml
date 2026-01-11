@@ -10,6 +10,12 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
+            - name: Debug SSH vars
+              run: |
+                  echo "USER=${{ secrets.SSH_USER }}"
+                  echo "HOST=${{ secrets.SSH_HOST }}"
+                  echo "PATH=${{ secrets.SSH_PATH }}"
+
             - name: Setup SSH
               run: |
                   set -e
