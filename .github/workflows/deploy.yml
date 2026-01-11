@@ -13,12 +13,12 @@ jobs:
             - name: Setup SSH
               run: |
                   set -e
-                   mkdir -p ~/.ssh
-                   echo "${{ secrets.SSH_PRIVATE_KEY_BIG_REACT_APP_DEPLOY }}" > ~/.ssh/id_ed25519
-                   chmod 600 ~/.ssh/id_ed25519
+                  mkdir -p ~/.ssh
+                  echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+                  chmod 600 ~/.ssh/id_ed25519
 
-                   echo "Scanning SSH host..."
-                   ssh-keyscan -H "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts || true
+                  echo "Scanning SSH host..."
+                  ssh-keyscan -H "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts || true
 
             - name: Deploy
               run: |
