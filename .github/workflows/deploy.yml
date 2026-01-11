@@ -10,20 +10,12 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - name: Debug SSH vars
-              run: |
-                  echo "USER=${{ secrets.SSH_USER }}"
-                  echo "HOST=${{ secrets.SSH_HOST }}"
-                  echo "PATH=${{ secrets.SSH_PATH }}"
-
             - name: Setup SSH
               run: |
                   set -e
                   mkdir -p ~/.ssh
                   echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
                   chmod 600 ~/.ssh/id_ed25519
-
-                  echo "Scanning SSH host..."
                   ssh-keyscan -H "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts || true
 
             - name: Deploy
