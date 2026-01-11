@@ -8,6 +8,7 @@ const MainPage = memo(() => {
     return (
         <Page data-testid="MainPage">
             {t('Главная страница')}
+            <div>1233232</div>
             <Counter />
         </Page>
     );
