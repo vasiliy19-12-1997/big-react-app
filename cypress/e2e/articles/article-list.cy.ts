@@ -4,7 +4,7 @@ describe('Пользователь заходит на страницу стат
             cy.visit(`articles/${data.id}`);
         });
     });
-    //TODO написать тесты на фильтры, сортировку и т.д.
+    // TODO написать тесты на фильтры, сортировку и т.д.
     it('Страницы подгрузились', () => {
         cy.getByTestId('ArticleList').should('exist');
         cy.getByTestId('ArticleListItem').should('have.length.greaterThan', 3);

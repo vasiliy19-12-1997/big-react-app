@@ -1,6 +1,5 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { ArtcileDetails } from '@/entities/Article';
 import { ArticleRating } from '@/features/ArticleRating';

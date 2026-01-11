@@ -1,7 +1,7 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text, TextSize } from '@/shared/ui/Text';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text, TextSize } from '@/shared/ui/Text';
 import { Article, ArticleViews } from '../../model/types/artcile';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSceleton } from '../ArticleListItem/ArticleListItemSceleton';
@@ -34,7 +34,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
     return (
         <div data-testid="ArticleList" className={classNames(cls.ArticleList, {}, [className, cls[views]])}>
             {articles.map((item) => (
-                <ArticleListItem article={item} view={views} key={item?.id} className={cls.card} target={target} />
+                <ArticleListItem article={item} view={views} key={item?.id} className={cls.card}
+target={target} />
             ))}
             {isLoading && getSceletons(views)}
         </div>

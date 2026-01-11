@@ -1,6 +1,6 @@
 import { memo, Suspense, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { CommentaryList } from '@/entities/Сommentary';
 import { AddCommentForm } from '@/features/AddCommentForm';
 import {

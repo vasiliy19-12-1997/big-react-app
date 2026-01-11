@@ -1,81 +1,77 @@
-# name: linting, testing, building
-# on:
-#   push:
-#     branches: [ main ]
-#   pull_request:
-#     branches: [ main ]
+name: linting, testing, building
+on:
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
 
-# permissions:
-#   contents: write
-#   pages: write
-#   id-token: write
+permissions:
+    contents: write
+    pages: write
+    id-token: write
 
-# concurrency:
-#   group: "pages"
-#   cancel-in-progress: true
+concurrency:
+    group: 'pages'
+    cancel-in-progress: true
 
-# jobs:
-#   build-and-ui-testing:
-#     runs-on: ubuntu-22.04
-#     concurrency: ci-${{ github.ref }}
-#     environment:
-#       name: github-pages
-#       url: ${{ steps.deployment.outputs.page_url }}
-#     strategy:
-#       matrix:
-#         node-version: [ 18.x ]   # LTS
-#     steps:
-#       - uses: actions/checkout@v5
+jobs:
+    build-and-ui-testing:
+        runs-on: ubuntu-22.04
+        concurrency: ci-${{ github.ref }}
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+        strategy:
+            matrix:
+                node-version: [18.x] # LTS
+        steps:
+            - uses: actions/checkout@v5
 
-#       - name: Setup Node.js ${{ matrix.node-version }}
-#         uses: actions/setup-node@v4
-#         with:
-#           node-version: ${{ matrix.node-version }}
+            - name: Setup Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ matrix.node-version }}
 
-#       - name: Install dependencies
-#         run: npm ci
+            - name: Install dependencies
+              run: npm ci
 
-#       - name: Build production project
-#         run: npm run build:prod
+            - name: Build production project
+              run: npm run build:prod
 
-#       - name: Build storybook
-#         run: npm run storybook:build
+            # - name: Build storybook
+            # run: npm run storybook:build
 
-       
+            # - name: Unit testing
+            # run: npm run test:unit
 
-#       - name: Unit testing
-#         run: npm run test:unit
+        #   - name: Setup Pages
+        # uses: actions/configure-pages@v5
 
-    
+        #   - name: Upload pages artifact
+        # uses: actions/upload-pages-artifact@v4
+        # with:
+        #   path: 'build'
 
-#       - name: Setup Pages
-#         uses: actions/configure-pages@v5
+        #   - name: Deploy to GitHub Pages
+        # id: deployment
+        # uses: actions/deploy-pages@v4
 
-#       - name: Upload pages artifact
-#         uses: actions/upload-pages-artifact@v4
-#         with:
-#           path: 'build'            
-
-#       - name: Deploy to GitHub Pages
-#         id: deployment
-#         uses: actions/deploy-pages@v4
-
-#   checks:
-#     runs-on: ubuntu-22.04
-#     strategy:
-#       matrix:
-#         node-version: [ 18.x ]
-#     steps:
-#       - uses: actions/checkout@v4
-#       - name: Setup Node.js ${{ matrix.node-version }}
-#         uses: actions/setup-node@v3
-#         with:
-#           node-version: ${{ matrix.node-version }}
-#       - name: Install deps
-#         run: npm ci
-#       - name: Lint TypeScript
-#         run: npm run lint:ts
-#       - name: Lint SCSS
-#         run: npm run lint:scss
-#       - name: Unit tests
-#         run: npm run test:unit
+    checks:
+        runs-on: ubuntu-22.04
+        strategy:
+            matrix:
+                node-version: [18.x]
+        steps:
+            - uses: actions/checkout@v4
+            - name: Setup Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+            - name: Install deps
+              run: npm ci
+            - name: Lint TypeScript
+              run: npm run lint:ts
+            - name: Lint SCSS
+              run: npm run lint:scss
+            - name: Unit tests
+              run: npm run test:unit
