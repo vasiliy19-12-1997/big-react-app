@@ -8,6 +8,7 @@ import { articlesReducer } from '../../model/slice/articlePageSlice';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 import { ArticlePageFilter } from '../ArticlePageFilter/ArticlePageFilter';
 import cls from './ArticlePage.module.scss';
+import { useArticleitemById } from '../../model/selectors/articles';
 
 const ArticlePage = memo(() => {
     const { t } = useTranslation('ArticlePage');
@@ -19,6 +20,9 @@ const ArticlePage = memo(() => {
     const onNextLoad = useCallback(() => {
         dispatch(fetchNextArticlePage());
     }, [dispatch]);
+
+    const testArticleData = useArticleitemById('10');
+    console.log(testArticleData);
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>

@@ -1,5 +1,6 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { ArticleType } from '@/entities/Article';
+import { buildSelector } from '@/shared/lib/store';
 
 export const getArticlesError = (state: StateSchema) => state.articlePage?.error || undefined;
 export const getArticlesIsLoading = (state: StateSchema) => state.articlePage?.isLoading || false;
@@ -9,3 +10,5 @@ export const getArticlesPageLimit = (state: StateSchema) => state.articlePage?.l
 export const getArticlesPageHasMore = (state: StateSchema) => state.articlePage?.hasMore || false;
 export const getArticlesPageInited = (state: StateSchema) => state.articlePage?._inited || false;
 export const getArticlesPageType = (state: StateSchema) => state.articlePage?.type || ArticleType.ALL;
+
+export const [useArticleitemById] = buildSelector((state: StateSchema, id: string) => state.articlePage?.entities[id]);
