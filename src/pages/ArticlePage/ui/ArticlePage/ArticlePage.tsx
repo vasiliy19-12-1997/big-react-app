@@ -22,7 +22,6 @@ const ArticlePage = memo(() => {
     }, [dispatch]);
 
     const testArticleData = useArticleitemById('10');
-    console.log(testArticleData);
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>

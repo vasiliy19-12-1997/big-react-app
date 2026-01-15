@@ -913,6 +913,10 @@
       "id": "1",
       "username": "admin",
       "password": "123",
+      "features":{
+        "isArticleRatingEnabled ":true,
+        "isCounterEnabled":true
+      },
       "roles": [
         "ADMIN"
       ],
@@ -920,6 +924,10 @@
     },
     {
       "id": "2",
+      "features":{
+        "isArticleRatingEnabled ":false,
+        "isCounterEnabled":false
+      },
       "username": "user2",
       "password": "123",
       "roles": [
@@ -929,6 +937,10 @@
     },
     {
       "id": "3",
+      "features":{
+        "isArticleRatingEnabled ":true,
+        "isCounterEnabled":false
+      },
       "username": "user3",
       "password": "123",
       "roles": [
@@ -938,6 +950,10 @@
     },
     {
       "id": "4",
+      "features":{
+        "isArticleRatingEnabled ":true,
+        "isCounterEnabled":true
+      },
       "username": "testuser",
       "password": "123",
       "roles": [

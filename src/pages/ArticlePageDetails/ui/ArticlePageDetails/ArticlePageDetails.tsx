@@ -13,6 +13,8 @@ import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByAr
 import { ArticlePageDetailsHeader } from '../ArticlePageDetailsHeader/ArticlePageDetailsHeader';
 import { articlePageDetailsReducer } from '../../model/slice';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { getFeaturesFlags } from '@/shared/features';
+import { Counter } from '@/entities/Counter';
 // eslint-disable-next-line big-react-app-plugin/public-api-imports
 
 const ArticlePageDetails = memo(() => {
@@ -22,7 +24,6 @@ const ArticlePageDetails = memo(() => {
     const reducers: ReducersList = {
         articlePageDetails: articlePageDetailsReducer,
     };
-
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
         dispatch(fetchArticlesRecommends());
@@ -30,13 +31,19 @@ const ArticlePageDetails = memo(() => {
     if (!id) {
         return null;
     }
+    const isArticleRatingEnabled = getFeaturesFlags('isArticleRatingEnabled');
+    console.log(isArticleRatingEnabled);
+    const isCounterEnabled = getFeaturesFlags('isCounterEnabled');
+    console.log(isCounterEnabled);
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page>
                 {t('Article Page Details')}
                 <ArticlePageDetailsHeader />
                 <ArtcileDetails id={id} />
-                <ArticleRating articleId={id} />
+                {isArticleRatingEnabled && <ArticleRating articleId={id} />}
+                {isCounterEnabled && <Counter />}
+                {/* <ArticleRating articleId={id} /> */}
                 <ArticleRecomendationList />
                 <ArticleDetailsComments id={id} />
             </Page>

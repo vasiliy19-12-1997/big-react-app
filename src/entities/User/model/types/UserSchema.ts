@@ -1,3 +1,5 @@
+import { FeaturesType } from '@/shared/types/features';
+
 export enum UserRoles {
     ADMIN = 'ADMIN',
     USER = 'USER',
@@ -8,6 +10,7 @@ export interface User {
     username: string;
     avatar?: string;
     roles?: UserRoles[];
+    features?: FeaturesType;
 }
 export interface UserSchema {
     authData?: User;
