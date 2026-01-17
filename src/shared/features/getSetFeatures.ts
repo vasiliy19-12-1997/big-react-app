@@ -4,7 +4,6 @@ let featureFlags: FeaturesType;
 
 export function setFeaturesFlags(newFeatures?: FeaturesType) {
     if (newFeatures) {
-        console.log(newFeatures);
         featureFlags = newFeatures;
     }
 }

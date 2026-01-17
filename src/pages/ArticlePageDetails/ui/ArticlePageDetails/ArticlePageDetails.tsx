@@ -13,7 +13,7 @@ import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByAr
 import { ArticlePageDetailsHeader } from '../ArticlePageDetailsHeader/ArticlePageDetailsHeader';
 import { articlePageDetailsReducer } from '../../model/slice';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getFeaturesFlags } from '@/shared/features';
+import { getFeaturesFlags, toggleFeatures } from '@/shared/features';
 import { Counter } from '@/entities/Counter';
 // eslint-disable-next-line big-react-app-plugin/public-api-imports
 
@@ -28,13 +28,22 @@ const ArticlePageDetails = memo(() => {
         dispatch(fetchCommentsByArticleId(id));
         dispatch(fetchArticlesRecommends());
     }, [dispatch, id]);
+    // eslint-disable-next-line react/no-unstable-nested-components
+    const CounterOld = () => <div>123</div>;
+
+    const counter = toggleFeatures({
+        name: 'isCounterEnabled',
+        // eslint-disable-next-line react/no-unstable-nested-components
+        on: () => <Counter />,
+        // eslint-disable-next-line react/no-unstable-nested-components
+        off: () => <CounterOld />,
+    });
+
     if (!id) {
         return null;
     }
     const isArticleRatingEnabled = getFeaturesFlags('isArticleRatingEnabled');
-    console.log(isArticleRatingEnabled);
     const isCounterEnabled = getFeaturesFlags('isCounterEnabled');
-    console.log(isCounterEnabled);
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page>
@@ -42,7 +51,7 @@ const ArticlePageDetails = memo(() => {
                 <ArticlePageDetailsHeader />
                 <ArtcileDetails id={id} />
                 {isArticleRatingEnabled && <ArticleRating articleId={id} />}
-                {isCounterEnabled && <Counter />}
+                {counter}
                 {/* <ArticleRating articleId={id} /> */}
                 <ArticleRecomendationList />
                 <ArticleDetailsComments id={id} />

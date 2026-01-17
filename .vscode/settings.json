@@ -1,3 +1,7 @@
 {
-    "i18next.i18nPaths": "c:/Users/ADMIN/Documents/GitHub/ulbi/big-app-react/public/locales,c:/Users/ADMIN/Documents/GitHub/ulbi/big-app-react/src/shared/config/i18n"
+    "i18next.i18nPaths": "c:/Users/ADMIN/Documents/GitHub/ulbi/big-app-react/public/locales,c:/Users/ADMIN/Documents/GitHub/ulbi/big-app-react/src/shared/config/i18n",
+    "i18n-ally.localesPaths": [
+        "public/locales",
+        "src/shared/config/i18n"
+    ]
 }
