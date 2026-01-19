@@ -1,4 +1,5 @@
 import { FeaturesType } from '@/shared/types/features';
+import { JsonSettingsProperties } from '@/shared/types/json-settings';
 
 export enum UserRoles {
     ADMIN = 'ADMIN',
@@ -11,6 +12,7 @@ export interface User {
     avatar?: string;
     roles?: UserRoles[];
     features?: FeaturesType;
+    jsonSettings?: JsonSettingsProperties;
 }
 export interface UserSchema {
     authData?: User;

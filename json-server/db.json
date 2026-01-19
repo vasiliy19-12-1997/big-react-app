@@ -913,6 +913,11 @@
       "id": "1",
       "username": "admin",
       "password": "123",
+      "json-settings":{
+        "theme":"app_dark_theme",
+        "isFirstVisit":true,
+        "isPageHasBeenOpen":true
+      },
       "features":{
         "isArticleRatingEnabled ":true,
         "isCounterEnabled":true
@@ -928,6 +933,11 @@
         "isArticleRatingEnabled ":false,
         "isCounterEnabled":false
       },
+      "json-settings":{
+        "theme":"app_yellow_theme",
+        "isFirstVisit":false,
+        "isPageHasBeenOpen":true
+      },
       "username": "user2",
       "password": "123",
       "roles": [
@@ -940,6 +950,11 @@
       "features":{
         "isArticleRatingEnabled ":true,
         "isCounterEnabled":false
+      },
+       "json-settings":{
+        "theme":"app_yellow_theme",
+        "isFirstVisit":false,
+        "isPageHasBeenOpen":false
       },
       "username": "user3",
       "password": "123",
