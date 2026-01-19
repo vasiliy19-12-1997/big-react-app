@@ -1,4 +1,4 @@
-export interface FeaturesType{
-    isArticleRatingEnabled:boolean,
-    isCounterEnabled:boolean
+export interface FeaturesType {
+    isArticleRatingEnabled: boolean;
+    isCounterEnabled: boolean;
 }

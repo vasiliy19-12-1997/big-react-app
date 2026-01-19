@@ -13,9 +13,8 @@ import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByAr
 import { ArticlePageDetailsHeader } from '../ArticlePageDetailsHeader/ArticlePageDetailsHeader';
 import { articlePageDetailsReducer } from '../../model/slice';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getFeaturesFlags, toggleFeatures } from '@/shared/features';
-import { Counter } from '@/entities/Counter';
-// eslint-disable-next-line big-react-app-plugin/public-api-imports
+import { toggleFeatures } from '@/shared/features';
+import { Card } from '@/shared/ui/Card';
 
 const ArticlePageDetails = memo(() => {
     const { t } = useTranslation('ArticlePageDetails');
@@ -28,31 +27,23 @@ const ArticlePageDetails = memo(() => {
         dispatch(fetchCommentsByArticleId(id));
         dispatch(fetchArticlesRecommends());
     }, [dispatch, id]);
-    // eslint-disable-next-line react/no-unstable-nested-components
-    const CounterOld = () => <div>123</div>;
-
-    const counter = toggleFeatures({
-        name: 'isCounterEnabled',
-        // eslint-disable-next-line react/no-unstable-nested-components
-        on: () => <Counter />,
-        // eslint-disable-next-line react/no-unstable-nested-components
-        off: () => <CounterOld />,
-    });
 
     if (!id) {
         return null;
     }
-    const isArticleRatingEnabled = getFeaturesFlags('isArticleRatingEnabled');
-    const isCounterEnabled = getFeaturesFlags('isCounterEnabled');
+
+    const articleRatingCard = toggleFeatures({
+        name: 'isArticleRatingEnabled',
+        on: () => <ArticleRating articleId={id} />,
+        off: () => <Card>{t('Карточка рейтинга статьи')}</Card>,
+    });
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page>
                 {t('Article Page Details')}
                 <ArticlePageDetailsHeader />
                 <ArtcileDetails id={id} />
-                {isArticleRatingEnabled && <ArticleRating articleId={id} />}
-                {counter}
-                {/* <ArticleRating articleId={id} /> */}
+                {articleRatingCard}
                 <ArticleRecomendationList />
                 <ArticleDetailsComments id={id} />
             </Page>

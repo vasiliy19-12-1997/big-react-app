@@ -90,6 +90,7 @@ module.exports = {
         'react/no-array-index-key': 'off',
         'unused-imports/no-unused-imports': 'error',
         'react/jsx-max-props-per-line': ['error', { maximum: 4, when: 'always' }],
+        'react/no-unstable-nested-components': 'warn',
     },
     globals: {
         __IS_DEV__: true,

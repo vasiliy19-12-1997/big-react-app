@@ -8,8 +8,11 @@ export interface ToggleFeaturesOptions<T> {
 }
 
 export function toggleFeatures<T>({ name, on, off }: ToggleFeaturesOptions<T>): T {
+    console.log(getFeaturesFlags(name));
     if (getFeaturesFlags(name)) {
+        console.log('Feature', name, 'is ON');
         return on();
     }
+    console.log('Feature', name, 'is OFF');
     return off();
 }
