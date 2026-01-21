@@ -7,4 +7,6 @@ export { userActions, userReducer, getAuthUserData, getAuthUserMounted };
 export type { User, UserSchema };
 export { getRoleSelector, isUserAdmin, isUserManager } from './model/selectors/roleSelector/roleSelector';
 export { UserRoles };
-export { useJsonSettings } from './model/selectors/jsonSettings/jsonSettings';
+export type { JsonSettingsProperties } from './model/types/jsonSettings';
+export { saveJsonSettings } from './model/services/saveJsonSettings';
+export { useJsonSettings, getJsonSettings } from './model/selectors/jsonSettings/jsonSettings';

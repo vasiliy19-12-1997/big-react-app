@@ -913,14 +913,14 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "json-settings":{
-        "theme":"app_dark_theme",
-        "isFirstVisit":true,
-        "isPageHasBeenOpen":true
+      "jsonSettings": {
+        "theme": "app_dark_theme",
+        "isFirstVisit": true,
+        "isPageHasBeenOpen": true
       },
-      "features":{
-        "isArticleRatingEnabled ":true,
-        "isCounterEnabled":true
+      "features": {
+        "isArticleRatingEnabled ": true,
+        "isCounterEnabled": true
       },
       "roles": [
         "ADMIN"
@@ -929,14 +929,12 @@
     },
     {
       "id": "2",
-      "features":{
-        "isArticleRatingEnabled ":false,
-        "isCounterEnabled":false
+      "features": {
+        "isArticleRatingEnabled ": false,
+        "isCounterEnabled": false
       },
-      "json-settings":{
-        "theme":"app_yellow_theme",
-        "isFirstVisit":false,
-        "isPageHasBeenOpen":true
+      "jsonSettings": {
+        "theme": "app_yellow_theme"
       },
       "username": "user2",
       "password": "123",
@@ -947,14 +945,14 @@
     },
     {
       "id": "3",
-      "features":{
-        "isArticleRatingEnabled ":true,
-        "isCounterEnabled":false
+      "features": {
+        "isArticleRatingEnabled ": true,
+        "isCounterEnabled": false
       },
-       "json-settings":{
-        "theme":"app_yellow_theme",
-        "isFirstVisit":false,
-        "isPageHasBeenOpen":false
+      "jsonSettings": {
+        "theme": "app_yellow_theme",
+        "isFirstVisit": false,
+        "isPageHasBeenOpen": false
       },
       "username": "user3",
       "password": "123",
@@ -965,9 +963,9 @@
     },
     {
       "id": "4",
-      "features":{
-        "isArticleRatingEnabled ":true,
-        "isCounterEnabled":true
+      "features": {
+        "isArticleRatingEnabled ": true,
+        "isCounterEnabled": true
       },
       "username": "testuser",
       "password": "123",

@@ -1,8 +1,7 @@
 import { buildSelector } from '@/shared/lib/store';
-import { JsonSettingsProperties } from '@/shared/types/json-settings';
+import { JsonSettingsProperties } from '../../types/jsonSettings';
 
-export const [useJsonSettings, getJsonSettings] = buildSelector((state) => state.user.authData?.jsonSettings);
-
-export const [useJsonSettingsByKey, getJsonSettingsByKey] = buildSelector(
-    (state, key: keyof JsonSettingsProperties) => state.user.authData?.jsonSettings?.[key],
+const defaultSettings: JsonSettingsProperties = {};
+export const [useJsonSettings, getJsonSettings] = buildSelector(
+    (state) => state.user.authData?.jsonSettings ?? defaultSettings,
 );
