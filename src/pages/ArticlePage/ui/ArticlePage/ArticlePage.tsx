@@ -9,6 +9,8 @@ import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList'
 import { ArticlePageFilter } from '../ArticlePageFilter/ArticlePageFilter';
 import cls from './ArticlePage.module.scss';
 import { useArticleitemById } from '../../model/selectors/articles';
+import { ArticlePageGreeting } from '@/features/articlePageGreeting';
+import { useJsonSettings } from '@/entities/User';
 
 const ArticlePage = memo(() => {
     const { t } = useTranslation('ArticlePage');
@@ -20,7 +22,8 @@ const ArticlePage = memo(() => {
     const onNextLoad = useCallback(() => {
         dispatch(fetchNextArticlePage());
     }, [dispatch]);
-
+    const { theme } = useJsonSettings();
+    console.log(theme);
     const testArticleData = useArticleitemById('10');
 
     return (
@@ -28,6 +31,7 @@ const ArticlePage = memo(() => {
             <Page data-testid="ArticlePage" onScrollEnd={onNextLoad}>
                 {t('Article Page')}
                 <ArticlePageFilter />
+                <ArticlePageGreeting />
                 <ArticleInfiniteList className={cls.list} />
             </Page>
         </DynamicModuleLoader>
