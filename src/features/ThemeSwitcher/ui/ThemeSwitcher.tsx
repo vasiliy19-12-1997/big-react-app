@@ -20,6 +20,7 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
             dispatch(saveJsonSettings({ theme: newTheme }));
         });
     }, [dispatch, toggleTheme]);
+    console.log(theme);
     return (
         <Button theme={ButtonTheme.CLEAR} className={classNames('', {}, [className])} onClick={handleTheme}>
             {theme === Theme.DARK ? <DarkIcon /> : <LightIcon />}

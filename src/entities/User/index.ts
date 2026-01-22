@@ -10,3 +10,4 @@ export { UserRoles };
 export type { JsonSettingsProperties } from './model/types/jsonSettings';
 export { saveJsonSettings } from './model/services/saveJsonSettings';
 export { useJsonSettings, getJsonSettings } from './model/selectors/jsonSettings/jsonSettings';
+export { initedAuthData } from './model/services/initedAuthData';

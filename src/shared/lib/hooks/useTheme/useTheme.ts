@@ -27,7 +27,7 @@ export function useTheme(): UseThemeResult {
                 newTheme = Theme.LIGHT;
                 break;
         }
-        document.body.className = newTheme;
+        // document.body.className = newTheme;
         setTheme?.(newTheme);
         saveAction?.(newTheme);
     };

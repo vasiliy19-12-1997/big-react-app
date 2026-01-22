@@ -19,6 +19,16 @@ const setJsonSettingsApi = rtqApi.injectEndpoints({
                 body: { jsonSettings },
             }),
         }),
+        getAuthUserData: build.query<User, string>({
+            query: (userId) => ({
+                url: `/users/${userId}`,
+                params: {
+                    userId,
+                },
+                method: 'GET',
+            }),
+        }),
     }),
 });
 export const setJsonSettingsMutation = setJsonSettingsApi.endpoints.updateJsonSettings.initiate;
+export const getAuthUserDataQuery = setJsonSettingsApi.endpoints.getAuthUserData.initiate;
