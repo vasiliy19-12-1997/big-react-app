@@ -80,6 +80,7 @@ module.exports = {
                     'role',
                     'as',
                     'alt',
+                    'name',
                 ],
             },
         ],

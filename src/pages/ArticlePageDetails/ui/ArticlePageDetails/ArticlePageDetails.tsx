@@ -4,17 +4,17 @@ import { useParams } from 'react-router-dom';
 import { ArtcileDetails } from '@/entities/Article';
 import { ArticleRating } from '@/features/ArticleRating';
 import { ArticleRecomendationList } from '@/features/ArticleRecomendationList';
+import { ToggleFeatures } from '@/shared/features';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Card } from '@/shared/ui/Card';
 import { Page } from '@/shared/ui/Page';
 import { ArticleDetailsComments } from '../../../ArticleDetailsComments';
 import { fetchArticlesRecommends } from '../../model/services/fetchArticlesRecommends';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
-import { ArticlePageDetailsHeader } from '../ArticlePageDetailsHeader/ArticlePageDetailsHeader';
 import { articlePageDetailsReducer } from '../../model/slice';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { toggleFeatures } from '@/shared/features';
-import { Card } from '@/shared/ui/Card';
+import { ArticlePageDetailsHeader } from '../ArticlePageDetailsHeader/ArticlePageDetailsHeader';
 
 const ArticlePageDetails = memo(() => {
     const { t } = useTranslation('ArticlePageDetails');
@@ -32,18 +32,19 @@ const ArticlePageDetails = memo(() => {
         return null;
     }
 
-    const articleRatingCard = toggleFeatures({
-        name: 'isArticleRatingEnabled',
-        on: () => <ArticleRating articleId={id} />,
-        off: () => <Card>{t('Карточка рейтинга статьи')}</Card>,
-    });
+    // const articleRatingCard = toggleFeatures({
+    //     name: 'isArticleRatingEnabled',
+    //     on: () => <ArticleRating articleId={id} />,
+    //     off: () => <Card>{t('Карточка рейтинга статьи')}</Card>,
+    // });
+
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page>
                 {t('Article Page Details')}
                 <ArticlePageDetailsHeader />
                 <ArtcileDetails id={id} />
-                {articleRatingCard}
+                <ArticleRating articleId={id} />
                 <ArticleRecomendationList />
                 <ArticleDetailsComments id={id} />
             </Page>

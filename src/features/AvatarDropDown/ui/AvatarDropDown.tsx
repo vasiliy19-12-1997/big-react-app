@@ -1,15 +1,16 @@
-import { useDispatch, useSelector } from 'react-redux';
 import { useCallback } from 'react';
+import { useSelector } from 'react-redux';
+import { getAuthUserData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
 import { getRouteAdmin, getRouteProfile } from '@/shared/const/router';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Avatar } from '@/shared/ui/Avatar';
 import { DropDown } from '@/shared/ui/Popups';
-import { getAuthUserData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
 import cls from './AvatarDropDown.module.scss';
 
 export const AvatarDropDown = () => {
     const authUser = useSelector(getAuthUserData);
     const isAdmin = useSelector(isUserAdmin);
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const isManager = useSelector(isUserManager);
     const isAdminPanelAvailable = isAdmin || isManager;
     const onLogout = useCallback(() => {

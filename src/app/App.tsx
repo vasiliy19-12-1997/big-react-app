@@ -11,12 +11,15 @@ import { PageLoader } from '@/shared/ui/PageLoader';
 function App() {
     const auth = useSelector(getAuthUserMounted);
     const dispatch = useAppDispatch();
+
     useEffect(() => {
         dispatch(initedAuthData());
     }, [dispatch]);
+
     if (!auth) {
         return <PageLoader />;
     }
+
     return (
         <div className={classNames('app', {}, [])}>
             <Suspense fallback="">

@@ -33,7 +33,8 @@
     "prepare": "husky install",
     "add-from-template": "plop",
     "generate:slice": "node ./scripts/createSlice/index.js",
-    "postinstall": "node ./scripts/clearCash/clear-cash.js"
+    "postinstall": "node ./scripts/clearCash/clear-cash.js",
+    "remove:feature": "ts-node ./scripts/remove-features/remove-features.ts"
   },
   "keywords": [],
   "author": "",
