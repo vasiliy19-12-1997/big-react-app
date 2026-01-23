@@ -25,7 +25,7 @@ const files = project.getSourceFiles();
 function isToggleFeaturesFunction(node: Node) {
     let isToggleFeaturesUsed = false;
     node.forEachChild((child) => {
-        if (child.isKind(SyntaxKind.Identifier) && child.getText() === toggleComponentName) {
+        if (child.isKind(SyntaxKind.Identifier) && child.getText() === toggleFunctionName) {
             isToggleFeaturesUsed = true;
         }
     });
