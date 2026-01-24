@@ -8,5 +8,5 @@ export function setFeaturesFlags(newFeatures?: FeaturesType) {
     }
 }
 export function getFeaturesFlags(flag: keyof FeaturesType) {
-    return featureFlags?.[flag] ?? 'isCounterEnabled';
+    return featureFlags?.[flag] ?? false;
 }

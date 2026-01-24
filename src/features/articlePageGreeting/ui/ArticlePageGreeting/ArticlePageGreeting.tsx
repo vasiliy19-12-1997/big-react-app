@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { isMobile } from 'react-device-detect';
 import { Modal } from '@/shared/ui/Modal';
 import { Text } from '@/shared/ui/Text';
-import cls from './ArticlePageGreeting.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { saveJsonSettings, useJsonSettings } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';

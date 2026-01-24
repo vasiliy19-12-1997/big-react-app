@@ -42,3 +42,10 @@
         margin-left: 0;
     }
 }
+
+.SidebarRedesign {
+    border-radius: 32px;
+    background: var(--light-bg-redesign);
+    width: $sidebar-width-redesign;
+    height: 100%;
+}

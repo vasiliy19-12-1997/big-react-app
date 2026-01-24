@@ -914,13 +914,14 @@
       "username": "admin",
       "password": "123",
       "jsonSettings": {
-        "theme": "app_yellow_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": false,
         "isPageHasBeenOpen": true
       },
       "features": {
         "isArticleRatingEnabled ": true,
-        "isCounterEnabled": true
+        "isCounterEnabled": true,
+        "isNewDesignEnabled": true
       },
       "roles": [
         "ADMIN"

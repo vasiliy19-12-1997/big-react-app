@@ -5,14 +5,22 @@
 @import "themes/yellow";
 
 .app,
+.app_modal,
 .app_drawer {
+    font: var(--font-m);
+    color: var(--primary-color);
+}
+
+.app {
     background: var(--bg-color);
     min-height: 100vh;
 }
 
-body {
-    font: var(--font-m);
-    color: var(--primary-color);
+.app_redesign {
+    background: var(--bg-redesign);
+    min-height: 100vh;
+    font: var(--font-m-redesign);
+    color: var(--text-redesign);
 }
 
 .content-page {
