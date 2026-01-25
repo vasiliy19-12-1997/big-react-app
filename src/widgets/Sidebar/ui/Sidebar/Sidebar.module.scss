@@ -46,6 +46,6 @@
 .SidebarRedesign {
     border-radius: 32px;
     background: var(--light-bg-redesign);
-    width: $sidebar-width-redesign;
-    height: 100%;
+    width: var(--sidebar-width);
+    height: 100vh;
 }

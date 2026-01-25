@@ -8,18 +8,20 @@ import { PageLoader } from '@/shared/ui/PageLoader';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import { AppRouter } from './providers/router';
+import { MainLayout } from '@/shared/layouts/MainLayout';
 
 function App() {
     const auth = useSelector(getAuthUserMounted);
     const dispatch = useAppDispatch();
+
     useEffect(() => {
         dispatch(initedAuthData());
     }, [dispatch]);
-    const { theme } = useJsonSettings();
-    console.log(theme);
+
     if (!auth) {
         return <PageLoader />;
     }
+
     return (
         <ToggleFeatures
             name="isNewDesignEnabled"
@@ -29,19 +31,17 @@ function App() {
                         <Navbar />
                         <div className="content-page">
                             <Sidebar />
-                            {auth && <AppRouter />}
+                            <AppRouter />
                         </div>
                     </Suspense>
                 </div>
             }
             off={
                 <div className={classNames('app', {}, [])}>
+                    <MainLayout header={<Navbar />} content={<AppRouter />} sidebar={<Sidebar />} />
                     <Suspense fallback="">
                         <Navbar />
-                        <div className="content-page">
-                            <Sidebar />
-                            {auth && <AppRouter />}
-                        </div>
+                        <div className="content-page"></div>
                     </Suspense>
                 </div>
             }
