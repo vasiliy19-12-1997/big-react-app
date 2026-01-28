@@ -1,0 +1,19 @@
+import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import cls from './Overlay.module.scss';
+
+interface OverlayProps {
+    className?: string;
+    onClick?: () => void;
+}
+/**
+ * Компонент устарел, пожалуйста используйте ui библиотеку из папки redesign
+ * @deprecated
+ */
+export const Overlay = memo((props: OverlayProps) => {
+    const { t } = useTranslation();
+    const { className, onClick } = props;
+
+    return <div onClick={onClick} className={classNames(cls.Overlay, {}, [className])} />;
+});

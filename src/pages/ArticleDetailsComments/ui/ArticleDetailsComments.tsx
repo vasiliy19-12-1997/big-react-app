@@ -11,9 +11,9 @@ import {
     getArticleDetailsRecommendError,
 } from '../../ArticlePageDetails';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Sceleton } from '@/shared/ui/Sceleton';
-import { VStack } from '@/shared/ui/Stack';
-import { Text } from '@/shared/ui/Text';
+import { Sceleton } from '@/shared/ui/deprecated/Sceleton';
+import { VStack } from '@/shared/ui/deprecated/Stack';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 interface ArticleDetailsCommentsProps {

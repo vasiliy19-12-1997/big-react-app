@@ -4,16 +4,16 @@ import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import { getRouteArticleDetails } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useHover } from '@/shared/lib/hooks/useHover/useHover';
-import { AppLink } from '@/shared/ui/AppLink';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { Card } from '@/shared/ui/Card';
-import { Text } from '@/shared/ui/Text';
+import { AppLink } from '@/shared/ui/deprecated/AppLink';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Card } from '@/shared/ui/deprecated/Card';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { ArtcileBlockText, Article, ArticleBlockType, ArticleViews } from '../../model/types/artcile';
 import { ArtcileTextBlockComponent } from '../ArtcileTextBlockComponent/ArtcileTextBlockComponent';
 import cls from './ArticleListItem.module.scss';
-import { AppImage } from '@/shared/ui/AppImage';
-import { Sceleton } from '@/shared/ui/Sceleton';
+import { AppImage } from '@/shared/ui/deprecated/AppImage';
+import { Sceleton } from '@/shared/ui/deprecated/Sceleton';
 
 interface ArticleListItemProps {
     className?: string;

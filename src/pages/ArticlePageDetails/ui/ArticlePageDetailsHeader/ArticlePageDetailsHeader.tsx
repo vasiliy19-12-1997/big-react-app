@@ -6,7 +6,7 @@ import { getArticleDetailsData } from '@/entities/Article';
 import { getAuthUserData } from '@/entities/User';
 import { getRouteArticle, getRouteArticleEdit } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button } from '@/shared/ui/Button';
+import { Button } from '@/shared/ui/deprecated/Button';
 import { getCanEditArticles } from '../../model/selectors/articles/articles';
 import cls from './ArticlePageDetailsHeader.module.scss';
 

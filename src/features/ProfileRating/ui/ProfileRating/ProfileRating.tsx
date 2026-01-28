@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { RatingCard } from '@/entities/Rating';
 import { getAuthUserData } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Sceleton } from '@/shared/ui/Sceleton';
+import { Sceleton } from '@/shared/ui/deprecated/Sceleton';
 import { useGetRatingsProfile, usePostRatingsProfile } from '../../api/profileRatingApi';
 import cls from './ProfileRating.module.scss';
 

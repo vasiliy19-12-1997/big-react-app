@@ -5,7 +5,7 @@ import { ToggleFeatures } from '@/shared/features';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { PageLoader } from '@/shared/ui/PageLoader';
+import { PageLoader } from '@/shared/ui/deprecated/PageLoader';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import { AppRouter } from './providers/router';

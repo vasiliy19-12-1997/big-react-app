@@ -7,11 +7,11 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Icon } from '@/shared/ui/Icon';
-import { Sceleton } from '@/shared/ui/Sceleton';
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { Text, TextAlign, TextSize } from '../../../../shared/ui/Text/Text';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { Icon } from '@/shared/ui/deprecated/Icon';
+import { Sceleton } from '@/shared/ui/deprecated/Sceleton';
+import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
+import { Text, TextAlign, TextSize } from '../../../../shared/ui/deprecated/Text/Text';
 import {
     getArticleDetailsData,
     getArticleDetailsError,

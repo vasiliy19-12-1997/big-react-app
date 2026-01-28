@@ -1,11 +1,11 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Text } from '@/shared/ui/Text';
-import { Sceleton } from '@/shared/ui/Sceleton';
-import { AppLink } from '@/shared/ui/AppLink';
-import { VStack } from '@/shared/ui/Stack';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { Text } from '@/shared/ui/deprecated/Text';
+import { Sceleton } from '@/shared/ui/deprecated/Sceleton';
+import { AppLink } from '@/shared/ui/deprecated/AppLink';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 import { Commentary } from '../../model/types/commentary';
 import cls from './CommentaryCard.module.scss';
 import { getRouteProfile } from '@/shared/const/router';

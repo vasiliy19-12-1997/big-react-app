@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 import { getAuthUserData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
 import { getRouteAdmin, getRouteProfile } from '@/shared/const/router';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Avatar } from '@/shared/ui/Avatar';
-import { DropDown } from '@/shared/ui/Popups';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { DropDown } from '@/shared/ui/deprecated/Popups';
 import cls from './AvatarDropDown.module.scss';
 
 export const AvatarDropDown = () => {

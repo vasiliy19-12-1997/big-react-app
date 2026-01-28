@@ -7,10 +7,10 @@ import { AvatarDropDown } from '@/features/AvatarDropDown';
 import { NotificationButton } from '@/features/NotificationButton';
 import { getRouteArticleCreate } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { HStack } from '@/shared/ui/Stack';
-import { Text, TextTheme } from '@/shared/ui/Text';
+import { AppLink, AppLinkTheme } from '@/shared/ui/deprecated/AppLink';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { HStack } from '@/shared/ui/deprecated/Stack';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
 import cls from './Navbar.module.scss';
 import { ToggleFeatures } from '@/shared/features';
 
