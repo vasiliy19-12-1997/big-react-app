@@ -81,6 +81,7 @@ module.exports = {
                     'as',
                     'alt',
                     'name',
+                    'color',
                 ],
             },
         ],

@@ -9,7 +9,7 @@ import { SidebarItem } from '../SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';
 import { LangSwitcher } from '@/features/LangSwitcher';
 import { ToggleFeatures } from '@/shared/features';
-import { AppLogo } from '@/shared/ui/deprecated/AppLogo';
+import { AppLogo } from '@/shared/ui/redesigned/AppLogo';
 
 interface SidebarProps {
     className?: string;
@@ -24,7 +24,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 
     return (
         <ToggleFeatures
-            name={'isNewDesignEnabled'}
+            name="isNewDesignEnabled"
             on={
                 <aside
                     data-testid="sidebar"
