@@ -17,12 +17,27 @@
 }
 
 .app_redesign {
-    background: var(--bg-redesign);
     min-height: 100vh;
+    background: var(--bg-redesign);
     font: var(--font-m-redesign);
     color: var(--text-redesign);
 }
 
 .content-page {
     display: flex;
+}
+
+*::-webkit-scrollbar {
+    width: 12px;               /* ширина scrollbar */
+    height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--card-bg);        /* цвет дорожки */
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--inverted-primary-color);    /* цвет плашки */
+    border-radius: 20px;       /* закругления плашки */
+    border: 2px solid var(--primary-color);  /* padding вокруг плашки */
 }

@@ -11,6 +11,7 @@ import { useThrotle } from '@/shared/lib/hooks/useThrotle/useThrotle';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInitialScroll/useInfiniteScroll';
 import cls from './Page.module.scss';
 import { TestProps } from '@/shared/types/tests';
+import { toggleFeatures } from '@/shared/features';
 
 interface PageProps extends TestProps {
     className?: string;
@@ -48,7 +49,15 @@ export const Page = memo((props: PageProps) => {
             id={PAGE_ID}
             onScroll={onScroll}
             ref={wrapperRef}
-            className={classNames(cls.Page, {}, [className])}
+            className={classNames(
+                toggleFeatures({
+                    name: 'isNewDesignEnabled',
+                    on: () => cls.PageRedesigned,
+                    off: () => cls.Page,
+                }),
+                {},
+                [className],
+            )}
         >
             {children}
             {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}

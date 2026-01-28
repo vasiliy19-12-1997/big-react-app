@@ -9,6 +9,7 @@ import { SidebarItem } from '../SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';
 import { LangSwitcher } from '@/features/LangSwitcher';
 import { ToggleFeatures } from '@/shared/features';
+import { AppLogo } from '@/shared/ui/AppLogo';
 
 interface SidebarProps {
     className?: string;
@@ -30,7 +31,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                     className={classNames(cls.SidebarRedesign, { [cls.collapsed]: collapsed }, [className])}
                     // eslint-disable-next-line i18next/no-literal-string
                 >
-                    fdfdf
+                    <AppLogo className={cls.appLogo} />
                 </aside>
             }
             off={

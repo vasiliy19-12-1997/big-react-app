@@ -12,6 +12,7 @@ import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/Stack';
 import { Text, TextTheme } from '@/shared/ui/Text';
 import cls from './Navbar.module.scss';
+import { ToggleFeatures } from '@/shared/features';
 
 interface NavbarProps {
     className?: string;
@@ -31,16 +32,29 @@ export const Navbar = ({ className }: NavbarProps) => {
 
     if (authUser) {
         return (
-            <header className={classNames(cls.Navbar, {}, [className])}>
-                <Text title={t('Vasiliy App')} className={cls.appName} theme={TextTheme.INVERTED} />
-                <AppLink theme={AppLinkTheme.SECONDARY} className={cls.createLink} to={getRouteArticleCreate()}>
-                    {t('Create Articles')}
-                </AppLink>
-                <HStack gap={16} className={cls.actions}>
-                    <NotificationButton />
-                    <AvatarDropDown />
-                </HStack>
-            </header>
+            <ToggleFeatures
+                name="isNewDesignEnabled"
+                on={
+                    <header className={classNames(cls.NavbarRedesigned, {}, [className])}>
+                        <HStack gap={16} className={cls.actions}>
+                            <NotificationButton />
+                            <AvatarDropDown />
+                        </HStack>
+                    </header>
+                }
+                off={
+                    <header className={classNames(cls.Navbar, {}, [className])}>
+                        <Text title={t('Vasiliy App')} className={cls.appName} theme={TextTheme.INVERTED} />
+                        <AppLink theme={AppLinkTheme.SECONDARY} className={cls.createLink} to={getRouteArticleCreate()}>
+                            {t('Create Articles')}
+                        </AppLink>
+                        <HStack gap={16} className={cls.actions}>
+                            <NotificationButton />
+                            <AvatarDropDown />
+                        </HStack>
+                    </header>
+                }
+            />
         );
     }
     return (

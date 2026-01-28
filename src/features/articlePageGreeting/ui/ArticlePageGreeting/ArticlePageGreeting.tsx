@@ -33,7 +33,7 @@ export const ArticlePageGreeting = memo(() => {
         );
     }
     return (
-        <Modal lazy isOpen={isOpen} onClose={onClose} className={classNames(cls.ArticlePageGreeting, {}, [])}>
+        <Modal lazy isOpen={isOpen} onClose={onClose} className={classNames('', {}, [])}>
             {text}
         </Modal>
     );
