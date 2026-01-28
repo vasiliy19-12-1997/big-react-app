@@ -9,12 +9,10 @@ import { PageLoader } from '@/shared/ui/PageLoader';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import { AppRouter } from './providers/router';
-import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
 function App() {
     const auth = useSelector(getAuthUserMounted);
     const dispatch = useAppDispatch();
-    const theme = useTheme();
     useEffect(() => {
         dispatch(initedAuthData());
     }, [dispatch]);
@@ -27,7 +25,7 @@ function App() {
         <ToggleFeatures
             name="isNewDesignEnabled"
             on={
-                <div className={classNames('app_redesign', {}, [theme])}>
+                <div className={classNames('app_redesign', {}, [])}>
                     <Suspense fallback="">
                         <MainLayout
                             header={<Navbar />}
@@ -40,7 +38,7 @@ function App() {
                 </div>
             }
             off={
-                <div className={classNames('app', {}, [theme])}>
+                <div className={classNames('app', {}, [])}>
                     <Suspense fallback="">
                         <Navbar />
                         <div className="content-page">

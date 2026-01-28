@@ -936,7 +936,7 @@
       },
       "jsonSettings": {
         "theme": "app_light_theme",
-        "isFirstVisit": true
+        "isFirstVisit": false
       },
       "username": "user2",
       "password": "123",
