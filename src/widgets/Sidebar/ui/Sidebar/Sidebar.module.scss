@@ -4,27 +4,23 @@
     background: var(--inverted-bg-color);
     position: relative;
     transition: width 0.3s;
-}
 
-.appLogo {
-    padding-top: 20px;
-}
+    .switchers {
+        position: absolute;
+        bottom: 20px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
 
-.switchers {
-    position: absolute;
-    bottom: 20px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
+    .lang {
+        margin-left: 20px;
+    }
 
-.lang {
-    margin-left: 20px;
-}
-
-.items {
-    margin-top: 20px;
-    margin-left: 30px;
+    .items {
+        margin-top: 20px;
+        margin-left: 30px;
+    }
 }
 
 .collapsedBtn {
@@ -52,4 +48,12 @@
     background: var(--light-bg-redesign);
     height: 100%;
     width: 220px;
+
+    .appLogo {
+        padding-top: 20px;
+    }
+     .items {
+        margin-top: 20px;
+        margin-left: 30px;
+    }
 }

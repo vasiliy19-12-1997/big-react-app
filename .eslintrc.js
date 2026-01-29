@@ -82,6 +82,7 @@ module.exports = {
                     'alt',
                     'name',
                     'color',
+                    'variant',
                 ],
             },
         ],

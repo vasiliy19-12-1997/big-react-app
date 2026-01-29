@@ -9,10 +9,6 @@ interface AppLinkProps extends LinkProps {
     className?: string;
     variant?: AppLinkVariant;
 }
-/**
- * Компонент устарел, пожалуйста используйте ui библиотеку из папки redesign
- * @deprecated
- */
 export const AppLink: FC<AppLinkProps> = (props) => {
     const { to, className, children, variant = 'primary', ...otherProps } = props;
 
