@@ -1,12 +1,13 @@
 .item {
-    margin-top: 10px;
     display: flex;
+    margin-top: 10px;
     align-items: center;
+    margin-left: 10px;
 }
 
 .link {
-    margin-left: 10px;
     opacity: 1;
+    margin-left: 10px;
 }
 
 .icon {
@@ -19,4 +20,26 @@
         transition: 0.3s opacity;
         width: 0;
     }
+}
+
+.itemRedesign {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 16px;
+}
+
+.collapsedRedesign {
+    padding: 0 8px;
+
+    .link {
+        opacity: 0;
+        width: 0;
+        margin: 0;
+    }
+}
+
+.active {
+    background: linear-gradient(90deg, rgba(91, 204, 235, 0.3) 1.15%, rgba(92, 205, 236, 0) 99.97%);
+    border-left: 2px solid var(--ccent, #5ed3f3);
 }

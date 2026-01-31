@@ -24,19 +24,18 @@ type IconProps = IconClickableProps | IconNoClickableProps;
 export const Icon = memo((props: IconProps) => {
     const { t } = useTranslation();
     const { className, Svg, width = 32, height = 32, clickable, ...otherProps } = props;
-
     const icon = (
         <Svg
-            onClick={undefined}
             className={classNames(cls.Icon, {}, [className])}
             width={width}
             height={height}
+            onClick={undefined}
             {...otherProps}
         />
     );
     if (clickable) {
         return (
-            <button onClick={props.onClick} type="button" className={cls.button} aria-label={t('icon-button')}>
+            <button type="button" className={cls.button} onClick={props.onClick} style={{ height, width }}>
                 {icon}
             </button>
         );

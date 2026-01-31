@@ -50,7 +50,6 @@ test-results.xml
 *.save
 *.backup
 
-*.scss
 *.css
 *.html
 *.json  

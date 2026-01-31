@@ -1,12 +1,10 @@
 .Button {
     cursor: pointer;
-    color: var(--primary-color);
+    color: var(--text-redesign);
     padding: 6px 15px;
 
     & :hover {
-        opacity: 0.6;
-        stroke-opacity: 60%;
-        fill-opacity: 60%;
+        color: var(--accent-redesign);
     }
 }
 
@@ -18,69 +16,46 @@
     width: 100%;
 }
 
-.clear,
-.clearInverted {
+.clear {
     padding: 0;
     border: none;
     background: none;
     outline: none;
 }
 
-.clearInverted {
-    color: var(--inverted-primary-color);
-}
-
 .outline {
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
+    border: 1px solid var(--text-redesign);
+    color: var(--text-redesign);
     background: none;
-}
-
-.outline_red {
-    border: 1px solid var(--red-light);
-    color: var(--red-light);
-    background: none;
-}
-
-.background {
-    background-color: var(--bg-color);
-    color: var(--primary-color);
-    border: none;
-}
-
-.backgroundInverted {
-    background-color: var(--inverted-bg-color);
-    color: var(--inverted-primary-color);
-    border: none;
 }
 
 .square {
     padding: 0;
 }
 
-.square.size_m {
-    width: var(--font-line-m);
-    height: var(--font-line-m);
+.square.m {
+    width: var(--font-m-redesign);
+    height: var(--font-m-redesign);
 }
 
-.square.size_l {
-    width: var(--font-line-l);
-    height: var(--font-line-l);
+.square.l {
+    width: var(--font-l-redesign);
+    height: var(--font-l-redesign);
 }
 
-.square.size_xl {
-    width: var(--font-line-xl);
-    height: var(--font-line-xl);
+.square.xl {
+    width: var(--font-xl-redesign);
+    height: var(--font-xl-redesign);
 }
 
-.size_m {
-    font: var(--font-m);
+.m {
+    font: var(--font-m-redesign);
 }
 
-.size_l {
-    font: var(--font-l);
+.l {
+    font: var(--font-l-redesign);
 }
 
-.size_xl {
-    font: var(--font-xl);
+.xl {
+    font: var(--font-xl-redesign);
 }

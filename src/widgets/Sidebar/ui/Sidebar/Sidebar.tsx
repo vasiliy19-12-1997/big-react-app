@@ -1,4 +1,4 @@
-import { memo, useState } from 'react';
+import { memo, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { LangSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
@@ -20,9 +20,14 @@ interface SidebarProps {
 export const Sidebar = memo(({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false);
     const SidebarItemsList = useSelector(getSidebarItems);
+
     const onToggle = () => {
-        setCollapsed((prev) => !prev);
+        setCollapsed(!collapsed);
     };
+
+    const itemsList = useMemo(() => {
+        return SidebarItemsList.map((item) => <SidebarItem key={item.path} item={item} collapsed={collapsed} />);
+    }, [SidebarItemsList, collapsed]);
 
     return (
         <ToggleFeatures
@@ -34,9 +39,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                 >
                     <AppLogo size={collapsed ? 30 : 50} className={cls.appLogo} />
                     <VStack role="navigation" gap={8} className={cls.items}>
-                        {SidebarItemsList.map((item) => (
-                            <SidebarItem key={item.path} item={item} collapsed={collapsed} />
-                        ))}
+                        {itemsList}
                     </VStack>
                     <Icon
                         data-testid="sidebar-toggle"
@@ -45,6 +48,10 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                         className={cls.collapsedBtn}
                         clickable
                     />
+                    <div className={cls.switchers}>
+                        <ThemeSwitcher className={cls.theme} />
+                        <LangSwitcher className={cls.lang} short={collapsed} />
+                    </div>
                 </aside>
             }
             off={
