@@ -48,12 +48,34 @@
     background: var(--light-bg-redesign);
     height: 100%;
     width: 220px;
-
+    position: relative;
+    
     .appLogo {
         padding-top: 20px;
     }
-     .items {
+
+    .items {
         margin-top: 20px;
         margin-left: 30px;
+    }
+
+    .collapsedBtn {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        z-index: 10;
+        transform: rotate(90deg);
+    }
+}
+.collapsedRedesign{
+       width: 50px;
+
+    .switchers {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .lang {
+        margin-left: 0;
     }
 }
