@@ -1,0 +1,33 @@
+.card {
+    padding: 24px;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+}
+
+.withoutPaddings {
+    padding: 0;
+}
+
+.normal {
+    background-color: var(--dark-bg-redesign);
+}
+
+.outlined {
+    border: 1px solid var(--accent-redesign);
+}
+
+.gap_0 {
+    padding: 0;
+}
+
+.gap_8 {
+    padding: 8px;
+}
+
+.gap_16 {
+    padding: 16px;
+}
+
+.gap_24 {
+    padding: 24px;
+}

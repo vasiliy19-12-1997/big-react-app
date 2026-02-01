@@ -7,7 +7,7 @@ interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
 }
 
 export const AppImage = memo((props: AppImageProps) => {
-    const { className, alt = 'image', src, fallback, errorFallback } = props;
+    const { className, alt = 'image', src, fallback, errorFallback, style } = props;
 
     const [isLoading, setIsLoading] = useState(true);
     const [hasError, setHasError] = useState(false);
@@ -31,5 +31,5 @@ export const AppImage = memo((props: AppImageProps) => {
         return errorFallback;
     }
 
-    return <img src={src} alt={alt} className={className} />;
+    return <img style={style} src={src} alt={alt} className={className} />;
 });

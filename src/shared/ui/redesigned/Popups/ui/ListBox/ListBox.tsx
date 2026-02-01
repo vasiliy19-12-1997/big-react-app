@@ -26,7 +26,7 @@ interface ListboxProps {
 
 export function ListBox(props: ListboxProps) {
     const { className, items, value, defaultValue, onChange, readonly, direction = 'bottom right', label } = props;
-    const optionsMods = [className, mapOptionsClasses[direction]];
+    const optionsMods = [className, mapOptionsClasses[direction], popUpCls.menu];
     return (
         <HStack gap={4}>
             {label && <span>{`${label}>`}</span>}

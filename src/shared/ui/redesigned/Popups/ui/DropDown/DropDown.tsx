@@ -22,7 +22,7 @@ export interface DropDownProps {
 
 export function DropDown(props: DropDownProps) {
     const { className, items, trigger, direction = 'bottom right' } = props;
-    const optionsMods = [className, mapOptionsClasses[direction]];
+    const optionsMods = [className, mapOptionsClasses[direction], popUpCls.menu];
 
     return (
         <Menu as="div" className={classNames(cls.DropDown, {}, [className, popUpCls.popUp])}>

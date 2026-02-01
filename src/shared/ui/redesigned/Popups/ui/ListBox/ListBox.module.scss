@@ -1,9 +1,9 @@
 .options {
     position: absolute;
-    background-color: var(--list-box-bg);
+    background-color: var(--dark-bg-redesign);
     z-index: 10000;
     border: 12px;
-    box-shadow: 4px 4px 4px 4px var(--inverted-primary-color);
+    box-shadow: 4px 4px 4px 4px var(--dark-bg-redesign);
 }
 
 .item {
