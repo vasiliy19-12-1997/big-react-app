@@ -5,10 +5,10 @@ import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { Text } from '@/shared/ui/deprecated/Text';
 import { Sceleton } from '@/shared/ui/deprecated/Sceleton';
 import { AppLink } from '@/shared/ui/deprecated/AppLink';
-import { VStack } from '@/shared/ui/deprecated/Stack';
 import { Commentary } from '../../model/types/commentary';
 import cls from './CommentaryCard.module.scss';
 import { getRouteProfile } from '@/shared/const/router';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 interface CommentaryCardProps {
     className?: string;

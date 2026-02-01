@@ -1,0 +1,13 @@
+.PopOver {
+    /* Ваши стили */
+}
+
+.panel {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    z-index: 10000;
+    background-color: (var(--card-bg));
+    padding: 15px;
+    border-radius: 10px;
+}

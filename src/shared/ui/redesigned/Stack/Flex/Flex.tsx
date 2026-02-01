@@ -39,10 +39,7 @@ export interface FlexProps extends divType {
     gap?: FlexGap;
     max?: boolean;
 }
-/**
- * Компонент устарел, пожалуйста используйте ui библиотеку из папки redesign
- * @deprecated
- */
+
 export const Flex = (props: FlexProps) => {
     const { t } = useTranslation();
     const {

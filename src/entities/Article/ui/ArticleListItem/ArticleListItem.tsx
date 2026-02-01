@@ -12,8 +12,8 @@ import { Text } from '@/shared/ui/deprecated/Text';
 import { ArtcileBlockText, Article, ArticleBlockType, ArticleViews } from '../../model/types/artcile';
 import { ArtcileTextBlockComponent } from '../ArtcileTextBlockComponent/ArtcileTextBlockComponent';
 import cls from './ArticleListItem.module.scss';
-import { AppImage } from '@/shared/ui/deprecated/AppImage';
 import { Sceleton } from '@/shared/ui/deprecated/Sceleton';
+import { AppImage } from '@/shared/ui/redesigned/AppImage';
 
 interface ArticleListItemProps {
     className?: string;

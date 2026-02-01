@@ -3,7 +3,7 @@
     display: grid;
     /* stylelint-disable-next-line string-quotes */
     grid-template-areas: 'sidebar content rightbar';
-    grid-template-columns: 284px 1fr 100px;
+    grid-template-columns: min-content 1fr 100px;
 }
 
 .header {
@@ -21,6 +21,7 @@
 .sidebar {
     grid-area: sidebar;
     padding: 32px;
+    max-width: 284px;
 }
 
 .rightbar {

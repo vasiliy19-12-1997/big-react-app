@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import { EditableProfileCard } from '@/features/EditableProfileCard';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Page } from '@/shared/ui/deprecated/Page';
 import cls from './ProfilePage.module.scss';
 import { ProfileRating } from '@/features/ProfileRating';

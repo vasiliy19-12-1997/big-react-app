@@ -6,7 +6,7 @@ import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/Dynam
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button } from '@/shared/ui/deprecated/Button';
 import { Input } from '@/shared/ui/deprecated/Input';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { getAddCommentFormText } from '../../model/selectors/addCommentForm';
 import { addCommentFormActions, addCommentFormReducers } from '../../model/slice/AddCommentFormSlice';
 import cls from './AddCommentForm.module.scss';

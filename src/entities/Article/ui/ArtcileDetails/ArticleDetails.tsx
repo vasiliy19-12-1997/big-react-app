@@ -10,7 +10,6 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitial
 import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { Icon } from '@/shared/ui/deprecated/Icon';
 import { Sceleton } from '@/shared/ui/deprecated/Sceleton';
-import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
 import { Text, TextAlign, TextSize } from '../../../../shared/ui/deprecated/Text/Text';
 import {
     getArticleDetailsData,
@@ -24,6 +23,7 @@ import { ArtcileCodeBlockComponent } from '../ArtcileCodeBlockComponent/ArtcileC
 import { ArtcileImageBlockComponent } from '../ArtcileImageBlockComponent/ArtcileImageBlockComponent';
 import { ArtcileTextBlockComponent } from '../ArtcileTextBlockComponent/ArtcileTextBlockComponent';
 import cls from './ArtcileDetails.module.scss';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 
 interface ArtcileDetailsProps {
     className?: string;

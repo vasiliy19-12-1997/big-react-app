@@ -7,10 +7,7 @@ interface OverlayProps {
     className?: string;
     onClick?: () => void;
 }
-/**
- * Компонент устарел, пожалуйста используйте ui библиотеку из папки redesign
- * @deprecated
- */
+
 export const Overlay = memo((props: OverlayProps) => {
     const { t } = useTranslation();
     const { className, onClick } = props;

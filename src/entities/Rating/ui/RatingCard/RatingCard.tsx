@@ -4,13 +4,13 @@ import { BrowserView, MobileView } from 'react-device-detect';
 import cls from './RatingCard.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Card } from '@/shared/ui/deprecated/Card';
-import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
 import { Text } from '@/shared/ui/deprecated/Text';
 import { StarRating } from '@/shared/ui/deprecated/StarRating';
 import { Modal } from '@/shared/ui/deprecated/Modal';
 import { Input } from '@/shared/ui/deprecated/Input';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { Drawer } from '@/shared/ui/deprecated/Drawer';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 
 interface RatingCardProps {
     className?: string;

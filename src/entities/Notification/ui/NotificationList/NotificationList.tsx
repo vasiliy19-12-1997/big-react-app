@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { isMobile } from 'react-device-detect';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Sceleton } from '@/shared/ui/deprecated/Sceleton';
-import { VStack } from '@/shared/ui/deprecated/Stack';
 import { useNotificationList } from '../../api/notificationApi';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 interface NotificationListProps {
     className?: string;

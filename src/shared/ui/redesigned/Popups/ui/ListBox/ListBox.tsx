@@ -6,7 +6,7 @@ import { Button } from '../../../Button/Button';
 import cls from './ListBox.module.scss';
 import popUpCls from '../../styles/popup.module.scss';
 import { mapOptionsClasses } from '../../styles/consts';
-import { HStack } from '../../../../redesigned/Stack';
+import { HStack } from '../../../Stack';
 
 export interface ListBoxItem {
     value: string;
@@ -23,10 +23,7 @@ interface ListboxProps {
     direction?: Direction;
     label?: string;
 }
-/**
- * Компонент устарел, пожалуйста используйте ui библиотеку из папки redesign
- * @deprecated
- */
+
 export function ListBox(props: ListboxProps) {
     const { className, items, value, defaultValue, onChange, readonly, direction = 'bottom right', label } = props;
     const optionsMods = [className, mapOptionsClasses[direction]];

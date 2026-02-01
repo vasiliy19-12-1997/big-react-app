@@ -1,5 +1,5 @@
 export interface FeaturesType {
-    isArticleRatingEnabled: boolean;
-    isCounterEnabled: boolean;
-    isNewDesignEnabled: boolean;
+    isArticleRatingEnabled?: boolean;
+    isCounterEnabled?: boolean;
+    isNewDesignEnabled?: boolean;
 }
