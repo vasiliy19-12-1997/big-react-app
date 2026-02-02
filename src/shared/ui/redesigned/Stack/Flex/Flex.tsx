@@ -3,10 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Flex.module.scss';
 
-type FlexJustify = 'start' | 'center' | 'end' | 'between';
-type FlexAlign = 'start' | 'center' | 'end';
-type FlexDirection = 'column' | 'row';
-type FlexGap = 4 | 8 | 16 | 32;
+export type FlexJustify = 'start' | 'center' | 'end' | 'between';
+export type FlexAlign = 'start' | 'center' | 'end';
+export type FlexDirection = 'column' | 'row';
+export type FlexGap = 4 | 8 | 16 | 32;
 
 const justifyClasses: Record<FlexJustify, string> = {
     center: cls.JustifyCenter,

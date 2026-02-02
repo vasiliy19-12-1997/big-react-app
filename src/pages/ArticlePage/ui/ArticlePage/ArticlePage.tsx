@@ -12,6 +12,7 @@ import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList'
 import { ArticlePageFilter } from '../ArticlePageFilter/ArticlePageFilter';
 import { ViewSelectorContainer } from '../ViewSelectorContainer/ViewSelectorContainer';
 import cls from './ArticlePage.module.scss';
+import { FiltersContainer } from '../FiltersContainer/FiltersContainer';
 
 const ArticlePage = memo(() => {
     const { t } = useTranslation('ArticlePage');
@@ -30,7 +31,7 @@ const ArticlePage = memo(() => {
             on={
                 <StickyContentLayout
                     left={<ViewSelectorContainer />}
-                    right={<div>123233</div>}
+                    right={<FiltersContainer />}
                     content={
                         <Page data-testid="ArticlePageRedesign" onScrollEnd={onNextLoad}>
                             {t('Article Page')}

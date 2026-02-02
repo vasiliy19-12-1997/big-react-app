@@ -1,19 +1,22 @@
 .card {
     padding: 24px;
     background-color: var(--card-bg);
-    border-radius: 12px;
 }
 
 .withoutPaddings {
     padding: 0;
 }
 
-.normal {
-    background-color: var(--dark-bg-redesign);
-}
-
 .outlined {
     border: 1px solid var(--accent-redesign);
+}
+
+.round {
+    border-radius: 40px;
+}
+
+.normal {
+    border-radius: 12px;
 }
 
 .gap_0 {

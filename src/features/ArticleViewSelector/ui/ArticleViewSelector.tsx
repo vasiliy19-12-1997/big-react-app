@@ -10,7 +10,6 @@ import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
 import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
 import cls from './ArticleViewSelector.module.scss';
 import { ToggleFeatures, toggleFeatures } from '@/shared/features';
-import { Button } from '@/shared/ui/redesigned/Button';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { HStack } from '@/shared/ui/redesigned/Stack';
@@ -52,15 +51,15 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
         <ToggleFeatures
             name="isNewDesignEnabled"
             on={
-                <Card className={classNames(cls.ArticleViewSelectorRedesign, {}, [className])}>
+                <Card border="round" className={classNames(cls.ArticleViewSelectorRedesign, {}, [className])}>
                     <HStack gap={8}>
                         {viewTypes.map((item, index) => (
-                            <Button key={index} onClick={onClick(item.view)}>
-                                <Icon
-                                    Svg={item.icon}
-                                    className={classNames('', { [cls.notSelected]: item.view !== view })}
-                                />
-                            </Button>
+                            <Icon
+                                onClick={onClick(item.view)}
+                                clickable
+                                Svg={item.icon}
+                                className={classNames('', { [cls.notSelected]: item.view !== view })}
+                            />
                         ))}
                     </HStack>
                 </Card>
