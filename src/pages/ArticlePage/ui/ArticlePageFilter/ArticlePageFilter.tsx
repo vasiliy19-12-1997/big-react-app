@@ -31,11 +31,12 @@ export const ArticlePageFilter = memo((props: ArticlePageFilterProps) => {
     const { t } = useTranslation();
     const { className } = props;
     const dispatch = useAppDispatch();
-    const views = useSelector(getArticlesViews);
+    const view = useSelector(getArticlesViews);
     const sort = useSelector(getFilterSelectorSort);
     const order = useSelector(getFilterSelectorOrder);
     const search = useSelector(getFilterSelectorSearch);
     const type = useSelector(getArticlesPageType);
+
     const fetchData = useCallback(() => {
         dispatch(fetchArticles({ replace: true }));
     }, [dispatch]);
@@ -93,7 +94,7 @@ export const ArticlePageFilter = memo((props: ArticlePageFilterProps) => {
                     onChangeOrder={onChangeOrder}
                     onChangeSort={onChangeSort}
                 />
-                <ArticleViewSelector view={views} onViewClick={onViewClick} />
+                <ArticleViewSelector view={view} onViewClick={onViewClick} />
             </div>
             <Card className={cls.search}>
                 <Input placeholder={t('Поиск')} value={search} onChange={onChangeSearch} />

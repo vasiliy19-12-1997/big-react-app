@@ -1,5 +1,8 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { ArticlePageGreeting } from '@/features/articlePageGreeting';
+import { ToggleFeatures } from '@/shared/features';
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Page } from '@/shared/ui/deprecated/Page';
@@ -7,10 +10,8 @@ import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/
 import { articlesReducer } from '../../model/slice/articlePageSlice';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 import { ArticlePageFilter } from '../ArticlePageFilter/ArticlePageFilter';
+import { ViewSelectorContainer } from '../ViewSelectorContainer/ViewSelectorContainer';
 import cls from './ArticlePage.module.scss';
-import { useArticleitemById } from '../../model/selectors/articles';
-import { ArticlePageGreeting } from '@/features/articlePageGreeting';
-import { useJsonSettings } from '@/entities/User';
 
 const ArticlePage = memo(() => {
     const { t } = useTranslation('ArticlePage');
@@ -22,18 +23,37 @@ const ArticlePage = memo(() => {
     const onNextLoad = useCallback(() => {
         dispatch(fetchNextArticlePage());
     }, [dispatch]);
-    const { theme } = useJsonSettings();
-    console.log(theme);
-    const testArticleData = useArticleitemById('10');
+
+    const content = (
+        <ToggleFeatures
+            name="isNewDesignEnabled"
+            on={
+                <StickyContentLayout
+                    left={<ViewSelectorContainer />}
+                    right={<div>123233</div>}
+                    content={
+                        <Page data-testid="ArticlePageRedesign" onScrollEnd={onNextLoad}>
+                            {t('Article Page')}
+                            <ArticleInfiniteList className={cls.list} />
+                            <ArticlePageGreeting />
+                        </Page>
+                    }
+                />
+            }
+            off={
+                <Page data-testid="ArticlePage" onScrollEnd={onNextLoad}>
+                    {t('Article Page')}
+                    <ArticlePageFilter />
+                    <ArticlePageGreeting />
+                    <ArticleInfiniteList className={cls.list} />
+                </Page>
+            }
+        />
+    );
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-            <Page data-testid="ArticlePage" onScrollEnd={onNextLoad}>
-                {t('Article Page')}
-                <ArticlePageFilter />
-                <ArticlePageGreeting />
-                <ArticleInfiniteList className={cls.list} />
-            </Page>
+            {content}
         </DynamicModuleLoader>
     );
 });

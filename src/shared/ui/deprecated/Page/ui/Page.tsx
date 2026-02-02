@@ -32,7 +32,11 @@ export const Page = memo((props: PageProps) => {
     const scrollPosition = useSelector((state: StateSchema) => getScrollRestorationByPath(state, pathname));
 
     useInfiniteScroll({
-        wrapperRef,
+        wrapperRef: toggleFeatures({
+            name: 'isNewDesignEnabled',
+            on: () => undefined, // браузер берет дефолтные настройки
+            off: () => wrapperRef,
+        }),
         triggerRef,
         callback: onScrollEnd,
     });
