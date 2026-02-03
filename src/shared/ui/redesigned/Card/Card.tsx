@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Card.module.scss';
 
-export type CardVariant = 'simple' | 'outlined';
+export type CardVariant = 'normal' | 'outlined' | 'light';
 export type CardPaddings = '0' | '8' | '16' | '24';
 export type CardBorder = 'round' | 'normal';
 
@@ -24,7 +24,7 @@ const mapPaddingToClass: Record<CardPaddings, string> = {
 
 export const Card = memo((props: CardProps) => {
     const { t } = useTranslation();
-    const { className, children, variant = 'simple', max, padding = '8', border = 'normal', ...otherProps } = props;
+    const { className, children, variant = 'normal', max, padding = '8', border = 'normal', ...otherProps } = props;
 
     const paddingClass = mapPaddingToClass[padding];
     return (

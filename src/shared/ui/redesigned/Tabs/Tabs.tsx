@@ -33,7 +33,7 @@ export const Tabs = memo((props: TabsProps) => {
                 return (
                     <Card
                         onClick={clickHandler(tab)}
-                        variant={isSelected ? 'simple' : 'outlined'}
+                        variant={isSelected ? 'light' : 'outlined'}
                         key={tab.value}
                         border="round"
                         className={classNames(cls.tab, { [cls.selected]: isSelected })}

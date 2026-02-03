@@ -1,52 +1,37 @@
 .InputWrapper {
     display: flex;
+    align-items: center;
+    border-radius: 48px;
+    padding: 8px 16px;
+    border: 2px solid var(--icon-redesign);
+    height: 38px;
+    width: 100%;
+}
+
+.focused {
+    border: 2px solid var(--accent-redesign);
+}
+
+.withAddonLeft {
+    padding-left: 8px;
+}
+
+.withAddonRight {
+    padding-right: 8px;
 }
 
 .input {
     border: none;
-    background: transparent;
-    color: var(--primary-color);
+    color: var(--text-redesign);
     outline: none;
     caret-color: transparent;
+    background: none;
 
     &:focus {
-        outline: none;
+        color: var(--hint-redesign);
     }
-}
-
-.placeholder {
-    margin-right: 5px;
-}
-
-.caretWrapper {
-    flex-grow: 1;
-    position: relative;
-}
-
-.caret {
-    position: absolute;
-    height: 3px;
-    width: 9px;
-    bottom: 0;
-    left: 0;
-    background: var(--primary-color);
-    animation: blink 1s forwards infinite;
 }
 
 .readonly {
     opacity: 0.7;
-}
-
-@keyframes blink {
-    0% {
-        opacity: 0;
-    }
-
-    50% {
-        opacity: 0.01;
-    }
-
-    100% {
-        opacity: 1;
-    }
 }

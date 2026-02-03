@@ -1,6 +1,5 @@
 .card {
     padding: 24px;
-    background-color: var(--card-bg);
 }
 
 .withoutPaddings {
@@ -15,8 +14,13 @@
     border-radius: 40px;
 }
 
+.light {
+    background: var(--light-bg-redesign);
+}
+
 .normal {
     border-radius: 12px;
+    background: var(--dark-bg-redesign);
 }
 
 .gap_0 {
