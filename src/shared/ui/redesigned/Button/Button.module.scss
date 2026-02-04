@@ -28,11 +28,16 @@
     color: var(--text-redesign);
     background: none;
 }
-
+.Button:focus,
+.Button:focus-visible {
+  outline: none;
+}
 .filled {
-    background: var(--light-bg-redesign);
+    background: none;
     border: none;
     outline: none;
+    background: var(--light-bg-redesign);
+
     padding: 8px 16px;
     border-radius: 34px;
 }
