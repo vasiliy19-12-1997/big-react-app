@@ -1,12 +1,30 @@
 .Button {
     cursor: pointer;
     color: var(--text-redesign);
-    padding: 6px 15px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
 
     & :hover {
         color: var(--accent-redesign);
+
+         .addonLeft svg,
+         .addonRight svg{
+        color: var(--accent-redesign)
+    }
     }
 }
+.withAddon {
+    padding: 0 16px;
+}
+.addonLeft,
+.addonRight {
+    display: flex;
+}
+ .addonLeft svg,
+    .addonRight svg{
+        color: var(--hint-redesign)
+    }
 
 .disabled {
     opacity: 0.5;
@@ -28,17 +46,16 @@
     color: var(--text-redesign);
     background: none;
 }
+
 .Button:focus,
 .Button:focus-visible {
-  outline: none;
+    outline: none;
 }
+
 .filled {
-    background: none;
     border: none;
     outline: none;
     background: var(--light-bg-redesign);
-
-    padding: 8px 16px;
     border-radius: 34px;
 }
 

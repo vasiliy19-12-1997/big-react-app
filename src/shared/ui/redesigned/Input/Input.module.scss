@@ -4,12 +4,22 @@
     border-radius: 48px;
     padding: 8px 16px;
     border: 2px solid var(--icon-redesign);
-    height: 38px;
+    height: 32px;
     width: 100%;
+}
+
+.addonLeft,
+.addonRight {
+    display: flex;
 }
 
 .focused {
     border: 2px solid var(--accent-redesign);
+
+    .addonLeft svg,
+    .addonRight svg{
+        color: var(--accent-redesign)
+    }
 }
 
 .withAddonLeft {
@@ -26,6 +36,10 @@
     outline: none;
     caret-color: transparent;
     background: none;
+
+    &::placeholder {
+        color: var(--hint-redesign);
+    }
 
     &:focus {
         color: var(--hint-redesign);

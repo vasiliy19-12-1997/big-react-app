@@ -34,7 +34,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
     return (
         <div data-testid="ArticleList" className={classNames(cls.ArticleList, {}, [className, cls[views]])}>
             {articles.map((item) => (
-                <ArticleListItem article={item} view={views} key={item?.id} className={cls.card} target={target} />
+                <ArticleListItem article={item} view={views} key={item?.id} className={cls.card}
+target={target} />
             ))}
             {isLoading && getSceletons(views)}
         </div>

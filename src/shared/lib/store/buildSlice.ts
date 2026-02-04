@@ -1,6 +1,5 @@
 import { bindActionCreators, createSlice, CreateSliceOptions, SliceCaseReducers } from '@reduxjs/toolkit';
 import { useMemo } from 'react';
-import { useDispatch } from 'react-redux';
 import { useAppDispatch } from '../hooks/useAppDispatch/useAppDispatch';
 
 export function buildSlice<State, CaseReducers extends SliceCaseReducers<State>, Name extends string = string>(

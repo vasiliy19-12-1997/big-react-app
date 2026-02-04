@@ -40,6 +40,6 @@
 }
 
 .active {
-    background: linear-gradient(90deg, rgba(91, 204, 235, 0.3) 1.15%, rgba(92, 205, 236, 0) 99.97%);
+    background: linear-gradient(90deg, rgb(91 204 235 / 30%) 1.15%, rgb(92 205 236 / 0%) 99.97%);
     border-left: 2px solid var(--ccent, #5ed3f3);
 }

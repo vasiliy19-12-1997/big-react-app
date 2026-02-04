@@ -1,5 +1,5 @@
 import { FeaturesType } from '@/shared/types/features';
-import { JsonSettingsProperties } from '@/entities/User/model/types/jsonSettings';
+import { JsonSettingsProperties } from './jsonSettings';
 
 export enum UserRoles {
     ADMIN = 'ADMIN',
