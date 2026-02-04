@@ -58,7 +58,7 @@ server.use(router);
 
 // запуск сервера
 const PORT = 8443;
-const HTTP_PORT = 8000;
+const HTTP_PORT = 8081;
 const httpsServer = https.createServer(options, server);
 const httpServer = http.createServer(server);
 
