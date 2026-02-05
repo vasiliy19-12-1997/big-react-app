@@ -1,7 +1,8 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { ListBox } from '@/shared/ui/deprecated/Popups';
+import { ToggleFeatures } from '@/shared/features';
+import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
 import { Currency } from '../../model/types/currency';
 
 interface CurrencySelectProps {
@@ -15,9 +16,8 @@ const options = [
     { value: Currency.USD, content: Currency.USD },
     { value: Currency.EUR, content: Currency.EUR },
 ];
-export const CurrencySelect = memo((props: CurrencySelectProps) => {
+export const CurrencySelect = memo(({ className, onChange, value, readonly }: CurrencySelectProps) => {
     const { t } = useTranslation();
-    const { className, onChange, value, readonly } = props;
     const onChangeCurrency = useCallback(
         (value: string) => {
             onChange?.(value as Currency);
@@ -25,15 +25,18 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
         [onChange],
     );
 
+    const props = {
+        className,
+        onChange: onChangeCurrency,
+        value,
+        defaultValue: t('Укажите валюту'),
+        readonly,
+        items: options,
+        direction: 'top right' as const,
+        label: t('Укажите валюту'),
+    };
+
     return (
-        <ListBox
-            className={classNames('', {}, [className])}
-            onChange={onChangeCurrency}
-            value={value}
-            readonly={readonly}
-            items={options}
-            direction="bottom left"
-            label={t('Укажите валюту')}
-        />
+        <ToggleFeatures name="isNewDesignEnabled" on={<ListBox {...props} />} off={<ListBoxDeprecated {...props} />} />
     );
 });

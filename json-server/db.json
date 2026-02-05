@@ -906,6 +906,12 @@
       "articleId": "XQRaM99",
       "userId": "4",
       "id": "CgVZDyL"
+    },
+    {
+      "text": "ПРивет",
+      "articleId": "9",
+      "userId": "1",
+      "id": "r_Z-ArO"
     }
   ],
   "users": [
@@ -926,7 +932,7 @@
       "roles": [
         "ADMIN"
       ],
-      "avatar": "https://icons.iconarchive.com/icons/iconbest/helldesign/128/devil-smile-icon.png"
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     },
     {
       "id": "2",
@@ -983,11 +989,11 @@
       "first": "fdfdfdfdfdfававав",
       "lastname": "fdfdfdfgfgfg",
       "age": 0,
-      "currency": "RUB",
-      "country": "Czech",
+      "currency": "EUR",
+      "country": "Irish",
       "city": "",
-      "username": "",
-      "avatar": ""
+      "username": "fdfdf",
+      "avatar": "fdfdf"
     },
     {
       "id": "2",
@@ -1061,6 +1067,13 @@
       "rate": 5,
       "userId": "1",
       "id": "VxACxLS"
+    },
+    {
+      "articleId": "9",
+      "feedback": "fdfdfdf",
+      "rate": 2,
+      "userId": "1",
+      "id": "Za2aeqs"
     }
   ],
   "profile-ratings": [

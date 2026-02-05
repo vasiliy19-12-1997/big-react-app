@@ -17,8 +17,8 @@
     border: 2px solid var(--accent-redesign);
 
     .addonLeft svg,
-    .addonRight svg{
-        color: var(--accent-redesign)
+    .addonRight svg {
+        color: var(--accent-redesign);
     }
 }
 
@@ -48,4 +48,16 @@
 
 .readonly {
     opacity: 0.7;
+}
+
+.s {
+    height: 32px;
+}
+
+.m {
+    height: 38px;
+}
+
+.l {
+    height: 44px;
 }
