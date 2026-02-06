@@ -1,9 +1,12 @@
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card } from '@/shared/ui/deprecated/Card';
-import { Sceleton } from '@/shared/ui/deprecated/Sceleton';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Card as CardRedesgn } from '@/shared/ui/redesigned/Card';
+import { Sceleton as SceletonDeprecated } from '@/shared/ui/deprecated/Sceleton';
+import { Sceleton as SceletonRedesign } from '@/shared/ui/redesigned/Sceleton';
 import { ArticleViews } from '../../model/types/artcile';
 import cls from './ArticleListItem.module.scss';
+import { toggleFeatures } from '@/shared/features';
 
 interface ArticleListItemSceletonProps {
     className?: string;
@@ -12,6 +15,18 @@ interface ArticleListItemSceletonProps {
 
 export const ArticleListItemSceleton = memo((props: ArticleListItemSceletonProps) => {
     const { className, view } = props;
+
+    const Sceleton = toggleFeatures({
+        name: 'isNewDesignEnabled',
+        on: () => SceletonRedesign,
+        off: () => SceletonDeprecated,
+    });
+    const Card = toggleFeatures({
+        name: 'isNewDesignEnabled',
+        on: () => CardRedesgn,
+        off: () => CardDeprecated,
+    });
+
     if (view === ArticleViews.BIG) {
         return (
             <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
