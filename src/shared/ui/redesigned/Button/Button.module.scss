@@ -42,9 +42,14 @@
 }
 
 .outline {
-    border: 1px solid var(--text-redesign);
+    border: 1px solid var(--icon-redesign);
     color: var(--text-redesign);
+    border-radius: 34px;
     background: none;
+    & :hover {
+        border: 1px solid var(--accent-redesign);
+        
+    }
 }
 
 .Button:focus,

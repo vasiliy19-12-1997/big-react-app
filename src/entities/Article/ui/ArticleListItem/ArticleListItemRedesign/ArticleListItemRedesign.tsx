@@ -15,7 +15,7 @@ import { ArtcileBlockText, ArticleBlockType, ArticleViews } from '../../../model
 import { ArtcileTextBlockComponent } from '../../ArtcileTextBlockComponent/ArtcileTextBlockComponent';
 import { ArticleListItemProps } from '../ArticleListItem';
 import cls from './ArticleListItemRedesign.module.scss';
-import { HStack } from '@/shared/ui/redesigned/Stack';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 
 export const ArticleListItemRedesign = memo((props: ArticleListItemProps) => {
     const { t } = useTranslation();
@@ -40,26 +40,30 @@ export const ArticleListItemRedesign = memo((props: ArticleListItemProps) => {
     const textBlock = article?.blocks?.find((block) => block.type === ArticleBlockType.TEXT) as ArtcileBlockText;
     if (view === ArticleViews.BIG) {
         return (
-            <div data-testid="ArticleListItem" className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-                <div className={cls.header}>
-                    <Avatar size={50} alt={article?.title} src={article?.user?.avatar} className={cls.avatar} />
-                    <Text text={article?.user?.username} className={cls.username} />
+            <Card padding='24' max data-testid="ArticleListItem" className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+                <VStack max gap={16}>
+                    <HStack max gap={8}>
+
+                    <Avatar size={32} alt={article?.title} src={article?.user?.avatar} className={cls.avatar} />
+                    <Text bold text={article?.user?.username} className={cls.username} />
                     <Text text={article?.createdAt} className={cls.createdAt} />
-                </div>
-                <Text title={article?.title} className={cls.title} />
-                {types}
+                    </HStack>
+                        <Text bold title={article?.title} className={cls.title} />
+                <Text size='s' bold text={article?.subtitle} className={cls.text} />
                 {img}
                 <ArtcileTextBlockComponent block={textBlock} className={cls.textBlock} />
-                <div className={cls.footer}>
-                    <AppLink target={target} to={getRouteArticleDetails(article?.id)}>
-                        <Button variant="outline" className={cls.footerBtn}>
-                            {t('Читать далее..')}
-                        </Button>
-                    </AppLink>
-
+                {types}
+                    <HStack max justify='between' >
+                        <AppLink target={target} to={getRouteArticleDetails(article?.id)}>
+                            <Button variant="outline" className={cls.footerBtn}>
+                                {t('Читать далее..')}
+                            </Button>
+                        </AppLink>
                     {views}
-                </div>
-            </div>
+                    </HStack>
+                 </VStack>
+            
+            </Card>
         );
     }
 
