@@ -2,6 +2,11 @@
     position: relative;
 }
 
+.appLogo {
+    position: relative;
+    z-index: 10;
+}
+
 .gradientBig {
     position: absolute;
     width: 300px;
@@ -9,7 +14,15 @@
     border-radius: 50%;
     opacity: 0.6;
     pointer-events: none;
-    background: radial-gradient(57.05% 57.05% at 49.84% 42.95%, rgb(94 211 243 / 20%) 0%, rgb(94 211 243 / 13%) 7.81%, rgb(94 211 243 / 8%) 29.69%, rgb(94 211 243 / 4%) 56.77%, rgb(94 211 243 / 2%) 77.6%, rgb(94 211 243 / 0%) 100%);
+    background: radial-gradient(
+        57.05% 57.05% at 49.84% 42.95%,
+        rgb(94 211 243 / 20%) 0%,
+        rgb(94 211 243 / 13%) 7.81%,
+        rgb(94 211 243 / 8%) 29.69%,
+        rgb(94 211 243 / 4%) 56.77%,
+        rgb(94 211 243 / 2%) 77.6%,
+        rgb(94 211 243 / 0%) 100%
+    );
 }
 
 .gradientSmall {
@@ -19,5 +32,12 @@
     height: 200px;
     border-radius: 50%;
     opacity: 0.6;
-    background: radial-gradient(30.29% 30.29% at 50% 50%, rgb(94 211 243 / 18%) 0%, rgb(94 211 243 / 11%) 25.55%, rgb(94 211 243 / 7%) 47.27%, rgb(94 211 243 / 4%) 69.66%, rgb(94 211 243 / 0%) 100%);
+    background: radial-gradient(
+        30.29% 30.29% at 50% 50%,
+        rgb(94 211 243 / 18%) 0%,
+        rgb(94 211 243 / 11%) 25.55%,
+        rgb(94 211 243 / 7%) 47.27%,
+        rgb(94 211 243 / 4%) 69.66%,
+        rgb(94 211 243 / 0%) 100%
+    );
 }

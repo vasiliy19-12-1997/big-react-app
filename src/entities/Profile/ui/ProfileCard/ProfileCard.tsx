@@ -50,7 +50,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         isLoading,
         error,
     } = props;
-
+    // TODO сделать чтобы лоадер скелетон отображался, сейчас нет
     if (isLoading) {
         <ToggleFeatures
             name="isNewDesignEnabled"
