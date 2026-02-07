@@ -20,12 +20,14 @@ export interface TabsProps {
 export const Tabs = memo((props: TabsProps) => {
     const { t } = useTranslation();
     const { className, tabs, value, onTabsClick, direction = 'row' } = props;
+
     const clickHandler = useCallback(
         (tab: TabItem) => () => {
             onTabsClick(tab);
         },
         [onTabsClick],
     );
+
     return (
         <Flex gap={8} align="start" direction={direction} className={classNames(cls.Tabs, {}, [className])}>
             {tabs.map((tab, index) => {
