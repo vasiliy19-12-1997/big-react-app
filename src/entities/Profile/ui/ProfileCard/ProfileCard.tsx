@@ -52,11 +52,13 @@ export const ProfileCard = (props: ProfileCardProps) => {
     } = props;
     // TODO сделать чтобы лоадер скелетон отображался, сейчас нет
     if (isLoading) {
-        <ToggleFeatures
-            name="isNewDesignEnabled"
-            on={<ProfileCardRedesignSceleton />}
-            off={<ProfileCardDeprecatedLoader />}
-        />;
+        return (
+            <ToggleFeatures
+                name="isNewDesignEnabled"
+                on={<ProfileCardRedesignSceleton />}
+                off={<ProfileCardDeprecatedLoader />}
+            />
+        );
     }
 
     if (error) {
