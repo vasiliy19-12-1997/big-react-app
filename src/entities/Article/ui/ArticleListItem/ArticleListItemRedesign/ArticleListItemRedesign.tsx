@@ -38,31 +38,35 @@ export const ArticleListItemRedesign = memo((props: ArticleListItemProps) => {
         </HStack>
     );
     const textBlock = article?.blocks?.find((block) => block.type === ArticleBlockType.TEXT) as ArtcileBlockText;
+
     if (view === ArticleViews.BIG) {
         return (
-            <Card padding='24' max data-testid="ArticleListItem" className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+            <Card
+                padding="24"
+                max
+                data-testid="ArticleListItem"
+                className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+            >
                 <VStack max gap={16}>
-                    <HStack max gap={8}>
-
-                    <Avatar size={32} alt={article?.title} src={article?.user?.avatar} className={cls.avatar} />
-                    <Text bold text={article?.user?.username} className={cls.username} />
-                    <Text text={article?.createdAt} className={cls.createdAt} />
+                    <HStack justify="start" max gap={8}>
+                        <Avatar size={32} alt={article?.title} src={article?.user?.avatar} className={cls.avatar} />
+                        <Text bold text={article?.user?.username} className={cls.username} />
+                        <Text text={article?.createdAt} className={cls.createdAt} />
                     </HStack>
-                        <Text bold title={article?.title} className={cls.title} />
-                <Text size='s' bold text={article?.subtitle} className={cls.text} />
-                {img}
-                <ArtcileTextBlockComponent block={textBlock} className={cls.textBlock} />
-                {types}
-                    <HStack max justify='between' >
+                    <Text size="l" bold title={article?.title} className={cls.title} />
+                    <Text size="m" bold text={article?.subtitle} className={cls.text} />
+                    {img}
+                    <ArtcileTextBlockComponent block={textBlock} className={cls.textBlock} />
+                    {types}
+                    <HStack max justify="between">
                         <AppLink target={target} to={getRouteArticleDetails(article?.id)}>
                             <Button variant="outline" className={cls.footerBtn}>
                                 {t('Читать далее..')}
                             </Button>
                         </AppLink>
-                    {views}
+                        {views}
                     </HStack>
-                 </VStack>
-            
+                </VStack>
             </Card>
         );
     }

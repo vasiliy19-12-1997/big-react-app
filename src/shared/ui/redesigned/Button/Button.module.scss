@@ -8,23 +8,26 @@
     & :hover {
         color: var(--accent-redesign);
 
-         .addonLeft svg,
-         .addonRight svg{
-        color: var(--accent-redesign)
-    }
+        .addonLeft svg,
+        .addonRight svg {
+            color: var(--accent-redesign);
+        }
     }
 }
+
 .withAddon {
     padding: 0 16px;
 }
+
 .addonLeft,
 .addonRight {
     display: flex;
 }
- .addonLeft svg,
-    .addonRight svg{
-        color: var(--hint-redesign)
-    }
+
+.addonLeft svg,
+.addonRight svg {
+    color: var(--hint-redesign);
+}
 
 .disabled {
     opacity: 0.5;
@@ -46,9 +49,9 @@
     color: var(--text-redesign);
     border-radius: 34px;
     background: none;
+
     & :hover {
         border: 1px solid var(--accent-redesign);
-        
     }
 }
 
