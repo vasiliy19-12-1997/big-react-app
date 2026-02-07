@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Theme } from '@/shared/const/theme';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Article, ArticleViews } from '../../model/types/artcile';
+import { Article, ArticleView } from '../../model/types/artcile';
 import { ArticleList } from './ArticleList';
 
 export default {
@@ -91,28 +91,28 @@ export const ListSmall = Template.bind({});
 ListSmall.args = {
     articles: new Array(9).fill(0).map((item, index) => ({ ...articles, id: String(index) })),
     isLoading: false,
-    views: ArticleViews.SMALL,
+    views: ArticleView.SMALL,
 };
 ListSmall.decorators = [ThemeDecorator(Theme.LIGHT)];
 export const ListSmallDark = Template.bind({});
 ListSmallDark.args = {
     articles: new Array(9).fill(0).map((item, index) => ({ ...articles, id: String(index) })),
     isLoading: false,
-    views: ArticleViews.SMALL,
+    views: ArticleView.SMALL,
 };
 ListSmallDark.decorators = [ThemeDecorator(Theme.DARK)];
 export const ListBig = Template.bind({});
 ListBig.args = {
     articles: new Array(3).fill(0).map((item, index) => ({ ...articles, id: String(index) })),
     isLoading: false,
-    views: ArticleViews.BIG,
+    views: ArticleView.BIG,
 };
 ListBig.decorators = [ThemeDecorator(Theme.LIGHT)];
 export const ListBigDark = Template.bind({});
 ListBigDark.args = {
     articles: new Array(3).fill(0).map((item, index) => ({ ...articles, id: String(index) })),
     isLoading: false,
-    views: ArticleViews.BIG,
+    views: ArticleView.BIG,
 };
 ListBigDark.decorators = [ThemeDecorator(Theme.DARK)];
 
@@ -120,27 +120,27 @@ export const ListSmallIsLoading = Template.bind({});
 ListSmallIsLoading.args = {
     articles: new Array(0).fill(0).map((item, index) => ({ ...articles, id: String(index) })),
     isLoading: true,
-    views: ArticleViews.SMALL,
+    views: ArticleView.SMALL,
 };
 ListSmallIsLoading.decorators = [ThemeDecorator(Theme.LIGHT)];
 export const ListSmallIsLoadingDark = Template.bind({});
 ListSmallIsLoadingDark.args = {
     articles: new Array(0).fill(0).map((item, index) => ({ ...articles, id: String(index) })),
     isLoading: true,
-    views: ArticleViews.SMALL,
+    views: ArticleView.SMALL,
 };
 ListSmallIsLoadingDark.decorators = [ThemeDecorator(Theme.DARK)];
 export const ListBigIsLoading = Template.bind({});
 ListBigIsLoading.args = {
     articles: new Array(0).fill(0).map((item, index) => ({ ...articles, id: String(index) })),
     isLoading: true,
-    views: ArticleViews.BIG,
+    views: ArticleView.BIG,
 };
 ListBigIsLoading.decorators = [ThemeDecorator(Theme.LIGHT)];
 export const ListBigIsLoadingDark = Template.bind({});
 ListBigIsLoadingDark.args = {
     articles: new Array(0).fill(0).map((item, index) => ({ ...articles, id: String(index) })),
     isLoading: true,
-    views: ArticleViews.BIG,
+    views: ArticleView.BIG,
 };
 ListBigIsLoadingDark.decorators = [ThemeDecorator(Theme.DARK)];

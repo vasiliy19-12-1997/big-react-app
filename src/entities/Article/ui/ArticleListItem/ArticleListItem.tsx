@@ -1,13 +1,13 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { ToggleFeatures } from '@/shared/features';
-import { Article, ArticleViews } from '../../model/types/artcile';
+import { Article, ArticleView } from '../../model/types/artcile';
 import { ArticleListItemDeprecated } from './ArticleListItemDeprecated/ArticleListItemDeprecated';
 import { ArticleListItemRedesign } from './ArticleListItemRedesign/ArticleListItemRedesign';
 
 export interface ArticleListItemProps {
     className?: string;
     article: Article;
-    view: ArticleViews;
+    view: ArticleView;
     target?: HTMLAttributeAnchorTarget;
 }
 

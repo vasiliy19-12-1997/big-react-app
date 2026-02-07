@@ -11,7 +11,7 @@ import { Card } from '@/shared/ui/deprecated/Card';
 import { Sceleton } from '@/shared/ui/deprecated/Sceleton';
 import { Text } from '@/shared/ui/deprecated/Text';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
-import { ArtcileBlockText, ArticleBlockType, ArticleViews } from '../../../model/types/artcile';
+import { ArtcileBlockText, ArticleBlockType, ArticleView } from '../../../model/types/artcile';
 import { ArtcileTextBlockComponent } from '../../ArtcileTextBlockComponent/ArtcileTextBlockComponent';
 import { ArticleListItemProps } from '../ArticleListItem';
 import cls from './ArticleListItemDeprecated.module.scss';
@@ -37,7 +37,7 @@ export const ArticleListItemDeprecated = memo((props: ArticleListItemProps) => {
         </>
     );
     const textBlock = article?.blocks?.find((block) => block.type === ArticleBlockType.TEXT) as ArtcileBlockText;
-    if (view === ArticleViews.BIG) {
+    if (view === ArticleView.BIG) {
         return (
             <div data-testid="ArticleListItem" className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
                 <div className={cls.header}>

@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Theme } from '@/shared/const/theme';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Article, ArticleViews } from '../../model/types/artcile';
+import { Article, ArticleView } from '../../model/types/artcile';
 import { ArticleListItem } from './ArticleListItem';
 
 export default {
@@ -90,24 +90,24 @@ const articles = {
 export const ListItemSmall = Template.bind({});
 ListItemSmall.args = {
     article: articles,
-    view: ArticleViews.SMALL,
+    view: ArticleView.SMALL,
 };
 ListItemSmall.decorators = [ThemeDecorator(Theme.LIGHT)];
 export const ListItemSmallDark = Template.bind({});
 ListItemSmallDark.args = {
     article: articles,
-    view: ArticleViews.SMALL,
+    view: ArticleView.SMALL,
 };
 ListItemSmallDark.decorators = [ThemeDecorator(Theme.DARK)];
 export const ListItemBig = Template.bind({});
 ListItemBig.args = {
     article: articles,
-    view: ArticleViews.BIG,
+    view: ArticleView.BIG,
 };
 ListItemBig.decorators = [ThemeDecorator(Theme.LIGHT)];
 export const ListItemBigDark = Template.bind({});
 ListItemBigDark.args = {
     article: articles,
-    view: ArticleViews.BIG,
+    view: ArticleView.BIG,
 };
 ListItemBigDark.decorators = [ThemeDecorator(Theme.DARK)];

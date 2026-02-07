@@ -4,18 +4,23 @@ import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
 import { Card as CardRedesgn } from '@/shared/ui/redesigned/Card';
 import { Sceleton as SceletonDeprecated } from '@/shared/ui/deprecated/Sceleton';
 import { Sceleton as SceletonRedesign } from '@/shared/ui/redesigned/Sceleton';
-import { ArticleViews } from '../../model/types/artcile';
+import { ArticleView } from '../../model/types/artcile';
 import cls from './ArticleListItem.module.scss';
 import { toggleFeatures } from '@/shared/features';
 
 interface ArticleListItemSceletonProps {
     className?: string;
-    view: ArticleViews;
+    view: ArticleView;
 }
 
 export const ArticleListItemSceleton = memo((props: ArticleListItemSceletonProps) => {
     const { className, view } = props;
 
+    const mainClass = toggleFeatures({
+        name: 'isNewDesignEnabled',
+        on: () => cls.ArticleListItemRedesign,
+        off: () => cls.ArticleListItem,
+    });
     const Sceleton = toggleFeatures({
         name: 'isNewDesignEnabled',
         on: () => SceletonRedesign,
@@ -27,9 +32,9 @@ export const ArticleListItemSceleton = memo((props: ArticleListItemSceletonProps
         off: () => CardDeprecated,
     });
 
-    if (view === ArticleViews.BIG) {
+    if (view === ArticleView.BIG) {
         return (
-            <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+            <div className={classNames(mainClass, {}, [className, cls[view]])}>
                 <div className={cls.header}>
                     <Sceleton height={50} width={50} border="50%" className={cls.avatar} />
                     <Sceleton width={300} height={50} className={cls.username} />

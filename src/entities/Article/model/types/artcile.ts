@@ -29,7 +29,7 @@ export enum ArticleType {
     SCIENCE = 'SCIENCE',
     ECONOMICS = 'ECONOMICS',
 }
-export enum ArticleViews {
+export enum ArticleView {
     BIG = 'BIG',
     SMALL = 'SMALL',
 }
