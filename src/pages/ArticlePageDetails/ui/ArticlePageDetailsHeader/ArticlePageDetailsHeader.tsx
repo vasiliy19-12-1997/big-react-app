@@ -21,9 +21,11 @@ export const ArticlePageDetailsHeader = memo((props: ArticlePageDetailsHeaderPro
     const userData = useSelector(getAuthUserData);
     const canEdit = useSelector(getCanEditArticles);
     const { className } = props;
+
     const onBackToList = useCallback(() => {
         navigate(getRouteArticle());
     }, [navigate]);
+
     const onEditArticle = useCallback(() => {
         navigate(getRouteArticleEdit(articles?.id || ''));
     }, [articles?.id, navigate]);
