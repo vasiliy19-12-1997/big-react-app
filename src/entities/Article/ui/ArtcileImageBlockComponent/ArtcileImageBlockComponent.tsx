@@ -1,8 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { ArtcileBlockImage } from '../../model/types/artcile';
 import cls from './ArtcileImageBlockComponent.module.scss';
+import { ToggleFeatures } from '@/shared/features';
 
 interface ArtcileImageBlockComponentProps {
     className?: string;
@@ -14,10 +16,20 @@ export const ArtcileImageBlockComponent = (props: ArtcileImageBlockComponentProp
     const { className, block } = props;
 
     return (
-        // eslint-disable-next-line i18next/no-literal-string
-        <div className={classNames(cls.ArtcileImageBlockComponent, {}, [className])}>
-            <img src={block?.src} alt={block?.title} />
-            {block?.title && <Text text={block.title} />}
-        </div>
+        <ToggleFeatures
+            name="isNewDesignEnabled"
+            on={
+                <div className={classNames(cls.ArtcileImageBlockComponent, {}, [className])}>
+                    <img src={block?.src} alt={block?.title} />
+                    {block?.title && <Text text={block.title} />}
+                </div>
+            }
+            off={
+                <div className={classNames(cls.ArtcileImageBlockComponent, {}, [className])}>
+                    <img src={block?.src} alt={block?.title} />
+                    {block?.title && <TextDeprecated text={block.title} />}
+                </div>
+            }
+        />
     );
 };

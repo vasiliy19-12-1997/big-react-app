@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
@@ -7,10 +7,11 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Avatar } from '@/shared/ui/deprecated/Avatar';
-import { Icon } from '@/shared/ui/deprecated/Icon';
-import { Sceleton } from '@/shared/ui/deprecated/Sceleton';
-import { Text, TextAlign, TextSize } from '../../../../shared/ui/deprecated/Text/Text';
+import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
+import { Sceleton, Sceleton as SceletonDeprecated } from '@/shared/ui/deprecated/Sceleton';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
+import { Text as TextDeprecated, TextAlign, TextSize } from '../../../../shared/ui/deprecated/Text/Text';
 import {
     getArticleDetailsData,
     getArticleDetailsError,
@@ -18,12 +19,13 @@ import {
 } from '../../model/selectors/getArticleDetails';
 import { fetchArticleById } from '../../model/services/fetchArticleById';
 import { articleDetailsReducers } from '../../testing';
-import { ArtcileTypeBlocks, ArticleBlockType } from '../../model/types/artcile';
-import { ArtcileCodeBlockComponent } from '../ArtcileCodeBlockComponent/ArtcileCodeBlockComponent';
-import { ArtcileImageBlockComponent } from '../ArtcileImageBlockComponent/ArtcileImageBlockComponent';
-import { ArtcileTextBlockComponent } from '../ArtcileTextBlockComponent/ArtcileTextBlockComponent';
 import cls from './ArtcileDetails.module.scss';
-import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
+import { renderBlocks } from './ArticleRenderBlock';
+import { ToggleFeatures } from '@/shared/features';
+import { Text } from '@/shared/ui/redesigned/Text';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import { Avatar } from '@/shared/ui/redesigned/Avatar';
+import { AppImage } from '@/shared/ui/redesigned/AppImage';
 
 interface ArtcileDetailsProps {
     className?: string;
@@ -40,23 +42,54 @@ export const ArtcileDetails = memo((props: ArtcileDetailsProps) => {
     const error = useSelector(getArticleDetailsError);
     const isLoading = useSelector(getArticleDetailsIsLoading);
     const article = useSelector(getArticleDetailsData);
-    const renderBlocks = useCallback((blocks: ArtcileTypeBlocks) => {
-        switch (blocks.type) {
-            case ArticleBlockType.TEXT:
-                return <ArtcileTextBlockComponent key={blocks.id} className={cls.block} block={blocks} />;
-            case ArticleBlockType.CODE:
-                return <ArtcileCodeBlockComponent key={blocks.id} block={blocks} className={cls.block} />;
-            case ArticleBlockType.IMAGE:
-                return <ArtcileImageBlockComponent key={blocks.id} block={blocks} className={cls.block} />;
-            default:
-                return null;
-        }
-    }, []);
+
     useInitialEffect(() => {
         dispatch(fetchArticleById(id));
     }, [dispatch, id]);
     let element;
 
+    // eslint-disable-next-line react/no-unstable-nested-components
+    const Deprecated = () => {
+        return (
+            <>
+                <HStack max className={cls.avatarWrapper}>
+                    <AvatarDeprecated src={article?.img} className={cls.avatar} />
+                </HStack>
+                <TextDeprecated size={TextSize.L} title={article?.title} />
+                <TextDeprecated size={TextSize.L} text={article?.subtitle} />
+                <HStack justify="start" data-testid="ArticleDetails.Info">
+                    <IconDeprecated Svg={EyeIcon} className={cls.icon} />
+                    <TextDeprecated text={String(article?.views)} />
+                </HStack>
+                <HStack justify="start">
+                    <IconDeprecated Svg={CalendarIcon} className={cls.icon} />
+                    <TextDeprecated text={String(article?.createdAt)} />
+                </HStack>
+                {/* TODO найти текст с кодом, чтобы отобразить */}
+                {article?.blocks?.map(renderBlocks)}
+            </>
+        );
+    };
+    // eslint-disable-next-line react/no-unstable-nested-components
+    const Redesigned = () => {
+        return (
+            <>
+                <Text size="l" title={article?.title} bold />
+                <Text size="l" text={article?.subtitle} />
+                <AppImage className={cls.img} fallback={<Sceleton />} src={article?.img} height={420} width={100} />
+
+                <HStack justify="start" data-testid="ArticleDetails.Info">
+                    <Icon Svg={EyeIcon} className={cls.icon} />
+                    <Text text={String(article?.views)} />
+                </HStack>
+                <HStack justify="start">
+                    <Icon Svg={CalendarIcon} className={cls.icon} />
+                    <Text text={String(article?.createdAt)} />
+                </HStack>
+                {article?.blocks?.map(renderBlocks)}
+            </>
+        );
+    };
     if (error) {
         element = <Text align={TextAlign.CENTER} title={t('Произошла ошибка при загрузке статьи')} />;
     } else if (isLoading) {
@@ -70,25 +103,7 @@ export const ArtcileDetails = memo((props: ArtcileDetailsProps) => {
             </>
         );
     } else {
-        element = (
-            <div>
-                <HStack max className={cls.avatarWrapper}>
-                    <Avatar src={article?.img} className={cls.avatar} />
-                </HStack>
-                <Text size={TextSize.L} title={article?.title} />
-                <Text size={TextSize.L} text={article?.subtitle} />
-
-                <HStack justify="start" data-testid="ArticleDetails.Info">
-                    <Icon Svg={EyeIcon} className={cls.icon} />
-                    <Text text={String(article?.views)} />
-                </HStack>
-                <HStack justify="start">
-                    <Icon Svg={CalendarIcon} className={cls.icon} />
-                    <Text text={String(article?.createdAt)} />
-                </HStack>
-                {article?.blocks?.map(renderBlocks)}
-            </div>
-        );
+        element = <ToggleFeatures name="isNewDesignEnabled" on={<Redesigned />} off={<Deprecated />} />;
     }
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
