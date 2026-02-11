@@ -13,8 +13,10 @@ import {
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Sceleton } from '@/shared/ui/deprecated/Sceleton';
 import { VStack } from '@/shared/ui/redesigned/Stack';
-import { Text } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Text } from '@/shared/ui/redesigned/Text';
+import { ToggleFeatures } from '@/shared/features';
 
 interface ArticleDetailsCommentsProps {
     className?: string;
@@ -41,7 +43,11 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
     }, [dispatch, id]);
     return (
         <VStack gap={16} max>
-            <Text title={t('Комментарии')} />
+            <ToggleFeatures
+                name="isArticleRatingEnabled"
+                on={<Text size="l" title={t('Комментарии')} />}
+                off={<TextDeprecated title={t('Комментарии')} />}
+            />
             <Suspense fallback={<Sceleton width={200} height={200} />}>
                 <AddCommentForm onSendComments={onSendComments} />
             </Suspense>

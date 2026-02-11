@@ -38,8 +38,18 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
-    const { className, children, variant = 'outline', square, size = 'm', disabled, fullWidth,addonLeft,
-addonRight, ...otherProps } = props;
+    const {
+        className,
+        children,
+        variant = 'outline',
+        square,
+        size = 'm',
+        disabled,
+        fullWidth,
+        addonLeft,
+        addonRight,
+        ...otherProps
+    } = props;
     const mods: Mods = {
         [cls.square]: square,
         [cls.disabled]: disabled,
@@ -52,7 +62,7 @@ addonRight, ...otherProps } = props;
             className={classNames(cls.Button, mods, [className, cls[variant], cls[size]])}
             disabled={disabled}
             {...otherProps}
-            >
+        >
             <div className={cls.addonLeft}>{addonLeft}</div>
             {children}
             <div className={cls.addonRight}>{addonRight}</div>

@@ -14,10 +14,7 @@ interface ModalProps {
     onClose?: () => void;
     lazy?: boolean;
 }
-/**
- * Компонент устарел, пожалуйста используйте ui библиотеку из папки redesign
- * @deprecated
- */
+
 export const Modal = (props: ModalProps) => {
     const { className, children, isOpen, onClose, lazy } = props;
     const { isClosing, isMounted, close } = useModal({ onClose, isOpen, animationDelay: 500 });

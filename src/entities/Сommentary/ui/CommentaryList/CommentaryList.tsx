@@ -5,6 +5,9 @@ import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Commentary } from '../../model/types/commentary';
 import { CommentaryCard } from '../CommentaryCard/CommentaryCard';
 import cls from './CommentaryList.module.scss';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { ToggleFeatures } from '@/shared/features';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 interface CommentaryListProps {
     className?: string;
@@ -28,12 +31,18 @@ export const CommentaryList = memo((props: CommentaryListProps) => {
 
     return (
         <VStack gap={16} max className={classNames('', {}, [className])}>
-            {comments.length > 0
-                ? comments.map((comment, index) => (
-                      // eslint-disable-next-line react/no-array-index-key
-                      <CommentaryCard key={index} isLoading={isLoading} className={cls.cards} comment={comment} />
-                  ))
-                : null}
+            {comments.length > 0 ? (
+                comments.map((comment, index) => (
+                    // eslint-disable-next-line react/no-array-index-key
+                    <CommentaryCard key={index} isLoading={isLoading} className={cls.cards} comment={comment} />
+                ))
+            ) : (
+                <ToggleFeatures
+                    name="isNewDesignEnabled"
+                    on={<Text title={t('Комментарии отсутствуют')} />}
+                    off={<TextDeprecated title={t('Комментарии отсутствуют')} />}
+                />
+            )}
         </VStack>
     );
 });
