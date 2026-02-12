@@ -10,10 +10,6 @@
     border: 1px solid var(--accent-redesign);
 }
 
-.round {
-    border-radius: 40px;
-}
-
 .light {
     background: var(--light-bg-redesign);
 }
@@ -21,6 +17,14 @@
 .normal {
     border-radius: 12px;
     background: var(--dark-bg-redesign);
+}
+
+.partial_round {
+    border-radius: 20px;
+}
+
+.round {
+    border-radius: 40px;
 }
 
 .gap_0 {

@@ -3,6 +3,7 @@ import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
 export type ButtonVariant = 'clear' | 'outline' | 'filled';
+export type ButtonColor = 'normal' | 'succes' | 'error';
 /**
  * Размер кнопки
  */
@@ -35,11 +36,26 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
      */
     addonLeft?: ReactNode;
     addonRight?: ReactNode;
+    /**
+     * Цвета кнопки
+     */
+    color?: ButtonColor;
 }
 
 export const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
-    const { className, children, variant = 'outline', square, size = 'm', disabled, fullWidth,addonLeft,
-addonRight, ...otherProps } = props;
+    const {
+        className,
+        children,
+        variant = 'outline',
+        square,
+        size = 'm',
+        disabled,
+        fullWidth,
+        addonLeft,
+        addonRight,
+        color = 'normal',
+        ...otherProps
+    } = props;
     const mods: Mods = {
         [cls.square]: square,
         [cls.disabled]: disabled,
@@ -49,10 +65,10 @@ addonRight, ...otherProps } = props;
     return (
         <button
             type="button"
-            className={classNames(cls.Button, mods, [className, cls[variant], cls[size]])}
+            className={classNames(cls.Button, mods, [className, cls[variant], cls[size], cls[color]])}
             disabled={disabled}
             {...otherProps}
-            >
+        >
             <div className={cls.addonLeft}>{addonLeft}</div>
             {children}
             <div className={cls.addonRight}>{addonRight}</div>

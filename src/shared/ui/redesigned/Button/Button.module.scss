@@ -4,15 +4,6 @@
     padding: 8px 16px;
     display: flex;
     align-items: center;
-
-    & :hover {
-        color: var(--accent-redesign);
-
-        .addonLeft svg,
-        .addonRight svg {
-            color: var(--accent-redesign);
-        }
-    }
 }
 
 .withAddon {
@@ -50,50 +41,74 @@
     border-radius: 34px;
     background: none;
 
-    & :hover {
+    &:hover {
         border: 1px solid var(--accent-redesign);
     }
-}
 
-.Button:focus,
-.Button:focus-visible {
-    outline: none;
-}
+    &.normal {
+        border: 1px solid var(--icon-redesign);
 
-.filled {
-    border: none;
-    outline: none;
-    background: var(--light-bg-redesign);
-    border-radius: 34px;
-}
+        &:hover {
+            border: 1px solid var(--accent-redesign);
+        }
+    }
 
-.square {
-    padding: 0;
-}
+    &.succes {
+        border: 1px solid var(--save-redesign);
 
-.square.m {
-    width: var(--font-m-redesign);
-    height: var(--font-m-redesign);
-}
+        &:hover {
+            opacity: 0.7;
+        }
+    }
 
-.square.l {
-    width: var(--font-l-redesign);
-    height: var(--font-l-redesign);
-}
+    &.error {
+        border: 1px solid var(--cancel-redesign);
 
-.square.xl {
-    width: var(--font-xl-redesign);
-    height: var(--font-xl-redesign);
-}
+        &:hover {
+            opacity: 0.7;
+        }
+    }
 
-.m {
-    font: var(--font-m-redesign);
-}
+    .Button:focus,
+    .Button:focus-visible {
+        outline: none;
+    }
 
-.l {
-    font: var(--font-l-redesign);
-}
+    .filled {
+        border: none;
+        outline: none;
+        background: var(--light-bg-redesign);
+        border-radius: 34px;
+    }
 
-.xl {
-    font: var(--font-xl-redesign);
+    .square {
+        padding: 0;
+    }
+
+    .square.m {
+        width: var(--font-m-redesign);
+        height: var(--font-m-redesign);
+    }
+
+    .square.l {
+        width: var(--font-l-redesign);
+        height: var(--font-l-redesign);
+    }
+
+    .square.xl {
+        width: var(--font-xl-redesign);
+        height: var(--font-xl-redesign);
+    }
+
+    .m {
+        font: var(--font-m-redesign);
+    }
+
+    .l {
+        font: var(--font-l-redesign);
+    }
+
+    .xl {
+        font: var(--font-xl-redesign);
+    }
 }

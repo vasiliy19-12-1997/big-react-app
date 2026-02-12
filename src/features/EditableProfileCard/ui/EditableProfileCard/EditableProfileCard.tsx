@@ -104,7 +104,7 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
         },
         [dispatch],
     );
-
+    // TODO сделать сохранение профиля
     return (
         <DynamicModuleLoader reducers={reducers}>
             <VStack max gap={8}>

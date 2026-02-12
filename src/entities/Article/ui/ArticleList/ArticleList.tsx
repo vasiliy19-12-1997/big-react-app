@@ -21,6 +21,7 @@ interface ArticleListProps {
 export const ArticleList = memo((props: ArticleListProps) => {
     const { t } = useTranslation();
     const { className, articles, views = ArticleView.SMALL, isLoading, target, virtualized = true } = props;
+
     const getSceletons = (view: ArticleView) =>
         new Array(view === ArticleView.SMALL ? 9 : 3)
             .fill(0)
@@ -33,6 +34,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
             </div>
         );
     }
+
     return (
         <ToggleFeatures
             name="isNewDesignEnabled"
