@@ -1,0 +1,11 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+RUN npm install -g json-server
+
+COPY ./json-server/db.json ./db.json
+
+EXPOSE 8081
+
+CMD ["json-server", "--host", "0.0.0.0", "--port", "8081", "db.json"]

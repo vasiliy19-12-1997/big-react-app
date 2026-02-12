@@ -5,12 +5,14 @@ services:
         build: .
         ports:
             - '3000:80'
+        environment:
+            - API_URL=http://api:8081
+        depends_on:
+            - api
 
     api:
-        image: node:20-alpine
-        working_dir: /app
-        volumes:
-            - ./json-server:/app
-        command: node index.js
+        build:
+            context: .
+            dockerfile: Dockerfile.api
         ports:
             - '8081:8081'

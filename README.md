@@ -3,7 +3,13 @@
 ```
 npm install - устанавливаем зависимости
 npm run start:dev или npm run start:dev:vite - запуск сервера + frontend проекта в dev режиме
+
 ```
+
+## Docker
+
+Run full application stack (nginx + API):
+npm run docker:up
 
 ---
 
