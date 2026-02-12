@@ -9,7 +9,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
 import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
-import { Sceleton, Sceleton as SceletonDeprecated } from '@/shared/ui/deprecated/Sceleton';
+import { Sceleton as SceletonDeprecated } from '@/shared/ui/deprecated/Sceleton';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text as TextDeprecated, TextAlign, TextSize } from '../../../../shared/ui/deprecated/Text/Text';
 import {
@@ -21,11 +21,11 @@ import { fetchArticleById } from '../../model/services/fetchArticleById';
 import { articleDetailsReducers } from '../../testing';
 import cls from './ArtcileDetails.module.scss';
 import { renderBlocks } from './ArticleRenderBlock';
-import { ToggleFeatures } from '@/shared/features';
+import { toggleFeatures, ToggleFeatures } from '@/shared/features';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Icon } from '@/shared/ui/redesigned/Icon';
-import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
+import { Sceleton } from '@/shared/ui/redesigned/Sceleton';
 
 interface ArtcileDetailsProps {
     className?: string;
@@ -46,7 +46,29 @@ export const ArtcileDetails = memo((props: ArtcileDetailsProps) => {
     useInitialEffect(() => {
         dispatch(fetchArticleById(id));
     }, [dispatch, id]);
-    let element;
+    // TODO доделать скелетона детальной страницы
+    let element = toggleFeatures({
+        name: 'isNewDesignEnabled',
+        on: () => (
+            <>
+                <Sceleton className={cls.avatar} width={200} height={200} border="50%" />
+                <Sceleton className={cls.title} width={300} height={32} />
+                <Sceleton className={cls.title} width={600} height={24} />
+                <Sceleton className={cls.sceleton} width="100%" height={200} />
+                <Sceleton className={cls.sceleton} width="100%" height={200} />
+            </>
+        ),
+
+        off: () => (
+            <>
+                <SceletonDeprecated className={cls.avatar} width={200} height={200} border="50%" />
+                <SceletonDeprecated className={cls.title} width={300} height={32} />
+                <SceletonDeprecated className={cls.title} width={600} height={24} />
+                <SceletonDeprecated className={cls.sceleton} width="100%" height={200} />
+                <SceletonDeprecated className={cls.sceleton} width="100%" height={200} />
+            </>
+        ),
+    });
 
     // eslint-disable-next-line react/no-unstable-nested-components
     const Deprecated = () => {
@@ -76,7 +98,13 @@ export const ArtcileDetails = memo((props: ArtcileDetailsProps) => {
             <>
                 <Text size="l" title={article?.title} bold />
                 <Text size="l" text={article?.subtitle} />
-                <AppImage className={cls.img} fallback={<Sceleton />} src={article?.img} height={420} width={100} />
+                <AppImage
+                    className={cls.img}
+                    fallback={<SceletonDeprecated />}
+                    src={article?.img}
+                    height={420}
+                    width={100}
+                />
 
                 <HStack justify="start" data-testid="ArticleDetails.Info">
                     <Icon Svg={EyeIcon} className={cls.icon} />
@@ -93,15 +121,7 @@ export const ArtcileDetails = memo((props: ArtcileDetailsProps) => {
     if (error) {
         element = <Text align={TextAlign.CENTER} title={t('Произошла ошибка при загрузке статьи')} />;
     } else if (isLoading) {
-        element = (
-            <>
-                <Sceleton className={cls.avatar} width={200} height={200} border="50%" />
-                <Sceleton className={cls.title} width={300} height={32} />
-                <Sceleton className={cls.title} width={600} height={24} />
-                <Sceleton className={cls.sceleton} width="100%" height={200} />
-                <Sceleton className={cls.sceleton} width="100%" height={200} />
-            </>
-        );
+        return element;
     } else {
         element = <ToggleFeatures name="isNewDesignEnabled" on={<Redesigned />} off={<Deprecated />} />;
     }

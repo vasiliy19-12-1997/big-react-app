@@ -683,6 +683,12 @@
       "articleId": "9",
       "userId": "1",
       "id": "r_Z-ArO"
+    },
+    {
+      "text": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo nobis pariatur harum ipsa itaque commodi perferendis saepe, perspiciatis, asperiores at corrupti provident esse eligendi amet molestiae obcaecati. Ipsam, odit itaque.",
+      "articleId": "2",
+      "userId": "1",
+      "id": "Tp9ZTQD"
     }
   ],
   "users": [
@@ -691,7 +697,7 @@
       "username": "admin",
       "password": "123",
       "jsonSettings": {
-        "theme": "app_yellow_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": false,
         "isPageHasBeenOpen": true
       },
@@ -845,6 +851,27 @@
       "rate": 2,
       "userId": "1",
       "id": "Za2aeqs"
+    },
+    {
+      "articleId": "1",
+      "feedback": "",
+      "rate": 3,
+      "userId": "1",
+      "id": "2rf49E9"
+    },
+    {
+      "articleId": "1",
+      "feedback": "",
+      "rate": 3,
+      "userId": "1",
+      "id": "wyqyLcu"
+    },
+    {
+      "articleId": "1",
+      "feedback": "",
+      "rate": 4,
+      "userId": "1",
+      "id": "5A-jPKZ"
     }
   ],
   "profile-ratings": [
