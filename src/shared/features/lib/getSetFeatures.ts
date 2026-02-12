@@ -1,7 +1,10 @@
 import { FeaturesType } from '../../types/features';
 
 let featureFlags: FeaturesType = {};
-
+// context
+// state
+// reload page
+// костыль
 export function setFeaturesFlags(newFeatures?: FeaturesType) {
     if (newFeatures) {
         featureFlags = newFeatures;

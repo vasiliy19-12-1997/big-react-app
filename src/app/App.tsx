@@ -13,9 +13,12 @@ import { AppRouter } from './providers/router';
 function App() {
     const auth = useSelector(getAuthUserMounted);
     const dispatch = useAppDispatch();
+
     useEffect(() => {
-        dispatch(initedAuthData());
-    }, [dispatch]);
+        if (!auth) {
+            dispatch(initedAuthData());
+        }
+    }, [auth, dispatch]);
 
     if (!auth) {
         return <PageLoader />;

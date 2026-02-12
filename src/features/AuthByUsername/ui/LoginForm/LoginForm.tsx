@@ -19,6 +19,7 @@ import { Text } from '@/shared/ui/redesigned/Text';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { VStack } from '@/shared/ui/redesigned/Stack';
+import { useForceUpdate } from '@/shared/render/forceUpdate';
 
 export interface LoginFormProps {
     className?: string;
@@ -36,6 +37,7 @@ const LoginForm = memo((props: LoginFormProps) => {
     const error = useSelector(getLoginError);
     const isLoading = useSelector(getLoginIsLoading);
     const dispatch = useAppDispatch();
+    const forceUpdate = useForceUpdate();
 
     const changeUsername = useCallback(
         (value: string) => {
@@ -53,8 +55,9 @@ const LoginForm = memo((props: LoginFormProps) => {
         const result = await dispatch(loginByUsername({ username, password }));
         if (result.meta.requestStatus === 'fulfilled') {
             onSuccess();
+            forceUpdate();
         }
-    }, [dispatch, username, password, onSuccess]);
+    }, [dispatch, username, password, onSuccess, forceUpdate]);
 
     return (
         // eslint-disable-next-line i18next/no-literal-string

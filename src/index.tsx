@@ -8,6 +8,7 @@ import '@/app/styles/index.scss';
 import '@/shared/config/i18n/i18n';
 import { ThemeProvider } from './app/providers/ThemeProvider';
 import { Theme } from './shared/const/theme';
+import { ForceUpdateProvider } from './shared/render/forceUpdate';
 
 const container = document.getElementById('root');
 if (!container) {
@@ -18,9 +19,12 @@ root.render(
     <BrowserRouter>
         <StoreProvider>
             <ErrorBoundary>
-                <ThemeProvider initialTheme={Theme.LIGHT}>
-                    <App />
-                </ThemeProvider>
+                {/* костыль чтобы обновилась тема при смене юзера, в реальных проектах лучше не юзать */}
+                <ForceUpdateProvider>
+                    <ThemeProvider initialTheme={Theme.LIGHT}>
+                        <App />
+                    </ThemeProvider>
+                </ForceUpdateProvider>
             </ErrorBoundary>
         </StoreProvider>
     </BrowserRouter>,

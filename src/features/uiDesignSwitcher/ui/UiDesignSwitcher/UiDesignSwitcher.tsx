@@ -10,6 +10,7 @@ import { getAuthUserData } from '@/entities/User';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Sceleton } from '@/shared/ui/redesigned/Sceleton';
+import { useForceUpdate } from '@/shared/render/forceUpdate';
 
 interface UiDesignSwitcherProps {
     className?: string;
@@ -22,6 +23,7 @@ export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
     const isAppRedesign = getFeaturesFlags('isNewDesignEnabled');
     const dispatch = useAppDispatch();
     const authData = useSelector(getAuthUserData);
+    const forceUpdate = useForceUpdate();
 
     const items = [
         { content: 'Новый', value: 'new' },
@@ -39,6 +41,7 @@ export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
                 }),
             ).unwrap();
             setIsLoading(false);
+            forceUpdate();
         }
     };
 
