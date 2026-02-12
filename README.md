@@ -8,8 +8,9 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 
 ## Docker
 
-```
 Run full application stack (nginx + API):
+
+```
 npm run docker:up
 ```
 
