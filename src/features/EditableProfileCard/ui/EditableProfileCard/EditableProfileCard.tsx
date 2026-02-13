@@ -108,7 +108,7 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <VStack max gap={8}>
-                <EditableProfileCardHeader />
+                <EditableProfileCardHeader isLoading={isLoading} />
                 {validateProfileErrors?.length &&
                     validateProfileErrors.map((err) => (
                         <Text

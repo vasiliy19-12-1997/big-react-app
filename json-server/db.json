@@ -697,7 +697,7 @@
       "username": "admin",
       "password": "123",
       "jsonSettings": {
-        "theme": "app_yellow_theme",
+        "theme": "app_light_theme",
         "isFirstVisit": false,
         "isPageHasBeenOpen": true
       },

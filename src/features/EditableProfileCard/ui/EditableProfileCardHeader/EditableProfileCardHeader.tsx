@@ -15,19 +15,22 @@ import { ToggleFeatures } from '@/shared/features';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Card } from '@/shared/ui/redesigned/Card';
+import { Sceleton } from '@/shared/ui/redesigned/Sceleton';
+import { Sceleton as SceletonRedesign } from '@/shared/ui/deprecated/Sceleton';
 
 interface EditableProfileCardHeaderProps {
     className?: string;
+    isLoading?: boolean;
 }
 
 export const EditableProfileCardHeader = memo((props: EditableProfileCardHeaderProps) => {
+    const { className, isLoading = false } = props;
     const { t } = useTranslation();
     const readonly = useSelector(getProfileReadonly);
     const authData = useSelector(getAuthUserData);
     const profileData = useSelector(getProfileData);
     const canEdit = authData?.id === profileData?.id;
     const dispatch = useAppDispatch();
-    const { className } = props;
 
     const onEdit = useCallback(() => {
         dispatch(profileActions.setReadonly(false));
@@ -40,6 +43,23 @@ export const EditableProfileCardHeader = memo((props: EditableProfileCardHeaderP
     const onSave = useCallback(() => {
         dispatch(updateProfileData());
     }, [dispatch]);
+
+    if (isLoading) {
+        return (
+            <ToggleFeatures
+                name="isNewDesignEnabled"
+                on={
+                    <Card className={classNames('', {}, [className])} border="partial_round" padding="24" max>
+                        <HStack max justify="between">
+                            <Sceleton width={265} height={40} />
+                            <Sceleton width={150} height={40} />
+                        </HStack>
+                    </Card>
+                }
+                off={<SceletonRedesign height={200} width={200} />}
+            />
+        );
+    }
     return (
         <ToggleFeatures
             name="isNewDesignEnabled"
