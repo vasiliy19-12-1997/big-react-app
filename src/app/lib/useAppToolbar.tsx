@@ -9,8 +9,6 @@ export const useAppToolbar = () => {
     const toolbarByAppRoutes: OptionalRecord<AppRoutes, ReactElement> = {
         [AppRoutes.ARTICLE]: <ScrollToolbar />,
         [AppRoutes.ARTICLE_DETAILS]: <ScrollToolbar />,
-        [AppRoutes.MAIN]: <div>toolbar main</div>,
-        [AppRoutes.ABOUT]: <div>toolbar about</div>,
     };
     return toolbarByAppRoutes[appRoute];
 };

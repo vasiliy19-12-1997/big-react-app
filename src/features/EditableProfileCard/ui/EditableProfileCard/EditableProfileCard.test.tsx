@@ -8,6 +8,7 @@ import { $api } from '@/shared/config/api/api';
 import { profileReducers } from '../../model/slice/profileSlice';
 import { EditableProfileCard } from './EditableProfileCard';
 
+jest.mock('../../model/services/fetchProfileData/fetchProfileData');
 const profile: Profile = {
     id: '1',
     first: 'admin',
@@ -24,6 +25,7 @@ const options = {
             readonly: true,
             data: profile,
             form: profile,
+            isLoading: false,
         },
         user: {
             authData: { id: '1', username: 'admin' },
@@ -43,24 +45,23 @@ describe('feautures/EditableProfileCard.test', () => {
     test('При отмене должны обнуляться значения до initial state', async () => {
         componentRender(<EditableProfileCard id="1" />, options);
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.Edit'));
-        await userEvent.clear(screen.getByTestId('ProfileCard.firsname'));
+        await userEvent.clear(screen.getByTestId('ProfileCard.firstname'));
         await userEvent.clear(screen.getByTestId('ProfileCard.lastname'));
 
-        await userEvent.type(screen.getByTestId('ProfileCard.firsname'), 'azalia');
+        await userEvent.type(screen.getByTestId('ProfileCard.firstname'), 'azalia');
         await userEvent.type(screen.getByTestId('ProfileCard.lastname'), 'faizullina');
 
-        expect(screen.getByTestId('ProfileCard.firsname')).toHaveValue('azalia');
+        expect(screen.getByTestId('ProfileCard.firstname')).toHaveValue('azalia');
         expect(screen.getByTestId('ProfileCard.lastname')).toHaveValue('faizullina');
 
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.Cancel'));
-
-        expect(screen.getByTestId('ProfileCard.firsname')).toHaveValue('admin');
+        expect(screen.getByTestId('ProfileCard.firstname')).toHaveValue('admin');
         expect(screen.getByTestId('ProfileCard.lastname')).toHaveValue('admin');
     });
     test('Должна появиться ошибка', async () => {
         componentRender(<EditableProfileCard id="1" />, options);
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.Edit'));
-        await userEvent.clear(screen.getByTestId('ProfileCard.firsname'));
+        await userEvent.clear(screen.getByTestId('ProfileCard.firstname'));
         await userEvent.clear(screen.getByTestId('ProfileCard.lastname'));
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.Save'));
 
@@ -70,7 +71,7 @@ describe('feautures/EditableProfileCard.test', () => {
         const mockPutRequest = jest.spyOn($api, 'put');
         componentRender(<EditableProfileCard id="1" />, options);
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.Edit'));
-        await userEvent.type(screen.getByTestId('ProfileCard.firsname'), 'azalia');
+        await userEvent.type(screen.getByTestId('ProfileCard.firstname'), 'azalia');
         await userEvent.type(screen.getByTestId('ProfileCard.lastname'), 'faizullina');
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.Save'));
 

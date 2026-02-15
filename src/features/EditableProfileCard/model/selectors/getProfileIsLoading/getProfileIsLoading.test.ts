@@ -11,8 +11,8 @@ describe('getProfileIsLoading.test', () => {
 
         expect(getProfileIsLoading(state as StateSchema)).toEqual(true);
     });
-    test('should return undefined', () => {
+    test('should return false', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(getProfileIsLoading(state as StateSchema)).toEqual(undefined);
+        expect(getProfileIsLoading(state as StateSchema)).toEqual(false);
     });
 });

@@ -16,7 +16,7 @@
     "docker:up": "docker-compose up --build",
     "docker:down": "docker-compose down",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
-    "prettier":" prettier --write \"**/*.{ts,tsx,json}\"",
+    "prettier": " prettier --write \"**/*.{ts,tsx,json}\"",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "lint:scss": "npx stylelint \"**/*.scss\"",
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
@@ -83,7 +83,7 @@
     "eslint": "^8.10.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-big-react-app-plugin": "^0.2.10",
+    "eslint-plugin-big-react-app-plugin": "^0.2.14",
     "eslint-plugin-i18next": "^5.1.2",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jsx-a11y": "^6.5.1",
@@ -144,7 +144,10 @@
     "react-router-dom": "^6.2.1"
   },
   "lint-staged": {
-    "**/*.{ts,tsx}": ["prettier --list-different", "eslint"]
+    "**/*.{ts,tsx}": [
+      "prettier --list-different",
+      "eslint"
+    ]
   },
   "loki": {
     "configurations": {
