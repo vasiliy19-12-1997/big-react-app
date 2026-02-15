@@ -6,15 +6,16 @@ import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { PageLoader } from '@/shared/ui/deprecated/PageLoader';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
+import { useAppToolbar } from './lib/useAppToolbar';
 import { AppRouter } from './providers/router';
-import { PageLoader } from '@/shared/ui/deprecated/PageLoader';
 
 function App() {
     const auth = useSelector(getAuthUserMounted);
     const dispatch = useAppDispatch();
-
+    const toolbar = useAppToolbar();
     useEffect(() => {
         if (!auth) {
             dispatch(initedAuthData());
@@ -44,8 +45,7 @@ function App() {
                             header={<Navbar />}
                             content={<AppRouter />}
                             sidebar={<Sidebar />}
-                            // eslint-disable-next-line i18next/no-literal-string
-                            toolbar={<div>Toolbar Content</div>}
+                            toolbar={toolbar}
                         />
                     </Suspense>
                 </div>
