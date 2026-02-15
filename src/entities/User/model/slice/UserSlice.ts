@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
+import { LOCAL_STORAGE_LAST_DESIGN_KEY, USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 import { setFeaturesFlags } from '@/shared/features';
 import { initedAuthData } from '../services/initedAuthData';
 import { saveJsonSettings } from '../services/saveJsonSettings';
@@ -20,6 +20,10 @@ export const UserSlice = createSlice({
             // eslint-disable-next-line spaced-comment
             //Для учебного проекта сохраним в локалсторедж id пользователя, а так нельзя делать в реальных проектах
             localStorage.setItem(USER_LOCALSTORAGE_KEY, action.payload.id);
+            localStorage.setItem(
+                LOCAL_STORAGE_LAST_DESIGN_KEY,
+                action.payload.features?.isNewDesignEnabled ? 'new' : 'old',
+            );
         },
 
         logout: (state) => {

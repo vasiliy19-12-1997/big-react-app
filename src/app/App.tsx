@@ -2,13 +2,14 @@ import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { getAuthUserMounted, initedAuthData } from '@/entities/User';
 import { ToggleFeatures } from '@/shared/features';
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { PageLoader } from '@/shared/ui/deprecated/PageLoader';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import { AppRouter } from './providers/router';
+import { PageLoader } from '@/shared/ui/deprecated/PageLoader';
 
 function App() {
     const auth = useSelector(getAuthUserMounted);
@@ -21,9 +22,18 @@ function App() {
     }, [auth, dispatch]);
 
     if (!auth) {
-        return <PageLoader />;
+        return (
+            <ToggleFeatures
+                name="isNewDesignEnabled"
+                on={
+                    <div id="app" className={classNames('app_redesign', {}, [])}>
+                        <AppLoaderLayout />
+                    </div>
+                }
+                off={<PageLoader />}
+            />
+        );
     }
-
     return (
         <ToggleFeatures
             name="isNewDesignEnabled"
