@@ -24,18 +24,9 @@ const App = memo(() => {
     }, [auth, dispatch]);
 
     if (!auth) {
-        return (
-            <ToggleFeatures
-                name="isNewDesignEnabled"
-                on={
-                    <div id="app" className={classNames('app_redesign', {}, [])}>
-                        <AppLoaderLayout />
-                    </div>
-                }
-                off={<PageLoader />}
-            />
-        );
+        return <PageLoader />;
     }
+
     return (
         <ToggleFeatures
             name="isNewDesignEnabled"

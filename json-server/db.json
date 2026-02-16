@@ -679,7 +679,7 @@
       "username": "admin",
       "password": "123",
       "jsonSettings": {
-        "theme": "app_yellow_theme",
+        "theme": "app_light_theme",
         "isFirstVisit": false,
         "isPageHasBeenOpen": true
       },
@@ -747,11 +747,11 @@
       "id": "1",
       "first": "fdfdfdfdfdfававав",
       "lastname": "fdfdfdfgfgfg",
-      "age": 123,
+      "age": 12,
       "currency": "USD",
       "country": "Irish",
       "city": "ekb",
-      "username": "fdfdf",
+      "username": "fdfdfdfdfd",
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     },
     {
