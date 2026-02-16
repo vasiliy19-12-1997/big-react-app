@@ -8,20 +8,10 @@ interface ThemeProviderProps {
     children: ReactNode;
 }
 
-const ThemeProvider = (props: ThemeProviderProps) => {
-    const { initialTheme, children } = props;
-
-    const [isInitedTheme, setIsInitedTheme] = useState(false);
+const ThemeProvider = ({ initialTheme, children }: ThemeProviderProps) => {
     const [theme, setTheme] = useState<Theme>(() => {
-        const storedTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme;
-        return storedTheme || initialTheme || Theme.LIGHT;
+        return (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || initialTheme || Theme.LIGHT;
     });
-    useEffect(() => {
-        if (!isInitedTheme && initialTheme) {
-            setTheme(initialTheme);
-            setIsInitedTheme(true);
-        }
-    }, [initialTheme, isInitedTheme]);
 
     useEffect(() => {
         document.body.className = theme;
@@ -38,5 +28,4 @@ const ThemeProvider = (props: ThemeProviderProps) => {
 
     return <ThemeContext.Provider value={defaultProps}>{children}</ThemeContext.Provider>;
 };
-
 export default ThemeProvider;
