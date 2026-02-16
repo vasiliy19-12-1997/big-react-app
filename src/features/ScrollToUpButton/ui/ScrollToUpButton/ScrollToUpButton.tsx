@@ -1,7 +1,6 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Icon } from '@/shared/ui/redesigned/Icon';
-import cls from './ScrollToUpButton.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import ArrowUpIcon from '@/shared/assets/icons/circle-up.svg';
 
@@ -25,7 +24,7 @@ export const ScrollToUpButton = memo((props: ScrollToUpButtonProps) => {
             width={32}
             height={32}
             clickable
-            className={classNames(cls.ScrollToUpButton, {}, [className])}
+            className={classNames('', {}, [className])}
         />
     );
 });

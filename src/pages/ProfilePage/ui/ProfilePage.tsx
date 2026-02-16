@@ -14,12 +14,12 @@ interface ProfilePageProps {
 }
 
 export const ProfilePage = memo((props: ProfilePageProps) => {
+    const { className } = props;
     const { t } = useTranslation();
     const { id } = useParams<{ id: string }>();
     if (!id) {
         return null;
     }
-    const { className } = props;
     return (
         <Page data-testid="ProfilePage" className={classNames(cls.ProfilePage, {}, [className])}>
             <VStack gap={16} max>

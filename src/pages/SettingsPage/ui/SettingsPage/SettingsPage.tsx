@@ -2,7 +2,6 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Page } from '@/shared/ui/deprecated/Page';
-import cls from './SettingsPage.module.scss';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { UiDesignSwitcher } from '@/features/uiDesignSwitcher';
 
@@ -15,7 +14,7 @@ const SettingsPage = memo((props: SettingsPageProps) => {
     const { t } = useTranslation();
 
     return (
-        <Page className={classNames(cls.SettingsPage, {}, [className])}>
+        <Page className={classNames('', {}, [className])}>
             <VStack>
                 <UiDesignSwitcher />
             </VStack>

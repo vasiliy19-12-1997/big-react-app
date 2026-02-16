@@ -71,5 +71,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
         );
     }
 
-    return <ToggleFeatures name="isNewDesignEnabled" on={<ProfileCardRedesign />} off={<ProfileCardDeprecated />} />;
+    return (
+        <ToggleFeatures
+            name="isNewDesignEnabled"
+            on={<ProfileCardRedesign {...props} />}
+            off={<ProfileCardDeprecated {...props} />}
+        />
+    );
 };

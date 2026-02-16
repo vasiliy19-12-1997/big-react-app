@@ -34,8 +34,7 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
     const readonly = useSelector(getProfileReadonly);
     const validateProfileErrors = useSelector(getProfileValidateErrors);
     const dispatch = useAppDispatch();
-
-    const validateErrorTranslation: any = {
+    const validateErrorTranslation: Record<ValidateProfileErrors, string> = {
         [ValidateProfileErrors.INCORRECT_AGE]: t('Некооректный возраст'),
         [ValidateProfileErrors.INCORRECT_COUNTRY]: t('Некооректный страна'),
         [ValidateProfileErrors.INCORRECT_USER_DATA]: t('Некооректное имя'),

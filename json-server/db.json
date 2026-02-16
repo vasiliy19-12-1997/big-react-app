@@ -774,11 +774,11 @@
     },
     {
       "id": "2",
-      "first": "ulbi tvававаа",
-      "lastname": "asfававав",
-      "age": 1022322,
-      "currency": "RUB",
-      "country": "Russia",
+      "first": "ulbi tvававааfdfd",
+      "lastname": "asfавававfdfd",
+      "age": 100,
+      "currency": "USD",
+      "country": "Irish",
       "city": "Moscow",
       "username": "ulbi tv",
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
@@ -888,6 +888,20 @@
       "feedback": "Хорошая статья",
       "rate": 4,
       "profileId": 1
+    },
+    {
+      "profileId": "2",
+      "feedback": "",
+      "rate": 3,
+      "userId": "2",
+      "id": "BHCGjtH"
+    },
+    {
+      "profileId": "2",
+      "feedback": "",
+      "rate": 3,
+      "userId": "2",
+      "id": "5WXyQ_V"
     }
   ]
 }
