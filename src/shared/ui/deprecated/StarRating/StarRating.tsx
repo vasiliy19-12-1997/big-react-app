@@ -57,7 +57,7 @@ export const StarRating = memo((props: StarRatingProps) => {
             {stars.map((starNumber, index) => {
                 const sharedProps = {
                     'data-testid': `StarRating.${starNumber}`,
-                    key: starNumber,
+
                     className: classNames(cls.starIcon, { [cls.selected]: isSelected }, [
                         currentStarsCount >= starNumber ? cls.hovered : cls.normal,
                     ]),
@@ -71,6 +71,7 @@ export const StarRating = memo((props: StarRatingProps) => {
                 };
                 return (
                     <ToggleFeatures
+                        key={starNumber}
                         name="isNewDesignEnabled"
                         on={<Icon clickable={!isSelected} {...sharedProps} />}
                         off={<IconDeprecated {...sharedProps} />}

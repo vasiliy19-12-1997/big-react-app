@@ -679,7 +679,7 @@
       "username": "admin",
       "password": "123",
       "jsonSettings": {
-        "theme": "app_light_theme",
+        "theme": "app_yellow_theme",
         "isFirstVisit": false,
         "isPageHasBeenOpen": true
       },
@@ -751,7 +751,7 @@
       "currency": "USD",
       "country": "Irish",
       "city": "ekb",
-      "username": "fdfdfdfdfd",
+      "username": "fdfdfdfdfdfdfdfdfdfd",
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     },
     {
@@ -861,6 +861,13 @@
       "rate": 3,
       "userId": "1",
       "id": "k6rFF18"
+    },
+    {
+      "articleId": "1",
+      "feedback": "",
+      "rate": 3,
+      "userId": "1",
+      "id": "P4Ma49Q"
     }
   ],
   "profile-ratings": [

@@ -22,7 +22,7 @@ import cls from './ArticlePageDetails.module.scss';
 import { AdditionalInfoContainer } from '../AdditionalInfoContainer/AdditionalInfoContainer';
 
 const ArticlePageDetails = memo(() => {
-    const { t } = useTranslation('ArticlePageDetails');
+    const { t } = useTranslation('');
     const { id } = useParams<{ id?: string }>();
     const dispatch = useAppDispatch();
     const reducers: ReducersList = {

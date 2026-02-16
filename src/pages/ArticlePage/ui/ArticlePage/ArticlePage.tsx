@@ -15,7 +15,7 @@ import cls from './ArticlePage.module.scss';
 import { FiltersContainer } from '../FiltersContainer/FiltersContainer';
 
 const ArticlePage = memo(() => {
-    const { t } = useTranslation('ArticlePage');
+    const { t } = useTranslation('');
     const dispatch = useAppDispatch();
     const reducers: ReducersList = {
         articlePage: articlesReducer,
