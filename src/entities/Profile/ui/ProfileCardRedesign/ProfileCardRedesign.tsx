@@ -70,6 +70,7 @@ interface ProfileCardRedesignProps {
 
 export const ProfileCardRedesign = memo((props: ProfileCardRedesignProps) => {
     const { t } = useTranslation();
+    console.log(props.data?.avatar);
     const {
         className,
         onChangeFirstname,
@@ -134,7 +135,7 @@ export const ProfileCardRedesign = memo((props: ProfileCardRedesignProps) => {
                         <Input
                             value={data?.username}
                             onChange={onChangeUsername}
-                            placeholder={t('Ваш никнейм')}
+                            label={t('Ваш никнейм')}
                             className={cls.input}
                             readonly={readonly}
                             data-testid="ProfileCard.nickname"
@@ -142,7 +143,7 @@ export const ProfileCardRedesign = memo((props: ProfileCardRedesignProps) => {
                         <Input
                             value={data?.avatar}
                             onChange={onChangeAvatar}
-                            placeholder={t('Ваш аватар')}
+                            label={t('Ваш аватар')}
                             className={cls.input}
                             readonly={readonly}
                             data-testid="ProfileCard.avatar"

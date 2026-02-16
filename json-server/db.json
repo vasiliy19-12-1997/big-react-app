@@ -765,12 +765,12 @@
       "id": "1",
       "first": "fdfdfdfdfdfававав",
       "lastname": "fdfdfdfgfgfg",
-      "age": 0,
-      "currency": "EUR",
+      "age": 123,
+      "currency": "USD",
       "country": "Irish",
-      "city": "",
+      "city": "ekb",
       "username": "fdfdf",
-      "avatar": "fdfdf"
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     },
     {
       "id": "2",
@@ -872,6 +872,13 @@
       "rate": 4,
       "userId": "1",
       "id": "5A-jPKZ"
+    },
+    {
+      "articleId": "1",
+      "feedback": "",
+      "rate": 3,
+      "userId": "1",
+      "id": "k6rFF18"
     }
   ],
   "profile-ratings": [
