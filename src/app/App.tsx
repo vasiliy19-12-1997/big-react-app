@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from 'react';
+import { memo, Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { getAuthUserMounted, initedAuthData } from '@/entities/User';
 import { ToggleFeatures } from '@/shared/features';
@@ -11,8 +11,9 @@ import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import { useAppToolbar } from './lib/useAppToolbar';
 import { AppRouter } from './providers/router';
+import { withTheme } from './providers/ThemeProvider/ui/withTheme';
 
-function App() {
+const App = memo(() => {
     const auth = useSelector(getAuthUserMounted);
     const dispatch = useAppDispatch();
     const toolbar = useAppToolbar();
@@ -63,5 +64,6 @@ function App() {
             }
         />
     );
-}
-export default App;
+});
+
+export default withTheme(App);

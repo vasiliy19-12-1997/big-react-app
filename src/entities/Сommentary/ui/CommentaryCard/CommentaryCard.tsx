@@ -16,7 +16,7 @@ import { AppLink } from '@/shared/ui/redesigned/AppLink';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import { Text } from '@/shared/ui/redesigned/Text';
 
-interface CommentaryCardProps {
+export interface CommentaryCardProps {
     className?: string;
     comment?: Commentary;
     isLoading: boolean;
