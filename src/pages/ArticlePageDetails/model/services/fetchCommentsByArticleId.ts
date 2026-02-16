@@ -4,15 +4,15 @@ import { Commentary } from '@/entities/Сommentary';
 
 export const fetchCommentsByArticleId = createAsyncThunk<Commentary[], string | undefined, ThunkConfig<string>>(
     'ArticleDetailsCommentSlice/fetchCommentsByArticleId',
-    async (articleid, thunkApi) => {
+    async (articleId, thunkApi) => {
         const { extra, rejectWithValue } = thunkApi;
-        if (!articleid) {
-            rejectWithValue('Ошибка нету id comment');
+        if (!articleId) {
+            return rejectWithValue('Ошибка нету id comment');
         }
         try {
             const response = await extra.api.get<Commentary[]>('/comments', {
                 params: {
-                    articleid,
+                    articleId,
                     _expand: 'user',
                 },
             });
