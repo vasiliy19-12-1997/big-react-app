@@ -25,7 +25,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     const getSceletons = (view: ArticleView) =>
         new Array(view === ArticleView.SMALL ? 9 : 3)
             .fill(0)
-            .map((item, index) => <ArticleListItemSceleton view={view} key={String(index)} />);
+            .map((item, index) => <ArticleListItemSceleton view={view} key={index} />);
 
     if (!isLoading && !articles.length) {
         return (
@@ -45,28 +45,16 @@ export const ArticleList = memo((props: ArticleListProps) => {
                     data-testid="ArticleListRedesign"
                     className={classNames(cls.ArticleList, {}, [])}
                 >
-                    {articles.map((item) => (
-                        <ArticleListItem
-                            article={item}
-                            view={views}
-                            key={item?.id}
-                            className={cls.card}
-                            target={target}
-                        />
+                    {articles.map((item, index) => (
+                        <ArticleListItem article={item} view={views} key={index} className={cls.card} target={target} />
                     ))}
                     {isLoading && getSceletons(views)}
                 </HStack>
             }
             off={
                 <div data-testid="ArticleList" className={classNames(cls.ArticleList, {}, [className, cls[views]])}>
-                    {articles.map((item) => (
-                        <ArticleListItem
-                            article={item}
-                            view={views}
-                            key={item?.id}
-                            className={cls.card}
-                            target={target}
-                        />
+                    {articles.map((item, index) => (
+                        <ArticleListItem article={item} view={views} key={index} className={cls.card} target={target} />
                     ))}
                     {isLoading && getSceletons(views)}
                 </div>
