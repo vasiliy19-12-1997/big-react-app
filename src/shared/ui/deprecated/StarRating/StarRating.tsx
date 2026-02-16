@@ -32,9 +32,9 @@ export const StarRating = memo((props: StarRatingProps) => {
     const onClick = (starCount: number) => () => {
         if (!isSelected) {
             onSelect?.(starCount);
-            setIsSelected(true);
+            setIsSelected(false);
         }
-        setIsSelected(false);
+        setIsSelected(true);
     };
 
     const onLeave = () => {
